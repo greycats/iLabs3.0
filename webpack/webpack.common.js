@@ -30,6 +30,9 @@ module.exports = {
     alias: {
       '~': Path.resolve(__dirname, '../src'),
     },
+    alias: {
+      handlebars: 'handlebars/dist/handlebars.min.js',
+    },
   },
   module: {
     rules: [

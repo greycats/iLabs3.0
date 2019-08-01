@@ -1,6 +1,5 @@
-import AppManager from '../managers/AppManager'
-import { PerspectiveCamera } from 'three'
-import p2 from 'p2'
+import AppManager from '../scripts/AppManager'
+// import { PerspectiveCamera } from 'three'
 
 export default class AbstractView {
   constructor() {

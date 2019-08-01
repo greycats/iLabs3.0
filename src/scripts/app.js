@@ -9,7 +9,7 @@ global.OVERLAY
 global.MODELS
 global.SKYTEX
 global.PROD = false
-global.BASE = ''
+global.BASE = 'public'
 global.SCROLLED = false
 
 AppManager.preload()

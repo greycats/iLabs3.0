@@ -1,9 +1,7 @@
 import EmitterManager from './EmitterManager'
 import { Device } from '../helpers/Device'
-// import IntroView from '../views/IntroView'
-const IntroView = () => {
-  console.log('intro view')
-}
+import IntroView from '../views/IntroView'
+
 class RouterManager {
   constructor() {
     this.switchView = this.switchView.bind(this)
@@ -36,6 +34,7 @@ class RouterManager {
   }
 
   switchView(goToPage, index = 0, fromUrl = false) {
+    console.log('this.currentPage', this.currentPage)
     console.log('switchView', goToPage)
     if (this.currentPage) {
       if (this.currentPage.uri === goToPage) {
@@ -70,6 +69,8 @@ class RouterManager {
   }
 
   initView(goToPage, index = null, fromUrl, lastPage = null) {
+    console.log('initView', goToPage)
+
     this.fromUrl = fromUrl
     let dir
     let id
