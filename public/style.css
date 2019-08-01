@@ -1,4 +1,5 @@
 body {
+  font-family: 'Open Sans', sans-serif;
   padding: 0 0 0 0;
   margin: 0 0 0 0;
 }
@@ -32,4 +33,7 @@ body {
   .preload svg {
     transform: scale(2);
   }
+}
+.ui-content {
+  display: none;
 }

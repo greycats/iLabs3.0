@@ -29,9 +29,20 @@ module.exports = {
   resolve: {
     alias: {
       '~': Path.resolve(__dirname, '../src'),
-    },
-    alias: {
       handlebars: 'handlebars/dist/handlebars.min.js',
+      TweenMax: Path.resolve(__dirname, '../src/vendors/gsap/TweenMax.min.js'),
+      TimelineMax: Path.resolve(
+        __dirname,
+        '../src/vendors/gsap/TimelineMax.min.js'
+      ),
+      ScrollMagic: Path.resolve(
+        'node_modules',
+        'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'
+      ),
+      'animation.gsap': Path.resolve(
+        'node_modules',
+        'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+      ),
     },
   },
   module: {

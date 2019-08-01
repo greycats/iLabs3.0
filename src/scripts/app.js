@@ -1,7 +1,9 @@
 'use strict'
 import 'babel-polyfill'
-import '../vendors/gsap/TweenMax.min'
+import 'TweenMax'
 import '../vendors/gsap/plugins/DrawSVGPlugin.min'
+import 'animation.gsap'
+import '../styles/main.scss'
 import AppManager from './AppManager'
 
 global.MENU
