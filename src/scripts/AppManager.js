@@ -1,5 +1,6 @@
 import EmitterManager from './EmitterManager'
 import RouterManager from './RouterManager'
+import bean from 'bean'
 import PreloadManager from './PreloadManager'
 import { Device } from '../helpers/Device'
 import { isTouch, preventLink } from '../helpers/utils'
@@ -21,6 +22,7 @@ class AppManager {
     this.resizeHandler()
     this.drawLoading()
     this.preloadFiles()
+    bean['on'](window, 'resize orientationchange', this.resizeHandler)
     // this.start()
   }
 
@@ -85,7 +87,8 @@ class AppManager {
     PreloadManager.on(
       'complete',
       () => {
-        if (process.env.NODE_ENV !== 'production ') {
+        if (process.env.NODE_ENV !== 'production') {
+          // if (false) {
           TweenMax.set('.preload', { css: { display: 'none' } })
           this.start()
         } else {
@@ -112,7 +115,6 @@ class AppManager {
 
     if (Device.touch) document.body.classList.add('is-touch')
     else document.body.classList.remove('is-touch')
-
     EmitterManager.emit('resize', window.innerWidth, window.innerHeight)
     TweenMax.set(document.body, {
       width: window.innerWidth,
