@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
+    "babel-eslint": "^10.0.2",
     "babel-polyfill": "^6.26.0",
     "bean": "^1.0.15",
     "component-emitter": "^1.2.1",

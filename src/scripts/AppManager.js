@@ -82,6 +82,11 @@ class AppManager {
         id: 'tpl-intro-content',
         src: `${global.BASE}/templates/introContent.hbs`,
       },
+      //images
+      {
+        id: 'project-vizient-img',
+        src: `${global.BASE}/imgs/vizient.png`,
+      },
     ])
 
     PreloadManager.on(

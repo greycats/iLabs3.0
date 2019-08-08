@@ -1,5 +1,6 @@
 {{!-- <h1>{{this.title}}</h1> --}}
 <div class="main intro">
+  <img src="public/imgs/logo.svg" class="logo-img" alt="">
   <div id="pixi-bg">
 
   </div>
@@ -8,8 +9,42 @@
       Experiences <br>
       Matters.
     </h1>
+    <p>
+      Welcome to Interactive Labs. We're a full stack digital consulting studio that crafts exceptional experiences
+      across all industries.
+    </p>
   </div>
   <div class="content">
     <div class="content-left-bg"></div>
+    <div class="content-main">
+      <div style="height: 160px">
+        <div class="content-title">
+          <h2>Featured work</h2>
+          <p class="grey">
+            Explore some of our latest projects.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-list">
+        {{#each projects}}
+        <div class="project-item">
+          <img src="{{image.src}}" alt="" class="project-img">
+          <div class="project-info">
+            <p class="project-name">{{name}}</p>
+            <p class="project-label grey">{{label}}</p>
+          </div>
+          <div class="mask-sec">
+            {{#each masks}}
+            <div class="mask"></div>
+            {{/each}}
+          </div>
+
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+
   </div>
 </div>

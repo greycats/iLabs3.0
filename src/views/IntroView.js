@@ -5,7 +5,7 @@ import AbstractView from './AbstractView'
 import EmitterManager from '../scripts/EmitterManager'
 import PreloadManager from '../scripts/PreloadManager'
 import { Device } from '../helpers/Device'
-import DATA from '../datas/data.json'
+import getDATA from '../datas/data'
 
 export default class IntroView extends AbstractView {
   constructor(obj) {
@@ -24,8 +24,8 @@ export default class IntroView extends AbstractView {
     let template = Handlebars.compile(
       PreloadManager.getResult('tpl-intro-content')
     )
-    let html = template(DATA.intro)
-    console.log('html', html)
+    console.log('asd', PreloadManager.getResult('project-vizient-img'))
+    let html = template(getDATA().intro)
     this.ui.uiContent.className = ''
     this.ui.uiContent.classList.add('ui-content', 'is-intro')
     this.ui.uiContent.innerHTML = html
@@ -36,6 +36,7 @@ export default class IntroView extends AbstractView {
   transitionIn() {
     this.initContent()
     this.contentAnim()
+    this.projectAnim()
   }
 
   initContent() {
@@ -50,6 +51,7 @@ export default class IntroView extends AbstractView {
     const container = document.getElementById('pixi-bg')
     const pixiApp = new PIXI.Application({
       antialias: true,
+      backgroundColor: 0x2c2c2c,
       forceCanvas: true,
       width: window.innerWidth,
       height: 800,
@@ -70,14 +72,13 @@ export default class IntroView extends AbstractView {
     }
     const _total = ~~(window.innerWidth / 120)
     let count = _total
-    console.log('_total', _total)
     const draw = total => {
       const outputSprite = []
       startPointList = _.sampleSize(startPointList, total)
       _.forEach(startPointList, ([x, y]) => {
         // [x, y] = [x, y].map(i => i / 2)
         let graphic = new PIXI.Graphics()
-        graphic.beginFill(0)
+        graphic.beginFill(0, 0)
         const [op0, op1] = _.sampleSize([0.2, 0.4, 0.6, 0.8, 1], 2)
         graphic.lineStyle(2, 0xffffff, 1)
         const scaleRandom = _.random(0.2, 2)
@@ -91,32 +92,65 @@ export default class IntroView extends AbstractView {
         sprite.interactive = true
         sprite.buttonMode = true
         sprite.alpha = op0
-        const anim = TweenMax.to(sprite, 20, {
-          pixi: {
-            x: x + _.random(-100, 200),
-            y: y + _.random(-50, 80),
-            scale: _.random(0.5, 1.5),
-            alpha: op1,
-            rotation: _.random(-100, 100),
-            skewX: _.random(-30, 30),
-          },
-        })
-        sprite.on('pointerdown', () => {
-          let a1 = TweenMax.to(sprite, 1, {
+        let amInst
+        const anim = () =>
+          TweenMax.to(sprite, 20, {
             pixi: {
-              scale: 0,
-              alpha: 0,
-              rotation: 360,
+              x: x + _.random(-100, 200),
+              y: y + _.random(-50, 80),
+              scale: _.random(0.5, 1.5),
+              alpha: op1,
+              rotation: _.random(-100, 100),
+              skewX: _.random(-30, 30),
             },
           })
-          a1.eventCallback('onComplete', () =>
-            sprite.destroy({ children: true })
+        sprite.on('pointerdown', () => {
+          let tl = new TimelineMax()
+          amInst.kill(null, sprite)
+          tl.to(
+            sprite,
+            1,
+            {
+              pixi: {
+                scale: 0,
+                alpha: 0,
+                rotation: 180,
+              },
+            },
+            'a1'
+          ).to(
+            sprite,
+            1,
+            {
+              pixi: {
+                scale: _.random(0.5, 1.5),
+                alpha: op1,
+                rotation: _.random(-100, 100),
+              },
+            },
+            'a1+=1'
           )
-          count--
-          if (count <= 3) {
-            draw(total - count)
-            count = total
-          }
+          tl.eventCallback('onComplete', () => {
+            tl.kill()
+            anim()
+              .yoyo(true)
+              .repeat(-1)
+          })
+          // let a1 = TweenMax.to(sprite, 1, {
+          //   pixi: {
+          //     scale: 0,
+          //     alpha: 0,
+          //     rotation: 360,
+          //   },
+          // })
+          // a1.eventCallback('onComplete', () =>
+          //   sprite.destroy({ children: true })
+          // )
+          // count--
+          // if (count <= 3) {
+          //   draw(total - count)
+          //   count = total
+          // }
         })
         sprite.on('pointerover', () => {
           let a1 = TweenMax.to(sprite, 0.5, {
@@ -133,7 +167,9 @@ export default class IntroView extends AbstractView {
             },
           })
         })
-        anim.yoyo(true).repeat(-1)
+        amInst = anim()
+          .yoyo(true)
+          .repeat(-1)
         outputSprite.push(sprite)
         pixiApp.stage.addChild(sprite)
       })
@@ -169,7 +205,7 @@ export default class IntroView extends AbstractView {
           'step1+=.5'
         )
         .fromTo(
-          '.header-sec h1 ',
+          '.header-sec',
           2,
           { height: 0 },
           { height: '386px' },
@@ -178,13 +214,30 @@ export default class IntroView extends AbstractView {
         .fromTo(
           '.content-left-bg',
           0.4,
-          { left: '-50%' },
+          { left: '-1000' },
           { left: '0' },
           'step1+=.8'
+        )
+        .fromTo(
+          '.content-title',
+          2,
+          { height: 0 },
+          { height: '160px' },
+          'step1+=1'
         )
 
     new ScrollMagic.Scene({ triggerElement: '.main' })
       .addTo(this.controller)
       .on('start', tl)
+  }
+
+  projectAnim() {
+    const anim = () => TweenMax.to('.mask', 1, { css: { width: 0 } })
+    new ScrollMagic.Scene({ triggerElement: '.project-item' })
+      .addTo(this.controller)
+      .on('start', e => {
+        const targets = e.target.triggerElement().querySelectorAll('.mask')
+        TweenMax.staggerTo(_.shuffle(targets), 0.5, { css: { width: 0 } }, 0.02)
+      })
   }
 }
