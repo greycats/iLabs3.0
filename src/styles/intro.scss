@@ -66,16 +66,14 @@
     &.sink-item {
       top: 80px;
     }
-    &:hover .project-img {
-      transform: matrix(1, -0.03, 0, 1, 0, 0);
-    }
+    
     .project-img {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      transition: 0.4s transform ease;
+      transition: 0.4s all ease;
     }
     position: relative;
     .project-info {
@@ -87,7 +85,7 @@
       text-align: right;
       box-sizing: border-box;
       bottom: 80px;
-      right: -70px;
+      right: -30px;
 
       &:after {
         content: '';
@@ -102,6 +100,7 @@
       }
       .project-name,
       .project-label {
+        transition: transform 0.5s ease;
         position: relative;
         z-index: 4;
         margin: 0 0 0 0;
@@ -111,6 +110,24 @@
         margin-left: 20px;
         font-weight: bold;
         font-size: 28px;
+      }
+      .arrow-sec {
+        // width: 60px;
+        // height: 60px;
+        width: 0;
+        height: 0;
+        line-height: 60px;
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        left: 200px;
+        bottom: 0px;
+        transform: translateY(50%);
+        z-index: 4;
+        svg {
+          margin: 24px auto;
+          display: block;
+        }
       }
     }
     .mask-sec {
@@ -122,6 +139,16 @@
       background: white;
       z-index: 2;
       position: relative;
+    }
+
+    &:hover {
+      .project-img {
+        transform: matrix(1, -0.03, 0, 1, 0, 0);
+      }
+      .project-name,
+      .project-label {
+        transform: translateX(-30px);
+      }
     }
   }
 }
