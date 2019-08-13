@@ -240,13 +240,24 @@ export default class IntroView extends AbstractView {
         TweenMax.staggerTo(_.shuffle(targets), 0.5, { css: { width: 0 } }, 0.02)
       })
     document.querySelectorAll('.project-item').forEach((element, index) => {
-      let hoverTL = new dasdasd()
-      element.addEventListener('mouseenter', () =>
-        console.log('mouseenter', index)
-      )
-      element.addEventListener('mouseleave', () =>
-        console.log('onmouseleave', index)
-      )
+      let hoverTL = new TimelineMax()
+      const arrowSec = element.querySelector('.arrow-sec')
+      const lineSVG = element.querySelector('.line')
+      const arrowSVG = element.querySelector('.arrow')
+      hoverTL.set(arrowSec, { css: { height: '0', width: '0' } })
+      element.addEventListener('mouseenter', () => {
+        if (hoverTL.reversed()) return hoverTL.play()
+        hoverTL
+          .to(
+            arrowSec,
+            0.5,
+            { css: { height: '60px', width: '60px' } },
+            'step1'
+          )
+          .to(lineSVG, 0.3, { attr: { d: 'M0 8H20' } }, 'step1+=.3')
+          .to(arrowSVG, 0.2, { attr: { d: 'M13 1L20 8L13 15' } }, 'step1+=.6')
+      })
+      element.addEventListener('mouseleave', () => hoverTL.reverse())
     })
   }
 }
