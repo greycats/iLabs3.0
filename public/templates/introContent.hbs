@@ -28,7 +28,7 @@
 
       <div class="project-list">
         {{#each projects}}
-        <div class="project-item">
+        <div class="project-item" id="project-item-{{@index}}">
           <img src="{{image.src}}" alt="" class="project-img">
           <div class="project-info">
             <p class="project-name">{{name}}</p>

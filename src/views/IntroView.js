@@ -231,9 +231,9 @@ export default class IntroView extends AbstractView {
       .on('start', tl)
   }
 
-  projectAnim() {
-    const anim = () => TweenMax.to('.mask', 1, { css: { width: 0 } })
-    new ScrollMagic.Scene({ triggerElement: '.project-item' })
+  setScrollAnim(elementSelector) {
+    new ScrollMagic.Scene()
+      .triggerElement(elementSelector)
       .addTo(this.controller)
       .on('start', e => {
         const targets = e.target.triggerElement().querySelectorAll('.mask')
@@ -258,6 +258,19 @@ export default class IntroView extends AbstractView {
           .to(arrowSVG, 0.2, { attr: { d: 'M13 1L20 8L13 15' } }, 'step1+=.6')
       })
       element.addEventListener('mouseleave', () => hoverTL.reverse())
+    })
+  }
+
+  projectAnim() {
+    const projectItems = document.getElementsByClassName('project-item')
+
+    _.each(projectItems, (item, index) => {
+      this.setScrollAnim(`#project-item-${index}`)
+
+      if (index % 2 !== 0) {
+        const projectItem = document.getElementById(`project-item-${index}`)
+        projectItem.classList.add('sink-item')
+      }
     })
   }
 }
