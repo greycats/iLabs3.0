@@ -246,7 +246,7 @@ export default class IntroView extends AbstractView {
       const arrowSVG = element.querySelector('.arrow')
       hoverTL.set(arrowSec, { css: { height: '0', width: '0' } })
       element.addEventListener('mouseenter', () => {
-        if (hoverTL.reversed()) return hoverTL.play()
+        if (hoverTL.reversed()) return hoverTL.restart()
         hoverTL
           .to(
             arrowSec,
@@ -254,10 +254,24 @@ export default class IntroView extends AbstractView {
             { css: { height: '60px', width: '60px' } },
             'step1'
           )
-          .to(lineSVG, 0.3, { attr: { d: 'M0 8H20' } }, 'step1+=.3')
-          .to(arrowSVG, 0.2, { attr: { d: 'M13 1L20 8L13 15' } }, 'step1+=.6')
+          .fromTo(
+            lineSVG,
+            0.3,
+            { attr: { d: 'M0 8H00' } },
+            { attr: { d: 'M0 8H20' } },
+            'step1+=.3'
+          )
+          .fromTo(
+            arrowSVG,
+            0.2,
+            { attr: { d: 'M20 8L20 8L20 8' } },
+            { attr: { d: 'M13 1L20 8L13 15' } },
+            'step1+=.6'
+          )
       })
-      element.addEventListener('mouseleave', () => hoverTL.reverse())
+      element.addEventListener('mouseleave', () => {
+        hoverTL.reverse()
+      })
     })
   }
 
