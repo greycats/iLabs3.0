@@ -9,6 +9,36 @@ export default () => ({
         image: PreloadManager.getResult('project-vizient-img'),
         masks: new Array(12).fill(0),
       },
+      {
+        name: 'Vizient 1',
+        label: 'Enterprise platform 1',
+        image: PreloadManager.getResult('project-vizient-img'),
+        masks: new Array(12).fill(0),
+      },
+      {
+        name: 'Vizient 2',
+        label: 'Enterprise platform 2',
+        image: PreloadManager.getResult('project-vizient-img'),
+        masks: new Array(12).fill(0),
+      },
+      {
+        name: 'Vizient',
+        label: 'Enterprise platform',
+        image: PreloadManager.getResult('project-vizient-img'),
+        masks: new Array(12).fill(0),
+      },
+      {
+        name: 'Vizient 1',
+        label: 'Enterprise platform 1',
+        image: PreloadManager.getResult('project-vizient-img'),
+        masks: new Array(12).fill(0),
+      },
+      {
+        name: 'Vizient 2',
+        label: 'Enterprise platform 2',
+        image: PreloadManager.getResult('project-vizient-img'),
+        masks: new Array(12).fill(0),
+      },
     ],
   },
 })

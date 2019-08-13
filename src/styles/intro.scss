@@ -60,7 +60,12 @@
   .project-item {
     height: 720px;
     width: 540px;
+    margin-bottom: 100px;
     cursor: pointer;
+
+    &.sink-item {
+      top: 80px;
+    }
     &:hover .project-img {
       transform: matrix(1, -0.03, 0, 1, 0, 0);
     }

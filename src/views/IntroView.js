@@ -231,13 +231,26 @@ export default class IntroView extends AbstractView {
       .on('start', tl)
   }
 
-  projectAnim() {
-    const anim = () => TweenMax.to('.mask', 1, { css: { width: 0 } })
-    new ScrollMagic.Scene({ triggerElement: '.project-item' })
+  setScrollAnim(elementSelector) {
+    new ScrollMagic.Scene()
+      .triggerElement(elementSelector)
       .addTo(this.controller)
       .on('start', e => {
         const targets = e.target.triggerElement().querySelectorAll('.mask')
         TweenMax.staggerTo(_.shuffle(targets), 0.5, { css: { width: 0 } }, 0.02)
       })
+  }
+
+  projectAnim() {
+    const projectItems = document.getElementsByClassName('project-item')
+
+    _.each(projectItems, (item, index) => {
+      this.setScrollAnim(`#project-item-${index}`)
+
+      if (index % 2 !== 0) {
+        const projectItem = document.getElementById(`project-item-${index}`)
+        projectItem.classList.add('sink-item')
+      }
+    })
   }
 }
