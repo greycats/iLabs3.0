@@ -239,5 +239,14 @@ export default class IntroView extends AbstractView {
         const targets = e.target.triggerElement().querySelectorAll('.mask')
         TweenMax.staggerTo(_.shuffle(targets), 0.5, { css: { width: 0 } }, 0.02)
       })
+    document.querySelectorAll('.project-item').forEach((element, index) => {
+      let hoverTL = new dasdasd()
+      element.addEventListener('mouseenter', () =>
+        console.log('mouseenter', index)
+      )
+      element.addEventListener('mouseleave', () =>
+        console.log('onmouseleave', index)
+      )
+    })
   }
 }
