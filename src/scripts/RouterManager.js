@@ -1,6 +1,7 @@
 import EmitterManager from './EmitterManager'
 import { Device } from '../helpers/Device'
 import IntroView from '../views/IntroView'
+import VizientView from '../views/VizientView'
 
 class RouterManager {
   constructor() {
@@ -26,8 +27,8 @@ class RouterManager {
   testUrl() {
     const url = window.location.href
 
-    if (/\/#about/.test(url) === true) {
-      this.switchView('/about', 0, true)
+    if (/\/#project\/vizient/.test(url) === true) {
+      this.switchView('/vizient', 0, true)
     } else {
       this.switchView('/intro', 0, true)
     }
@@ -51,15 +52,19 @@ class RouterManager {
       this.lastPage = this.currentPage.name
       let dir = this.lastId > index ? 1 : -1
       if (goToPage === '/intro') dir = 1
-      this.currentPage.transitionOut(dir)
+      this.currentPage.transitionOut && this.currentPage.transitionOut(dir)
 
-      if (global.MENU.el.classList.contains('is-open') === true)
+      if (
+        global.MENU &&
+        global.MENU.el &&
+        global.MENU.el.classList.contains('is-open') === true
+      )
         global.MENU.toggleOpen(null, true) // close Menu
-      if (!Device.touch) global.CURSOR.interractLeave({ color: 'reset' })
+      // if (!Device.touch) global.CURSOR.interractLeave({ color: 'reset' })
 
       EmitterManager.once('view:transition:out', () => {
         this.isChanging = false
-        this.currentPage.destroy(true)
+        this.currentPage.destroy && this.currentPage.destroy(true)
         this.initView(goToPage, index, false)
       })
     } else {
@@ -75,11 +80,11 @@ class RouterManager {
     let dir
     let id
     switch (goToPage) {
+      case '/vizient':
+        this.currentPage = new VizientView()
+        break
       default:
-        this.currentPage = new IntroView({
-          gravity: true,
-        })
-
+        this.currentPage = new IntroView()
         break
     }
 

@@ -28,8 +28,9 @@
 
       <div class="project-list">
         {{#each projects}}
-        <div class="project-item" id="project-item-{{@index}}">
-          <img src="{{image.src}}" alt="" class="project-img">
+        <div class="project-item" id="project-item-{{@index}}" style="background-color: {{background}}"
+          onClick="window.location.href = '#project/vizient'">
+          <div style="background-image: url({{image.src}})" alt="" class="project-img"></div>
           <div class="project-info">
             <p class="project-name">{{name}}</p>
             <p class="project-label grey">{{label}}</p>

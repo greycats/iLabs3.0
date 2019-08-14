@@ -82,10 +82,15 @@ class AppManager {
         id: 'tpl-intro-content',
         src: `${global.BASE}/templates/introContent.hbs`,
       },
+      {
+        id: 'tpl-vizient-content',
+        src: `${global.BASE}/templates/vizientContent.hbs`,
+      },
+
       //images
       {
         id: 'project-vizient-img',
-        src: `${global.BASE}/imgs/vizient.png`,
+        src: `${global.BASE}/imgs/vizient-1.png`,
       },
     ])
 

@@ -287,4 +287,11 @@ export default class IntroView extends AbstractView {
       }
     })
   }
+
+  transitionOut(dest) {
+    const tl = new TimelineMax({ delay: 0 })
+    tl.add(() => {
+      EmitterManager.emit('view:transition:out')
+    }, 1.5)
+  }
 }
