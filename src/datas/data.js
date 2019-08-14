@@ -9,6 +9,7 @@ export default () => ({
         image: PreloadManager.getResult('project-vizient-img'),
         background: '#FF4E02',
         masks: new Array(12).fill(0),
+        project: 'vizient',
       },
       {
         name: 'Vizient 1',

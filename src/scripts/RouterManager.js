@@ -63,6 +63,7 @@ class RouterManager {
       // if (!Device.touch) global.CURSOR.interractLeave({ color: 'reset' })
 
       EmitterManager.once('view:transition:out', () => {
+        console.log('this.lastPage', this.lastPage)
         this.isChanging = false
         this.currentPage.destroy && this.currentPage.destroy(true)
         this.initView(goToPage, index, false)

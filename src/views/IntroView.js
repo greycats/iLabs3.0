@@ -10,6 +10,7 @@ import getDATA from '../datas/data'
 export default class IntroView extends AbstractView {
   constructor(obj) {
     super()
+    this.name = 'intro'
     this.initSprit = []
     this.controller = new ScrollMagic.Controller()
     this.init = this.init.bind(this)
@@ -17,6 +18,7 @@ export default class IntroView extends AbstractView {
     this.initContent = this.initContent.bind(this)
     this.contentAnim = this.contentAnim.bind(this)
     this.initPixiAnim = this.initPixiAnim.bind(this)
+    this.bindEvent = this.bindEvent.bind(this)
     this.startScene()
   }
 
@@ -37,6 +39,7 @@ export default class IntroView extends AbstractView {
     this.initContent()
     this.contentAnim()
     this.projectAnim()
+    this.bindEvent()
   }
 
   initContent() {
@@ -53,7 +56,7 @@ export default class IntroView extends AbstractView {
       antialias: true,
       backgroundColor: 0x2c2c2c,
       forceCanvas: true,
-      width: window.innerWidth,
+      width: global.LAYOUT.width,
       height: 800,
     })
     container.append(pixiApp.view)
@@ -65,12 +68,12 @@ export default class IntroView extends AbstractView {
       [0, 0, 50, 100, 100, 50],
     ]
     let startPointList = []
-    for (let x = -20; x < window.innerWidth; x += 150) {
+    for (let x = -20; x < global.LAYOUT.width; x += 150) {
       for (let y = -20; y < 800 + 50; y += 150) {
         startPointList.push([x, y])
       }
     }
-    const _total = ~~(window.innerWidth / 120)
+    const _total = ~~(global.LAYOUT.width / 120)
     let count = _total
     const draw = total => {
       const outputSprite = []
@@ -180,7 +183,6 @@ export default class IntroView extends AbstractView {
   }
 
   contentAnim() {
-    console.log('this.initSprit', this.initSprit)
     const tl = () =>
       new TimelineMax({ paused: false })
         .fromTo(
@@ -276,7 +278,7 @@ export default class IntroView extends AbstractView {
   }
 
   projectAnim() {
-    const projectItems = document.getElementsByClassName('project-item')
+    const projectItems = document.getElementsByClassName('project-item-wrapper')
 
     _.each(projectItems, (item, index) => {
       this.setScrollAnim(`#project-item-${index}`)
@@ -288,10 +290,98 @@ export default class IntroView extends AbstractView {
     })
   }
 
+  _getProjectAnim(project, cb, event) {
+    const pAnim = new TimelineMax()
+    project.classList.add('is-anim')
+    const { x, y } = project.getBoundingClientRect()
+    const otherProjects = document.querySelectorAll(
+      '.project-item:not([data-project=vizient])'
+    )
+    const title = project.querySelector('.project-name')
+    pAnim.set(project, { css: { position: 'fixed', left: x, top: y } })
+    const width = global.LAYOUT.width - 150
+    pAnim.to(
+      [
+        '#pixi-bg',
+        '.header-sec',
+        '.content-title',
+        '.content-left-bg',
+        project.querySelectorAll('.project-info>*:not(.project-name)'),
+        project.querySelector('.mask-sec'),
+      ],
+      0.3,
+      { css: { opacity: 0 } },
+      'step1'
+    )
+    pAnim.to(otherProjects, 0.3, { css: { opacity: 0 } }, 'step1')
+    pAnim.to(
+      project,
+      0.6,
+      {
+        css: {
+          left: '150px',
+          top: 0,
+          width: width,
+          height: '624px',
+        },
+      },
+      'step1+=.3'
+    )
+    pAnim
+      .to(
+        project.querySelector('.project-img'),
+        0.6,
+        {
+          css: {
+            left: 'auto',
+            right: '0',
+            width: '800px',
+          },
+        },
+        'step1'
+      )
+      .call(
+        () => {
+          const { x: tx, y: ty } = title.getBoundingClientRect()
+          TweenMax.fromTo(
+            title,
+            0.5,
+            { css: { position: 'fixed', left: tx, top: ty } },
+            {
+              css: {
+                left: '250',
+                top: '100px',
+                color: 'white',
+                'font-size': 44,
+              },
+            }
+          )
+        },
+        [],
+        this,
+        'step1+=.4'
+      )
+    pAnim.add(cb, 1.5)
+  }
+
+  bindEvent() {
+    _.forEach(document.querySelectorAll('[data-project]'), project => {
+      let event = project.addEventListener(
+        'click',
+        () =>
+          this._getProjectAnim(project, () => {
+            location.href = `#project/${project.getAttribute('data-project')}`
+          }),
+        { once: true }
+      )
+    })
+    // document.querySelector('.project-item[data-project=vizient]').click()
+  }
+
   transitionOut(dest) {
     const tl = new TimelineMax({ delay: 0 })
     tl.add(() => {
       EmitterManager.emit('view:transition:out')
-    }, 1.5)
+    }, 0)
   }
 }

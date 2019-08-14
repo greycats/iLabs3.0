@@ -28,27 +28,31 @@
 
       <div class="project-list">
         {{#each projects}}
-        <div class="project-item" id="project-item-{{@index}}" style="background-color: {{background}}"
-          onClick="window.location.href = '#project/vizient'">
-          <div style="background-image: url({{image.src}})" alt="" class="project-img"></div>
-          <div class="project-info">
-            <p class="project-name">{{name}}</p>
-            <p class="project-label grey">{{label}}</p>
-            <div class="arrow-sec">
+        <div class="project-item-wrapper" id="project-item-{{@index}}">
+          <div class="project-item" style="background-color: {{background}}"
+            {{!-- onClick="window.location.href = '#project/vizient'" --}} data-project="{{project}}">
+            <div style="background-image: url({{image.src}})" alt="" class="project-img"></div>
+            <div class="project-info">
+              <p class="project-name">{{name}}</p>
+              <p class="project-label grey">{{label}}</p>
+              <div class="arrow-sec">
 
-              <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 8H00" stroke="#040404" class="line" />
-                <path d="M20 8L20 8L20 8" stroke="#040404" class="arrow" />
-              </svg>
+                <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 8H00" stroke="#040404" class="line" />
+                  <path d="M20 8L20 8L20 8" stroke="#040404" class="arrow" />
+                </svg>
+              </div>
+              <div class="info-bg-sec"></div>
             </div>
-          </div>
-          <div class="mask-sec">
-            {{#each masks}}
-            <div class="mask"></div>
-            {{/each}}
-          </div>
+            <div class="mask-sec">
+              {{#each masks}}
+              <div class="mask"></div>
+              {{/each}}
+            </div>
 
+          </div>
         </div>
+
         {{/each}}
       </div>
     </div>

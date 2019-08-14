@@ -125,9 +125,11 @@ class AppManager {
 
     if (Device.touch) document.body.classList.add('is-touch')
     else document.body.classList.remove('is-touch')
-    EmitterManager.emit('resize', window.innerWidth, window.innerHeight)
+    const _width = window.innerWidth >= 1920 ? 1920 : window.innerWidth
+    EmitterManager.emit('resize', _width, window.innerHeight)
+    global.LAYOUT.width = _width
     TweenMax.set(document.body, {
-      width: window.innerWidth,
+      width: _width,
       height: window.innerHeight,
     })
   }

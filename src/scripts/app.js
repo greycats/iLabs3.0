@@ -16,6 +16,7 @@ global.MODELS
 global.SKYTEX
 global.PROD = false
 global.BASE = 'public'
+global.LAYOUT = {}
 global.SCROLLED = false
 
 AppManager.preload()
