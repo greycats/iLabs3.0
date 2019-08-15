@@ -48,5 +48,7 @@ export default () => ({
       },
     ],
   },
-  vizient: {},
+  vizient: {
+    image: PreloadManager.getResult('project-vizient-img'),
+  },
 })

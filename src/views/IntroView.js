@@ -23,13 +23,11 @@ export default class IntroView extends AbstractView {
   }
 
   init(screenReadyCB) {
-    let template = Handlebars.compile(
-      PreloadManager.getResult('tpl-intro-content')
-    )
+    let template = Handlebars.compile(PreloadManager.getResult('tpl-intro-content'))
     console.log('asd', PreloadManager.getResult('project-vizient-img'))
     let html = template(getDATA().intro)
     this.ui.uiContent.className = ''
-    this.ui.uiContent.classList.add('ui-content', 'is-intro')
+    this.ui.uiContent.classList.add('ui-content', 'is-project')
     this.ui.uiContent.innerHTML = html
     screenReadyCB()
     EmitterManager.on('resize', this.initPixiAnim)
@@ -49,8 +47,7 @@ export default class IntroView extends AbstractView {
   }
 
   initPixiAnim() {
-    document.querySelector('#pixi-bg canvas') &&
-      document.querySelector('#pixi-bg canvas').remove()
+    document.querySelector('#pixi-bg canvas') && document.querySelector('#pixi-bg canvas').remove()
     const container = document.getElementById('pixi-bg')
     const pixiApp = new PIXI.Application({
       antialias: true,
@@ -61,12 +58,7 @@ export default class IntroView extends AbstractView {
     })
     container.append(pixiApp.view)
 
-    const pathList = [
-      [0, 0, 50, 60, 100, 50],
-      [0, 0, -60, 100, 60, 100],
-      [0, 0, 40, 100, 100, 60],
-      [0, 0, 50, 100, 100, 50],
-    ]
+    const pathList = [[0, 0, 50, 60, 100, 50], [0, 0, -60, 100, 60, 100], [0, 0, 40, 100, 100, 60], [0, 0, 50, 100, 100, 50]]
     let startPointList = []
     for (let x = -20; x < global.LAYOUT.width; x += 150) {
       for (let y = -20; y < 800 + 50; y += 150) {
@@ -185,52 +177,14 @@ export default class IntroView extends AbstractView {
   contentAnim() {
     const tl = () =>
       new TimelineMax({ paused: false })
-        .fromTo(
-          '#pixi-bg',
-          0.4,
-          { 'margin-left': '-100vw' },
-          { 'margin-left': 0 },
-          'step1'
-        )
-        .staggerTo(
-          this.initSprit,
-          0.2,
-          { pixi: { x: '-=500' } },
-          0.001,
-          'step1-=.4'
-        )
-        .staggerTo(
-          this.initSprit,
-          1.5,
-          { pixi: { x: '+=100' } },
-          0.01,
-          'step1+=.5'
-        )
-        .fromTo(
-          '.header-sec',
-          2,
-          { height: 0 },
-          { height: '386px' },
-          'step1+=1'
-        )
-        .fromTo(
-          '.content-left-bg',
-          0.4,
-          { left: '-1000' },
-          { left: '0' },
-          'step1+=.8'
-        )
-        .fromTo(
-          '.content-title',
-          2,
-          { height: 0 },
-          { height: '160px' },
-          'step1+=1'
-        )
+        .fromTo('#pixi-bg', 0.4, { 'margin-left': '-100vw' }, { 'margin-left': 0 }, 'step1')
+        .staggerTo(this.initSprit, 0.2, { pixi: { x: '-=500' } }, 0.001, 'step1-=.4')
+        .staggerTo(this.initSprit, 1.5, { pixi: { x: '+=100' } }, 0.01, 'step1+=.5')
+        .fromTo('.header-sec', 2, { height: 0 }, { height: '386px' }, 'step1+=1')
+        .fromTo('.content-left-bg', 0.4, { left: '-1000' }, { left: '0' }, 'step1+=.8')
+        .fromTo('.content-title', 2, { height: 0 }, { height: '160px' }, 'step1+=1')
 
-    new ScrollMagic.Scene({ triggerElement: '.main' })
-      .addTo(this.controller)
-      .on('start', tl)
+    new ScrollMagic.Scene({ triggerElement: '.main' }).addTo(this.controller).on('start', tl)
   }
 
   setScrollAnim(elementSelector) {
@@ -250,26 +204,9 @@ export default class IntroView extends AbstractView {
       element.addEventListener('mouseenter', () => {
         if (hoverTL.reversed()) return hoverTL.restart()
         hoverTL
-          .to(
-            arrowSec,
-            0.5,
-            { css: { height: '60px', width: '60px' } },
-            'step1'
-          )
-          .fromTo(
-            lineSVG,
-            0.3,
-            { attr: { d: 'M0 8H00' } },
-            { attr: { d: 'M0 8H20' } },
-            'step1+=.3'
-          )
-          .fromTo(
-            arrowSVG,
-            0.2,
-            { attr: { d: 'M20 8L20 8L20 8' } },
-            { attr: { d: 'M13 1L20 8L13 15' } },
-            'step1+=.6'
-          )
+          .to(arrowSec, 0.5, { css: { height: '60px', width: '60px' } }, 'step1')
+          .fromTo(lineSVG, 0.3, { attr: { d: 'M0 8H00' } }, { attr: { d: 'M0 8H20' } }, 'step1+=.3')
+          .fromTo(arrowSVG, 0.2, { attr: { d: 'M20 8L20 8L20 8' } }, { attr: { d: 'M13 1L20 8L13 15' } }, 'step1+=.6')
       })
       element.addEventListener('mouseleave', () => {
         hoverTL.reverse()
@@ -294,9 +231,7 @@ export default class IntroView extends AbstractView {
     const pAnim = new TimelineMax()
     project.classList.add('is-anim')
     const { x, y } = project.getBoundingClientRect()
-    const otherProjects = document.querySelectorAll(
-      '.project-item:not([data-project=vizient])'
-    )
+    const otherProjects = document.querySelectorAll('.project-item:not([data-project=vizient])')
     const title = project.querySelector('.project-name')
     pAnim.set(project, { css: { position: 'fixed', left: x, top: y } })
     const width = global.LAYOUT.width - 150
@@ -319,7 +254,7 @@ export default class IntroView extends AbstractView {
       0.6,
       {
         css: {
-          left: '150px',
+          left: (window.innerWidth - global.LAYOUT.width) / 2 + 150,
           top: 0,
           width: width,
           height: '624px',
@@ -349,10 +284,13 @@ export default class IntroView extends AbstractView {
             { css: { position: 'fixed', left: tx, top: ty } },
             {
               css: {
-                left: '250',
+                left: (window.innerWidth - global.LAYOUT.width) / 2 + 250,
                 top: '100px',
                 color: 'white',
                 'font-size': 44,
+                'font-size': 44,
+                margin: '0 0 0 0',
+                'line-height': 44,
               },
             }
           )
