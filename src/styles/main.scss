@@ -17,5 +17,13 @@ body {
   background: wwhite;
   position: relative;
 }
+.logo-img {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 3;
+}
 @import './intro.scss';
 @import './projects.scss';
