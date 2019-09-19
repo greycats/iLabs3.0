@@ -86,11 +86,74 @@ class AppManager {
         id: 'tpl-vizient-content',
         src: `${global.BASE}/templates/vizientContent.hbs`,
       },
-
       //images
       {
         id: 'project-vizient-img',
         src: `${global.BASE}/imgs/vizient-1.png`,
+      },
+      {
+        id: 'client-greatschools-img',
+        src: `${global.BASE}/imgs/client-greatschools.png`,
+      },
+      {
+        id: 'client-dictionary-img',
+        src: `${global.BASE}/imgs/client-dictionary.png`,
+      },
+      {
+        id: 'client-vizient-img',
+        src: `${global.BASE}/imgs/client-vizient.png`,
+      },
+      {
+        id: 'client-xealth-img',
+        src: `${global.BASE}/imgs/client-xealth.png`,
+      },
+      {
+        id: 'client-portal-img',
+        src: `${global.BASE}/imgs/client-portal.png`,
+      },
+      {
+        id: 'client-cision-img',
+        src: `${global.BASE}/imgs/client-cision.png`,
+      },
+      {
+        id: 'client-joist-img',
+        src: `${global.BASE}/imgs/client-joist.png`,
+      },
+      {
+        id: 'client-cherwell-img',
+        src: `${global.BASE}/imgs/client-cherwell.png`,
+      },
+      {
+        id: 'client-crew-img',
+        src: `${global.BASE}/imgs/client-crew.png`,
+      },
+      {
+        id: 'client-pared-img',
+        src: `${global.BASE}/imgs/client-pared.png`,
+      },
+      {
+        id: 'client-bombfell-img',
+        src: `${global.BASE}/imgs/client-bombfell.png`,
+      },
+      {
+        id: 'client-wine-img',
+        src: `${global.BASE}/imgs/client-wine.png`,
+      },
+      {
+        id: 'work-collab-img',
+        src: `${global.BASE}/imgs/work-collab.png`,
+      },
+      {
+        id: 'work-iterative-img',
+        src: `${global.BASE}/imgs/work-iteractive.png`,
+      },
+      {
+        id: 'work-flexible-img',
+        src: `${global.BASE}/imgs/work-flexible.png`,
+      },
+      {
+        id: 'work-data-img',
+        src: `${global.BASE}/imgs/work-data.png`,
       },
     ])
 

@@ -5,3 +5,10 @@
   flex-direction: $FD;
   flex-wrap: $FW;
 }
+
+$desktop-lg-min: 1400px;
+$desktop-min: 992px;
+$tablet-min: 768px;
+$desktop-max: 1399px;
+$tablet-max: 991px;
+$mobile-max: 767px;

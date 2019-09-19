@@ -54,8 +54,157 @@
 
         {{/each}}
       </div>
+    
     </div>
-
-
   </div>
+
+  <section class="section-services">
+    <div class="services-left-bg">
+      <canvas></canvas>
+    </div>
+    <div class="services-head">
+      <div class="container">
+        <div class="services-head-wrapper">
+          <h2>Our Services</h2>
+          <p>We offer a wide variety of services that cover the gamut of full stack development.</p>
+        </div>
+      </div>
+    </div>
+    <div class="services-list-container">
+      <div class="services-list">
+        {{#each services}}
+          <div class="service">
+            <h3 class="service-heading">
+              {{{icon}}} {{heading}}
+            </h3>
+            <p>{{description}}</p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <section class="clients">
+    <div class="container">
+      <div class="clients-half">
+        <div class="section-heading">
+          <h2 class="heading">Our clients</h2>
+          <p class="sub-heading">Some friends we’ve made so far along the way.</p>
+        </div>
+        <div class="clients-list">
+          <ul>
+            {{#each clients}}
+              <li><a href="#"><img src="{{image.src}}" alt="{{name}}" width="{{width}}"></a></li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="clients-half">
+        <div class="testimonials testimonials--columns-divide">
+          <div class="testimonials--columns">
+            <ul>
+              {{#each testimonials1}}
+                <li class="testimonial-card">
+                  <div class="testimonial-card--container">
+                    <div class="testimonial-card--content">
+                      <p>{{content}}</p>
+                    </div>
+                    <h3>{{name}}</h3>
+                    <h4>{{position}}</h4>
+                    <div class="links">
+                      {{#each links}}
+                        <a target="_blank" href="{{url}}" class="type-{{type}}">
+                          <svg class="icon icon-{{type}}"><use xlink:href="public/symbol-defs.svg#icon-{{type}}"></use></svg>
+                        </a>
+                      {{/each}}
+                    </div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="testimonials--columns">
+            <ul>
+              {{#each testimonials2}}
+                <li class="testimonial-card">
+                  <div class="testimonial-card--container">
+                    <div class="testimonial-card--content">
+                      <p>{{content}}</p>
+                    </div>
+                    <h3>{{name}}</h3>
+                    <h4>{{position}}</h4>
+                    <div class="links">
+                      {{#each links}}
+                        <a target="_blank" href="{{url}}" class="type-{{type}}">
+                          <svg class="icon icon-{{type}}"><use xlink:href="public/symbol-defs.svg#icon-{{type}}"></use></svg>
+                        </a>
+                      {{/each}}
+                    </div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-we-work">
+    <div class="container">
+      <div class="section-heading">
+        <h2 class="heading">How we work</h2>
+        <p class="sub-heading">Think and create collaboratively with passion and a singular vision</p>
+      </div>
+      <div class="work-feature-list">
+        {{#each works}}
+          <div class="work-item">
+            <div class="thumb">{{{image.outerHTML}}}</div>
+            <h3 class="heading">{{heading}}</h3>
+            <div class="content">
+              <p>
+              {{content}}
+              </p>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="row main-row">
+        <div class="col">
+          <h2 class="footer-heading">We would love to work with you.</h2>
+        </div>
+        <div class="col">
+          <div class="row footer-info">
+            <div class="col footer-col">
+              <h3 class="col-heading">Contact</h3>
+              <p>
+                <a href="mailto:hello@interactivelabs.co">hello@interactivelabs.co</a> <br>
+                <a href="tel:4158698842">415 869-8842</a>
+              </p>
+            </div>
+            <div class="col footer-col">
+              <h3 class="col-heading">Visit</h3>
+              <p>
+                Interactive Labs, Inc <br>
+                845 Market Street Level 4 <br>
+                San Francisco, CA 94108
+              </p>
+            </div>
+            <div class="col footer-col">
+              <h3 class="col-heading">social</h3>
+            </div>
+            <div class="col footer-col">
+              <h3 class="col-heading">Copyright © 2019 interactivelabs.co</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
