@@ -6,9 +6,30 @@
   flex-wrap: $FW;
 }
 
+@mixin flex-item($flex-grow: 1, $flex-shrink: 1, $flex-basis: auto) {
+  flex-grow: $flex-grow;
+  flex-shrink: $flex-shrink;
+  flex-basis: $flex-basis;
+}
+
+$gutter: 15px;
 $desktop-lg-min: 1400px;
 $desktop-min: 992px;
 $tablet-min: 768px;
 $desktop-max: 1399px;
 $tablet-max: 991px;
 $mobile-max: 767px;
+
+$font-body: 'Google Sans', sans-serif;
+$font-heading: 'Open Sans', sans-serif;
+@mixin font-heading {
+  font-family: $font-heading;
+  font-weight: bold;
+}
+@mixin font-body {
+  font-family: $font-body;
+  font-weight: normal;
+}
+
+$dark-grey: #040404;
+$grey: #494949;

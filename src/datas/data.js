@@ -1,4 +1,25 @@
 import PreloadManager from '../scripts/PreloadManager'
+export const footer = {
+  socials: [
+    {
+      label: 'Facebook',
+      icon: '<svg class="icon icon-facebook"><use xlink:href="public/symbol-defs.svg#icon-facebook"></use></svg>',
+    },
+    {
+      label: 'Linkedin',
+      icon: '<svg class="icon icon-linkedin"><use xlink:href="public/symbol-defs.svg#icon-linkedin"></use></svg>',
+    },
+    {
+      label: 'Behance',
+      icon: '<svg class="icon icon-behance"><use xlink:href="public/symbol-defs.svg#icon-behance"></use></svg>',
+    },
+    {
+      label: 'dribbble',
+      icon: '<svg class="icon icon-dribbble"><use xlink:href="public/symbol-defs.svg#icon-dribbble"></use></svg>',
+    },
+  ]
+};
+
 export default () => ({
   intro: {
     title: 'iLabs3.0 Intro',
@@ -51,48 +72,56 @@ export default () => ({
       {
         name: 'user_research',
         icon: '<svg class="icon icon-research"><use xlink:href="public/symbol-defs.svg#icon-research"></use></svg>',
+        iconMobile: '<svg class="icon ico-mobile icon-w-research"><use xlink:href="public/symbol-defs.svg#icon-w-research"></use></svg>',
         heading: 'User Research',
         description: 'Led by design-thinking, we tackle complex interactions and transform them into intuitive and easy-to-use designs.',
       },
       {
         name: 'Ideation',
         icon: '<svg class="icon icon-idea"><use xlink:href="public/symbol-defs.svg#icon-idea"></use></svg>',
+        iconMobile: '<svg class="icon ico-mobile icon-w-idea"><use xlink:href="public/symbol-defs.svg#icon-w-idea"></use></svg>',
         heading: 'Ideation',
         description: 'After consulting your doctor, change the formula. Switch to a soy-based formula.',
       },
       {
         name: 'uxui',
         icon: '<svg class="icon icon-design"><use xlink:href="public/symbol-defs.svg#icon-design"></use></svg>',
+        iconMobile: '<svg class="icon ico-mobile icon-w-design"><use xlink:href="public/symbol-defs.svg#icon-w-design"></use></svg>',
         heading: 'UX/UI Design',
         description: 'Feeding the baby often during these hours will ensure an abundant supply of milk.',
       },
       {
         name: 'prototype',
         icon: '<svg class="icon icon-prototype"><use xlink:href="public/symbol-defs.svg#icon-prototype"></use></svg>',
+        iconMobile: '<svg class="icon ico-mobile icon-w-prototype"><use xlink:href="public/symbol-defs.svg#icon-w-prototype"></use></svg>',
         heading: 'Prototype',
         description: 'And it might set off a whole new excitement astronomy in you all over again.',
       },
       {
         name: 'backend',
         icon: '<svg class="icon icon-backend"><use xlink:href="public/symbol-defs.svg#icon-backend"></use></svg>',
+        iconMobile: '<svg class="icon ico-mobile icon-w-backend"><use xlink:href="public/symbol-defs.svg#icon-w-backend"></use></svg>',
         heading: 'Backend Dev',
         description: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
       },
       {
         name: 'mobile',
         icon: '<svg class="icon icon-mobile"><use xlink:href="public/symbol-defs.svg#icon-mobile"></use></svg>',
+        iconMobile: '<svg class="icon ico-mobile icon-w-mobile"><use xlink:href="public/symbol-defs.svg#icon-w-mobile"></use></svg>',
         heading: 'Mobile Dev',
         description: 'Climb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet.',
       },
       {
         name: 'web',
         icon: '<svg class="icon icon-web"><use xlink:href="public/symbol-defs.svg#icon-web"></use></svg>',
+        iconMobile: '<svg class="icon ico-mobile icon-w-web"><use xlink:href="public/symbol-defs.svg#icon-w-web"></use></svg>',
         heading: 'Web Dev',
         description: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
       },
       {
         name: 'product_manager',
         icon: '<svg class="icon icon-project"><use xlink:href="public/symbol-defs.svg#icon-project"></use></svg>',
+        icon: '<svg class="icon ico-mobile icon-w-project"><use xlink:href="public/symbol-defs.svg#icon-w-project"></use></svg>',
         heading: 'Product Management',
         description: 'Feeding the baby often during these hours will ensure an abundant supply of milk.',
       },
@@ -178,7 +207,7 @@ export default () => ({
         content: 'Never get involved in the office pity party, or complaint sessions that come your way.  Seek out people that support you and that you feel good being around.',
         links: [
           {
-            type: 'linkedin',
+            type: 'linkedin1',
             url: 'https://linkedin.com'
           }
         ]
@@ -189,7 +218,7 @@ export default () => ({
         content: '“Feeding the baby often during these hours will ensure an abundant supply of milk.”',
         links: [
           {
-            type: 'linkedin',
+            type: 'linkedin1',
             url: 'https://linkedin.com'
           }
         ]
@@ -202,7 +231,7 @@ export default () => ({
         content: '“Feeding the baby often during these hours will ensure an abundant supply of milk.”',
         links: [
           {
-            type: 'linkedin',
+            type: 'linkedin1',
             url: 'https://linkedin.com'
           }
         ]
@@ -213,7 +242,7 @@ export default () => ({
         content: 'Never get involved in the office pity party, or complaint sessions that come your way.  Seek out people that support you and that you feel good being around.',
         links: [
           {
-            type: 'linkedin',
+            type: 'linkedin1',
             url: 'https://linkedin.com'
           }
         ]
@@ -240,7 +269,9 @@ export default () => ({
         heading: 'Data Driven',
         content: 'We collaborate with you and integrate your input at every step of the way.'
       },
-    ]
+    ],
+    storyImage: PreloadManager.getResult('story-img'),
+    footer: footer
   },
   vizient: {
     image: PreloadManager.getResult('project-vizient-img'),

@@ -15,46 +15,44 @@
   </div>
   <div class="content">
     <div class="content-left-bg"></div>
-    <div class="content-main">
-      <div style="height: 160px">
-        <div class="content-title">
-          <h2>Featured work</h2>
-          <p class="grey">
-            Explore some of our latest projects.
-          </p>
+    <div class="container">
+      <div class="content-main">
+        <div class="section-heading">
+          <h2 class="heading">Featured works</h2>
+          <p class="sub-heading">Explore some of our latest projects.</p>
         </div>
-      </div>
 
-      <div class="project-list">
-        {{#each projects}}
-        <div class="project-item-wrapper" id="project-item-{{@index}}">
-          <div class="project-item" style="background-color: {{background}}"
-            {{!-- onClick="window.location.href = '#project/vizient'" --}} data-project="{{project}}">
-            <div style="background-image: url({{image.src}})" alt="" class="project-img"></div>
-            <div class="project-info">
-              <p class="project-name">{{name}}</p>
-              <p class="project-label grey">{{label}}</p>
-              <div class="arrow-sec">
-
-                <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 8H00" stroke="#040404" class="line" />
-                  <path d="M20 8L20 8L20 8" stroke="#040404" class="arrow" />
-                </svg>
+        <div class="project-list">
+          {{#each projects}}
+          <div class="project-item-wrapper" id="project-item-{{@index}}">
+            <div class="project-item"
+              {{!-- onClick="window.location.href = '#project/vizient'" --}} data-project="{{project}}">
+              <div class="project-item-banner"  style="background-color: {{background}}">
+                <div style="background-image: url({{image.src}})" alt="" class="project-img"></div>
+                <div class="mask-sec">
+                  {{#each masks}}
+                  <div class="mask"></div>
+                  {{/each}}
+                </div>
               </div>
-              <div class="info-bg-sec"></div>
+              <div class="project-info">
+                <p class="project-name">{{name}}</p>
+                <p class="project-label grey">{{label}}</p>
+                <div class="arrow-sec">
+                  <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 8H00" stroke="#040404" class="line" />
+                    <path d="M20 8L20 8L20 8" stroke="#040404" class="arrow" />
+                  </svg>
+                </div>
+                <div class="info-bg-sec"></div>
+              </div>
             </div>
-            <div class="mask-sec">
-              {{#each masks}}
-              <div class="mask"></div>
-              {{/each}}
-            </div>
-
           </div>
-        </div>
 
-        {{/each}}
+          {{/each}}
+        </div>
+      
       </div>
-    
     </div>
   </div>
 
@@ -75,7 +73,7 @@
         {{#each services}}
           <div class="service">
             <h3 class="service-heading">
-              {{{icon}}} {{heading}}
+              {{{icon}}} {{{iconMobile}}} {{heading}}
             </h3>
             <p>{{description}}</p>
           </div>
@@ -97,6 +95,14 @@
               <li><a href="#"><img src="{{image.src}}" alt="{{name}}" width="{{width}}"></a></li>
             {{/each}}
           </ul>
+          <a href="#" class="cta">
+            <span class="arrow-circle">
+              <span>
+                <svg class="icon icon-arrow-right"><use xlink:href="public/symbol-defs.svg#icon-arrow-right"></use></svg>
+              </span>
+            </span>
+            Send Message
+          </a>
         </div>
       </div>
       <div class="clients-half">
@@ -172,12 +178,52 @@
     </div>
   </section>
 
+  <section class="story">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="section-heading">
+            <h2 class="heading">Our Story</h2>
+          </div>
+        </div>
+        <div class="col story-content">
+          <p>
+            We are a group of designers, engineers, product managers and innovators with a proven track record of delivering high-quality products that delight users and exceed their needs. 
+          </p>
+          <p>
+            Our goal is to help build great software companies by combining the Silicon Valley hustle with a business' core area of expertise to deliver quality product at break neck speed. 
+          </p>
+          <div class="row story-small">
+            <div class="col">
+              <h3>Our Leadership</h3>
+              <p>Ours is a hands-on leadership team. One or more of the folks you see below will be working on your product directly. </p>
+            </div>
+            <div class="col">
+              <p>We mean actually working, not overseeing. 
+  We mean designing, coding, tracking metrics, road mapping, writing specs and leading every project our company touches. We enjoy the grind, all there is, is the grind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="illustration">
+        <img src="{{storyImage.src}}" alt="">
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="container">
       <div class="row main-row">
-        <div class="col">
+        <div class="col col-left">
           <h2 class="footer-heading">We would love to work with you.</h2>
+          <a href="#" class="cta">
+            <span class="arrow-circle">
+              <span>
+                <svg class="icon icon-arrow-right"><use xlink:href="public/symbol-defs.svg#icon-arrow-right"></use></svg>
+              </span>
+            </span>
+            Send Message
+          </a>
         </div>
         <div class="col">
           <div class="row footer-info">
@@ -197,7 +243,11 @@
               </p>
             </div>
             <div class="col footer-col">
-              <h3 class="col-heading">social</h3>
+              <ul class="footer-socials">
+                {{#each footer.socials}}
+                  <li>{{{icon}}}</li>
+                {{/each}}
+              </ul>
             </div>
             <div class="col footer-col">
               <h3 class="col-heading">Copyright © 2019 interactivelabs.co</h3>

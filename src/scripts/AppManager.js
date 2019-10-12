@@ -155,6 +155,10 @@ class AppManager {
         id: 'work-data-img',
         src: `${global.BASE}/imgs/work-data.png`,
       },
+      {
+        id: 'story-img',
+        src: `${global.BASE}/imgs/story.png`,
+      },
     ])
 
     PreloadManager.on(
