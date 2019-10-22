@@ -48,7 +48,6 @@
               </div>
             </div>
           </div>
-
           {{/each}}
         </div>
       
@@ -150,6 +149,46 @@
                 </li>
               {{/each}}
             </ul>
+          </div>
+        </div>
+        <div class="testimonials-carousel">
+          <div class="testimonials-carousel-container">
+            {{#each testimonials1}}
+              <div class="testimonial-card">
+                <div class="testimonial-card--container">
+                  <div class="testimonial-card--content">
+                    <p>{{content}}</p>
+                  </div>
+                  <h3>{{name}}</h3>
+                  <h4>{{position}}</h4>
+                  <div class="links">
+                    {{#each links}}
+                      <a target="_blank" href="{{url}}" class="type-{{type}}">
+                        <svg class="icon icon-{{type}}"><use xlink:href="public/symbol-defs.svg#icon-{{type}}"></use></svg>
+                      </a>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+            {{#each testimonials2}}
+              <div class="testimonial-card">
+                <div class="testimonial-card--container">
+                  <div class="testimonial-card--content">
+                    <p>{{content}}</p>
+                  </div>
+                  <h3>{{name}}</h3>
+                  <h4>{{position}}</h4>
+                  <div class="links">
+                    {{#each links}}
+                      <a target="_blank" href="{{url}}" class="type-{{type}}">
+                        <svg class="icon icon-{{type}}"><use xlink:href="public/symbol-defs.svg#icon-{{type}}"></use></svg>
+                      </a>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+            {{/each}}
           </div>
         </div>
       </div>

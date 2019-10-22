@@ -6,6 +6,8 @@ import EmitterManager from '../scripts/EmitterManager'
 import PreloadManager from '../scripts/PreloadManager'
 import { Device } from '../helpers/Device'
 import getDATA from '../datas/data'
+import $ from 'jquery'
+import 'slick-carousel'
 
 export default class IntroView extends AbstractView {
   constructor(obj) {
@@ -38,6 +40,7 @@ export default class IntroView extends AbstractView {
     this.contentAnim()
     this.projectAnim()
     this.bindEvent()
+    this.initCarousel()
   }
 
   initContent() {
@@ -321,5 +324,33 @@ export default class IntroView extends AbstractView {
     tl.add(() => {
       EmitterManager.emit('view:transition:out')
     }, 0)
+  }
+
+  initCarousel() {
+    // setTimeout(this._initCarousel, 5000)
+    $('.work-feature-list').slick({
+      slidesToShow: 4,
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          infinite: true,
+          arrows: false,
+          dots: true
+        }
+      }]
+    })
+    $('.testimonials-carousel-container').slick({
+      slidesToShow: 4,
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          infinite: true,
+          arrows: false,
+          dots: true
+        }
+      }]
+    })
   }
 }

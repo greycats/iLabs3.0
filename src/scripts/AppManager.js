@@ -92,6 +92,18 @@ class AppManager {
         src: `${global.BASE}/imgs/vizient-1.png`,
       },
       {
+        id: 'project-gs-img',
+        src: `${global.BASE}/imgs/greatschool.png`,
+      },
+      {
+        id: 'project-dictionary-img',
+        src: `${global.BASE}/imgs/dictionary.png`,
+      },
+      {
+        id: 'project-crew-img',
+        src: `${global.BASE}/imgs/crew.png`,
+      },
+      {
         id: 'client-greatschools-img',
         src: `${global.BASE}/imgs/client-greatschools.png`,
       },
