@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Preload from 'components/Preload'
 import './App.css';
+import 'styles/main.scss'
 import routes from './routes'
 
 function App() {
@@ -17,7 +18,6 @@ function App() {
     return () => window.removeEventListener('load', doneLoad)
   }, [])
 
-  console.log('loaded', loaded)
   if (!loaded) {
     return (
       <div className="App">

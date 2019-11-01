@@ -304,21 +304,22 @@ module.exports = function (webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
-        // '~': Path.resolve(__dirname, '../src'),
+        '~': path.resolve(__dirname, '../src'),
         // handlebars: 'handlebars/dist/handlebars.min.js',
         TweenMax: path.resolve(__dirname, '../src/vendors/gsap/TweenMax.min.js'),
+        TweenLite: path.resolve(__dirname, '../src/vendors/gsap/TweenLite.min.js'),
         TimelineMax: path.resolve(
           __dirname,
           '../src/vendors/gsap/TimelineMax.min.js'
         ),
-        // ScrollMagic: Path.resolve(
-        //   'node_modules',
-        //   'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'
-        // ),
-        // 'animation.gsap': Path.resolve(
-        //   'node_modules',
-        //   'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
-        // ),
+        ScrollMagic: path.resolve(
+          'node_modules',
+          'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'
+        ),
+        'animation.gsap': path.resolve(
+          'node_modules',
+          'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'
+        ),
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           'react-dom$': 'react-dom/profiling',
