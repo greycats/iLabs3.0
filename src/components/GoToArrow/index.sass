@@ -1,0 +1,24 @@
+@import 'assets/styles/variable.sass'
+
+.go-to-arrow
+  @include flex-box($AI: center)
+  cursor: pointer
+  .arrow-wrap
+    width: 60px
+    height: 60px
+    @include flex-box($JC: center, $AI: center)
+    .arrow-sec
+      width: 0
+      height: 0
+      line-height: 60px
+      border-radius: 50%
+      background: #DD2C03
+      @include flex-box($JC: center, $AI: center)
+      svg
+        // margin: 24px auto
+        // display: block
+  span
+    font-size: 14px
+    color: #040404
+    font-family: 'Open Sans-Bold'
+    margin-left: 30px
