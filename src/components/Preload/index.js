@@ -1,13 +1,10 @@
 import React, { useEffect, Fragment } from 'react'
 import logo from 'logo.svg';
-// import TimelineMax from '../../gsap/TimelineMax.min'
-import PreloadManager from 'scripts/PreloadManager'
 import { Power0 } from 'gsap'
+import history from 'history.js'
 
-// const TimelineMax = require('../../gsap/TimelineMax.min')
-const TimelineMax = window.TimelineMax
-const TweenMax = window.TweenMax
-const tl = new TimelineMax()
+export const tl = new TimelineMax()
+export const tl1 = new TimelineMax()
 
 export default () => {
   function drawLoading () {
@@ -27,8 +24,43 @@ export default () => {
       ease: Power0.easeNone,
     })
   }
+
+  function endPreload() {
+    tl.stop()
+    tl1.set('#Polystar_1', {
+      drawSVG: '0',
+    })
+    tl1.to('#Polystar_1', 1.2, {
+      drawSVG: '100%',
+    })
+    tl1.set('#Shape_10', { x: -200, scaleX: 0 })
+    tl1.to('#Shape_10', 0.5, { x: -200, scaleX: 3, drawSVG: '100%' })
+    tl1.to('#Shape_10', 0.5, { x: 0, scaleX: 1 })
+    tl1.fromTo(
+      '.line1',
+      0.5,
+      { drawSVG: '100% 100%' },
+      { drawSVG: '0% 100% ' },
+      'smallAnim'
+    )
+    tl1.to(
+      '#Polystar_1',
+      1,
+      {
+        fill: 'white',
+        scale: 100,
+        transformOrigin: 'center',
+      },
+      'smallAnim+=0.5'
+    )
+    tl1.set('.preload', { css: { display: 'none' } })
+    history.push('/home')
+  }
+
   useEffect(() => {
     drawLoading()
+    window.addEventListener('load', endPreload)
+    return () => window.removeEventListener('load', endPreload)
   }, [])
   return (
     <Fragment>

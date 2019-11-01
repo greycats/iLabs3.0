@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Preload from 'components/Preload'
 import './App.css';
+import routes from './routes'
 
 function App() {
+  const [ loaded, setLoaded ] = useState(false)
+
+  const doneLoad = () => {
+    setTimeout(() => {
+      setLoaded(true)
+    }, 3000)
+  }
+
+  useEffect(() => {
+    window.addEventListener('load', doneLoad)
+    return () => window.removeEventListener('load', doneLoad)
+  }, [])
+
+  console.log('loaded', loaded)
+  if (!loaded) {
+    return (
+      <div className="App">
+        <Preload />
+      </div>
+    )
+  }
   return (
     <div className="App">
-      <Preload></Preload>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      { routes }
     </div>
   );
 }
