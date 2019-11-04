@@ -7,7 +7,7 @@ import '../vendors/gsap/plugins/MorphSVGPlugin.min'
 import 'animation.gsap'
 // import * as PIXI from 'pixi.js'
 import * as PIXI from 'pixi.js-legacy'
-import '../styles/main.scss'
+import 'assets/styles/main.scss'
 import AppManager from './AppManager'
 window.PIXI = PIXI
 global.MENU
