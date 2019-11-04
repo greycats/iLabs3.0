@@ -20,13 +20,13 @@ export default () => {
               <div className="project-info">
                 <p className="project-name">{name}</p>
                 <p className="project-label grey">{label}</p>
-                {/* <div className="arrow-sec">
+                <div className="arrow-sec">
                 <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0 8H00" stroke="#040404" className="line" />
                   <path d="M20 8L20 8L20 8" stroke="#040404" className="arrow" />
                 </svg>
               </div>
-              <div className="info-bg-sec"></div> */}
+              <div className="info-bg-sec"></div>
               </div>
               <div className="mask-sec">
                 {
