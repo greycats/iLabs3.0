@@ -54,7 +54,7 @@
   }
 }
 .project-list {
-  // @include flex-box($FW: wrap, $JC: space-between);
+  @include flex-box($FW: wrap, $JC: space-between);
   .project-item-wrapper {
     height: 720px;
     width: 540px;

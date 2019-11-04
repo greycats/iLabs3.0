@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import _ from 'lodash'
 import ScrollMagic from 'scrollmagic'
+import AnimateList from 'components/AnimateList'
 
 const global = { LAYOUT: {} }
 
@@ -102,7 +103,7 @@ export default () => {
             tl.kill()
             anim()
               .yoyo(true)
-              // .repeat(-1)
+            // .repeat(-1)
           })
         })
         sprite.on('pointerover', () => {
@@ -144,8 +145,56 @@ export default () => {
 
     new ScrollMagic.Scene({ triggerElement: '.main' }).addTo(controller).on('start', tl)
   }
+
+  function setScrollAnim(elementSelector) {
+    try {
+      new ScrollMagic.Scene()
+        .triggerElement(elementSelector)
+        .addTo(controller)
+        .on('start', e => {
+          const targets = e.target.triggerElement().querySelectorAll('.mask')
+          TweenMax.staggerTo(_.filter(_.shuffle(targets), item => item !== null), 0.5, { css: { width: 0 } }, 0.02)
+        })
+    } catch (error) {
+    }
+    document.querySelectorAll('.project-item').forEach((element) => {
+      let hoverTL = new TimelineMax()
+      const arrowSec = element.querySelector('.arrow-sec')
+      const lineSVG = element.querySelector('.line')
+      const arrowSVG = element.querySelector('.arrow')
+      hoverTL.set(arrowSec, { css: { height: '0', width: '0' } })
+      element.addEventListener('mouseenter', () => {
+        if (hoverTL.reversed()) return hoverTL.restart()
+        hoverTL
+          .to(arrowSec, 0.5, { css: { height: '60px', width: '60px' } }, 'step1')
+          .fromTo(lineSVG, 0.3, { attr: { d: 'M0 8H00' } }, { attr: { d: 'M0 8H20' } }, 'step1+=.3')
+          .fromTo(arrowSVG, 0.2, { attr: { d: 'M20 8L20 8L20 8' } }, { attr: { d: 'M13 1L20 8L13 15' } }, 'step1+=.6')
+      })
+      element.addEventListener('mouseleave', () => {
+        hoverTL.reverse()
+      })
+    })
+  }
+
+  function projectAnim() {
+    const projectItems = document.getElementsByClassName('project-item-wrapper')
+
+    _.each(projectItems, (item, index) => {
+      setTimeout(() => {
+        try {
+          setScrollAnim(`#project-item-${index}`)
+        } catch (error) {
+
+        }
+      }, index * 100)
+    })
+  }
+
   useEffect(() => {
     initContent()
+    setTimeout(() => {
+      projectAnim()
+    }, 500)
   }, [])
   useEffect(() => {
     contentAnim()
@@ -153,7 +202,7 @@ export default () => {
 
   return (
     <div className="main intro ui-content">
-      <div id="pixi-bg" ref={bgRef}/>
+      <div id="pixi-bg" ref={bgRef} />
       <div className="header-sec">
         <h1 className="bold">
           Experiences <br />
@@ -172,9 +221,10 @@ export default () => {
               <h2>Featured work</h2>
               <p className="grey">
                 Explore some of our latest projects.
-          </p>
+              </p>
             </div>
           </div>
+          <AnimateList></AnimateList>
         </div>
       </div>
     </div>

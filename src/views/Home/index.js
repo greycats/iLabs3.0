@@ -6,7 +6,6 @@ export default () => {
   return (
     <div>
       <AnimateBanner></AnimateBanner>
-      home
       <OurClients></OurClients>
     </div>
   )
