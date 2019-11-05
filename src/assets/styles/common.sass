@@ -1,4 +1,5 @@
 @import './variable.sass'
+@import './reset.css'
 
 @font-face
   font-family: 'Gilroy-Regular'
@@ -11,14 +12,20 @@
   src: url('../fonts/Gilroy/Gilroy-Bold.ttf') format('truetype')
 
 @font-face
-  font-family: 'Open Sans-Bold'
+  font-family: 'GoogleSans-Regular'
+  src: url('../fonts/Google-Sans-Font/GoogleSans-Regular.ttf') format('truetype')
+@font-face
+  font-family: 'GoogleSans-Medium'
+  src: url('../fonts/Google-Sans-Font/GoogleSans-Medium.ttf') format('truetype')
+@font-face
+  font-family: 'GoogleSans-Bold'
   src: url('../fonts/Google-Sans-Font/GoogleSans-Bold.ttf') format('truetype')
 
 body
   color: $font-color
   font-size: 16px
   font-family: 'Gilroy-Regular'
-  // line-height: 24px
+  line-height: 24px
   box-sizing: border-box
   margin: 0 auto
 
@@ -52,18 +59,6 @@ body
 
 .panel
   padding: 100px 0
-
-.title-wrap
-  .title
-    font-size: 44px
-    color: $title-color
-    line-height: 1
-    margin-bottom: 32px
-    font-family: 'Gilroy-Bold'
-  .intro
-    font-size: 14px
-    color: #656565
-
 
 
 

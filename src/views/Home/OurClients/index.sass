@@ -4,7 +4,7 @@
   @include flex-box($JC: space-between)
   height: 726px
   .client-logos
-    margin-top: 60px
+    margin-top: 90px
     .logo-wrap
       margin-top: 60px
       width: 520px
@@ -22,27 +22,32 @@
     @include flex-box($FD: column, $FW: wrap)
     .client-item
       background: #F5F5F5
-      padding: 25px
+      padding: 20px
       width: 310px
       margin-bottom: 30px
       margin-right: 30px
       &:first-child
         margin-top: 55px
+      &:nth-of-type(2n)
+        margin-bottom: 0
       .text
         font-size: 18px
         color: #656565
         font-family: 'Gilroy-Medium'
+        line-height: 30px
       .name
         font-size: 20px
         line-height: 40px
         color: #040404
         margin-top: 25px
-        font-family: 'Open Sans-Bold'
+        font-family: 'Open Sans'
+        font-weight: bold
       .info
         font-size: 14px
         color: #494949
-        margin-bottom: 25px
-        font-family: 'Open Sans-Bold'
+        margin-bottom: 20px
+        font-family: 'Open Sans'
+        font-weight: bold
       img
         width: 25px
         height: 25px

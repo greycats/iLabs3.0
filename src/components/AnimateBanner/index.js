@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import _ from 'lodash'
 import ScrollMagic from 'scrollmagic'
+import CommonTitle from 'components/CommonTitle'
 
 const global = { LAYOUT: {} }
 
@@ -102,7 +103,7 @@ export default () => {
             tl.kill()
             anim()
               .yoyo(true)
-              // .repeat(-1)
+            // .repeat(-1)
           })
         })
         sprite.on('pointerover', () => {
@@ -151,9 +152,13 @@ export default () => {
     contentAnim()
   }, [initSprit])
 
+  const titleData = {
+    title: 'Featured work',
+    intro: 'Explore some of our latest projects.'
+  }
   return (
     <div className="main intro ui-content">
-      <div id="pixi-bg" ref={bgRef}/>
+      <div id="pixi-bg" ref={bgRef} />
       <div className="header-sec">
         <h1 className="bold">
           Experiences <br />
@@ -168,12 +173,7 @@ export default () => {
         <div className="content-left-bg"></div>
         <div className="content-main layout-1240">
           <div style={{ height: '160px' }}>
-            <div className="content-title">
-              <h2>Featured work</h2>
-              <p className="grey">
-                Explore some of our latest projects.
-          </p>
-            </div>
+            <CommonTitle {...titleData}></CommonTitle>
           </div>
         </div>
       </div>
