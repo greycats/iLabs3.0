@@ -1,0 +1,41 @@
+@import 'assets/styles/variable.sass'
+
+.story-wrap
+  @include flex-box($JC: space-between)
+  .story-content
+    width: 600px
+    .text
+      margin-bottom: 70px
+      font-family: 'Gilroy-Medium'
+      p
+        font-size: 16px
+        line-height: 28px
+        margin-bottom: 30px
+        &:last-child
+          margin-bottom: 0
+    .data-wrap
+      @include flex-box($FW: wrap)
+      .data-item
+        @include flex-box
+        width: 50%
+        margin-bottom: 70px
+        &:last-child
+          margin-bottom: 0
+        .icon
+          width: 86px
+          margin-right: 30px
+          img
+            width: 86px
+        .number
+          div
+            font-size: 48px
+            line-height: 1
+            font-family: 'Gilroy-Bold'
+            color: $title-color
+            margin-bottom: 10px
+          p
+            font-size: 16px
+            color: $title-color
+            font-family: 'Gilroy-Medium'
+
+
