@@ -54,7 +54,9 @@ export default () => {
       'smallAnim+=0.5'
     )
     tl1.set('.preload', { css: { display: 'none' } })
-    history.push('/home')
+    if (window.location.pathname === '/') {
+      history.push('/home')
+    }
   }
 
   useEffect(() => {

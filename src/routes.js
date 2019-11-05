@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 // import { renderRoutes } from 'react-router-config'
 import history from './history'
 import HomeView from './views/Home'
+import CaseStudy from './views/CaseStudy'
 // import SignIn from './views/SignIn'
 // import SignUpRoutes from './views/SignUp/routes'
 // import ResetPwdRoutes from './views/ResetPwd/routes'
@@ -31,6 +32,13 @@ const routes = (
       <Route path="/home" render={(props) => {
         return (
           <HomeView
+            {...props}
+          />
+        )
+      }} />
+      <Route path="/casestudy" render={(props) => {
+        return (
+          <CaseStudy
             {...props}
           />
         )

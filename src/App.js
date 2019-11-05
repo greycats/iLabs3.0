@@ -26,7 +26,6 @@ function App() {
 
     PreloadManager.load()
     PreloadManager.on('complete', function () {
-      console.log('complete')
       setAssetLoaded(true)
     }, this)
   }
