@@ -26,7 +26,9 @@ export default () => {
 
   return (
     <div>
+      <div style={{ width: '100vw', height: '100vh', background: '#eee' }}></div>
       <TheStory {...theStoryData}></TheStory>
+      <div style={{ width: '100vw', height: '100vh', background: '#eee' }}></div>
     </div>
   )
 }
