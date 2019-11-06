@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5de32143.chunk.css",
+    "main.js": "/static/js/main.0d1d282f.chunk.js",
+    "main.js.map": "/static/js/main.0d1d282f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8f731757.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8f731757.js.map",
+    "static/js/2.9a8f4a24.chunk.js": "/static/js/2.9a8f4a24.chunk.js",
+    "static/js/2.9a8f4a24.chunk.js.map": "/static/js/2.9a8f4a24.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.285e310f1fd71464376753b0f9b94562.js": "/precache-manifest.285e310f1fd71464376753b0f9b94562.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5de32143.chunk.css.map": "/static/css/main.5de32143.chunk.css.map",
+    "static/media/common.sass": "/static/media/GoogleSans-Regular.b5c77a6a.ttf",
+    "static/media/bombfell.svg": "/static/media/bombfell.98b07dec.svg",
+    "static/media/cherwell.svg": "/static/media/cherwell.e78c4f20.svg",
+    "static/media/cision.svg": "/static/media/cision.bdc4c7cf.svg",
+    "static/media/dictionary.svg": "/static/media/dictionary.8c886437.svg",
+    "static/media/great-schools.svg": "/static/media/great-schools.d9c80c9c.svg",
+    "static/media/in.svg": "/static/media/in.72a36c12.svg",
+    "static/media/joist.svg": "/static/media/joist.dcdad235.svg",
+    "static/media/logo-black.svg": "/static/media/logo-black.d325837d.svg",
+    "static/media/logo.svg": "/static/media/logo.4d7df097.svg",
+    "static/media/pared.svg": "/static/media/pared.8649d754.svg",
+    "static/media/portal.svg": "/static/media/portal.d7a2bf21.svg",
+    "static/media/uiew.svg": "/static/media/uiew.b8aa9f73.svg",
+    "static/media/vizient-1.png": "/static/media/vizient-1.2f9b08a7.png",
+    "static/media/vizient.png": "/static/media/vizient.ab36c28f.png",
+    "static/media/vizient.svg": "/static/media/vizient.f6acd369.svg",
+    "static/media/wine.svg": "/static/media/wine.bb3a3ba9.svg",
+    "static/media/work.svg": "/static/media/work.7f2e6ab5.svg",
+    "static/media/xealth.svg": "/static/media/xealth.9293cc08.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8f731757.js",
+    "static/js/2.9a8f4a24.chunk.js",
+    "static/css/main.5de32143.chunk.css",
+    "static/js/main.0d1d282f.chunk.js"
+  ]
+}
