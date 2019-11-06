@@ -1,5 +1,10 @@
 import React from 'react'
 import TheStory from 'components/TheStory'
+import Banner from 'components/Banner'
+import styled from 'styled-components'
+import { Controller, Scene } from 'react-scrollmagic'
+import { Tween, Timeline } from 'react-gsap'
+import VizientImage from '../../../assets/imgs/vizient.png'
 
 export default () => {
   const theStoryData = {
@@ -26,7 +31,7 @@ export default () => {
 
   return (
     <div>
-      vizient
+      <Banner image={VizientImage}/>
       <TheStory {...theStoryData}></TheStory>
     </div>
   )
