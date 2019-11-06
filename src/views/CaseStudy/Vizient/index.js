@@ -3,6 +3,7 @@ import TheStory from 'components/TheStory'
 import TheChallenge from 'components/TheChallenge'
 import Banner from 'components/Banner'
 import Header from 'components/Header'
+import ComponentSection from 'components/LeftTextRightAnimation'
 import VizientImage from '../../../assets/imgs/vizient.png'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
@@ -83,6 +84,7 @@ export default () => {
           <TheChallenge {...theChallengeData}></TheChallenge>
         </div>
         <TheChallenge {...theSolutionData}></TheChallenge>
+        <ComponentSection />
         <div style={{ width: '100vw', height: '100vh' }}></div>
       </div>
     </StyledPage>

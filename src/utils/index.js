@@ -4,3 +4,5 @@ export const getLocationSearch = key => {
 	if (r != null && r[2]) return unescape(r[2])
 	return null
 }
+
+export const getTriggerId = id => `#${id}`
