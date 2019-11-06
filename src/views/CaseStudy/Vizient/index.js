@@ -1,5 +1,6 @@
 import React from 'react'
 import TheStory from 'components/TheStory'
+import TheChallenge from 'components/TheChallenge'
 import Banner from 'components/Banner'
 import Header from 'components/Header'
 import VizientImage from '../../../assets/imgs/vizient.png'
@@ -29,6 +30,45 @@ export default () => {
     ]
   }
 
+  const theChallengeData = {
+    title: 'The Challenge',
+    intro: 'Vizient has a diverse product suite by way of acquisitions. Hence there was no standardization of product interactions,  user interface styles and interactions. ',
+    list: [
+      {
+        name: 'Many Products',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+      },
+      {
+        name: 'Inconsistency Interface',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+      },
+      {
+        name: 'Missing Interactions',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+      },
+    ]
+  }
+
+  const theSolutionData = {
+    controllerId: 'the-solution-trigger',
+    title: 'The Solution',
+    intro: 'We created a fully functional UI toolkit based on a customized version of Angular Material. With a standardized interface and clear documentation we were able to cut down on operational costs, all while implementing a single uniform design language.',
+    list: [
+      {
+        name: 'UI Toolkit',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+      },
+      {
+        name: 'Clear Documentation',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+      },
+      {
+        name: 'Design Language',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+      },
+    ]
+  }
+
   return (
     <StyledPage>
       <Header />
@@ -39,7 +79,11 @@ export default () => {
           </Banner>
         </StyledSection>
         <TheStory {...theStoryData}></TheStory>
-        <div style={{ width: '100vw', height: '100vh', background: '#eee' }}></div>
+        <div style={{ background: '#eee' }}>
+          <TheChallenge {...theChallengeData}></TheChallenge>
+        </div>
+        <TheChallenge {...theSolutionData}></TheChallenge>
+        <div style={{ width: '100vw', height: '100vh' }}></div>
       </div>
     </StyledPage>
   )

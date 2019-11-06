@@ -6,12 +6,15 @@ export default ({
   title = '',
   intro = '',
   isWhite = '',
-  width = ''
+  width = '',
+  titleSize = '',
+  titleMargin = '',
+  introSize = ''
 }) => {
   return (
-    <div className={classNames('title-wrap', {'white': isWhite})} style={{ width: width || 'auto' }}>
-      <div className="title">{title}</div>
-      <div className="intro">{intro}</div>
+    <div className={classNames('common-title', { 'white': isWhite })} style={{ width: width || 'auto' }}>
+      {title ? <div className="title" style={{fontSize: titleSize || '44px', marginBottom: titleMargin || '32px'}}>{title}</div> : null}
+      {intro ? <div className="intro" style={{fontSize: introSize || '16px'}}>{intro}</div> : null}
     </div>
   )
 }

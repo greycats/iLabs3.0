@@ -1,0 +1,26 @@
+@import 'assets/styles/variable.sass'
+
+.challenge-wrap
+  .title-part
+    height: 94px
+    .title-wrap
+      overflow: hidden
+  .content-wrap
+    margin-top: 70px
+    @include flex-box($JC: space-between)
+    .challenge-item
+      width: 310px
+      .icon
+        width: 85px
+        height: 85px
+        margin-bottom: 40px
+        img
+          width: 85px
+      .name
+        font-size: 26px
+        line-height: 28px
+        font-family: 'Gilroy-Bold'
+        margin-bottom: 15px
+        color: $title-color
+      .text
+        line-height: 28px

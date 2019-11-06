@@ -8,29 +8,34 @@ import './index.sass'
 
 export default ({
   story = [],
-  dataList = []
+  dataList = [],
+  controllerId = 'the-story-trigger'
 }) => {
   return (
     <div>
-      <div id="trigger" />
+      <div id={controllerId} />
       <div className="layout-1240 panel story-wrap">
         <div className="left-part">
-          <CommonTitle title="The Story"></CommonTitle>
           <Controller>
             <Scene
-              triggerElement="#trigger"
-              duration={5000}
+              triggerElement={'#' + controllerId}
+              duration={500}
               reverse={false}
             >
               {(progress) => (
                 <Tween
-                  to={{
+                  from={{
                     height: 0
+                  }}
+                  to={{
+                    height: '50px'
                   }}
                   totalProgress={progress}
                   paused
                 >
-                  <div className="left-mask"></div>
+                  <div className="title-wrap">
+                    <CommonTitle title="The Story"></CommonTitle>
+                  </div>
                 </Tween>
               )}
             </Scene>
@@ -39,7 +44,7 @@ export default ({
         <div className="right-part">
           <Controller>
             <Scene
-              triggerElement="#trigger"
+              triggerElement={'#' + controllerId}
               duration={500}
               reverse={false}
             >
@@ -64,7 +69,7 @@ export default ({
               )}
             </Scene>
             <Scene
-              triggerElement="#trigger"
+              triggerElement={'#' + controllerId}
               duration={500}
               reverse={false}
             >
@@ -91,7 +96,7 @@ export default ({
                           <div className="number">
                             <CountUp
                               start={0}
-                              end={ progress >= 0.5 ? item.number : 0}
+                              end={progress >= (0.5 + index / 10) ? item.number : 0}
                               duration={1}
                               suffix={item.suffix}
                               delay={1000}

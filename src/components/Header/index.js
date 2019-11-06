@@ -7,6 +7,7 @@ const Header = ({ isFixed }) => styled.div`
   display: flex;
   margin-left: 30px;
   position: ${isFixed ? 'fixed' : 'unset'}
+  z-index: 100;
   top: 0;
 `
 
