@@ -26,7 +26,6 @@ export default () => {
 
   return (
     <div>
-      vizient
       <TheStory {...theStoryData}></TheStory>
     </div>
   )
