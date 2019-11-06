@@ -2,16 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from 'logo-black.svg';
 
-const Header = styled.div`
+const Header = ({ isFixed }) => styled.div`
   height: 60px;
   display: flex;
   margin-left: 30px;
+  position: ${isFixed ? 'fixed' : 'unset'}
+  top: 0;
 `
 
-export default () => {
+export default ({ isFixed = true }) => {
+  const StyledHeader = Header({ isFixed })
   return (
-    <Header>
-      <img src={logo} alt=""/>
-    </Header>
+    <StyledHeader>
+      <img src={logo} alt="" />
+    </StyledHeader>
   )
 }

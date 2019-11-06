@@ -2,11 +2,9 @@ import React from 'react'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
 import Header from 'components/Header'
-import styled from 'styled-components'
-import { Controller, Scene } from 'react-scrollmagic'
-import { Tween, Timeline } from 'react-gsap'
 import VizientImage from '../../../assets/imgs/vizient.png'
 import StyledPage from 'components/Styled/Page'
+import StyledSection from 'components/Styled/Section'
 
 export default () => {
   const theStoryData = {
@@ -32,15 +30,17 @@ export default () => {
   }
 
   return (
-    <div>
-      <Header> </Header>
-      <StyledPage>
-        <Banner image={VizientImage}>
-          text
-        </Banner>
+    <StyledPage>
+      <Header />
+      <div>
+        <StyledSection>
+          <Banner image={VizientImage}>
+            text
+          </Banner>
+        </StyledSection>
         <TheStory {...theStoryData}></TheStory>
         <div style={{ width: '100vw', height: '100vh', background: '#eee' }}></div>
-      </StyledPage>
-    </div>
+      </div>
+    </StyledPage>
   )
 }
