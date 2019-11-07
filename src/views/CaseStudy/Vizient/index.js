@@ -2,11 +2,11 @@ import React from 'react'
 import TheStory from 'components/TheStory'
 import TheChallenge from 'components/TheChallenge'
 import Banner from 'components/Banner'
-import Header from 'components/Header'
 import ComponentSection from 'components/LeftTextRightAnimation'
 import VizientImage from '../../../assets/imgs/vizient.png'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
+import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
 
 export default () => {
   const theStoryData = {
@@ -72,7 +72,6 @@ export default () => {
 
   return (
     <StyledPage>
-      <Header />
       <div>
         <StyledSection>
           <Banner image={VizientImage}>
@@ -80,12 +79,11 @@ export default () => {
           </Banner>
         </StyledSection>
         <TheStory {...theStoryData}></TheStory>
-        <div style={{ background: '#eee' }}>
+        <div style={{ background: `url(${ChallengeImg})`, backgroundSize: 'contain' }}>
           <TheChallenge {...theChallengeData}></TheChallenge>
         </div>
         <TheChallenge {...theSolutionData}></TheChallenge>
         <ComponentSection />
-        <div style={{ width: '100vw', height: '100vh' }}></div>
       </div>
     </StyledPage>
   )

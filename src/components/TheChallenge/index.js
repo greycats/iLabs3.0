@@ -2,7 +2,6 @@ import React from 'react'
 import { Controller, Scene } from 'react-scrollmagic'
 import { Tween } from 'react-gsap'
 import CommonTitle from 'components/CommonTitle'
-import CountUp from 'react-countup'
 import Img from '../../assets/imgs/in.svg'
 import './index.sass'
 

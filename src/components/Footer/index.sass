@@ -1,0 +1,34 @@
+@import 'assets/styles/variable.sass'
+
+.footer-wrap
+  width: 100%
+  background: #01111E
+  padding: 130px 0 90px
+  position: relative
+  .footer
+    @include flex-box($JC: space-between)
+    position: relative
+    height: 365px
+    .footer-title
+      width: 404px
+      font-size: 62px
+      line-height: 90px
+      color: #fff
+      margin-bottom: 35px
+    .footer-list
+      @include flex-box($FD: column, $JC: space-between)
+      .list-title
+        color: #B3B8BB
+        line-height: 28px
+        margin-bottom: 20px
+      li
+        font-size: 18px
+        color: #fff
+        line-height: 40px
+      .icon-list
+        height: 60px
+        @include flex-box($AI: center)
+      &>div.list-title
+        line-height: 60px
+        margin-bottom: 0
+
