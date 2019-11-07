@@ -48,16 +48,12 @@ export default ({ id = '__trigger_scene' }) => {
               {(progress) => (
                 <Tween
                   from={{
-                    // css: {
                     opacity: 0,
                     top: '15px'
-                    // }
                   }}
                   to={{
-                    // css: {
                     opacity: 1,
                     top: '20px'
-                    // }
                   }}
                   paused
                   totalProgress={progress}
