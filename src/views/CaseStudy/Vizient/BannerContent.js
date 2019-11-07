@@ -7,9 +7,8 @@ import { AbsolutePositionWrap, StyledSectionWitheTitle } from 'components/Styled
 import MacImage from 'assets/imgs/vizient/Mac.png'
 
 const StyledContainer = styled.div`
-  position: {
-    relative;
-  }
+  position: relative;
+  height: 100%;
 
   .title-tip {
     width: 230px;
