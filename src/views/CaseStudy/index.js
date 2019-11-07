@@ -1,12 +1,15 @@
 import React from 'react'
 import Vizient from './Vizient'
 import { getLocationSearch } from 'utils'
+import Header from 'components/Header'
+import Footer from '../../components/Footer'
 
 export default () => {
   const name = getLocationSearch('name')
 
   return (
     <div>
+      <Header />
       {
         (() => {
           switch (name) {
@@ -18,6 +21,7 @@ export default () => {
           }
         })()
       }
+      <Footer />
     </div>
   )
 }

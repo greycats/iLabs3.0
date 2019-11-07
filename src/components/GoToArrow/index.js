@@ -5,7 +5,8 @@ import './index.sass'
 class GoToArrow extends Component {
   static defaultProps = {
     text: '',
-    status: 'in'
+    status: 'in',
+    isWhite: false
   }
 
   state = {
@@ -96,7 +97,7 @@ class GoToArrow extends Component {
         <Tween
           {...tweenData[status].text}
         >
-          <span onClick={this.arrowOnClick}>{this.props.text}</span>
+          <span onClick={this.arrowOnClick} className={this.props.isWhite ? 'white' : ''}>{this.props.text}</span>
         </Tween>
       </div >
     )
