@@ -44,7 +44,7 @@ const ServiceList = () => {
     <StyledList>
       <p className="service-title">SERVICES</p>
       {
-        list.map(service => <p className="service-item">{service}</p>)
+        list.map((service, index) => <p className="service-item" key={index}>{service}</p>)
       }
     </StyledList>
   )
@@ -52,7 +52,7 @@ const ServiceList = () => {
 
 export default () => {
   const ImagePosition = AbsolutePositionWrap({ right: '15vw' })
-  const TitlePosition = AbsolutePositionWrap({ top: '25%', left: '21%' })
+  const TitlePosition = AbsolutePositionWrap({ top: '25%', left: '7%' })
 
   const Mac =
     <ImagePosition>
