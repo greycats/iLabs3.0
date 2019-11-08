@@ -45,6 +45,7 @@ export default ({
           triggerElement={'#' + controllerId}
           duration={500}
           reverse={false}
+          offset={100}
         >
           {(progress) => (
             <Tween

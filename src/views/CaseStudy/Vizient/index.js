@@ -3,6 +3,7 @@ import TheStory from 'components/TheStory'
 import TheChallenge from 'components/TheChallenge'
 import Banner from 'components/Banner'
 import ComponentSection from 'components/LeftTextRightAnimation'
+import Grid from './Grid'
 import VizientImage from '../../../assets/imgs/vizient/Banner.png'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
@@ -86,6 +87,7 @@ export default () => {
         </div>
         <TheChallenge {...theSolutionData}></TheChallenge>
         <ComponentSection />
+        <Grid />
       </div>
     </StyledPage>
   )

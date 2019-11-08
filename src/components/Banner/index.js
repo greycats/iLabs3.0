@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Container = ({image}) => styled.div`
   background-image: url('${image}');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   height: 60vh;
 `
 

@@ -85,7 +85,7 @@ export default ({
                     stagger={0.15}
                     totalProgress={progress}
                     paused
-                    delay={.8}
+                    offset={200}
                   >
                     {
                       dataList.map((item, index) => (
