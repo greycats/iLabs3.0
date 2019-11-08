@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Tween, Timeline } from 'react-gsap'
+import AnimationPlayer from 'components/AnimationPlayer'
 
 const Circle = styled.div`
   width: 100px;
@@ -15,45 +15,38 @@ export default ({
   endOpacity = .1,
   startScale = 3,
   tempScale = 8,
-  endScale = 7.45
+  endScale = 7.45,
+  id
 }) => {
   return (
-    <Timeline
+    <AnimationPlayer
       target={
-        <Circle></Circle>
+        <Circle />
       }
-    >
-      <Tween
-        duration={duration}
-        from={
-          {
-            css: {
-              transform: `scale(${startScale})`,
-              opacity: startOpacity
-            }
-          }
-        }
-        to={
-          {
-            css: {
-              transform: `scale(${tempScale})`,
-              opacity: endOpacity
-            }
-          }
-        }
-      >
-      </Tween>
-      <Tween
-        duration={duration}
-        to={
-          {
-            css: {
-              transform: `scale(${endScale})`,
-            }
-          }
-        }
-      >
-      </Tween>
-    </Timeline>
+      id={id}
+      delay={2}
+      duration={duration}
+      animations = {
+       [
+         {
+           from: {
+            transform: `scale(${startScale})`,
+            opacity: startOpacity
+           },
+           to: {
+            transform: `scale(${tempScale})`,
+            opacity: endOpacity
+           },
+           delay: 0.2,
+           duration: 1,
+         },
+         {
+           to: {
+            transform: `scale(${endScale})`,
+           }
+         }
+       ]
+      }
+    />
   )
 }
