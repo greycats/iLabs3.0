@@ -4,10 +4,12 @@ import TheChallenge from 'components/TheChallenge'
 import Banner from 'components/Banner'
 import ComponentSection from 'components/LeftTextRightAnimation'
 import Grid from './Grid'
-import VizientImage from '../../../assets/imgs/vizient.png'
+import VizientImage from '../../../assets/imgs/vizient/Banner.png'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
 import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
+
+import BannerContent from './BannerContent'
 
 export default () => {
   const theStoryData = {
@@ -76,7 +78,7 @@ export default () => {
       <div>
         <StyledSection>
           <Banner image={VizientImage}>
-            text
+            <BannerContent />
           </Banner>
         </StyledSection>
         <TheStory {...theStoryData}></TheStory>
