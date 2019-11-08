@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CommonTitle from 'components/CommonTitle'
-import { SectionTitleWrap } from 'components/Styled'
+import AnimateCircle from 'components/AnimateCircle'
+import { SectionTitleWrap, AbsolutePositionWrap } from 'components/Styled'
 import { Tween, Timeline } from 'react-gsap'
 import { getTriggerId } from 'utils'
 
@@ -37,15 +38,16 @@ const AnimateTitle = () => (
 
 const AnimateText = () => (
   <Tween
+    duration={0.5}
     from={{
       opacity: 0,
-      top: '15px'
+      top: '5px'
     }}
     to={{
       opacity: 1,
       top: '20px'
     }}
-    delay={0.5}
+    delay={.1}
   >
     <div style={{
       width: '500px',
@@ -63,6 +65,8 @@ const AnimateText = () => (
   </Tween>
 )
 
+const CirclePosition = AbsolutePositionWrap({ right: '200px'})
+
 export default ({ id = '__trigger_scene' }) => {
   const [playAnimation, setPlayAnimation] = useState(false)
 
@@ -70,7 +74,7 @@ export default ({ id = '__trigger_scene' }) => {
     new ScrollMagic.Scene()
       .triggerElement(elementSelector)
       .addTo(controller)
-      .on('start', e => {
+      .on('start', () => {
         setPlayAnimation(true)
       })
   }
@@ -80,7 +84,7 @@ export default ({ id = '__trigger_scene' }) => {
   }, [])
 
   return (
-    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '600px' }}>
+    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '100px' }}>
       <div id={id}></div>
       <div className="title-part">
         {
@@ -94,6 +98,22 @@ export default ({ id = '__trigger_scene' }) => {
          }
         </div>
       </div>
+        {
+          playAnimation ?
+          <Tween
+            from={{
+              bottom: '500px'
+            }}
+            to={{
+              bottom: '400px'
+            }}
+          >
+            <CirclePosition>
+              <AnimateCircle />
+            </CirclePosition>
+          </Tween>
+          : null
+        }
     </div>
   )
 }
