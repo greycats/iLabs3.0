@@ -8,7 +8,8 @@ import Grid2 from 'assets/imgs/vizient/Grid2.png'
 
 const GridWrap = styled.div`
   width: 100%;
-  background: #F5F5F5
+  background: #F5F5F5;
+  height: 1620px
 `
 
 export default () => {
@@ -21,7 +22,7 @@ export default () => {
 
   const OpacityComponent = ({
     content,
-    offset = 0,
+    delay = 0,
     from = { opacity: 0 },
     to = { opacity: 1 },
   }) => (
@@ -29,17 +30,17 @@ export default () => {
         triggerElement={'#' + controllerId}
         duration={500}
         reverse={false}
-        offset={offset}
       >
         {(progress) => (
-          <Tween
-            from={from}
-            to={to}
-            totalProgress={progress}
-            paused
-          >
-            {content}
-          </Tween>
+          progress ? (
+            <Tween
+              from={from}
+              to={to}
+              delay={delay}
+            >
+              {content}
+            </Tween>
+          ) : <div></div>
         )}
       </Scene>
     );
@@ -68,7 +69,7 @@ export default () => {
                   <CommonTitle intro={titleData.intro} width={495} width={titleData.width}></CommonTitle>
                 </div>
               ),
-              offset: 100
+              delay: .2
             })
           }
           {
@@ -76,7 +77,7 @@ export default () => {
               content: (
                 <img src={Grid} style={imgStyle} />
               ),
-              offset: 200,
+              delay: .4,
               from: { opacity: 0, top: '100px' },
               to: { opacity: 1, top: 0 }
             })
@@ -86,7 +87,7 @@ export default () => {
               content: (
                 <img src={Grid2} style={imgStyle} />
               ),
-              offset: 200,
+              delay: .6,
               from: { opacity: 0, top: '100px' },
               to: { opacity: 1, top: 0 }
             })
