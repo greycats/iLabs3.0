@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CommonTitle from 'components/CommonTitle'
 import { SectionTitleWrap } from 'components/Styled'
-import { Controller, Scene } from 'react-scrollmagic'
 import { Tween, Timeline } from 'react-gsap'
 import { getTriggerId } from 'utils'
 
