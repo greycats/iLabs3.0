@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import CommonTitle from 'components/CommonTitle'
-import AnimateCircle from 'components/AnimateCircle'
 import ComponentsImage from 'assets/imgs/vizient/components.png'
+import AnimateIcon from '../../assets/imgs/vizient/Typeface'
 import { SectionTitleWrap, AbsolutePositionWrap } from 'components/Styled'
 
-import AnimationPlayer from 'components/AnimationPlayer'
-
-import ScrollMagic from 'scrollmagic'
-
-const controller = new ScrollMagic.Controller()
+import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
 const AnimateTitle = ({
   id
@@ -71,7 +67,7 @@ const AnimateText = ({
     />
   )
 
-const AnimateImage = ({id}) => {
+const AnimateImage = ({ id }) => {
   return (
     <div style={{
       height: '40vw',
@@ -83,9 +79,7 @@ const AnimateImage = ({id}) => {
   )
 }
 
-const CirclePosition = AbsolutePositionWrap({ right: '20%' })
-const ImagePosition = AbsolutePositionWrap({ right: '7%'})
-
+const LottiePosition = AbsolutePositionWrap({ right: '-200px', top: '-200px' })
 
 export default ({ id = '__trigger_scene' }) => {
   return (
@@ -96,28 +90,19 @@ export default ({ id = '__trigger_scene' }) => {
           position: 'relative'
         }}>
           <AnimateText id={id + 1} />
-          {/* <AnimationPlayer
-            target={
-              <CirclePosition>
-                <AnimateCircle id={id + 2} />
-              </CirclePosition>
-            }
-            animations={
-              [
-                {
-                  from: {
-                    top: '50px'
-                  },
-                  to: {
-                    top: '100px'
-                  }
+          <LottiePosition>
+            <LottieAnimation
+              options={{
+                autoplay: true,
+                animationData: AnimateIcon,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
                 }
-              ]
-            }
-          /> */}
-          {/* <ImagePosition>
-            <AnimateImage/>
-          </ImagePosition> */}
+              }}
+              height={'70%'}
+              width={'70%'}
+            />
+          </LottiePosition>
         </div>
       </div>
     </div>
