@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import AnimationPlayer from 'components/AnimationPlayer'
 
 const Circle = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 6vw;
+  height: 6vw;
   border-radius: 100%;
   background-color: gray;
 `
