@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import CommonTitle from 'components/CommonTitle'
-import { SectionTitleWrap } from 'components/Styled'
+import AnimateCircle from 'components/AnimateCircle'
+import { SectionTitleWrap, AbsolutePositionWrap } from 'components/Styled'
 import { Tween, Timeline } from 'react-gsap'
-import { getTriggerId } from 'utils'
+
+import AnimationPlayer from 'components/AnimationPlayer'
 
 import ScrollMagic from 'scrollmagic'
 
 const controller = new ScrollMagic.Controller()
 
-const AnimateTitle = () => (
-  <Timeline
+const AnimateTitle = ({
+  id
+}) => (
+  <AnimationPlayer
+    id={id}
     target={
       <SectionTitleWrap>
         <div className="title-wrap">
@@ -17,83 +22,71 @@ const AnimateTitle = () => (
         </div>
       </SectionTitleWrap>
     }
-  >
-    <Tween
-      playState='play'
-      from={{
-        css: {
+    animations={[
+      {
+        from: {
           height: 0
-        }
-      }}
-      to={{
-        css: {
+        },
+        to: {
           height: '94px'
         }
-      }}
-    >
-    </Tween>
-  </Timeline>
+      }
+    ]}
+  />
 )
 
-const AnimateText = () => (
-  <Tween
-    from={{
-      opacity: 0,
-      top: '15px'
-    }}
-    to={{
-      opacity: 1,
-      top: '20px'
-    }}
-    delay={0.5}
-  >
-    <div style={{
-      width: '500px',
-      position: 'absolute',
-      left: '0'
-    }}>
-      <p>
-        The Toolkit system includes the resources needed to create user interfaces consistent with the Vizient’s product principles, design language, and best practices.
-      </p>
-      <br />
-      <p>
-        Rather than focusing on pixels, developers can focus on the application logic, while designers can focus on user experiences, interactions, and flows.
-      </p>
-    </div>
-  </Tween>
+const AnimateText = ({
+  id
+}) => (
+  <AnimationPlayer
+    id={id}
+    target={
+      <div style={{
+        width: '500px',
+        position: 'absolute',
+        left: '0'
+      }}>
+        <p>
+          The Toolkit system includes the resources needed to create user interfaces consistent with the Vizient’s product principles, design language, and best practices.
+        </p>
+        <br />
+        <p>
+          Rather than focusing on pixels, developers can focus on the application logic, while designers can focus on user experiences, interactions, and flows.
+        </p>
+      </div>
+    }
+    animations={[
+      {
+        from: {
+          opacity: 0,
+          top: '5px'
+        },
+        to: {
+          opacity: 1,
+          top: '20px'
+        },
+        delay: .1
+      }
+    ]}
+  />
 )
+
+const CirclePosition = AbsolutePositionWrap({ right: '200px' })
 
 export default ({ id = '__trigger_scene' }) => {
-  const [playAnimation, setPlayAnimation] = useState(false)
-
-  const setAnimation = (elementSelector) => {
-    new ScrollMagic.Scene()
-      .triggerElement(elementSelector)
-      .addTo(controller)
-      .on('start', e => {
-        setPlayAnimation(true)
-      })
-  }
-
-  useEffect(() => {
-    setAnimation(getTriggerId(id))
-  }, [])
-
   return (
-    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '600px' }}>
-      <div id={id}></div>
+    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '100px' }}>
       <div className="title-part">
-        {
-          playAnimation ? <AnimateTitle /> : null
-        }
+        <AnimateTitle id={id + 0}/>
         <div style={{
           position: 'relative'
         }}>
-         {
-           playAnimation ? <AnimateText /> : null
-         }
+         <AnimateText id={id + 1}/>
         </div>
       </div>
+      <CirclePosition>
+        <AnimateCircle id={id + 2} />
+      </CirclePosition>
     </div>
   )
 }
