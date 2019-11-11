@@ -5,6 +5,7 @@ import Banner from 'components/Banner'
 import ComponentSection from 'components/LeftTextRightAnimation'
 import Toolkit from './Toolkit'
 import Grid from './Grid.js'
+import Leverage from './Leverage'
 import VizientImage from '../../../assets/imgs/vizient/Banner.png'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
@@ -98,6 +99,7 @@ export default () => {
         <TheChallenge {...theSolutionData}></TheChallenge>
         <Toolkit />
         <ComponentSection />
+        <Leverage />
         <Grid />
       </div>
     </StyledPage>
