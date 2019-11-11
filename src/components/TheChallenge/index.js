@@ -2,7 +2,7 @@ import React from 'react'
 import { Controller, Scene } from 'react-scrollmagic'
 import { Tween } from 'react-gsap'
 import CommonTitle from 'components/CommonTitle'
-import Img from '../../assets/imgs/in.svg'
+import Lottie from 'react-lottie'
 import './index.sass'
 
 export default ({
@@ -87,7 +87,18 @@ export default ({
                       list.map((item, index) => (
                         <div key={index} className="challenge-item">
                           <div className="icon">
-                            <img src={Img} />
+                            <Lottie
+                              options={{
+                                autoplay: true,
+                                animationData: item.img,
+                                rendererSettings: {
+                                  preserveAspectRatio: 'xMidYMid slice'
+                                }
+                              }}
+                              isPaused={progress <= (0.5 + index / 10)}
+                              height={86}
+                              width={86}
+                            />
                           </div>
                           <div className="name">{item.name}</div>
                           <div className="tezt">{item.text}</div>

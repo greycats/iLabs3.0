@@ -3,7 +3,7 @@ import { Controller, Scene } from 'react-scrollmagic'
 import { Tween } from 'react-gsap'
 import CommonTitle from 'components/CommonTitle'
 import CountUp from 'react-countup'
-import Img from '../../assets/imgs/in.svg'
+import Lottie from 'react-lottie'
 import './index.sass'
 
 export default ({
@@ -94,7 +94,18 @@ export default ({
                           dataList.map((item, index) => (
                             <div key={index} className="data-item">
                               <div className="icon">
-                                <img src={Img} />
+                                <Lottie
+                                  options={{
+                                    autoplay: true,
+                                    animationData: item.img,
+                                    rendererSettings: {
+                                      preserveAspectRatio: 'xMidYMid slice'
+                                    }
+                                  }}
+                                  isPaused={progress <= (0.5 + index / 10)}
+                                  height={86}
+                                  width={86}
+                                />
                               </div>
                               <div className="number">
                                 <CountUp
@@ -102,7 +113,6 @@ export default ({
                                   end={progress >= (0.5 + index / 10) ? item.number : 0}
                                   duration={1}
                                   suffix={item.suffix}
-                                  delay={1000}
                                 >
                                   {({ countUpRef }) => (
                                     <div>
