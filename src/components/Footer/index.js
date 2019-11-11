@@ -18,49 +18,48 @@ export default ({
           reverse={false}
         >
           {(progress) => (
-            <Tween
-              from={{
-                opacity: 0,
-                top: '-50px'
-              }}
-              to={{
-                opacity: 1,
-                top: 0
-              }}
-              totalProgress={progress}
-              paused
-              delay={1}
-            >
-              <div className="layout-1240 footer">
-                <div>
-                  <div className="footer-title">We would love to work with you.</div>
-                  <GoToArrow text="Send message" isWhite={true}></GoToArrow>
-                </div>
-                <div className="footer-list">
+            progress ? (
+              <Tween
+                from={{
+                  opacity: 0,
+                  top: '-50px'
+                }}
+                to={{
+                  opacity: 1,
+                  top: 0
+                }}
+              >
+                <div className="layout-1240 footer">
                   <div>
-                    <div className="list-title">Contact</div>
-                    <ul>
-                      <li>hello@interactivelabs.co</li>
-                      <li>415 869-8842</li>
-                    </ul>
+                    <div className="footer-title">We would love to work with you.</div>
+                    <GoToArrow text="Send message" isWhite={true}></GoToArrow>
                   </div>
-                  <div className="icon-list">
-                    <img src={Img} />
+                  <div className="footer-list">
+                    <div>
+                      <div className="list-title">Contact</div>
+                      <ul>
+                        <li>hello@interactivelabs.co</li>
+                        <li>415 869-8842</li>
+                      </ul>
+                    </div>
+                    <div className="icon-list">
+                      <img src={Img} />
+                    </div>
+                  </div>
+                  <div className="footer-list">
+                    <div>
+                      <div className="list-title">Visit</div>
+                      <ul>
+                        <li>Interactive Labs, Inc</li>
+                        <li>845 Market Street Level 4</li>
+                        <li>San Francisco, CA 94108</li>
+                      </ul>
+                    </div>
+                    <div className="list-title">Copyright © 2019 interactivelabs.co</div>
                   </div>
                 </div>
-                <div className="footer-list">
-                  <div>
-                    <div className="list-title">Visit</div>
-                    <ul>
-                      <li>Interactive Labs, Inc</li>
-                      <li>845 Market Street Level 4</li>
-                      <li>San Francisco, CA 94108</li>
-                    </ul>
-                  </div>
-                  <div className="list-title">Copyright © 2019 interactivelabs.co</div>
-                </div>
-              </div>
-            </Tween>
+              </Tween>
+            ) : <div></div>
           )}
         </Scene>
       </Controller >

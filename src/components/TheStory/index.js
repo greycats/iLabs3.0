@@ -3,7 +3,7 @@ import { Controller, Scene } from 'react-scrollmagic'
 import { Tween } from 'react-gsap'
 import CommonTitle from 'components/CommonTitle'
 import CountUp from 'react-countup'
-import Img from '../../assets/imgs/in.svg'
+import Lottie from 'react-lottie'
 import './index.sass'
 
 export default ({
@@ -23,20 +23,20 @@ export default ({
               reverse={false}
             >
               {(progress) => (
-                <Tween
-                  from={{
-                    height: 0
-                  }}
-                  to={{
-                    height: '50px'
-                  }}
-                  totalProgress={progress}
-                  paused
-                >
-                  <div className="title-wrap">
-                    <CommonTitle title="The Story"></CommonTitle>
-                  </div>
-                </Tween>
+                progress ? (
+                  <Tween
+                    from={{
+                      height: 0
+                    }}
+                    to={{
+                      height: '50px'
+                    }}
+                  >
+                    <div className="title-wrap">
+                      <CommonTitle title="The Story"></CommonTitle>
+                    </div>
+                  </Tween>
+                ) : <div></div>
               )}
             </Scene>
           </Controller>
@@ -50,21 +50,24 @@ export default ({
             >
               {(progress) => (
                 <div className="text">
-                  <Tween
-                    staggerFrom={{
-                      opacity: 0
-                    }}
-                    staggerTo={{
-                      opacity: 1
-                    }}
-                    stagger={0.15}
-                    totalProgress={progress}
-                    paused
-                  >
-                    {
-                      story.map((item, index) => <p key={index}>{item}</p>)
-                    }
-                  </Tween>
+                  {
+                    progress ? (
+                      <Tween
+                        staggerFrom={{
+                          opacity: 0
+                        }}
+                        staggerTo={{
+                          opacity: 1
+                        }}
+                        stagger={0.15}
+                        delay={.2}
+                      >
+                        {
+                          story.map((item, index) => <p key={index}>{item}</p>)
+                        }
+                      </Tween>
+                    ) : null
+                  }
                 </div>
               )}
             </Scene>
@@ -75,44 +78,56 @@ export default ({
             >
               {(progress) => (
                 <div className="data-wrap">
-                  <Tween
-                    staggerFrom={{
-                      opacity: 0
-                    }}
-                    staggerTo={{
-                      opacity: 1
-                    }}
-                    stagger={0.15}
-                    totalProgress={progress}
-                    paused
-                    offset={200}
-                  >
-                    {
-                      dataList.map((item, index) => (
-                        <div key={index} className="data-item">
-                          <div className="icon">
-                            <img src={Img} />
-                          </div>
-                          <div className="number">
-                            <CountUp
-                              start={0}
-                              end={progress >= (0.5 + index / 10) ? item.number : 0}
-                              duration={1}
-                              suffix={item.suffix}
-                              delay={1000}
-                            >
-                              {({ countUpRef }) => (
-                                <div>
-                                  <span ref={countUpRef} />
-                                </div>
-                              )}
-                            </CountUp>
-                            <p>{item.name}</p>
-                          </div>
-                        </div>
-                      ))
-                    }
-                  </Tween>
+                  {
+                    progress ? (
+                      <Tween
+                        staggerFrom={{
+                          opacity: 0
+                        }}
+                        staggerTo={{
+                          opacity: 1
+                        }}
+                        stagger={0.15}
+                        delay={.4}
+                      >
+                        {
+                          dataList.map((item, index) => (
+                            <div key={index} className="data-item">
+                              <div className="icon">
+                                <Lottie
+                                  options={{
+                                    autoplay: true,
+                                    animationData: item.img,
+                                    rendererSettings: {
+                                      preserveAspectRatio: 'xMidYMid slice'
+                                    }
+                                  }}
+                                  isPaused={progress <= (0.5 + index / 10)}
+                                  height={86}
+                                  width={86}
+                                />
+                              </div>
+                              <div className="number">
+                                <CountUp
+                                  start={0}
+                                  end={progress >= (0.5 + index / 10) ? item.number : 0}
+                                  duration={1}
+                                  suffix={item.suffix}
+                                >
+                                  {({ countUpRef }) => (
+                                    <div>
+                                      <span ref={countUpRef} />
+                                    </div>
+                                  )}
+                                </CountUp>
+                                <p>{item.name}</p>
+                              </div>
+                            </div>
+                          ))
+                        }
+                      </Tween>
+                    ) : null
+                  }
                 </div>
               )}
             </Scene>

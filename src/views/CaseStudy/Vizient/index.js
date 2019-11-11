@@ -20,16 +20,19 @@ export default () => {
     dataList: [
       {
         number: 5,
-        name: 'Products'
+        name: 'Products',
+        img: require('assets/imgs/vizient/The-story/Product.json')
       },
       {
         number: 10,
-        name: 'Team members'
+        name: 'Team members',
+        img: require('assets/imgs/vizient/The-story/Teammember.json')
       },
       {
         number: 250,
         suffix: '+',
-        name: 'App Screens'
+        name: 'App Screens',
+        img: require('assets/imgs/vizient/The-story/AppscreenIcon.json')
       }
     ]
   }
@@ -40,15 +43,18 @@ export default () => {
     list: [
       {
         name: 'Many Products',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-challenge/Many products.json')
       },
       {
         name: 'Inconsistency Interface',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-challenge/Inconsistency Interface.json')
       },
       {
         name: 'Missing Interactions',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-challenge/Mising Interactions.json')
       },
     ]
   }
@@ -60,15 +66,18 @@ export default () => {
     list: [
       {
         name: 'UI Toolkit',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-solution/UI Toolkit.json')
       },
       {
         name: 'Clear Documentation',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-solution/Clear Document.json')
       },
       {
         name: 'Design Language',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.'
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-solution/Designlanguage.json')
       },
     ]
   }
