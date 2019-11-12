@@ -120,9 +120,9 @@ export default () => {
         />
         <Toolkit />
 
-        <TextAnimationSection />
+        <TextAnimationSection textToTop='230px'/>
 
-        <AnimationTextSection />
+        <AnimationTextSection textToTop='100px'/>
 
         <TextAnimationSection
           title='Color'

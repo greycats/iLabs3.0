@@ -35,7 +35,8 @@ const AnimateTitle = ({
 
 const AnimateText = ({
   id = hashCode(),
-  textTarget
+  textTarget,
+  textToTop
 }) => (
     <AnimationPlayer
       id={id}
@@ -48,7 +49,7 @@ const AnimateText = ({
           },
           to: {
             opacity: 1,
-            top: '150px'
+            top: textToTop
           },
           delay: .1
         }
@@ -71,7 +72,8 @@ export default ({
     Soleto is a fresh, modern sans serif font family. Optimised for text environments it performs well at large sizes and its seven weights range evenly from Thin through to Black in both upright and italic.
     </p>
   </div>,
-  animateIcon = AnimateIcon
+  animateIcon = AnimateIcon,
+  textToTop = '190px'
 }) => {
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
@@ -99,7 +101,7 @@ export default ({
         <div className="title-part">
           <AnimateTitle id={id + '0'} title={title} />
         </div>
-        <AnimateText id={id + '1'} textTarget={textTarget} />
+        <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop}/>
       </TitlePosition>
     </div>
   )

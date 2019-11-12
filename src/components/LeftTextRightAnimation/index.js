@@ -35,7 +35,8 @@ const AnimateTitle = ({
 
 const AnimateText = ({
   id = hashCode(),
-  textTarget
+  textTarget,
+  textToTop
 }) => (
     <AnimationPlayer
       id={id}
@@ -48,7 +49,7 @@ const AnimateText = ({
           },
           to: {
             opacity: 1,
-            top: '190px'
+            top: textToTop
           },
           delay: .1
         }
@@ -75,14 +76,15 @@ export default ({
       Rather than focusing on pixels, developers can focus on the application logic, while designers can focus on user experiences, interactions, and flows.
     </p>
   </div>,
-  animateIcon = AnimateIcon
+  animateIcon = AnimateIcon,
+  textToTop = '190px'
 }) => {
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
       <div className="title-part">
         <AnimateTitle id={id + '0'} title={title} />
       </div>
-      <AnimateText id={id + '1'} textTarget={textTarget} />
+      <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop}/>
       <div style={{
         position: 'relative'
       }}>
