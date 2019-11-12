@@ -1,8 +1,7 @@
 import React from 'react'
 import TheStory from 'components/TheStory'
-import TheChallenge from 'components/TheChallenge'
 import Banner from 'components/Banner'
-import ComponentSection from 'components/LeftTextRightAnimation'
+import TextSection from 'components/LeftTextRightAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import Toolkit from './Toolkit'
 import Grid from './Grid.js'
@@ -117,7 +116,20 @@ export default () => {
           }
         />
         <Toolkit />
-        <ComponentSection />
+        <TextSection />
+        <TextSection
+          title='Color'
+          animateIcon={require('assets/imgs/vizient/Color')}
+          textTarget={<div style={{
+            width: '500px',
+            position: 'absolute',
+            left: '0'
+          }}>
+            <p>
+             We worked closely with Vizient’s Marketing team to ensure their brand guidelines extended to the Toolkit library. The color system uses an organized approach to applying color to Vizient UI. In this system, a primary and a secondary color are typically selected to represent Vizient brand. Dark and light variants of each color can then be applied to the UI in different ways.
+            </p>
+          </div>}
+        />
         <Leverage />
         <Grid />
       </div>

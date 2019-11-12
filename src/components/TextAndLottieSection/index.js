@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
+import AnimationPlayer, { LottieAnimation, animations } from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
 
 const lottieDuration = .8

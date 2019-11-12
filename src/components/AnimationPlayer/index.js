@@ -7,7 +7,6 @@ import { hashCode } from 'utils'
 
 import useAnimationPlay from 'hooks/useAnimationPlay'
 
-
 export const Animations = ({
   target = null,
   animations = []

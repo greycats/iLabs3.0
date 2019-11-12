@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import CommonTitle from 'components/CommonTitle'
-import ComponentsImage from 'assets/imgs/vizient/components.png'
-import AnimateIcon from '../../assets/imgs/vizient/Typeface'
+import AnimateIcon from '../../assets/imgs/vizient/Components'
 import { SectionTitleWrap, AbsolutePositionWrap } from 'components/Styled'
 
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
+import { hashCode } from 'utils'
+
 const AnimateTitle = ({
-  id
+  id = hashCode(),
+  title,
 }) => (
     <AnimationPlayer
       id={id}
       target={
         <SectionTitleWrap>
           <div className="title-wrap">
-            <CommonTitle title='Vizient Components for the Web' titleMargin='50px' />
+            <CommonTitle title={title} titleMargin='50px' />
           </div>
         </SectionTitleWrap>
       }
@@ -32,25 +34,12 @@ const AnimateTitle = ({
   )
 
 const AnimateText = ({
-  id
+  id = hashCode(),
+  textTarget
 }) => (
     <AnimationPlayer
       id={id}
-      target={
-        <div style={{
-          width: '500px',
-          position: 'absolute',
-          left: '0'
-        }}>
-          <p>
-            The Toolkit system includes the resources needed to create user interfaces consistent with the Vizient’s product principles, design language, and best practices.
-        </p>
-          <br />
-          <p>
-            Rather than focusing on pixels, developers can focus on the application logic, while designers can focus on user experiences, interactions, and flows.
-        </p>
-        </div>
-      }
+      target={textTarget}
       animations={[
         {
           from: {
@@ -67,29 +56,34 @@ const AnimateText = ({
     />
   )
 
-const AnimateImage = ({ id }) => {
-  return (
-    <div style={{
-      height: '40vw',
-      width: '45vw',
-      backgroundImage: `URL(${ComponentsImage})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '100%'
-    }}></div>
-  )
-}
-
 const LottiePosition = AbsolutePositionWrap({ right: '-200px', top: '-200px' })
 
-export default ({ id = '__trigger_scene' }) => {
+export default ({
+  id = hashCode(),
+  title = 'Vizient Components for the Web',
+  textTarget = <div style={{
+    width: '500px',
+    position: 'absolute',
+    left: '0'
+  }}>
+    <p>
+      The Toolkit system includes the resources needed to create user interfaces consistent with the Vizient’s product principles, design language, and best practices.
+    </p>
+    <br />
+    <p>
+      Rather than focusing on pixels, developers can focus on the application logic, while designers can focus on user experiences, interactions, and flows.
+    </p>
+  </div>,
+  animateIcon = AnimateIcon
+}) => {
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
       <div className="title-part">
-        <AnimateTitle id={id + 0} />
+        <AnimateTitle id={id + '0'} title={title}/>
         <div style={{
           position: 'relative'
         }}>
-          <AnimateText id={id + 1} />
+          <AnimateText id={id + '1'} textTarget={textTarget}/>
           <LottiePosition>
             <LottieAnimation
               triggerRelativePosition={{
@@ -97,7 +91,7 @@ export default ({ id = '__trigger_scene' }) => {
               }}
               options={{
                 autoplay: true,
-                animationData: AnimateIcon,
+                animationData: animateIcon,
                 rendererSettings: {
                   preserveAspectRatio: 'xMidYMid slice'
                 }
