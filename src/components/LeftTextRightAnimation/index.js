@@ -92,6 +92,9 @@ export default ({ id = '__trigger_scene' }) => {
           <AnimateText id={id + 1} />
           <LottiePosition>
             <LottieAnimation
+              triggerRelativePosition={{
+                top: '100px'
+              }}
               options={{
                 autoplay: true,
                 animationData: AnimateIcon,
