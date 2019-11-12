@@ -3,7 +3,7 @@ import TheStory from 'components/TheStory'
 import TheChallenge from 'components/TheChallenge'
 import Banner from 'components/Banner'
 import ComponentSection from 'components/LeftTextRightAnimation'
-import Challenge from 'components/Challenge'
+import TextAndLottieSection from 'components/TextAndLottieSection'
 import Toolkit from './Toolkit'
 import Grid from './Grid.js'
 import Leverage from './Leverage'
@@ -94,8 +94,28 @@ export default () => {
           </Banner>
         </StyledSection>
         <TheStory {...theStoryData}></TheStory>
-        <Challenge/>
-        <TheChallenge {...theSolutionData}></TheChallenge>
+        <TextAndLottieSection
+          title={theChallengeData.title}
+          intro={
+            theChallengeData.intro
+          }
+          list={
+            theChallengeData.list
+          }
+          style={{
+            background: `url(${ChallengeImg})`,
+            backgroundSize: 'contain'
+          }}
+        />
+        <TextAndLottieSection
+          title={theSolutionData.title}
+          intro={
+            theSolutionData.intro
+          }
+          list={
+            theSolutionData.list
+          }
+        />
         <Toolkit />
         <ComponentSection />
         <Leverage />
