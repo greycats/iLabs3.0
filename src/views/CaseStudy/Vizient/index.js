@@ -13,6 +13,8 @@ import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
 
 import BannerContent from './BannerContent'
 
+import 'components/TheChallenge/index.sass'
+
 export default () => {
   const theStoryData = {
     story: [
