@@ -47,7 +47,8 @@ export const LottieAnimation = ({
     right: 'unset',
     bottom: 'unset',
     left: 'unset'
-  }
+  },
+  loop = false
 }) => {
   const playAnimation = useAnimationPlay(id, delay, onStart)
 
@@ -60,7 +61,7 @@ export const LottieAnimation = ({
       {
         playAnimation
           ? <Lottie
-            options={options}
+            options={{loop, ...options}}
             height={width}
             width={height}
           />

@@ -1,7 +1,8 @@
 import React from 'react'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
-import TextSection from 'components/LeftTextRightAnimation'
+import TextAnimationSection from 'components/LeftTextRightAnimation'
+import AnimationTextSection from 'components/LeftAnimationRightText'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import Toolkit from './Toolkit'
 import Grid from './Grid.js'
@@ -118,8 +119,12 @@ export default () => {
           }
         />
         <Toolkit />
-        <TextSection />
-        <TextSection
+
+        <TextAnimationSection />
+
+        <AnimationTextSection />
+
+        <TextAnimationSection
           title='Color'
           animateIcon={require('assets/imgs/vizient/Color')}
           textTarget={<div style={{
