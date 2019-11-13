@@ -81,7 +81,7 @@ export default ({
   SubComponent = null
 }) => {
   return (
-    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
+    <div className="layout-1240 panel" style={{ minHeight: '750px', position: 'relative' }}>
       <div className="title-part">
         <AnimateTitle id={id + '0'} title={title} />
       </div>

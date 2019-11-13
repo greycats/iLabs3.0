@@ -66,7 +66,7 @@ export default ({
     left: '0'
   }}>
     <p>
-    Soleto is a fresh, modern sans serif font family. Optimised for text environments it performs well at large sizes and its seven weights range evenly from Thin through to Black in both upright and italic.
+      Soleto is a fresh, modern sans serif font family. Optimised for text environments it performs well at large sizes and its seven weights range evenly from Thin through to Black in both upright and italic.
     </p>
   </div>,
   animateIcon = AnimateIcon,
@@ -80,7 +80,7 @@ export default ({
   const LottiePosition = AbsolutePositionWrap({ left: '-200px', top: '-200px' })
 
   return (
-    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
+    <div className="layout-1240 panel" style={{ minHeight: '750px', position: 'relative' }}>
       <div style={{
         position: 'relative'
       }}>

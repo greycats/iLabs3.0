@@ -12,7 +12,6 @@ const StyledContainer = styled.div`
 
   .title-tip {
     width: 230px;
-    margin-top: 4vh;
     font-size: 16px;
     color: #fff;
   }
@@ -27,7 +26,9 @@ const ServiceList = () => {
   ]
 
   const StyledList = styled.div`
-    margin-top: 6vh;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
     color: #2c2c2c;
 
     .service-title {
@@ -50,13 +51,25 @@ const ServiceList = () => {
   )
 }
 
+const ImagePosition = styled.div`
+  position: absolute;
+  right: 16%;
+  top: 5%;
+  width: 38%;
+`
+
+const TitlePosition = styled.div`
+  position: absolute;
+  left: 7%;
+  top: 5%;
+  height: 100%
+`
+
 export default () => {
-  const ImagePosition = AbsolutePositionWrap({ right: '15vw' })
-  const TitlePosition = AbsolutePositionWrap({ top: '30%', left: '7%' })
 
   const Mac =
     <ImagePosition>
-      <img src={MacImage} alt="" style={{ width: '25vw' }} />
+      <img src={MacImage} alt=""  style={{ width: '100%' }} />
     </ImagePosition>
 
   return (
@@ -76,11 +89,11 @@ export default () => {
         repeat={-1}
       >
         <Tween
-          from={{ top: '13vh' }} to={{ top: '14vh' }}
+          from={{ top: '13%' }} to={{ top: '14%' }}
           duration={0.7}
         ></Tween>
         <Tween
-          from={{ top: '14vh' }} to={{ top: '13vh' }}
+          from={{ top: '14%' }} to={{ top: '13%' }}
           duration={0.7}
         ></Tween>
       </Timeline>
