@@ -9,11 +9,12 @@ export default ({
   from = { opacity: 0 },
   to = { opacity: 1 },
   duration = 500
-}) => (
+}, index) => (
     <Scene
       triggerElement={'#' + controllerId}
       duration={duration}
       reverse={false}
+      key={index}
     >
       {(progress) => (
         progress ? (

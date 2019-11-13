@@ -6,7 +6,8 @@ import ComponentSection from 'components/LeftTextRightAnimation'
 import Toolkit from './Toolkit'
 import Grid from './Grid.js'
 import Leverage from './Leverage'
-import VizientImage from '../../../assets/imgs/vizient/Banner.png'
+import AvatarComments from 'components/AvatarComments'
+import VizientImage from 'assets/imgs/vizient/Banner.png'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
 import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
@@ -84,6 +85,39 @@ export default () => {
     ]
   }
 
+  const commentList = [
+    {
+      img: require('assets/imgs/vizient/AVATAR01.png'),
+      name: 'Beth Roed1',
+      intro: 'Business Development Director, Cision',
+      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+    },
+    {
+      img: require('assets/imgs/vizient/AVATAR02.png'),
+      name: 'Beth Roed2',
+      intro: 'Business Development Director, Cision',
+      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+    },
+    {
+      img: require('assets/imgs/vizient/AVATAR03.png'),
+      name: 'Beth Roed3',
+      intro: 'Business Development Director, Cision',
+      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+    },
+    {
+      img: require('assets/imgs/vizient/AVATAR04.png'),
+      name: 'Beth Roed4',
+      intro: 'Business Development Director, Cision',
+      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+    },
+    {
+      img: require('assets/imgs/vizient/AVATAR05.png'),
+      name: 'Beth Roed5',
+      intro: 'Business Development Director, Cision',
+      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+    }
+  ]
+
   return (
     <StyledPage>
       <div>
@@ -101,6 +135,7 @@ export default () => {
         <ComponentSection />
         <Leverage />
         <Grid />
+        <AvatarComments dataList={commentList} />
       </div>
     </StyledPage>
   )

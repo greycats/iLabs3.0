@@ -5,9 +5,9 @@ import AnimateItem from './index'
 export default ({ animateList, controllerId }) => (
   <Controller>
     {
-      animateList.map(item => {
+      animateList.map((item, index) => {
         item.controllerId = item.controllerId || controllerId
-        return AnimateItem(item)
+        return AnimateItem(item, index)
       })
     }
   </Controller>

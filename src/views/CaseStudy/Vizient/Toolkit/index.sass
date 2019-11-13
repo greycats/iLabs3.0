@@ -1,9 +1,10 @@
+@import 'assets/styles/variable.sass'
+
 .toolkit-wrap
   width: 100%
   overflow: hidden
   position: relative
-  display: flex
-  justify-content: center
+  @include flex-box($JC: center)
   min-height: 680px
   .toolkit
     width: 60%

@@ -1,0 +1,51 @@
+@import 'assets/styles/variable.sass'
+
+.avatar-comments
+  width: 960px
+  margin: 0 auto
+  @include flex-box($JC: space-between)
+  .avatar-wrap
+    width: 407px
+    height: 400px
+    position: relative
+    .avatar-item
+      position: absolute
+      cursor: pointer
+      .orange-icon
+        width: 0
+        height: 0
+        opacity: 0
+        position: absolute
+        top: -22px
+        left: -30px
+        transition: all .8s
+      .avatar
+        opacity: .5
+        transition: all .8s
+      &.active
+        .avatar
+          opacity: 1
+        .orange-icon
+          opacity: 1
+          width: 60px
+          height: 44px
+  .comments-wrap
+    width: 390px
+    padding-top: 50px
+    .name
+      font-size: 26px
+      line-height: 28px
+      font-family: 'GoogleSans-Medium'
+      color: $title-color
+      margin-bottom: 10px
+      position: relative
+    .intro
+      font-size: 16px
+      line-height: 16px
+      color: $title-color
+      margin-bottom: 28px
+      position: relative
+    .comment
+      font-family: 'GoogleSans-Regular'
+      line-height: 28px
+      position: relative
