@@ -52,7 +52,7 @@ const ServiceList = () => {
 
 export default () => {
   const ImagePosition = AbsolutePositionWrap({ right: '15vw' })
-  const TitlePosition = AbsolutePositionWrap({ top: '25%', left: '7%' })
+  const TitlePosition = AbsolutePositionWrap({ top: '30%', left: '7%' })
 
   const Mac =
     <ImagePosition>

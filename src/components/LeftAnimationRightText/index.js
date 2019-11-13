@@ -57,9 +57,6 @@ const AnimateText = ({
     />
   )
 
-const TitlePosition = AbsolutePositionWrap({ right: '200px', top: '10px' })
-const LottiePosition = AbsolutePositionWrap({ left: '-200px', top: '-200px' })
-
 export default ({
   id = hashCode(),
   title = 'Typeface',
@@ -73,8 +70,14 @@ export default ({
     </p>
   </div>,
   animateIcon = AnimateIcon,
-  textToTop = '190px'
+  textToTop = '190px',
+  titlePosition = {
+    right: '200px', top: '10px'
+  }
 }) => {
+  const TitlePosition = AbsolutePositionWrap({ right: titlePosition.right, top: titlePosition.top })
+  const LottiePosition = AbsolutePositionWrap({ left: '-200px', top: '-200px' })
+
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
       <div style={{

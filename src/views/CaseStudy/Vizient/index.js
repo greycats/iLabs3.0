@@ -9,6 +9,7 @@ import Grid from './Grid.js'
 import Leverage from './Leverage'
 import AvatarComments from 'components/AvatarComments'
 import VizientImage from 'assets/imgs/vizient/Banner.png'
+import BaseOn from 'assets/imgs/vizient/BaseOn'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
 import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
@@ -155,6 +156,28 @@ export default () => {
         <Toolkit />
 
         <TextAnimationSection textToTop='230px' />
+
+        <AnimationTextSection
+          title='Based on material design'
+          titlePosition={
+            {
+              right: '100px', top: '10px'
+            }
+          }
+          textTarget={
+            <div style={{
+            width: '500px',
+            position: 'absolute',
+            left: '0px'
+          }}>
+            <p>
+              Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.
+            </p>
+          </div>
+          }
+          animateIcon={BaseOn}
+        />
+
         <Leverage />
 
         <AnimationTextSection textToTop='100px' />
