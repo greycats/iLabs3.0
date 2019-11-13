@@ -11,6 +11,7 @@ import AvatarComments from 'components/AvatarComments'
 import VizientImage from 'assets/imgs/vizient/Banner.png'
 import BaseOn from 'assets/imgs/vizient/BaseOn'
 import ColorCircle from 'assets/imgs/vizient/ColorCircle'
+import TypefaceText from 'assets/imgs/vizient/TypefaceText'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
 import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
@@ -188,7 +189,7 @@ export default () => {
           textToTop='100px'
           SubComponent={
             () => {
-              const TypePosition = AbsolutePositionWrap({ top: '250px' })
+              const TypePosition = AbsolutePositionWrap({ top: '180px', left: '-30px' })
               return (
                 <TypePosition>
                   <LottieAnimation
@@ -197,11 +198,11 @@ export default () => {
                         top: '-200px'
                       }
                     }
-                    width='100%'
-                    height='100%'
+                    width='200%'
+                    height='200%'
                     options={{
                       autoplay: true,
-                      animationData: ColorCircle,
+                      animationData: TypefaceText,
                       rendererSettings: {
                         preserveAspectRatio: 'xMidYMid slice'
                       }
