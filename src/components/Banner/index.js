@@ -1,19 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// const Container = ({image}) => styled.div`
-//   background-image: url('${image}');
-//   background-repeat: no-repeat;
-//   background-size: contain;
-// `
-
-// export default ({ image, children }) => {
-//   const ContainerWithImage = Container({ image })
-//   return <ContainerWithImage>
-//     {children}
-//   </ContainerWithImage>
-// }
-
 const Container = styled.div`
   position: relative;
 `

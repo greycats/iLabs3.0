@@ -66,8 +66,6 @@ const TitlePosition = styled.div`
 `
 
 export default () => {
-  // const ImagePosition = AbsolutePositionWrap({ right: '16%', width: '36%' })
-  // const TitlePosition = AbsolutePositionWrap({ top: '10%', left: '7%' })
 
   const Mac =
     <ImagePosition>
