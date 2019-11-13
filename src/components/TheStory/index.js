@@ -12,8 +12,9 @@ export default ({
   controllerId = 'the-story-trigger'
 }) => {
   return (
-    <div>
+    <div style={{position: 'relative'}}>
       <div id={controllerId} />
+      <div id="icon-trigger" style={{position: 'absolute', top: '200px'}} />
       <div className="layout-1240 panel story-wrap">
         <div className="left-part">
           <Controller>
@@ -72,7 +73,7 @@ export default ({
               )}
             </Scene>
             <Scene
-              triggerElement={'#' + controllerId}
+              triggerElement="icon-trigger"
               duration={500}
               reverse={false}
             >
@@ -102,7 +103,7 @@ export default ({
                                       preserveAspectRatio: 'xMidYMid slice'
                                     }
                                   }}
-                                  isPaused={progress <= (0.5 + index / 10)}
+                                  isPaused={progress <= (0.8 + index / 20)}
                                   height={86}
                                   width={86}
                                 />
@@ -110,7 +111,7 @@ export default ({
                               <div className="number">
                                 <CountUp
                                   start={0}
-                                  end={progress >= (0.5 + index / 10) ? item.number : 0}
+                                  end={progress >= (0.8 + index / 20) ? item.number : 0}
                                   duration={1}
                                   suffix={item.suffix}
                                 >
