@@ -17,4 +17,5 @@ export const StyledSectionWitheTitle = styled.h1`
   color: white;
   font-size: 64px;
   font-weight: bold;
+  line-height: 130px;
 `
