@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CommonTitle from 'components/CommonTitle'
-import AnimateIcon from '../../assets/imgs/vizient/Components'
+import AnimateIcon from '../../assets/imgs/vizient/Typeface'
 import { SectionTitleWrap, AbsolutePositionWrap } from 'components/Styled'
 
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
@@ -57,23 +57,19 @@ const AnimateText = ({
     />
   )
 
-const LottiePosition = AbsolutePositionWrap({ right: '-200px', top: '-200px' })
+const TitlePosition = AbsolutePositionWrap({ right: '200px', top: '10px' })
+const LottiePosition = AbsolutePositionWrap({ left: '-200px', top: '-200px' })
 
 export default ({
   id = hashCode(),
-  title = 'Vizient Components for the Web',
+  title = 'Typeface',
   textTarget = <div style={{
     width: '500px',
     position: 'absolute',
-    left: '0',
-    top: '150px'
+    left: '0'
   }}>
     <p>
-      The Toolkit system includes the resources needed to create user interfaces consistent with the Vizient’s product principles, design language, and best practices.
-    </p>
-    <br />
-    <p>
-      Rather than focusing on pixels, developers can focus on the application logic, while designers can focus on user experiences, interactions, and flows.
+    Soleto is a fresh, modern sans serif font family. Optimised for text environments it performs well at large sizes and its seven weights range evenly from Thin through to Black in both upright and italic.
     </p>
   </div>,
   animateIcon = AnimateIcon,
@@ -81,10 +77,6 @@ export default ({
 }) => {
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
-      <div className="title-part">
-        <AnimateTitle id={id + '0'} title={title} />
-      </div>
-      <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop}/>
       <div style={{
         position: 'relative'
       }}>
@@ -105,6 +97,12 @@ export default ({
           />
         </LottiePosition>
       </div>
+      <TitlePosition>
+        <div className="title-part">
+          <AnimateTitle id={id + '0'} title={title} />
+        </div>
+        <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop}/>
+      </TitlePosition>
     </div>
   )
 }

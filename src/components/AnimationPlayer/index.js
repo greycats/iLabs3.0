@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import _ from 'lodash'
-import { Tween, Timeline } from 'react-gsap'
-
 import Lottie from 'react-lottie'
-import ScrollMagic from 'scrollmagic'
+import { Tween, Timeline } from 'react-gsap'
+import _ from 'lodash'
 
-import { getTriggerId } from 'utils'
+import { hashCode } from 'utils'
+
+import useAnimationPlay from 'hooks/useAnimationPlay'
 
 export const Animations = ({
   target = null,
@@ -36,41 +36,32 @@ export const Animations = ({
 }
 
 export const LottieAnimation = ({
-  id = `__animate_${_.random() * _.random()}`,
+  id = hashCode('randmom_lottie_'),
   options = {},
   width = 100,
   height = 100,
-  onStart = _.noop
+  delay = 0,
+  onStart = _.noop,
+  triggerRelativePosition = {
+    top: 'unset',
+    right: 'unset',
+    bottom: 'unset',
+    left: 'unset'
+  },
+  loop = false
 }) => {
-  const [playAnimation, setPlayAnimation] = useState(false)
-  const controller = new ScrollMagic.Controller()
-
-  const setAnimation = (elementSelector) => {
-    try {
-      new ScrollMagic.Scene()
-        .triggerElement(elementSelector)
-        .addTo(controller)
-        .on('start', () => {
-          setPlayAnimation(true)
-          onStart()
-        })
-    } catch (error) {
-
-    }
-  }
-
-  useEffect(() => {
-    setAnimation(getTriggerId(id))
-  }, [])
-
+  const playAnimation = useAnimationPlay(id, delay, onStart)
 
   return (
     <Fragment>
-      <div id={id} />
+      <div id={id} style={{
+        position: 'relative',
+        ...triggerRelativePosition
+      }}/>
       {
         playAnimation
           ? <Lottie
-            options={options}
+            options={{loop, ...options}}
             height={width}
             width={height}
           />
@@ -80,36 +71,63 @@ export const LottieAnimation = ({
   )
 }
 
-export default ({
-  id = `__animate_${_.random() * _.random()}`,
+export const multiAnimationPlayer = ({
+  id = hashCode('randmom_multi_'),
   target = null,
-  animations = [],
-  onStart = _.noop
+  mulitAnimations = [],
+  onStart = _.noop,
+  triggerRelativePosition = {
+    top: 'unset',
+    right: 'unset',
+    bottom: 'unset',
+    left: 'unset'
+  },
+  delay = 0
 }) => {
-  const [playAnimation, setPlayAnimation] = useState(false)
-  const controller = new ScrollMagic.Controller()
-
-  const setAnimation = (elementSelector) => {
-    try {
-      new ScrollMagic.Scene()
-        .triggerElement(elementSelector)
-        .addTo(controller)
-        .on('start', () => {
-          setPlayAnimation(true)
-          onStart()
-        })
-    } catch (error) {
-
-    }
-  }
-
-  useEffect(() => {
-    setAnimation(getTriggerId(id))
-  }, [])
+  const playAnimation = useAnimationPlay(id, delay, onStart)
 
   return (
     <Fragment>
-      <div id={id}> </div>
+      <div id={id} style={{
+        position: 'relative',
+        ...triggerRelativePosition
+      }}/>
+      {
+        playAnimation
+          ? mulitAnimations.map((animations, index) => {
+              return (
+                <Fragment key={index}>
+                  <Animations target={target} animations={animations} />
+                </Fragment>
+              )
+            })
+          : null
+      }
+    </Fragment>
+  )
+}
+
+export default ({
+  id = hashCode('randmom_common_anim_'),
+  target = null,
+  animations = [],
+  onStart = _.noop,
+  triggerRelativePosition = {
+    top: 'unset',
+    right: 'unset',
+    bottom: 'unset',
+    left: 'unset'
+  },
+  delay = 0
+}) => {
+  const playAnimation = useAnimationPlay(id, delay, onStart)
+
+  return (
+    <Fragment>
+      <div id={id} style={{
+        position: 'relative',
+        ...triggerRelativePosition
+      }}/>
       {
         playAnimation
           ? <Animations target={target} animations={animations} />
