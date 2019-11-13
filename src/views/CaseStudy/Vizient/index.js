@@ -10,13 +10,17 @@ import Leverage from './Leverage'
 import AvatarComments from 'components/AvatarComments'
 import VizientImage from 'assets/imgs/vizient/Banner.png'
 import BaseOn from 'assets/imgs/vizient/BaseOn'
+import ColorCircle from 'assets/imgs/vizient/ColorCircle'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
 import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
 
 import BannerContent from './BannerContent'
+import { AbsolutePositionWrap } from 'components/Styled'
 
 import 'components/TheChallenge/index.sass'
+
+import { LottieAnimation } from 'components/AnimationPlayer'
 
 export default () => {
   const theStoryData = {
@@ -166,14 +170,14 @@ export default () => {
           }
           textTarget={
             <div style={{
-            width: '500px',
-            position: 'absolute',
-            left: '0px'
-          }}>
-            <p>
-              Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.
+              width: '500px',
+              position: 'absolute',
+              left: '0px'
+            }}>
+              <p>
+                Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.
             </p>
-          </div>
+            </div>
           }
           animateIcon={BaseOn}
         />
@@ -194,6 +198,28 @@ export default () => {
               We worked closely with Vizient’s Marketing team to ensure their brand guidelines extended to the Toolkit library. The color system uses an organized approach to applying color to Vizient UI. In this system, a primary and a secondary color are typically selected to represent Vizient brand. Dark and light variants of each color can then be applied to the UI in different ways.
             </p>
           </div>}
+          SubComponent={() => {
+            const CirclePosition = AbsolutePositionWrap({ left: '-25px', top: '350px' })
+            return (
+              <CirclePosition>
+                <LottieAnimation
+                  triggerRelativePosition={
+                    {
+                      top: '-200px'
+                    }
+                  }
+                  width='100%'
+                  height='100%'
+                  options={{
+                    autoplay: true,
+                    animationData: ColorCircle,
+                    rendererSettings: {
+                      preserveAspectRatio: 'xMidYMid slice'
+                    }
+                  }} />
+              </CirclePosition>
+            )
+          }}
         />
         <Grid />
         <AvatarComments dataList={commentList} />

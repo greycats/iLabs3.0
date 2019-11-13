@@ -62,8 +62,8 @@ export const LottieAnimation = ({
         playAnimation
           ? <Lottie
             options={{loop, ...options}}
-            height={width}
-            width={height}
+            height={height}
+            width={width}
           />
           : null
       }

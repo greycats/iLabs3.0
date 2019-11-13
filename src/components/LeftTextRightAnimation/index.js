@@ -77,7 +77,8 @@ export default ({
     </p>
   </div>,
   animateIcon = AnimateIcon,
-  textToTop = '190px'
+  textToTop = '190px',
+  SubComponent = null
 }) => {
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '800px', position: 'relative', marginTop: '150px' }}>
@@ -85,6 +86,9 @@ export default ({
         <AnimateTitle id={id + '0'} title={title} />
       </div>
       <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop}/>
+      {
+        SubComponent ?  <SubComponent/> : null
+      }
       <div style={{
         position: 'relative'
       }}>
