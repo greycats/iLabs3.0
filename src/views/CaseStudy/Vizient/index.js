@@ -154,9 +154,10 @@ export default () => {
         />
         <Toolkit />
 
-        <TextAnimationSection textToTop='230px'/>
+        <TextAnimationSection textToTop='230px' />
+        <Leverage />
 
-        <AnimationTextSection textToTop='100px'/>
+        <AnimationTextSection textToTop='100px' />
 
         <TextAnimationSection
           title='Color'
@@ -167,11 +168,10 @@ export default () => {
             left: '0'
           }}>
             <p>
-             We worked closely with Vizient’s Marketing team to ensure their brand guidelines extended to the Toolkit library. The color system uses an organized approach to applying color to Vizient UI. In this system, a primary and a secondary color are typically selected to represent Vizient brand. Dark and light variants of each color can then be applied to the UI in different ways.
+              We worked closely with Vizient’s Marketing team to ensure their brand guidelines extended to the Toolkit library. The color system uses an organized approach to applying color to Vizient UI. In this system, a primary and a secondary color are typically selected to represent Vizient brand. Dark and light variants of each color can then be applied to the UI in different ways.
             </p>
           </div>}
         />
-        <Leverage />
         <Grid />
         <AvatarComments dataList={commentList} />
       </div>

@@ -35,13 +35,13 @@ export default () => {
       content: <div className="line-1"></div>,
       from: { width: 0 },
       to: { width: '1920px' },
-      delay: .5,
-      duration: 1000
+      delay: .3,
+      duration: 500
     },
     {
       content: <img src={Grey} className="grey-img" style={{ width: imgWidth }} />,
-      delay: 1.5,
-      duration: 1000
+      delay: 1,
+      duration: 500
     }
   ]
   return (
