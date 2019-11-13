@@ -73,7 +73,8 @@ export default ({
   textToTop = '190px',
   titlePosition = {
     right: '200px', top: '10px'
-  }
+  },
+  SubComponent = null
 }) => {
   const TitlePosition = AbsolutePositionWrap({ right: titlePosition.right, top: titlePosition.top })
   const LottiePosition = AbsolutePositionWrap({ left: '-200px', top: '-200px' })
@@ -105,6 +106,9 @@ export default ({
           <AnimateTitle id={id + '0'} title={title} />
         </div>
         <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop}/>
+        {
+          SubComponent ?  <SubComponent/> : null
+        }
       </TitlePosition>
     </div>
   )
