@@ -184,7 +184,33 @@ export default () => {
 
         <Leverage />
 
-        <AnimationTextSection textToTop='100px' />
+        <AnimationTextSection
+          textToTop='100px'
+          SubComponent={
+            () => {
+              const TypePosition = AbsolutePositionWrap({ top: '250px' })
+              return (
+                <TypePosition>
+                  <LottieAnimation
+                    triggerRelativePosition={
+                      {
+                        top: '-200px'
+                      }
+                    }
+                    width='100%'
+                    height='100%'
+                    options={{
+                      autoplay: true,
+                      animationData: ColorCircle,
+                      rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid slice'
+                      }
+                    }} />
+                </TypePosition>
+              )
+            }
+          }
+        />
 
         <TextAnimationSection
           title='Color'
@@ -199,7 +225,7 @@ export default () => {
             </p>
           </div>}
           SubComponent={() => {
-            const CirclePosition = AbsolutePositionWrap({ left: '-25px', top: '350px' })
+            const CirclePosition = AbsolutePositionWrap({ left: '-25px', top: '380px' })
             return (
               <CirclePosition>
                 <LottieAnimation
