@@ -3,7 +3,7 @@ import React from 'react'
 import { Tween, Timeline } from 'react-gsap'
 import styled from 'styled-components'
 
-import { AbsolutePositionWrap, StyledSectionWitheTitle } from 'components/Styled'
+import { StyledSectionWitheTitle } from 'components/Styled'
 import MacImage from 'assets/imgs/vizient/Mac.png'
 
 const StyledContainer = styled.div`

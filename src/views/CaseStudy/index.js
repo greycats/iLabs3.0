@@ -1,5 +1,6 @@
 import React from 'react'
 import Vizient from './Vizient'
+import Dcom from './Dcom'
 import { getLocationSearch } from 'utils'
 import styled from 'styled-components'
 import Header from 'components/Header'
@@ -22,6 +23,9 @@ export default () => {
           switch (name) {
             case 'vizient':
               return <Vizient />
+
+            case 'dcom':
+              return <Dcom />
 
             default:
               return <p>case study</p>
