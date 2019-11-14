@@ -113,11 +113,12 @@ export default ({
                                   start={0}
                                   end={progress >= (0.8 + index / 20) ? item.number : 0}
                                   duration={1}
-                                  suffix={item.suffix}
+                                  decimals={item.decimals || 0}
                                 >
                                   {({ countUpRef }) => (
                                     <div>
                                       <span ref={countUpRef} />
+                                      {item.suffix}
                                     </div>
                                   )}
                                 </CountUp>
