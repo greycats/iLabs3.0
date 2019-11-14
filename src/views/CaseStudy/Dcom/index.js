@@ -29,17 +29,19 @@ export default () => {
     dataList: [
       {
         number: 4.5,
+        decimals: 1,
         name: 'Reviews on App Store',
         img: require('assets/imgs/vizient/The-story/Product.json')
       },
       {
         number: 10,
+        suffix: <sup style={{ fontSize: '20px' }}>%</sup>,
         name: 'Increase in visit frequency',
         img: require('assets/imgs/vizient/The-story/Teammember.json')
       },
       {
-        number: 250,
-        suffix: '+',
+        number: 10,
+        suffix: <sup style={{ fontSize: '20px' }}>M+</sup>,
         name: 'Unique monthly visitors',
         img: require('assets/imgs/vizient/The-story/AppscreenIcon.json')
       }
@@ -48,24 +50,7 @@ export default () => {
 
   const theChallengeData = {
     title: 'The Challenge',
-    intro: 'Vizient has a diverse product suite by way of acquisitions. Hence there was no standardization of product interactions,  user interface styles and interactions. ',
-    list: [
-      {
-        name: 'Many Products',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-challenge/Many products.json')
-      },
-      {
-        name: 'Inconsistency Interface',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-challenge/Inconsistency Interface.json')
-      },
-      {
-        name: 'Missing Interactions',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-challenge/Mising Interactions.json')
-      },
-    ]
+    intro: 'Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.'
   }
 
   const theSolutionData = {
