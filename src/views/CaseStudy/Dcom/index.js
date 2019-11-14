@@ -4,6 +4,7 @@ import Banner from 'components/Banner'
 import TextAnimationSection from 'components/LeftTextRightAnimation'
 import AnimationTextSection from 'components/LeftAnimationRightText'
 import TextAndLottieSection from 'components/TextAndLottieSection'
+import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
 import AvatarComments from 'components/AvatarComments'
 import BgImage from 'assets/imgs/dcom/Bg.png'
 import BaseOn from 'assets/imgs/vizient/BaseOn'
@@ -11,7 +12,6 @@ import ColorCircle from 'assets/imgs/vizient/ColorCircle'
 import TypefaceText from 'assets/imgs/vizient/TypefaceText'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
-import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
 
 import BannerContent from './BannerContent'
 import { AbsolutePositionWrap } from 'components/Styled'
@@ -124,6 +124,35 @@ export default () => {
     }
   ]
 
+  const DcomChallenge = () => (
+    <div style={{
+      background: '#f5f5f5'
+    }}>
+      <AnimationTextSection
+        showLottie={false}
+        minHeight='486px'
+        textToTop='100px'
+        title='The Challenge'
+        titlePosition={
+          {
+            right: '290px', top: '100px'
+          }
+        }
+        textTarget={
+          <div style={{
+            width: '500px',
+            position: 'absolute',
+            left: '0px'
+          }}>
+            <p>
+              Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.
+          </p>
+          </div>
+        }
+      />
+    </div>
+  )
+
   return (
     <StyledPage>
       <div>
@@ -133,32 +162,15 @@ export default () => {
           </Banner>
         </StyledSection>
         <TheStory {...theStoryData}></TheStory>
-        <div style={{
-          background: '#f5f5f5'
-        }}>
-        <AnimationTextSection
-          showLottie={false}
-          minHeight='486px'
-          textToTop = '100px'
-          title='The Challenge'
-          titlePosition={
-            {
-              right: '290px', top: '100px'
-            }
-          }
-          textTarget={
-            <div style={{
-              width: '500px',
-              position: 'absolute',
-              left: '0px'
-            }}>
-              <p>
-                Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.
-              </p>
-            </div>
-          }
+
+        <DcomChallenge />
+
+        {/* <TextDescriptionLottieSection
+          title='The Solution'
+          intro='We reviewed usage data and conducted a thorough audit based on the users reviews of the iOS and Android apps. We created a matrix of pain points and defined core flows that needed an upgrade. Keeping an eye on existing and potential future users of the app, we created multiples ideas, prototypes and validated them through usability testing. We also product managed this critical release and provided detailed specifications and priorities for their internal engineering team. The updated app was launch well ahead of schedule to meet the pre-Christmas deadline.'
+          description='“Our solution for the iOS version led to a significant rise in page views and retention. We applied material design principles to the Android app which showed similar results.”'
         />
-        </div>
+
         <TextAndLottieSection
           title={theChallengeData.title}
           intro={
@@ -265,7 +277,7 @@ export default () => {
             )
           }}
         />
-        <AvatarComments dataList={commentList} />
+        <AvatarComments dataList={commentList} /> */}
       </div>
     </StyledPage>
   )
