@@ -74,40 +74,45 @@ export default ({
   titlePosition = {
     right: '200px', top: '10px'
   },
-  SubComponent = null
+  SubComponent = null,
+  showLottie = true,
+  minHeight = '750px'
 }) => {
   const TitlePosition = AbsolutePositionWrap({ right: titlePosition.right, top: titlePosition.top })
   const LottiePosition = AbsolutePositionWrap({ left: '-200px', top: '-200px' })
 
   return (
-    <div className="layout-1240 panel" style={{ minHeight: '750px', position: 'relative' }}>
+    <div className="layout-1240 panel" style={{ minHeight, position: 'relative' }}>
       <div style={{
         position: 'relative'
       }}>
         <LottiePosition>
-          <LottieAnimation
-            triggerRelativePosition={{
-              top: '100px'
-            }}
-            options={{
-              autoplay: true,
-              animationData: animateIcon,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
-              }
-            }}
-            height={'70%'}
-            width={'70%'}
-          />
+          {
+            showLottie ?
+              <LottieAnimation
+                triggerRelativePosition={{
+                  top: '100px'
+                }}
+                options={{
+                  autoplay: true,
+                  animationData: animateIcon,
+                  rendererSettings: {
+                    preserveAspectRatio: 'xMidYMid slice'
+                  }
+                }}
+                height={'70%'}
+                width={'70%'}
+              /> : null
+          }
         </LottiePosition>
       </div>
       <TitlePosition>
         <div className="title-part">
           <AnimateTitle id={id + '0'} title={title} />
         </div>
-        <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop}/>
+        <AnimateText id={id + '1'} textTarget={textTarget} textToTop={textToTop} />
         {
-          SubComponent ?  <SubComponent/> : null
+          SubComponent ? <SubComponent /> : null
         }
       </TitlePosition>
     </div>

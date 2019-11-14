@@ -133,6 +133,32 @@ export default () => {
           </Banner>
         </StyledSection>
         <TheStory {...theStoryData}></TheStory>
+        <div style={{
+          background: '#f5f5f5'
+        }}>
+        <AnimationTextSection
+          showLottie={false}
+          minHeight='486px'
+          textToTop = '100px'
+          title='The Challenge'
+          titlePosition={
+            {
+              right: '290px', top: '100px'
+            }
+          }
+          textTarget={
+            <div style={{
+              width: '500px',
+              position: 'absolute',
+              left: '0px'
+            }}>
+              <p>
+                Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.
+              </p>
+            </div>
+          }
+        />
+        </div>
         <TextAndLottieSection
           title={theChallengeData.title}
           intro={
@@ -141,10 +167,6 @@ export default () => {
           list={
             theChallengeData.list
           }
-          style={{
-            background: `url(${ChallengeImg})`,
-            backgroundSize: 'contain'
-          }}
         />
         <TextAndLottieSection
           title={theSolutionData.title}
