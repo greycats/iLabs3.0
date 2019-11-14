@@ -53,28 +53,28 @@ export default () => {
     intro: 'Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.'
   }
 
-  // const theSolutionData = {
-  //   controllerId: 'the-solution-trigger',
-  //   title: 'The Solution',
-  //   intro: 'We created a fully functional UI toolkit based on a customized version of Angular Material. With a standardized interface and clear documentation we were able to cut down on operational costs, all while implementing a single uniform design language.',
-  //   list: [
-  //     {
-  //       name: 'UI Toolkit',
-  //       text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-  //       img: require('assets/imgs/vizient/The-solution/UI Toolkit.json')
-  //     },
-  //     {
-  //       name: 'Clear Documentation',
-  //       text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-  //       img: require('assets/imgs/vizient/The-solution/Clear Document.json')
-  //     },
-  //     {
-  //       name: 'Design Language',
-  //       text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-  //       img: require('assets/imgs/vizient/The-solution/Designlanguage.json')
-  //     },
-  //   ]
-  // }
+  const theSolutionData = {
+    controllerId: 'the-solution-trigger',
+    title: 'The Solution',
+    intro: 'We created a fully functional UI toolkit based on a customized version of Angular Material. With a standardized interface and clear documentation we were able to cut down on operational costs, all while implementing a single uniform design language.',
+    list: [
+      {
+        name: 'UI Toolkit',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-solution/UI Toolkit.json')
+      },
+      {
+        name: 'Clear Documentation',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-solution/Clear Document.json')
+      },
+      {
+        name: 'Design Language',
+        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        img: require('assets/imgs/vizient/The-solution/Designlanguage.json')
+      },
+    ]
+  }
 
   const commentList = [
     {
@@ -118,7 +118,33 @@ export default () => {
           </Banner>
         </StyledSection>
         <TheStory {...theStoryData}></TheStory>
-        {/* <TextAndLottieSection
+        <div style={{
+          background: '#f5f5f5'
+        }}>
+          <AnimationTextSection
+            showLottie={false}
+            minHeight='486px'
+            textToTop='100px'
+            title='The Challenge'
+            titlePosition={
+              {
+                right: '290px', top: '100px'
+              }
+            }
+            textTarget={
+              <div style={{
+                width: '500px',
+                position: 'absolute',
+                left: '0px'
+              }}>
+                <p>
+                  Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.
+              </p>
+              </div>
+            }
+          />
+        </div>
+        <TextAndLottieSection
           title={theChallengeData.title}
           intro={
             theChallengeData.intro
@@ -126,10 +152,6 @@ export default () => {
           list={
             theChallengeData.list
           }
-          style={{
-            background: `url(${ChallengeImg})`,
-            backgroundSize: 'contain'
-          }}
         />
         <TextAndLottieSection
           title={theSolutionData.title}
