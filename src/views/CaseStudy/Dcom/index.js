@@ -23,24 +23,24 @@ import { LottieAnimation } from 'components/AnimationPlayer'
 export default () => {
   const theStoryData = {
     story: [
-      'Vizient is the largest member-driven, health care performance improvement company in the country.',
-      'With dozens of products offered, Vizient tasked us with designing and building a new UI Toolkit to homogenize their user interface components across all services.'
+      'With 2,000,000+ trusted definitions and synonyms, 100+ million app downloads, Dictionary.com is the #1 English dictionary app for iPhone and Android.',
+      'As with any large app, user fatigue sets in after prolonged usage. Dictionary.com tasked us with building a refresh that would impact their core metrics - namely, retention, monetization and user reviews on the app stores.'
     ],
     dataList: [
       {
-        number: 5,
-        name: 'Products',
+        number: 4.5,
+        name: 'Reviews on App Store',
         img: require('assets/imgs/vizient/The-story/Product.json')
       },
       {
         number: 10,
-        name: 'Team members',
+        name: 'Increase in visit frequency',
         img: require('assets/imgs/vizient/The-story/Teammember.json')
       },
       {
         number: 250,
         suffix: '+',
-        name: 'App Screens',
+        name: 'Unique monthly visitors',
         img: require('assets/imgs/vizient/The-story/AppscreenIcon.json')
       }
     ]
