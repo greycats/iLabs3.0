@@ -150,13 +150,14 @@ export default () => {
 
         <DcomChallenge />
 
-        {/* <TextDescriptionLottieSection
+         <TextDescriptionLottieSection
           title='The Solution'
           intro='We reviewed usage data and conducted a thorough audit based on the users reviews of the iOS and Android apps. We created a matrix of pain points and defined core flows that needed an upgrade. Keeping an eye on existing and potential future users of the app, we created multiples ideas, prototypes and validated them through usability testing. We also product managed this critical release and provided detailed specifications and priorities for their internal engineering team. The updated app was launch well ahead of schedule to meet the pre-Christmas deadline.'
           description='“Our solution for the iOS version led to a significant rise in page views and retention. We applied material design principles to the Android app which showed similar results.”'
+          lottieIcon={ColorCircle}
         />
 
-        <TextAndLottieSection
+        {/*<TextAndLottieSection
           title={theChallengeData.title}
           intro={
             theChallengeData.intro

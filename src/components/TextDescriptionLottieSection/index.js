@@ -7,11 +7,12 @@ export default ({
   intro = '',
   title = '',
   description = '',
-  style = {}
+  style = {},
+  lottieIcon = null
 }) => {
   return (
     <div style={style}>
-      <div className="layout-1240 panel challenge-wrap" style={{position: 'relative'}}>
+      <div className="layout-1240 panel challenge-wrap" style={{ position: 'relative' }}>
         <div className="title-part">
           <AnimationPlayer
             target={
@@ -35,46 +36,76 @@ export default ({
               ]
             }
           />
-          <AnimationPlayer
-            target={
-              <div>
-                <CommonTitle intro={intro} width={495}></CommonTitle>
-              </div>
-            }
-            animations={
-              [
-                {
-                  from: {
-                    opacity: 0
-                  },
-                  to: {
-                    opacity: 1
-                  },
-                  delay: .2
+          <div style={{
+            display: 'flex'
+          }}>
+            <AnimationPlayer
+              target={
+                <div>
+                  <CommonTitle intro={intro} width={495}></CommonTitle>
+                </div>
+              }
+              animations={
+                [
+                  {
+                    from: {
+                      opacity: 0
+                    },
+                    to: {
+                      opacity: 1
+                    },
+                    delay: .2
+                  }
+                ]
+              }
+            />
+            <div style={{
+              width: '35%',
+              fontSize: '24px',
+              fontWeight: 'bold',
+              color: '#656565',
+              marginLeft: '80px'
+            }}>
+              <AnimationPlayer
+                target={
+                  <div>
+                    <p>{description}</p>
+                  </div>
                 }
-              ]
-            }
-          />
-          <AnimationPlayer
-            target={
-              <div>
-                <p>{description}</p>
-              </div>
-            }
-            animations={
-              [
-                {
-                  from: {
-                    opacity: 0
-                  },
-                  to: {
-                    opacity: 1
-                  },
-                  delay: .2
+                animations={
+                  [
+                    {
+                      from: {
+                        opacity: 0
+                      },
+                      to: {
+                        opacity: 1
+                      },
+                      delay: .6
+                    }
+                  ]
                 }
-              ]
+              />
+            </div>
+
+          </div>
+          {
+              lottieIcon ?
+              <LottieAnimation
+                triggerRelativePosition={{
+                  top: '-200px'
+                }}
+                options={{
+                  autoplay: true,
+                  animationData: lottieIcon,
+                  rendererSettings: {
+                    preserveAspectRatio: 'xMidYMid slice'
+                  }
+                }}
+                height={'400px'}
+                width={'100%'}
+              /> : null
             }
-          />
         </div>
       </div>
     </div>
