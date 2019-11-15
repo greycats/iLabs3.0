@@ -5,6 +5,7 @@ export default () => ({
     title: 'iLabs3.0 Intro',
     projects: [
       {
+        value: 'vizient',
         name: 'Vizient',
         label: 'Enterprise platform',
         // image: PreloadManager.getResult('project-vizient-img'),
@@ -14,6 +15,7 @@ export default () => ({
         project: 'vizient',
       },
       {
+        value: 'dcom',
         name: 'Vizient 1',
         label: 'Enterprise platform 1',
         image: VizentImage,

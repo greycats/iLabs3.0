@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
+import { AnimatedSwitch } from 'react-router-transition'
 // import { renderRoutes } from 'react-router-config'
 import history from './history'
 import HomeView from './views/Home'
@@ -15,20 +16,26 @@ import CaseStudy from './views/CaseStudy'
 // import StaticRouter from './staticViews/routes'
 
 // const routerMap = [
-  // ...SignUpRoutes,
-  // ...ResetPwdRoutes,
-  // ...OnboardingRoutes,
-  // ...DashboardRoutes,
-  // ...DelegateRoutes,
-  // ...StaticPagesRoutes,
-  // ...StaticRouter,
-  // ...Board
+// ...SignUpRoutes,
+// ...ResetPwdRoutes,
+// ...OnboardingRoutes,
+// ...DashboardRoutes,
+// ...DelegateRoutes,
+// ...StaticPagesRoutes,
+// ...StaticRouter,
+// ...Board
 // ]
+
 
 const routes = (
   <Router history={history}>
-    <Switch>
-      {/* <Redirect exact from="/" to="/signin" /> */}
+    {/* <Switch> */}
+    <AnimatedSwitch
+      atEnter={{ opacity: 0 }}
+      atLeave={{}}
+      atActive={{ opacity: 1 }}
+      className="switch-wrapper"
+    >
       <Route path="/home" render={(props) => {
         return (
           <HomeView
@@ -43,9 +50,8 @@ const routes = (
           />
         )
       }} />
-      {/* <Route path="/signin" component={SignIn} /> */}
-      {/* {renderRoutes(routerMap)} */}
-    </Switch>
+    </AnimatedSwitch>
+    {/* </Switch> */}
   </Router>
 )
 

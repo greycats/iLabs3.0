@@ -1,16 +1,21 @@
 import React from 'react'
 import getData from '~/data'
 import classnames from 'classnames'
+import history from 'history.js'
 
 const projects = getData().intro.projects
 
 export default () => {
-
+  const toDetail = (value = 'vizient') => {
+    return
+    // show animation
+    // history.push('/casestudy?name=' + value)
+  }
   return <div className="project-list">
     {
-      projects.map(({ background, image, name, label, masks }, index) => {
+      projects.map(({ background, image, name, label, masks, value }, index) => {
         return (
-          <div className={classnames("project-item-wrapper", {'sink-item': index % 2})} id={'project-item-' + index} key={index}>
+          <div className={classnames("project-item-wrapper", {'sink-item': index % 2})} id={'project-item-' + index} key={index} onClick={() => toDetail(value)}>
             <div className="project-item" style={{
               backgroundColor: background
             }}>
