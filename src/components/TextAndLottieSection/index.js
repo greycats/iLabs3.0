@@ -2,15 +2,42 @@ import React, { Fragment } from 'react'
 
 import AnimationPlayer, { LottieAnimation, animations } from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
+import 'components/TheChallenge/index.sass'
 
 const lottieDuration = .8
 
 export default ({
   intro = '',
   list = [],
-  title= '',
+  title = '',
   style = {}
 }) => {
+  const animationOptions = {
+    title: [
+      {
+        from: {
+          opacity: 0,
+          height: 0
+        },
+        to: {
+          opacity: 1,
+          height: '94px'
+        },
+        duration: .8
+      }
+    ],
+    intro: [
+      {
+        from: {
+          opacity: 0
+        },
+        to: {
+          opacity: 1
+        },
+        delay: .2
+      }
+    ]
+  }
   return (
     <div style={style}>
       <div className="layout-1240 panel challenge-wrap">
@@ -21,21 +48,7 @@ export default ({
                 <CommonTitle title={title} titleMargin='50px' />
               </div>
             }
-            animations={
-              [
-                {
-                  from: {
-                    opacity: 0,
-                    height: 0
-                  },
-                  to: {
-                    opacity: 1,
-                    height: '94px'
-                  },
-                  duration: .8
-                }
-              ]
-            }
+            animations={animationOptions.title}
           />
           <AnimationPlayer
             target={
@@ -43,22 +56,10 @@ export default ({
                 <CommonTitle intro={intro} width={495}></CommonTitle>
               </div>
             }
-            animations={
-              [
-                {
-                  from: {
-                    opacity: 0
-                  },
-                  to: {
-                    opacity: 1
-                  },
-                  delay: .2
-                }
-              ]
-            }
+            animations={animationOptions.intro}
           />
         </div>
-        <div className="content-wrap" style={{marginTop: '150px'}}>
+        <div className="content-wrap" style={{ marginTop: '150px' }}>
           {
             list.map((item, index) => {
               return (
@@ -92,20 +93,18 @@ export default ({
                     triggerRelativePosition={{
                       top: '-350px'
                     }}
-                    animations={
-                      [
-                        {
-                          from: {
-                            opacity: 0
-                          },
-                          to: {
-                            opacity: 1
-                          },
-                          duration: lottieDuration,
-                          delay: lottieDuration * index
-                        }
-                      ]
-                    }
+                    animations={[
+                      {
+                        from: {
+                          opacity: 0
+                        },
+                        to: {
+                          opacity: 1
+                        },
+                        duration: lottieDuration,
+                        delay: lottieDuration * index
+                      }
+                    ]}
                   />
                 </div>
               )

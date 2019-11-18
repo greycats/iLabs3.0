@@ -3,6 +3,7 @@ import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
 import TextAnimationSection from 'components/LeftTextRightAnimation'
 import AnimationTextSection from 'components/LeftAnimationRightText'
+import UpTextDownAnimation from 'components/UpTextDownAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
 import AvatarComments from 'components/AvatarComments'
@@ -12,11 +13,9 @@ import ColorCircle from 'assets/imgs/vizient/ColorCircle'
 import TypefaceText from 'assets/imgs/vizient/TypefaceText'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
-
+import onboardingLottie from 'assets/imgs/dcom/Onboardinguser.json'
 import BannerContent from './BannerContent'
 import { AbsolutePositionWrap } from 'components/Styled'
-
-import 'components/TheChallenge/index.sass'
 
 import { LottieAnimation } from 'components/AnimationPlayer'
 
@@ -46,6 +45,11 @@ export default () => {
         img: require('assets/imgs/vizient/The-story/AppscreenIcon.json')
       }
     ]
+  }
+
+  const onboardingData = {
+    title: 'Onboarding New Users',
+    intro: 'We redesigned the onboarding experience that introduced users to the improvements within the app. Fun illustrations and clear instructions helped users get familiar with the updates and boost brand loyalty.'
   }
 
   const theChallengeData = {
@@ -150,11 +154,17 @@ export default () => {
 
         <DcomChallenge />
 
-         <TextDescriptionLottieSection
+        {/* <TextDescriptionLottieSection
           title='The Solution'
           intro='We reviewed usage data and conducted a thorough audit based on the users reviews of the iOS and Android apps. We created a matrix of pain points and defined core flows that needed an upgrade. Keeping an eye on existing and potential future users of the app, we created multiples ideas, prototypes and validated them through usability testing. We also product managed this critical release and provided detailed specifications and priorities for their internal engineering team. The updated app was launch well ahead of schedule to meet the pre-Christmas deadline.'
           description='“Our solution for the iOS version led to a significant rise in page views and retention. We applied material design principles to the Android app which showed similar results.”'
           lottieIcon={ColorCircle}
+        /> */}
+
+        <UpTextDownAnimation
+          title={onboardingData.title}
+          intro={onboardingData.intro}
+          animateIcon={onboardingLottie}
         />
 
         {/*<TextAndLottieSection
