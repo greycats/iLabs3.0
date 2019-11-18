@@ -1,12 +1,11 @@
 import React from 'react'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
-import TextAnimationSection from 'components/LeftTextRightAnimation'
-import AnimationTextSection from 'components/LeftAnimationRightText'
-import UpTextDownAnimation from 'components/UpTextDownAnimation'
+import TextAndAnimation from 'components/TextAndAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
 import AvatarComments from 'components/AvatarComments'
+
 import BgImage from 'assets/imgs/dcom/Bg.png'
 import BaseOn from 'assets/imgs/vizient/BaseOn'
 import ColorCircle from 'assets/imgs/vizient/ColorCircle'
@@ -16,131 +15,11 @@ import StyledSection from 'components/Styled/Section'
 import onboardingLottie from 'assets/imgs/dcom/Onboardinguser.json'
 import BannerContent from './BannerContent'
 import { AbsolutePositionWrap } from 'components/Styled'
+import dcomData from 'data/dcomData'
 
 import { LottieAnimation } from 'components/AnimationPlayer'
 
 export default () => {
-  const theStoryData = {
-    story: [
-      'With 2,000,000+ trusted definitions and synonyms, 100+ million app downloads, Dictionary.com is the #1 English dictionary app for iPhone and Android.',
-      'As with any large app, user fatigue sets in after prolonged usage. Dictionary.com tasked us with building a refresh that would impact their core metrics - namely, retention, monetization and user reviews on the app stores.'
-    ],
-    dataList: [
-      {
-        number: 4.5,
-        decimals: 1,
-        name: 'Reviews on App Store',
-        img: require('assets/imgs/vizient/The-story/Product.json')
-      },
-      {
-        number: 10,
-        suffix: <sup style={{ fontSize: '20px' }}>%</sup>,
-        name: 'Increase in visit frequency',
-        img: require('assets/imgs/vizient/The-story/Teammember.json')
-      },
-      {
-        number: 10,
-        suffix: <sup style={{ fontSize: '20px' }}>M+</sup>,
-        name: 'Unique monthly visitors',
-        img: require('assets/imgs/vizient/The-story/AppscreenIcon.json')
-      }
-    ]
-  }
-
-  const onboardingData = {
-    title: 'Onboarding New Users',
-    intro: 'We redesigned the onboarding experience that introduced users to the improvements within the app. Fun illustrations and clear instructions helped users get familiar with the updates and boost brand loyalty.'
-  }
-
-  const theChallengeData = {
-    title: 'The Challenge',
-    intro: 'Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.'
-  }
-
-  const theSolutionData = {
-    controllerId: 'the-solution-trigger',
-    title: 'The Solution',
-    intro: 'We created a fully functional UI toolkit based on a customized version of Angular Material. With a standardized interface and clear documentation we were able to cut down on operational costs, all while implementing a single uniform design language.',
-    list: [
-      {
-        name: 'UI Toolkit',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-solution/UI Toolkit.json')
-      },
-      {
-        name: 'Clear Documentation',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-solution/Clear Document.json')
-      },
-      {
-        name: 'Design Language',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-solution/Designlanguage.json')
-      },
-    ]
-  }
-
-  const commentList = [
-    {
-      img: require('assets/imgs/vizient/AVATAR01.png'),
-      name: 'Beth Roed1',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
-    },
-    {
-      img: require('assets/imgs/vizient/AVATAR02.png'),
-      name: 'Beth Roed2',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
-    },
-    {
-      img: require('assets/imgs/vizient/AVATAR03.png'),
-      name: 'Beth Roed3',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
-    },
-    {
-      img: require('assets/imgs/vizient/AVATAR04.png'),
-      name: 'Beth Roed4',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
-    },
-    {
-      img: require('assets/imgs/vizient/AVATAR05.png'),
-      name: 'Beth Roed5',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
-    }
-  ]
-
-  const DcomChallenge = () => (
-    <div style={{
-      background: '#f5f5f5'
-    }}>
-      <AnimationTextSection
-        showLottie={false}
-        minHeight='486px'
-        textToTop='100px'
-        title='The Challenge'
-        titlePosition={
-          {
-            right: '290px', top: '100px'
-          }
-        }
-        textTarget={
-          <div style={{
-            width: '500px',
-            position: 'absolute',
-            left: '0px'
-          }}>
-            <p>
-              Our research indicated that we needed to upgrade a few of the core flows in terms of usability. The main challenge for us was to ease in a large existing user base into new designs and experiences while maintaining or improving core metrics. Additionally we had a short time frame in which to launch the changes to meet the end of year deadline.
-          </p>
-          </div>
-        }
-      />
-    </div>
-  )
 
   return (
     <StyledPage>
@@ -150,21 +29,36 @@ export default () => {
             <BannerContent />
           </Banner>
         </StyledSection>
-        <TheStory {...theStoryData}></TheStory>
+        <TheStory {...dcomData.theStoryData}></TheStory>
 
-        <DcomChallenge />
+        <div style={{ background: '#f5f5f5', paddingTop: '70px' }}>
+          <TextAndAnimation
+            layoutType='right-text'
+            title={dcomData.theChallenge.title}
+            intro={dcomData.theChallenge.intro}
+            titleStyle={
+              {
+                width: '599px'
+              }
+            }
+            showLottie={false}
+            wrapMinHeight="485px"
+          />
+        </div>
 
-        {/* <TextDescriptionLottieSection
+        <TextDescriptionLottieSection
           title='The Solution'
           intro='We reviewed usage data and conducted a thorough audit based on the users reviews of the iOS and Android apps. We created a matrix of pain points and defined core flows that needed an upgrade. Keeping an eye on existing and potential future users of the app, we created multiples ideas, prototypes and validated them through usability testing. We also product managed this critical release and provided detailed specifications and priorities for their internal engineering team. The updated app was launch well ahead of schedule to meet the pre-Christmas deadline.'
           description='“Our solution for the iOS version led to a significant rise in page views and retention. We applied material design principles to the Android app which showed similar results.”'
-          lottieIcon={ColorCircle}
-        /> */}
+          // lottieIcon={ColorCircle}
+        />
 
-        <UpTextDownAnimation
-          title={onboardingData.title}
-          intro={onboardingData.intro}
+        <TextAndAnimation
+          layoutType='up-text'
+          title={dcomData.onboardingData.title}
+          intro={dcomData.onboardingData.intro}
           animateIcon={onboardingLottie}
+          wrapMinHeight="900px"
         />
 
         {/*<TextAndLottieSection

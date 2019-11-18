@@ -1,3 +1,5 @@
+import React, { Fragment } from 'react'
+
 export default {
   theStoryData: {
     story: [
@@ -65,6 +67,31 @@ export default {
         img: require('assets/imgs/vizient/The-solution/Designlanguage.json')
       },
     ]
+  },
+  componentsForWeb: {
+    title: <div>Vizient Components <br /> for the Web</div>,
+    intro: (
+      <Fragment>
+        <p>
+          The Toolkit system includes the resources needed to create user interfaces consistent with the Vizient’s product principles, design language, and best practices.
+      </p>
+        <p>
+          Rather than focusing on pixels, developers can focus on the application logic, while designers can focus on user experiences, interactions, and flows.
+      </p>
+      </Fragment>
+    )
+  },
+  basedOn: {
+    title: <div>Based on <br /> material design</div>,
+    intro: <p>Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.</p>
+  },
+  typeface: {
+    title: 'Typeface',
+    intro: <p>Soleto is a fresh, modern sans serif font family. Optimised for text environments it performs well at large sizes and its seven weights range evenly from Thin through to Black in both upright and italic.</p>
+  },
+  color: {
+    title: 'Color',
+    intro: <p>We worked closely with Vizient’s Marketing team to ensure their brand guidelines extended to the Toolkit library. The color system uses an organized approach to applying color to Vizient UI. In this system, a primary and a secondary color are typically selected to represent Vizient brand. Dark and light variants of each color can then be applied to the UI in different ways.</p>
   },
   commentList: [
     {

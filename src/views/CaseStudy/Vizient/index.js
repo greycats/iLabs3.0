@@ -1,25 +1,30 @@
 import React from 'react'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
+import BannerContent from './BannerContent'
 import TextAnimationSection from 'components/LeftTextRightAnimation'
 import AnimationTextSection from 'components/LeftAnimationRightText'
+import TextAndAnimation from 'components/TextAndAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import Toolkit from './Toolkit'
-import Grid from './Grid.js'
+import Grid from './Grid'
 import Leverage from './Leverage'
 import AvatarComments from 'components/AvatarComments'
+
 import VizientImage from 'assets/imgs/vizient/Banner.png'
+import ComponentsForWeb from 'assets/imgs/vizient/Components'
 import BaseOn from 'assets/imgs/vizient/BaseOn'
 import ColorCircle from 'assets/imgs/vizient/ColorCircle'
 import TypefaceText from 'assets/imgs/vizient/TypefaceText'
+import TypefaceImage from 'assets/imgs/vizient/Typeface'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
 import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
+import ColorImage from 'assets/imgs/vizient/Color'
+
 import vizientData from 'data/vizientData'
 
-import BannerContent from './BannerContent'
 import { AbsolutePositionWrap } from 'components/Styled'
-
 import { LottieAnimation } from 'components/AnimationPlayer'
 
 export default () => {
@@ -56,36 +61,56 @@ export default () => {
         />
         <Toolkit />
 
-        <TextAnimationSection textToTop='230px' />
-
-        <AnimationTextSection
-          title='Based on material design'
-          titlePosition={
+        <TextAndAnimation
+          layoutType='left-text'
+          title={vizientData.componentsForWeb.title}
+          intro={vizientData.componentsForWeb.intro}
+          titleHeight="88px"
+          titleStyle={
             {
-              right: '100px', top: '10px'
+              width: '500px',
+              marginTop: '230px'
             }
           }
-          textTarget={
-            <div style={{
-              width: '500px',
-              position: 'absolute',
-              left: '0px'
-            }}>
-              <p>
-                Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.
-            </p>
-            </div>
+          animateIcon={ComponentsForWeb}
+          animateWidth={745}
+          animationStyle={{
+            right: '-20px'
+          }}
+        />
+
+        <TextAndAnimation
+          layoutType='right-text'
+          title={vizientData.basedOn.title}
+          intro={vizientData.basedOn.intro}
+          titleHeight="88px"
+          titleStyle={
+            {
+              width: '495px',
+              marginTop: '140px',
+            }
           }
           animateIcon={BaseOn}
+          animateWidth={740}
         />
 
         <Leverage />
 
-        <AnimationTextSection
-          textToTop='100px'
+        <TextAndAnimation
+          layoutType='right-text'
+          title={vizientData.typeface.title}
+          intro={vizientData.typeface.intro}
+          titleStyle={
+            {
+              width: '495px',
+              marginTop: '230px',
+            }
+          }
+          animateIcon={TypefaceImage}
+          animateWidth={740}
           SubComponent={
             () => {
-              const TypePosition = AbsolutePositionWrap({ top: '180px', left: '-30px' })
+              const TypePosition = AbsolutePositionWrap({ left: '-30px', top: '208px' })
               return (
                 <TypePosition>
                   <LottieAnimation
@@ -94,8 +119,8 @@ export default () => {
                         top: '-200px'
                       }
                     }
-                    width='200%'
-                    height='200%'
+                    width='495px'
+                    height='109px'
                     options={{
                       autoplay: true,
                       animationData: TypefaceText,
@@ -109,40 +134,42 @@ export default () => {
           }
         />
 
-        <TextAnimationSection
-          title='Color'
-          animateIcon={require('assets/imgs/vizient/Color')}
-          textTarget={<div style={{
-            width: '500px',
-            position: 'absolute',
-            left: '0'
-          }}>
-            <p>
-              We worked closely with Vizient’s Marketing team to ensure their brand guidelines extended to the Toolkit library. The color system uses an organized approach to applying color to Vizient UI. In this system, a primary and a secondary color are typically selected to represent Vizient brand. Dark and light variants of each color can then be applied to the UI in different ways.
-            </p>
-          </div>}
-          SubComponent={() => {
-            const CirclePosition = AbsolutePositionWrap({ left: '-25px', top: '380px' })
-            return (
-              <CirclePosition>
-                <LottieAnimation
-                  triggerRelativePosition={
-                    {
-                      top: '-200px'
+        <TextAndAnimation
+          layoutType='left-text'
+          title={vizientData.color.title}
+          intro={vizientData.color.intro}
+          titleStyle={
+            {
+              width: '495px',
+              marginTop: '150px',
+            }
+          }
+          animateIcon={ColorImage}
+          animateWidth={740}
+          SubComponent={
+            () => {
+              const CirclePosition = AbsolutePositionWrap({ left: '-25px', top: '320px' })
+              return (
+                <CirclePosition>
+                  <LottieAnimation
+                    triggerRelativePosition={
+                      {
+                        top: '-200px'
+                      }
                     }
-                  }
-                  width='100%'
-                  height='100%'
-                  options={{
-                    autoplay: true,
-                    animationData: ColorCircle,
-                    rendererSettings: {
-                      preserveAspectRatio: 'xMidYMid slice'
-                    }
-                  }} />
-              </CirclePosition>
-            )
-          }}
+                    width='458px'
+                    height='100px'
+                    options={{
+                      autoplay: true,
+                      animationData: ColorCircle,
+                      rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid slice'
+                      }
+                    }} />
+                </CirclePosition>
+              )
+            }
+          }
         />
         <Grid />
         <AvatarComments dataList={vizientData.commentList} />

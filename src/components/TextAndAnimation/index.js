@@ -1,22 +1,35 @@
+/*
+ * @Author: Gary
+ * @Date: 2019-11-18 14:09:53
+ * @Last Modified by: Gary
+ * @Last Modified time: 2019-11-18 15:48:14
+ * layoutType:
+ * 1.left-text
+ * 2.right-text
+ * 3.up-text
+ */
 import React, { useEffect, useState } from 'react'
-import CommonTitle from 'components/CommonTitle'
 import AnimateIcon from '../../assets/imgs/vizient/Components'
 import { SectionTitleWrap, AbsolutePositionWrap } from 'components/Styled'
 
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
+import classnames from 'classnames'
 
 import { hashCode } from 'utils'
 import './index.sass'
 
+
+
 const AnimateTitle = ({
   id = hashCode(),
   title,
+  titleHeight
 }) => (
     <AnimationPlayer
       id={id}
       target={
         <div className="title-wrap">
-          <CommonTitle title={title} />
+          <div className="title">{title}</div>
         </div>
       }
       animations={[
@@ -25,7 +38,7 @@ const AnimateTitle = ({
             height: 0
           },
           to: {
-            height: '44px'
+            height: titleHeight
           }
         }
       ]}
@@ -61,36 +74,43 @@ const AnimateText = ({
 
 
 export default ({
+  layoutType = 'left-text',
   id = hashCode(),
   title = '',
   intro = '',
+  titleStyle = {},
+  titleHeight = "44px",
+  showLottie = true,
   animateIcon = null,
-  animateSize = {
-    width: '100%'
-  },
+  animateWidth = '100%',
   SubComponent = null,
-  wrapMinHeight = '750px'
+  wrapMinHeight = '750px',
+  animationStyle = {}
 }) => {
   return (
-    <div className="panel text-animation-wrap" style={{ minHeight: wrapMinHeight }}>
-      <div className="title-part">
-        <AnimateTitle id={id + '0'} title={title} />
+    <div className={classnames("text-animation-wrap", layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight }}>
+      <div className="title-part" style={titleStyle}>
+        <AnimateTitle id={id + '0'} title={title} titleHeight={titleHeight} />
         <AnimateText id={id + '1'} intro={intro} />
         {
           SubComponent ? <SubComponent /> : null
         }
       </div>
-      <div className="animation-part">
-        <LottieAnimation
-          options={{
-            autoplay: true,
-            animationData: animateIcon,
-            rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice'
-            }
-          }}
-          width={animateSize.width}
-        />
+      <div className="animation-part" style={animationStyle}>
+        {
+          showLottie ?
+            <LottieAnimation
+              options={{
+                autoplay: true,
+                animationData: animateIcon,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+                }
+              }}
+              width={animateWidth}
+            />
+            : null
+        }
       </div>
     </div>
   )

@@ -1,0 +1,33 @@
+@import 'assets/styles/variable.sass'
+
+.text-animation-wrap
+  position: relative
+  min-height: 750px
+  padding: 50px 0
+  &.left-text
+    @include flex-box($JC: space-between)
+  &.right-text
+    @include flex-box($JC: space-between)
+    .title-part
+      order: 2
+  &.up-text
+    .title-part
+      width: 600px
+      margin: 0 auto
+  .title-part
+    position: relative
+    .title-wrap
+      overflow: hidden
+      margin-bottom: 32px
+      .title
+        font-size: 44px
+        color: $title-color
+        line-height: 1
+        font-family: 'Gilroy-Bold'
+    .intro-wrap
+      position: relative
+      line-height: 28px
+      p
+        margin-bottom: 20px
+  .animation-part
+    position: relative
