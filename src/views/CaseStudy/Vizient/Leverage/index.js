@@ -4,13 +4,16 @@ import min from 'lodash/min'
 import CommonTitle from 'components/CommonTitle'
 import ControllerList from 'components/AnimateWrap/controllerList'
 import Grey from 'assets/imgs/vizient/Grey Pattern.png'
-import Mac2 from 'assets/imgs/vizient/Mac2.png'
 import './index.sass'
+import useImage from 'hooks/useImage'
 
 export default () => {
   const controllerId = 'leverage-trigger'
   const clientWidth = min([document.body.clientWidth, 1920])
   const imgWidth = clientWidth - (clientWidth - 1240) / 2
+
+  const Mac2 = useImage('vizient-mac-image')
+
   const animateList = [
     {
       content: (

@@ -1,12 +1,15 @@
 import React from 'react'
 import ControllerList from 'components/AnimateWrap/controllerList'
-import Toolkit from 'assets/imgs/vizient/toolkit.png'
-import Green from 'assets/imgs/vizient/Path 2.png'
-import Orange from 'assets/imgs/vizient/Path 15.png'
+import useImage from 'hooks/useImage'
 import './index.sass'
 
 export default () => {
   const controllerId = 'toolkit-trigger'
+
+  const Toolkit = useImage('toolkit')
+  const Green = useImage('green-path')
+  const Orange = useImage('orange-path')
+
   const animateList = [
     {
       content: <div className="green-line"></div>,
