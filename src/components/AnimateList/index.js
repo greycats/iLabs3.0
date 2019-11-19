@@ -1,16 +1,17 @@
 import React from 'react'
 import getData from '~/data'
 import classnames from 'classnames'
-import history from 'history.js'
-
-const projects = getData().intro.projects
+// import history from 'history.js'
 
 export default () => {
+  const projects = getData().intro.projects
+
   const toDetail = (value = 'vizient') => {
     return
     // show animation
     // history.push('/casestudy?name=' + value)
   }
+
   return <div className="project-list">
     {
       projects.map(({ background, image, name, label, masks, value }, index) => {
