@@ -18,8 +18,6 @@ import classnames from 'classnames'
 import { hashCode } from 'utils'
 import './index.sass'
 
-
-
 const AnimateTitle = ({
   id = hashCode(),
   title,
@@ -79,10 +77,11 @@ export default ({
   title = '',
   intro = '',
   titleStyle = {},
-  titleHeight = "44px",
+  titleHeight = "60px",
   showLottie = true,
   animateIcon = null,
   animateWidth = '100%',
+  animateHeight = '100%',
   SubComponent = null,
   wrapMinHeight = '750px',
   animationStyle = {}
@@ -108,6 +107,7 @@ export default ({
                 }
               }}
               width={animateWidth}
+              height={animateHeight}
             />
             : null
         }

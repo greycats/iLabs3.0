@@ -65,7 +65,7 @@ export default () => {
           layoutType='left-text'
           title={vizientData.componentsForWeb.title}
           intro={vizientData.componentsForWeb.intro}
-          titleHeight="88px"
+          titleHeight="120px"
           titleStyle={
             {
               width: '500px',
@@ -75,7 +75,8 @@ export default () => {
           animateIcon={ComponentsForWeb}
           animateWidth={745}
           animationStyle={{
-            right: '-20px'
+            right: '-20px',
+            transform: 'scale(1.1)'
           }}
         />
 
@@ -83,7 +84,7 @@ export default () => {
           layoutType='right-text'
           title={vizientData.basedOn.title}
           intro={vizientData.basedOn.intro}
-          titleHeight="88px"
+          titleHeight="120px"
           titleStyle={
             {
               width: '495px',

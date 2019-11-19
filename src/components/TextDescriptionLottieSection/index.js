@@ -12,7 +12,7 @@ export default ({
 }) => {
   return (
     <div style={style}>
-      <div className="layout-1240 panel challenge-wrap" style={{ position: 'relative' }}>
+      <div className="layout-1240 panel" style={{ position: 'relative' }}>
         <div className="title-part">
           <AnimationPlayer
             target={
@@ -89,23 +89,25 @@ export default ({
             </div>
 
           </div>
-          {
+          <div style={{height: '775px'}}>
+            {
               lottieIcon ?
-              <LottieAnimation
-                triggerRelativePosition={{
-                  top: '-200px'
-                }}
-                options={{
-                  autoplay: true,
-                  animationData: lottieIcon,
-                  rendererSettings: {
-                    preserveAspectRatio: 'xMidYMid slice'
-                  }
-                }}
-                height={'400px'}
-                width={'100%'}
-              /> : null
+                <LottieAnimation
+                  triggerRelativePosition={{
+                    top: '-200px'
+                  }}
+                  options={{
+                    autoplay: true,
+                    animationData: lottieIcon,
+                    rendererSettings: {
+                      preserveAspectRatio: 'xMidYMid slice'
+                    }
+                  }}
+                  height={'800px'}
+                  width={'100%'}
+                /> : null
             }
+          </div>
         </div>
       </div>
     </div>

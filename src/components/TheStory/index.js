@@ -122,7 +122,7 @@ export default ({
                                     </div>
                                   )}
                                 </CountUp>
-                                  <p>{item.name} {progress}</p>
+                                  <p>{item.name}</p>
                               </div>
                             </div>
                           ))
