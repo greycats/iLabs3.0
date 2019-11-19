@@ -55,7 +55,7 @@ function App() {
         src: require('assets/imgs/dcom/image.png')
       },
       {
-        id: 'apple-icon',
+        id: 'apple',
         src: require('assets/imgs/dcom/appleicon.png')
       },
       {
