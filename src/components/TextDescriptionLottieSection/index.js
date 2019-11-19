@@ -37,39 +37,47 @@ export default ({
             }
           />
           <div style={{
-            display: 'flex'
+            display: 'flex',
+            justifyContent: 'space-between',
+            height: '250px'
           }}>
-            <AnimationPlayer
-              target={
-                <div>
-                  <CommonTitle intro={intro} width={495}></CommonTitle>
-                </div>
-              }
-              animations={
-                [
-                  {
-                    from: {
-                      opacity: 0
-                    },
-                    to: {
-                      opacity: 1
-                    },
-                    delay: .2
-                  }
-                ]
-              }
-            />
-            <div style={{
-              width: '35%',
-              fontSize: '24px',
-              fontWeight: 'bold',
-              color: '#656565',
-              marginLeft: '80px'
-            }}>
+            <div>
               <AnimationPlayer
                 target={
                   <div>
-                    <p>{description}</p>
+                    <div style={{
+                      width: '564px',
+                      letterSpacing: '1px',
+                      lineHeight: '28px'
+                    }}>{intro}</div>
+                  </div>
+                }
+                animations={
+                  [
+                    {
+                      from: {
+                        opacity: 0
+                      },
+                      to: {
+                        opacity: 1
+                      },
+                      delay: .2
+                    }
+                  ]
+                }
+              />
+            </div>
+            <div>
+              <AnimationPlayer
+                target={
+                  <div style={{
+                    width: '600px',
+                    fontSize: '24px',
+                    fontWeight: 'bold',
+                    letterSpacing: '1px',
+                    lineHeight: '38px'
+                  }}>
+                    {description}
                   </div>
                 }
                 animations={
@@ -87,9 +95,12 @@ export default ({
                 }
               />
             </div>
-
           </div>
-          <div style={{height: '775px'}}>
+          <div style={{
+            height: '775px',
+            position: 'relative',
+            left: '-260px'
+          }}>
             {
               lottieIcon ?
                 <LottieAnimation
@@ -104,7 +115,7 @@ export default ({
                     }
                   }}
                   height={'800px'}
-                  width={'100%'}
+                  width={'1700px'}
                 /> : null
             }
           </div>

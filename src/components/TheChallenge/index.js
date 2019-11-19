@@ -90,6 +90,7 @@ export default ({
                             <Lottie
                               options={{
                                 autoplay: true,
+                                loop: false,
                                 animationData: item.img,
                                 rendererSettings: {
                                   preserveAspectRatio: 'xMidYMid slice'
