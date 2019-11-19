@@ -10,6 +10,7 @@ const CaseStudyWrap = styled.div`
   min-width: 1366px;
   max-width: 1920px;
   margin: 0 auto;
+  overflow: hidden;
 `
 
 export default () => {

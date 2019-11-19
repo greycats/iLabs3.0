@@ -2,7 +2,7 @@
  * @Author: Gary
  * @Date: 2019-11-18 14:09:53
  * @Last Modified by: Gary
- * @Last Modified time: 2019-11-18 15:48:14
+ * @Last Modified time: 2019-11-19 14:48:13
  * layoutType:
  * 1.left-text
  * 2.right-text
@@ -80,8 +80,8 @@ export default ({
   titleHeight = "60px",
   showLottie = true,
   animateIcon = null,
-  animateWidth = '100%',
-  animateHeight = '100%',
+  animateWidth = 'auto',
+  animateHeight = 'auto',
   SubComponent = null,
   wrapMinHeight = '750px',
   animationStyle = {}

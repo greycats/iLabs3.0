@@ -98,12 +98,13 @@ export default ({
                                 <Lottie
                                   options={{
                                     autoplay: true,
+                                    loop: false,
                                     animationData: item.img,
                                     rendererSettings: {
                                       preserveAspectRatio: 'xMidYMid slice'
                                     }
                                   }}
-                                  isPaused={progress <= (0.5 + index / 20)}
+                                  isPaused={progress <= (0.6 + index / 20)}
                                   height={86}
                                   width={86}
                                 />
@@ -111,7 +112,7 @@ export default ({
                               <div className="number">
                                 <CountUp
                                   start={0}
-                                  end={progress >= (0.5 + index / 20) ? item.number : 0}
+                                  end={progress >= (0.6 + index / 20) ? item.number : 0}
                                   duration={1}
                                   decimals={item.decimals || 0}
                                 >
