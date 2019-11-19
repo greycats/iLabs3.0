@@ -4,7 +4,7 @@ import { Tween, Timeline } from 'react-gsap'
 import styled from 'styled-components'
 
 import { StyledSectionWitheTitle } from 'components/Styled'
-import MacImage from 'assets/imgs/vizient/Mac.png'
+import { getImage } from 'scripts/PreloadManager'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -67,6 +67,7 @@ const TitlePosition = styled.div`
 
 export default () => {
 
+  const MacImage = getImage('banner-mac-image')
   const Mac =
     <ImagePosition>
       <img src={MacImage} alt=""  style={{ width: '100%' }} />

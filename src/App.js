@@ -17,12 +17,16 @@ function App() {
   }
 
   const loadFile = () => {
-    PreloadManager.loadFile(
+    PreloadManager.loadManifest([
       {
         id: 'project-vizient-img',
-        src: 'src/assets/imgs/vizient-1.png'
+        src: require('assets/imgs/vizient-1.png')
       },
-    )
+      {
+        id: 'banner-mac-image',
+        src: require('assets/imgs/vizient/Mac.png')
+      }
+    ])
 
     PreloadManager.load()
     PreloadManager.on('complete', function () {
