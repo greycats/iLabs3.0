@@ -4,9 +4,8 @@ import { Tween, Timeline } from 'react-gsap'
 import styled from 'styled-components'
 
 import { StyledSectionWitheTitle } from 'components/Styled'
-import BrandImage from 'assets/imgs/dcom/image.png'
-import AppleIcon from 'assets/imgs/dcom/appleicon.png'
-import AndriodIcon from 'assets/imgs/dcom/andriodicon.png'
+
+import useImage from 'hooks/useImage'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -51,6 +50,9 @@ const ServiceList = () => {
 }
 
 const AvailableList = () => {
+  const AppleIcon = useImage('apple-icon')
+  const AndriodIcon = useImage('andriod-icon')
+
   const list = [
     AppleIcon,
     AndriodIcon
@@ -96,6 +98,7 @@ const TitlePosition = styled.div`
 `
 
 export default () => {
+  const BrandImage = useImage('dcom-brand-image')
 
   const Mac =
     <ImagePosition>

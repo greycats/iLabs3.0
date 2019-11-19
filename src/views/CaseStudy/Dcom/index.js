@@ -5,7 +5,6 @@ import TextAndAnimation from 'components/TextAndAnimation'
 import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
 import CommentsCard from 'components/CommentsCard'
 
-import BgImage from 'assets/imgs/dcom/Bg.png'
 import Solution from 'assets/imgs/dcom/Solution.json'
 import SmoothTransition from 'assets/imgs/dcom/Switcher.json'
 import Intuitive from 'assets/imgs/dcom/Intuitive search.json'
@@ -16,7 +15,10 @@ import onboardingLottie from 'assets/imgs/dcom/Onboardinguser.json'
 import BannerContent from './BannerContent'
 import dcomData from 'data/dcomData'
 
+import useImage from 'hooks/useImage'
+
 export default () => {
+  const BgImage = useImage('dcom-banner-image')
 
   return (
     <StyledPage>

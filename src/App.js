@@ -45,6 +45,22 @@ function App() {
       {
         id: 'orange-path',
         src: require('assets/imgs/vizient/Path 15.png')
+      },
+      {
+        id: 'dcom-banner-image',
+        src: require('assets/imgs/dcom/Bg.png')
+      },
+      {
+        id: 'dcom-brand-image',
+        src: require('assets/imgs/dcom/image.png')
+      },
+      {
+        id: 'apple-icon',
+        src: require('assets/imgs/dcom/appleicon.png')
+      },
+      {
+        id: 'andriod-icon',
+        src: require('assets/imgs/dcom/andriodicon.png')
       }
     ])
 
