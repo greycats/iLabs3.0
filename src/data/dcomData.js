@@ -11,19 +11,19 @@ export default {
         number: 4.5,
         decimals: 1,
         name: 'Reviews on App Store',
-        img: require('assets/imgs/vizient/The-story/Product.json')
+        img: require('assets/imgs/dcom/Review.json')
       },
       {
         number: 10,
         suffix: <sup style={{ fontSize: '20px' }}>%</sup>,
         name: 'Increase in visit frequency',
-        img: require('assets/imgs/vizient/The-story/Teammember.json')
+        img: require('assets/imgs/dcom/Increase-icon.json')
       },
       {
         number: 10,
         suffix: <sup style={{ fontSize: '20px' }}>M+</sup>,
         name: 'Unique monthly visitors',
-        img: require('assets/imgs/vizient/The-story/AppscreenIcon.json')
+        img: require('assets/imgs/dcom/Star-icon.json')
       }
     ]
   },

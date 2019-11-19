@@ -83,7 +83,9 @@ export default () => {
           }
           animateIcon={Intuitive}
           animationStyle={{
+            width: '690px',
             top: '-120px',
+            left: '-160px'
           }}
         />
 
@@ -92,6 +94,11 @@ export default () => {
           {...dcomData.onboardingData}
           animateIcon={onboardingLottie}
           wrapMinHeight="900px"
+          titleStyle={
+            {
+              width: '550px'
+            }
+          }
         />
 
         <TextAndAnimation
@@ -104,8 +111,9 @@ export default () => {
             }
           }
           animateIcon={HomeScreen}
-          animateWidth={640}
+          animateWidth={930}
           animationStyle={{
+            width: '640px',
             top: '-120px',
           }}
         />

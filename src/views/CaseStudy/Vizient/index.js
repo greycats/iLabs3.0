@@ -63,20 +63,19 @@ export default () => {
 
         <TextAndAnimation
           layoutType='left-text'
-          title={vizientData.componentsForWeb.title}
-          intro={vizientData.componentsForWeb.intro}
+          {...vizientData.componentsForWeb}
           titleHeight="120px"
           titleStyle={
             {
-              width: '500px',
+              width: '495px',
               marginTop: '230px'
             }
           }
           animateIcon={ComponentsForWeb}
-          animateWidth={745}
+          animateWidth={815}
           animationStyle={{
-            right: '-20px',
-            transform: 'scale(1.1)'
+            width: '745px',
+            right: '-20px'
           }}
         />
 
@@ -92,7 +91,10 @@ export default () => {
             }
           }
           animateIcon={BaseOn}
-          animateWidth={740}
+          // animateWidth={910}
+          animationStyle={{
+            width: '745px',
+          }}
         />
 
         <Leverage />
