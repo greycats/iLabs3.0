@@ -25,6 +25,10 @@ function App() {
       {
         id: 'banner-mac-image',
         src: require('assets/imgs/vizient/Mac.png')
+      },
+      {
+        id: 'vizient-image',
+        src: require('assets/imgs/vizient/Banner.png')
       }
     ])
 

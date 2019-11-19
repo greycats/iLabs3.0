@@ -11,7 +11,6 @@ import Grid from './Grid'
 import Leverage from './Leverage'
 import AvatarComments from 'components/AvatarComments'
 
-import VizientImage from 'assets/imgs/vizient/Banner.png'
 import ComponentsForWeb from 'assets/imgs/vizient/Components'
 import BaseOn from 'assets/imgs/vizient/BaseOn'
 import ColorCircle from 'assets/imgs/vizient/ColorCircle'
@@ -27,7 +26,11 @@ import vizientData from 'data/vizientData'
 import { AbsolutePositionWrap } from 'components/Styled'
 import { LottieAnimation } from 'components/AnimationPlayer'
 
+import useImage from 'hooks/useImage'
+
 export default () => {
+  const VizientImage = useImage('vizient-image')
+
   return (
     <StyledPage>
       <div>
