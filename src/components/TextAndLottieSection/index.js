@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 
-import AnimationPlayer, { LottieAnimation, animations } from 'components/AnimationPlayer'
+import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
-import 'components/TheChallenge/index.sass'
+import './index.sass'
 
 const lottieDuration = .8
 
@@ -10,7 +10,12 @@ export default ({
   intro = '',
   list = [],
   title = '',
-  style = {}
+  style = {},
+  withName = true,
+  lottieSize = {
+    width: 86,
+    height: 86
+  }
 }) => {
   const animationOptions = {
     title: [
@@ -59,7 +64,7 @@ export default ({
             animations={animationOptions.intro}
           />
         </div>
-        <div className="content-wrap" style={{ marginTop: '150px' }}>
+        <div className="content-wrap">
           {
             list.map((item, index) => {
               return (
@@ -77,35 +82,38 @@ export default ({
                           preserveAspectRatio: 'xMidYMid slice'
                         }
                       }}
-                      height={86}
-                      width={86}
+                      {...lottieSize}
                     />
                   </div>
-                  <AnimationPlayer
-                    target={
-                      (
-                        <Fragment>
-                          <div className="name">{item.name}</div>
-                          <div className="tezt">{item.text}</div>
-                        </Fragment>
-                      )
-                    }
-                    triggerRelativePosition={{
-                      top: '-350px'
-                    }}
-                    animations={[
-                      {
-                        from: {
-                          opacity: 0
-                        },
-                        to: {
-                          opacity: 1
-                        },
-                        duration: lottieDuration,
-                        delay: lottieDuration * index
-                      }
-                    ]}
-                  />
+                  {
+                    withName ?
+                      <AnimationPlayer
+                        target={
+                          (
+                            <Fragment>
+                              <div className="name">{item.name}</div>
+                              <div className="tezt">{item.text}</div>
+                            </Fragment>
+                          )
+                        }
+                        triggerRelativePosition={{
+                          top: '-350px'
+                        }}
+                        animations={[
+                          {
+                            from: {
+                              opacity: 0
+                            },
+                            to: {
+                              opacity: 1
+                            },
+                            duration: lottieDuration,
+                            delay: lottieDuration * index
+                          }
+                        ]}
+                      />
+                      : null
+                  }
                 </div>
               )
             })

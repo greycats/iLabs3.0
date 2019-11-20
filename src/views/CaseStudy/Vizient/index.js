@@ -39,26 +39,14 @@ export default () => {
         </StyledSection>
         <TheStory {...vizientData.theStoryData}></TheStory>
         <TextAndLottieSection
-          title={vizientData.theChallengeData.title}
-          intro={
-            vizientData.theChallengeData.intro
-          }
-          list={
-            vizientData.theChallengeData.list
-          }
+          {...vizientData.theChallengeData}
           style={{
             background: `url(${ChallengeImg})`,
             backgroundSize: 'contain'
           }}
         />
         <TextAndLottieSection
-          title={vizientData.theSolutionData.title}
-          intro={
-            vizientData.theSolutionData.intro
-          }
-          list={
-            vizientData.theSolutionData.list
-          }
+          {...vizientData.theSolutionData}
         />
         <Toolkit />
 
@@ -82,8 +70,7 @@ export default () => {
 
         <TextAndAnimation
           layoutType='right-text'
-          title={vizientData.basedOn.title}
-          intro={vizientData.basedOn.intro}
+          {...vizientData.basedOn}
           titleHeight="120px"
           titleStyle={
             {
@@ -101,8 +88,7 @@ export default () => {
 
         <TextAndAnimation
           layoutType='right-text'
-          title={vizientData.typeface.title}
-          intro={vizientData.typeface.intro}
+          {...vizientData.typeface}
           titleStyle={
             {
               width: '495px',
@@ -139,8 +125,7 @@ export default () => {
 
         <TextAndAnimation
           layoutType='left-text'
-          title={vizientData.color.title}
-          intro={vizientData.color.intro}
+          {...vizientData.color}
           titleStyle={
             {
               width: '495px',
