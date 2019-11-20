@@ -1,5 +1,6 @@
 import React from 'react'
 import ControllerList from 'components/AnimateWrap/controllerList'
+import Green from 'assets/imgs/vizient/Path 2.png'
 import useImage from 'hooks/useImage'
 import './index.sass'
 
@@ -7,7 +8,6 @@ export default () => {
   const controllerId = 'toolkit-trigger'
 
   const Toolkit = useImage('toolkit')
-  const Green = useImage('green-path')
   const Orange = useImage('orange-path')
 
   const animateList = [

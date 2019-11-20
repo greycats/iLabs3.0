@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import { StyledSectionWitheTitle } from 'components/Styled'
 
 import useImage from 'hooks/useImage'
-// import { getImage } from 'scripts/PreloadManager'
 import AppleIcon from 'assets/imgs/dcom/appleicon.png'
 import AndriodIcon from 'assets/imgs/dcom/andriodicon.png'
 
@@ -99,8 +98,6 @@ const TitlePosition = styled.div`
 
 export default () => {
   const BrandImage = useImage('dcom-brand-image')
-  // const AppleIcon = getImage('apple', true)
-  // const AndriodIcon = getImage('andriod-icon', true)
 
   const Mac =
     <ImagePosition>

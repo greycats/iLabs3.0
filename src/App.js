@@ -39,10 +39,6 @@ function App() {
         src: require('assets/imgs/vizient/toolkit.png')
       },
       {
-        id: 'green-path',
-        src: require('assets/imgs/vizient/Path 2.png')
-      },
-      {
         id: 'orange-path',
         src: require('assets/imgs/vizient/Path 15.png')
       },
