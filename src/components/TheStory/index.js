@@ -1,140 +1,106 @@
-import React from 'react'
-import { Controller, Scene } from 'react-scrollmagic'
-import { Tween } from 'react-gsap'
+import React, { Fragment } from 'react'
+import AnimationPlayer, { LottieAnimation, CountUpAnimation } from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
-import CountUp from 'react-countup'
-import Lottie from 'react-lottie'
 import './index.sass'
+
+const lottieDuration = .8
 
 export default ({
   story = [],
-  dataList = [],
-  controllerId = 'the-story-trigger'
+  dataList = []
 }) => {
   return (
     <div style={{ position: 'relative' }}>
-      <div id={controllerId} />
       <div className="layout-1240 panel story-wrap">
         <div className="left-part">
-          <Controller>
-            <Scene
-              triggerElement={'#' + controllerId}
-              duration={500}
-              reverse={false}
-            >
-              {(progress) => (
-                progress ? (
-                  <Tween
-                    from={{
-                      height: 0
-                    }}
-                    to={{
-                      height: '50px'
-                    }}
-                  >
-                    <div className="title-wrap">
-                      <CommonTitle title="The Story"></CommonTitle>
-                    </div>
-                  </Tween>
-                ) : <div></div>
-              )}
-            </Scene>
-          </Controller>
+          <AnimationPlayer
+            target={
+              <div className="title-wrap">
+                <CommonTitle title="The Story"></CommonTitle>
+              </div>
+            }
+            animations={[{
+              from: {
+                opacity: 0,
+                height: 0
+              },
+              to: {
+                opacity: 1,
+                height: '44px'
+              },
+              duration: .8
+            }]}
+          />
         </div>
         <div className="right-part">
-          <div id="icon-trigger" style={{ position: 'absolute', top: '200px' }} />
-          <Controller>
-            <Scene
-              triggerElement={'#' + controllerId}
-              duration={500}
-              reverse={false}
-            >
-              {(progress) => (
-                <div className="text">
-                  {
-                    progress ? (
-                      <Tween
-                        staggerFrom={{
-                          opacity: 0
-                        }}
-                        staggerTo={{
-                          opacity: 1
-                        }}
-                        stagger={0.15}
-                        delay={.2}
-                      >
-                        {
-                          story.map((item, index) => <p key={index}>{item}</p>)
+          <div className="text">
+            <AnimationPlayer
+              target={
+                <Fragment>
+                  {story.map((item, index) => <p key={index}>{item}</p>)}
+                </Fragment>
+              }
+              animations={[{
+                from: { opacity: 0 },
+                to: { opacity: 1 }
+              }]}
+              triggerRelativePosition={{
+                top: '-200px'
+              }}
+            />
+          </div>
+          <div className="data-wrap">
+            {
+              dataList.map((item, index) => (
+                <div key={index} className="data-item">
+                  <div className="icon">
+                    <LottieAnimation
+                      triggerRelativePosition={{
+                        top: '-200px'
+                      }}
+                      id={`story_lottie_${index}`}
+                      delay={index * lottieDuration}
+                      options={{
+                        autoplay: true,
+                        loop: false,
+                        animationData: item.img,
+                        rendererSettings: {
+                          preserveAspectRatio: 'xMidYMid slice'
                         }
-                      </Tween>
-                    ) : null
-                  }
+                      }}
+                      height={86}
+                      width={86}
+                    />
+                  </div>
+                  <div className="number">
+                    <CountUpAnimation
+                      triggerRelativePosition={{
+                        top: '-200px'
+                      }}
+                      id={`story_countup_${index}`}
+                      delay={index * lottieDuration}
+                      end={item.number}
+                      decimals={item.decimals}
+                      suffix={item.suffix}
+                    />
+                    <AnimationPlayer
+                      target={
+                        <p>{item.name}</p>
+                      }
+                      animations={[{
+                        from: { opacity: 0 },
+                        to: { opacity: 1 }
+                      }]}
+                      delay={index * lottieDuration}
+                      triggerRelativePosition={{
+                        top: '-200px'
+                      }}
+                    />
+                  </div>
                 </div>
-              )}
-            </Scene>
-            <Scene
-              triggerElement="#icon-trigger"
-              duration={500}
-              reverse={false}
-            >
-              {(progress) => (
-                <div className="data-wrap">
-                  {
-                    progress ? (
-                      <Tween
-                        staggerFrom={{
-                          opacity: 0
-                        }}
-                        staggerTo={{
-                          opacity: 1
-                        }}
-                        stagger={0.15}
-                        delay={.4}
-                      >
-                        {
-                          dataList.map((item, index) => (
-                            <div key={index} className="data-item">
-                              <div className="icon">
-                                <Lottie
-                                  options={{
-                                    autoplay: true,
-                                    loop: false,
-                                    animationData: item.img,
-                                    rendererSettings: {
-                                      preserveAspectRatio: 'xMidYMid slice'
-                                    }
-                                  }}
-                                  isPaused={progress <= (0.6 + index / 20)}
-                                  height={86}
-                                  width={86}
-                                />
-                              </div>
-                              <div className="number">
-                                <CountUp
-                                  start={0}
-                                  end={progress >= (0.6 + index / 20) ? item.number : 0}
-                                  duration={1}
-                                  decimals={item.decimals || 0}
-                                >
-                                  {({ countUpRef }) => (
-                                    <div>
-                                      <span ref={countUpRef} />
-                                      {item.suffix}
-                                    </div>
-                                  )}
-                                </CountUp>
-                                  <p>{item.name}</p>
-                              </div>
-                            </div>
-                          ))
-                        }
-                      </Tween>
-                    ) : null
-                  }
-                </div>
-              )}
-            </Scene>
-          </Controller>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>

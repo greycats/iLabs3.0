@@ -91,6 +91,7 @@ export default () => {
                       delay={index * lottieDuration}
                       options={{
                         autoplay: true,
+                        loop: false,
                         animationData: item.img,
                         rendererSettings: {
                           preserveAspectRatio: 'xMidYMid slice'
