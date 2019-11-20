@@ -2,18 +2,14 @@ import React from 'react'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
 import TextAndAnimation from 'components/TextAndAnimation'
-import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
-import CommentsCard from 'components/CommentsCard'
+import AvatarComments from 'components/AvatarComments'
 
-import Solution from 'assets/imgs/dcom/Solution.json'
-import SmoothTransition from 'assets/imgs/dcom/Switcher.json'
-import Intuitive from 'assets/imgs/dcom/Intuitive search.json'
-import HomeScreen from 'assets/imgs/dcom/iPad.json'
+import StartSmall from 'assets/imgs/crew/5-phone-double.json'
+import Streamlined from 'assets/imgs/crew/6-phone-single.json'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
-import onboardingLottie from 'assets/imgs/dcom/Onboardinguser.json'
 import BannerContent from './BannerContent'
-import dcomData from 'data/dcomData'
+import crewData from 'data/crewData'
 
 import useImage from 'hooks/useImage'
 
@@ -29,90 +25,60 @@ export default () => {
           </Banner>
         </StyledSection>
 
-        <TheStory {...dcomData.theStoryData}></TheStory>
+        <TheStory {...crewData.theStoryData}></TheStory>
 
-        <div style={{ background: '#f5f5f5', paddingTop: '70px' }}>
-          <TextAndAnimation
-            layoutType='right-text'
-            {...dcomData.theChallenge}
-            titleStyle={
-              {
-                width: '599px'
-              }
-            }
-            showLottie={false}
-            wrapMinHeight="485px"
-          />
-        </div>
-
-        <TextDescriptionLottieSection
-          {...dcomData.theSolution}
-          lottieIcon={Solution}
-        />
+        {/* <div style={{ background: '#f5f5f5', paddingTop: '70px' }}>
+        </div> */}
 
         <TextAndAnimation
           layoutType='left-text'
-          {...dcomData.smoothTransition}
-          wrapMinHeight="500px"
-          titleHeight="180px"
+          {...crewData.startSmall}
+          wrapMinHeight="988px"
+          titleHeight="120px"
           titleStyle={
             {
-              width: '496px'
+              width: '520px'
             }
           }
-          animateIcon={SmoothTransition}
+          animateIcon={StartSmall}
           animationStyle={{
             top: '-120px',
+            width: '720px'
           }}
+          animateWidth={888}
         />
 
         <TextAndAnimation
           layoutType='right-text'
-          {...dcomData.intuitive}
+          {...crewData.streamlined}
           titleHeight="120px"
           titleStyle={
             {
-              width: '550px'
+              width: '520px'
             }
           }
-          animateIcon={Intuitive}
+          animateIcon={Streamlined}
           animationStyle={{
-            width: '690px',
-            top: '-120px',
-            left: '-160px'
+            top: '-200px',
+            left: '-300px',
+            width: '720px',
+            height: '950px'
           }}
+          animateWidth={1200}
         />
 
         <TextAndAnimation
           layoutType='up-text'
-          {...dcomData.onboardingData}
-          animateIcon={onboardingLottie}
-          wrapMinHeight="930px"
-          titleStyle={
-            {
-              width: '550px'
-            }
-          }
-        />
-
-        <TextAndAnimation
-          layoutType='left-text'
-          {...dcomData.homeScreen}
-          wrapMinHeight="1060px"
+          {...crewData.buildTeam}
+          wrapMinHeight="420px"
           titleStyle={
             {
               width: '600px'
             }
           }
-          animateIcon={HomeScreen}
-          animateWidth={930}
-          animationStyle={{
-            width: '640px',
-            top: '-120px',
-          }}
         />
+        <AvatarComments dataList={crewData.commentList} />
 
-        <CommentsCard commentList={dcomData.commentList} />
       </div>
     </StyledPage>
   )
