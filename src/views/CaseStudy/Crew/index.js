@@ -22,7 +22,7 @@ export default () => {
     <StyledPage>
       <div>
         <StyledSection>
-          <div style={{ height: '55vh' }}>
+          <div className="animation-banner">
             <Banner image={null}>
               <BannerContent />
             </Banner>

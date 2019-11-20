@@ -104,7 +104,7 @@ const TitlePosition = styled.div`
 export default () => {
   return (
     <StyledContainer>
-      <div style={{ position: 'absolute', height: '55vh', width: '100%' }}>
+      <div style={{ position: 'absolute', height: '55vh', width: '100%', minHeight: '480px' }}>
         <LottieAnimation
           options={{
             animationData: BgAnimation
