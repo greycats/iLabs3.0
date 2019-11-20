@@ -1,35 +1,33 @@
 import React from 'react'
 
-import { Tween, Timeline } from 'react-gsap'
 import styled from 'styled-components'
 
 import { StyledSectionWitheTitle } from 'components/Styled'
 
 import useImage from 'hooks/useImage'
-import AppleIcon from 'assets/imgs/dcom/appleicon.png'
-import AndriodIcon from 'assets/imgs/dcom/andriodicon.png'
+import AppleIcon from 'assets/imgs/crew/gray-apple.png'
+import AndriodIcon from 'assets/imgs/crew/gray-andriod.png'
+import { LottieAnimation } from 'components/AnimationPlayer'
+import BgAnimation from 'assets/imgs/crew/1-hero.json'
 
 const StyledContainer = styled.div`
   position: relative;
-  height: 100%;
+  height: 50vh;
 
   .title-tip {
     width: 230px;
     font-size: 16px;
-    color: #fff;
+    color: #656565;
   }
 `
 
 const ServiceList = () => {
   const list = [
-    'UX/UI Design',
-    'ProtoType',
-    'User Testing',
     'Mobile Development'
   ]
 
   const StyledList = styled.div`
-    color: #fff;
+    color: #656565;
 
     .service-title {
       font-size: 14px;
@@ -51,14 +49,14 @@ const ServiceList = () => {
   )
 }
 
-const AvailableList = ({AppleIcon, AndriodIcon}) => {
+const AvailableList = ({ AppleIcon, AndriodIcon }) => {
   const list = [
     AppleIcon,
     AndriodIcon
   ]
 
   const StyledList = styled.div`
-    color: #fff;
+    color: #656565;
 
     .title {
       width: 150px;
@@ -76,7 +74,7 @@ const AvailableList = ({AppleIcon, AndriodIcon}) => {
     <StyledList>
       <p className="title">{'Available on'.toUpperCase()}</p>
       {
-        list.map((icon, index) => <img className="item" src={icon} alt="" key={index}/>)
+        list.map((icon, index) => <img className="item" src={icon} alt="" key={index} />)
       }
     </StyledList>
   )
@@ -91,7 +89,7 @@ const ImagePosition = styled.div`
 
 const TitlePosition = styled.div`
   position: absolute;
-  left: 7%;
+  left: 20%;
   top: 5%;
   height: 100%
 `
@@ -101,31 +99,41 @@ export default () => {
 
   const Mac =
     <ImagePosition>
-      <img src={BrandImage} alt=""  style={{ width: '100%' }} />
+      <img src={BrandImage} alt="" style={{ width: '100%' }} />
     </ImagePosition>
 
   return (
     <StyledContainer>
+      <div style={{position: 'absolute', height: '50vh'}}>
+      <LottieAnimation
+        delay={.1}
+        options={{
+          animationData: BgAnimation
+        }}
+      />
+      </div>
       <TitlePosition>
         <StyledSectionWitheTitle>
-          Dictionary.com
+          <p style={{color: '#656565'}}>
+            Crew
+          </p>
         </StyledSectionWitheTitle>
 
         <p className="title-tip">
-          How we helped Dictionary.com increase visit frequency by 10%
+          Communicate with teams and managers on the go
         </p>
         <div style={{
           display: 'flex',
           position: 'absolute',
           top: '60%'
         }}>
-          <div style={{marginRight: '100px'}}>
+          <div style={{ marginRight: '100px' }}>
             <ServiceList />
           </div>
-          <AvailableList AppleIcon={AppleIcon} AndriodIcon={AndriodIcon}/>
+          <AvailableList AppleIcon={AppleIcon} AndriodIcon={AndriodIcon} />
         </div>
       </TitlePosition>
-      <Timeline
+      {/* <Timeline
         target={Mac}
         repeat={-1}
       >
@@ -137,7 +145,7 @@ export default () => {
           from={{ top: '14%' }} to={{ top: '13%' }}
           duration={0.7}
         ></Tween>
-      </Timeline>
+      </Timeline> */}
     </StyledContainer>
   )
 }

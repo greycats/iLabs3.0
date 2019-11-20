@@ -52,6 +52,13 @@ export const LottieAnimation = ({
   loop = false
 }) => {
   const playAnimation = useAnimationPlay(id, delay, onStart)
+  const currentOptions = {
+    autoplay: true,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    },
+    ...options
+  }
 
   return (
     <Fragment>
@@ -62,7 +69,7 @@ export const LottieAnimation = ({
       {
         playAnimation
           ? <Lottie
-            options={{ loop, ...options }}
+            options={{ loop, ...currentOptions }}
             height={height}
             width={width}
           />
