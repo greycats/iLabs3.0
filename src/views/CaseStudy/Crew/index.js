@@ -5,16 +5,14 @@ import TextAndAnimation from 'components/TextAndAnimation'
 import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
 import CommentsCard from 'components/CommentsCard'
 import CommonTitle from 'components/CommonTitle'
+import AvatarComments from 'components/AvatarComments'
 
-import Solution from 'assets/imgs/dcom/Solution.json'
-import SmoothTransition from 'assets/imgs/dcom/Switcher.json'
-import Intuitive from 'assets/imgs/dcom/Intuitive search.json'
-import HomeScreen from 'assets/imgs/dcom/iPad.json'
+import StartSmall from 'assets/imgs/crew/5-phone-double.json'
+import Streamlined from 'assets/imgs/crew/6-phone-single.json'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
-import onboardingLottie from 'assets/imgs/dcom/Onboardinguser.json'
 import BannerContent from './BannerContent'
-import dcomData from 'data/dcomData'
+import crewData from 'data/crewData'
 
 import AnimationPlayer from 'components/AnimationPlayer'
 
@@ -24,14 +22,14 @@ export default () => {
     <StyledPage>
       <div>
         <StyledSection>
-          <div style={{ height: '50vh', minHeight: '480px' }}>
+          <div style={{ height: '55vh' }}>
             <Banner image={null}>
               <BannerContent />
             </Banner>
           </div>
         </StyledSection>
 
-        <TheStory {...dcomData.theStoryData}></TheStory>
+        <TheStory {...crewData.theStoryData}></TheStory>
 
         <div style={{ display: 'flex' }} className="layout-1240 panel challenge-wrap">
           <div style={{
@@ -70,88 +68,55 @@ export default () => {
           </div>
         </div>
 
-        <div style={{ background: '#f5f5f5', paddingTop: '70px' }}>
-          <TextAndAnimation
-            layoutType='right-text'
-            {...dcomData.theChallenge}
-            titleStyle={
-              {
-                width: '599px'
-              }
-            }
-            showLottie={false}
-            wrapMinHeight="485px"
-          />
-        </div>
-
-        <TextDescriptionLottieSection
-          {...dcomData.theSolution}
-          lottieIcon={Solution}
-        />
-
         <TextAndAnimation
           layoutType='left-text'
-          {...dcomData.smoothTransition}
-          wrapMinHeight="500px"
-          titleHeight="180px"
+          {...crewData.startSmall}
+          wrapMinHeight="988px"
+          titleHeight="120px"
           titleStyle={
             {
-              width: '496px'
+              width: '520px'
             }
           }
-          animateIcon={SmoothTransition}
+          animateIcon={StartSmall}
           animationStyle={{
             top: '-120px',
+            width: '720px'
           }}
+          animateWidth={888}
         />
 
         <TextAndAnimation
           layoutType='right-text'
-          {...dcomData.intuitive}
+          {...crewData.streamlined}
           titleHeight="120px"
           titleStyle={
             {
-              width: '550px'
+              width: '520px'
             }
           }
-          animateIcon={Intuitive}
+          animateIcon={Streamlined}
           animationStyle={{
-            width: '690px',
-            top: '-120px',
-            left: '-160px'
+            top: '-200px',
+            left: '-300px',
+            width: '720px',
+            height: '950px'
           }}
+          animateWidth={1200}
         />
 
         <TextAndAnimation
           layoutType='up-text'
-          {...dcomData.onboardingData}
-          animateIcon={onboardingLottie}
-          wrapMinHeight="930px"
-          titleStyle={
-            {
-              width: '550px'
-            }
-          }
-        />
-
-        <TextAndAnimation
-          layoutType='left-text'
-          {...dcomData.homeScreen}
-          wrapMinHeight="1060px"
+          {...crewData.buildTeam}
+          wrapMinHeight="420px"
           titleStyle={
             {
               width: '600px'
             }
           }
-          animateIcon={HomeScreen}
-          animateWidth={930}
-          animationStyle={{
-            width: '640px',
-            top: '-120px',
-          }}
         />
+        <AvatarComments dataList={crewData.commentList} />
 
-        <CommentsCard commentList={dcomData.commentList} />
       </div>
     </StyledPage>
   )

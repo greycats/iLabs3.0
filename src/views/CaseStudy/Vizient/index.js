@@ -92,7 +92,6 @@ export default () => {
             }
           }
           animateIcon={BaseOn}
-          // animateWidth={910}
           animationStyle={{
             width: '745px',
           }}
