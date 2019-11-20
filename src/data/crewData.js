@@ -26,6 +26,15 @@ export default {
       }
     ]
   },
+  theSolutions: {
+    title: 'The Solutions',
+    intro: 'We built an agile development team of 4 engineers plus a SF based lead engineer that worked lock step with the Crew engineering team.',
+    list: [
+      { img: require('assets/imgs/crew/4-1-Co-Dev.json') },
+      { img: require('assets/imgs/crew/4-2-Launch-MVP.json') },
+      { img: require('assets/imgs/crew/4-3-Build-a-highly-reliable.json') }
+    ]
+  },
   startSmall: {
     title: <div>Start small, <br />scale when ready'</div>,
     intro: <p>Despite an aggressive time frame for the MVP, we did not immediately ramp up our team to maximum capacity. Instead, we focused a small team of 2 engineers to understand the roadmap and technical guidelines around performance, scale and acceptable technical debt. We focused on small projects to gain expertise and iron out any project/communication issues. As our start up team became self-sufficient we added additional engineers that we managed independently to scale without slowing down progress for the entire team.</p>

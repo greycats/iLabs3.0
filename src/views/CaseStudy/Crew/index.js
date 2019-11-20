@@ -2,10 +2,9 @@ import React from 'react'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
 import TextAndAnimation from 'components/TextAndAnimation'
-import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
-import CommentsCard from 'components/CommentsCard'
-import CommonTitle from 'components/CommonTitle'
+import TextAndLottieSection from 'components/TextAndLottieSection'
 import AvatarComments from 'components/AvatarComments'
+import CommonTitle from 'components/CommonTitle'
 
 import StartSmall from 'assets/imgs/crew/5-phone-double.json'
 import Streamlined from 'assets/imgs/crew/6-phone-single.json'
@@ -67,6 +66,18 @@ export default () => {
 
           </div>
         </div>
+
+        <TextAndLottieSection
+          {...crewData.theSolutions}
+          withName={false}
+          lottieSize={{
+            width: 392,
+            height: 380
+          }}
+          style={{
+            height:815
+          }}
+        />
 
         <TextAndAnimation
           layoutType='left-text'

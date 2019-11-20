@@ -2,7 +2,7 @@
  * @Author: Gary
  * @Date: 2019-11-18 14:09:53
  * @Last Modified by: Gary
- * @Last Modified time: 2019-11-19 14:48:13
+ * @Last Modified time: 2019-11-20 16:37:19
  * layoutType:
  * 1.left-text
  * 2.right-text
