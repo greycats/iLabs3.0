@@ -1,10 +1,13 @@
 import React from 'react'
-import Vizient from './Vizient'
-import Dcom from './Dcom'
-import { getLocationSearch } from 'utils'
 import styled from 'styled-components'
+
+import { getLocationSearch } from 'utils'
+
 import Header from 'components/Header'
 import Footer from '../../components/Footer'
+import Vizient from './Vizient'
+import Dcom from './Dcom'
+import Crew from './Crew'
 
 const CaseStudyWrap = styled.div`
   min-width: 1366px;
@@ -27,6 +30,9 @@ export default () => {
 
             case 'dcom':
               return <Dcom />
+
+            case 'crew':
+              return <Crew />
 
             default:
               return <p>case study</p>
