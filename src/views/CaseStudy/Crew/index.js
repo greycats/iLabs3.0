@@ -28,7 +28,7 @@ export default () => {
           </div>
         </StyledSection>
 
-        <TheStory {...crewData.theStoryData}></TheStory>
+        <TheStory {...crewData.theStory}></TheStory>
 
         <div style={{ display: 'flex' }} className="layout-1240 panel challenge-wrap">
           <div style={{
@@ -44,19 +44,17 @@ export default () => {
                 </div>
               }
               animations={
-                [
-                  {
-                    duration: 1,
-                    from: {
-                      opacity: 0,
-                      height: 0
-                    },
-                    to: {
-                      opacity: 1,
-                      height: '394px'
-                    }
+                [{
+                  duration: 1,
+                  from: {
+                    opacity: 0,
+                    height: 0
+                  },
+                  to: {
+                    opacity: 1,
+                    height: '394px'
                   }
-                ]
+                }]
               }
             />
           </div>
@@ -75,20 +73,20 @@ export default () => {
             height: 380
           }}
           style={{
-            height:815
+            height: 815
           }}
         />
 
         <TextAndAnimation
           layoutType='left-text'
           {...crewData.startSmall}
+          wrapStyle={{
+            padding: '240px 0 0'
+          }}
           wrapMinHeight="988px"
-          titleHeight="120px"
-          titleStyle={
-            {
-              width: '520px'
-            }
-          }
+          titleStyle={{
+            width: '520px'
+          }}
           animateIcon={StartSmall}
           animationStyle={{
             top: '-120px',
@@ -100,12 +98,9 @@ export default () => {
         <TextAndAnimation
           layoutType='right-text'
           {...crewData.streamlined}
-          titleHeight="120px"
-          titleStyle={
-            {
-              width: '520px'
-            }
-          }
+          titleStyle={{
+            width: '520px'
+          }}
           animateIcon={Streamlined}
           animationStyle={{
             top: '-200px',
@@ -119,12 +114,13 @@ export default () => {
         <TextAndAnimation
           layoutType='up-text'
           {...crewData.buildTeam}
+          wrapStyle={{
+            padding: '0 0 150px'
+          }}
           wrapMinHeight="420px"
-          titleStyle={
-            {
-              width: '600px'
-            }
-          }
+          titleStyle={{
+            width: '600px'
+          }}
         />
         <AvatarComments dataList={crewData.commentList} />
 

@@ -2,7 +2,7 @@
  * @Author: Gary
  * @Date: 2019-11-18 14:09:53
  * @Last Modified by: Gary
- * @Last Modified time: 2019-11-20 16:37:19
+ * @Last Modified time: 2019-11-21 15:33:45
  * layoutType:
  * 1.left-text
  * 2.right-text
@@ -45,12 +45,13 @@ const AnimateTitle = ({
 
 const AnimateText = ({
   id = hashCode(),
-  intro
+  intro,
+  isSubTitle = ''
 }) => (
     <AnimationPlayer
       id={id}
       target={
-        <div className="intro-wrap">
+        <div className={classnames("intro-wrap", { 'sub-title': isSubTitle })}>
           {intro}
         </div>
       }
@@ -75,6 +76,7 @@ export default ({
   layoutType = 'left-text',
   id = hashCode(),
   title = '',
+  subTitle = '',
   intro = '',
   titleStyle = {},
   titleHeight = "60px",
@@ -84,12 +86,18 @@ export default ({
   animateHeight = 'auto',
   SubComponent = null,
   wrapMinHeight = '750px',
-  animationStyle = {}
+  animationStyle = {},
+  wrapStyle = {}
 }) => {
   return (
-    <div className={classnames("text-animation-wrap", layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight }}>
+    <div className={classnames("text-animation-wrap", layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight, ...wrapStyle }}>
       <div className="title-part" style={titleStyle}>
         <AnimateTitle id={id + '0'} title={title} titleHeight={titleHeight} />
+        {
+          subTitle ?
+            <AnimateText id={id + '1'} intro={subTitle} isSubTitle={subTitle} />
+            : null
+        }
         <AnimateText id={id + '1'} intro={intro} />
         {
           SubComponent ? <SubComponent /> : null
@@ -112,6 +120,6 @@ export default ({
             : null
         }
       </div>
-    </div>
+    </div >
   )
 }

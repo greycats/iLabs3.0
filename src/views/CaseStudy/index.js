@@ -8,6 +8,7 @@ import Footer from '../../components/Footer'
 import Vizient from './Vizient'
 import Dcom from './Dcom'
 import Crew from './Crew'
+import GS from './GS'
 
 const CaseStudyWrap = styled.div`
   min-width: 1366px;
@@ -33,6 +34,9 @@ export default () => {
 
             case 'crew':
               return <Crew />
+
+            case 'gs':
+              return <GS />
 
             default:
               return <p>case study</p>

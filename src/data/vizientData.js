@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
 export default {
-  theStoryData: {
+  theStory: {
     story: [
       'Vizient is the largest member-driven, health care performance improvement company in the country.',
       'With dozens of products offered, Vizient tasked us with designing and building a new UI Toolkit to homogenize their user interface components across all services.'
@@ -25,7 +25,7 @@ export default {
       }
     ]
   },
-  theChallengeData: {
+  theChallenge: {
     title: 'The Challenge',
     intro: 'Vizient has a diverse product suite by way of acquisitions. Hence there was no standardization of product interactions,  user interface styles and interactions. ',
     list: [
@@ -46,7 +46,7 @@ export default {
       },
     ]
   },
-  theSolutionData: {
+  theSolution: {
     controllerId: 'the-solution-trigger',
     title: 'The Solution',
     intro: 'We created a fully functional UI toolkit based on a customized version of Angular Material. With a standardized interface and clear documentation we were able to cut down on operational costs, all while implementing a single uniform design language.',
@@ -70,6 +70,7 @@ export default {
   },
   componentsForWeb: {
     title: <div>Vizient Components <br /> for the Web</div>,
+    titleHeight: "120px",
     intro: (
       <Fragment>
         <p>
@@ -83,6 +84,7 @@ export default {
   },
   basedOn: {
     title: <div>Based on <br /> material design</div>,
+    titleHeight: "120px",
     intro: <p>Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.</p>
   },
   typeface: {
