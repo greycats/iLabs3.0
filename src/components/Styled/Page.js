@@ -28,7 +28,7 @@ export default styled.div`
 
   @media screen and (min-width: 1900px) {
     .animation-banner {
-      height: 72vh;
+      height: 60vh;
     }
   }
 `
