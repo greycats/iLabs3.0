@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
+import classNames from 'classnames'
 import './index.sass'
 
 const lottieDuration = .8
@@ -15,7 +16,10 @@ export default ({
   lottieSize = {
     width: 86,
     height: 86
-  }
+  },
+  titleWidth = 495,
+  itemStyle = {},
+  isWhite = false
 }) => {
   const animationOptions = {
     title: [
@@ -50,7 +54,7 @@ export default ({
           <AnimationPlayer
             target={
               <div className="title-wrap">
-                <CommonTitle title={title} titleMargin='50px' />
+                <CommonTitle title={title} titleMargin='50px' isWhite={isWhite} />
               </div>
             }
             animations={animationOptions.title}
@@ -58,17 +62,17 @@ export default ({
           <AnimationPlayer
             target={
               <div>
-                <CommonTitle intro={intro} width={495}></CommonTitle>
+                <CommonTitle intro={intro} width={titleWidth} isWhite={isWhite}></CommonTitle>
               </div>
             }
             animations={animationOptions.intro}
           />
         </div>
-        <div className="content-wrap">
+        <div className={classNames("content-wrap", { 'is-white': isWhite })}>
           {
             list.map((item, index) => {
               return (
-                <div key={index} className="challenge-item">
+                <div key={index} className="challenge-item" style={itemStyle}>
                   <div className="icon">
                     <LottieAnimation
                       triggerRelativePosition={{

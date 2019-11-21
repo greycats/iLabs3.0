@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default {
-  theStoryData: {
+  theStory: {
     story: [
       'With 2,000,000+ trusted definitions and synonyms, 100+ million app downloads, Dictionary.com is the #1 English dictionary app for iPhone and Android.',
       'As with any large app, user fatigue sets in after prolonged usage. Dictionary.com tasked us with building a refresh that would impact their core metrics - namely, retention, monetization and user reviews on the app stores.'
@@ -38,10 +38,12 @@ export default {
   },
   smoothTransition: {
     title: 'A smooth transition from Dictionary to Thesaurus',
+    titleHeight: "180px",
     intro: <p>Our research showed that Thesaurus was one of the highly used app features. Previously users had to go through a 2 step process to use the Thesaurus. Now, user can search for thesaurus anywhere between the app with a simple toggle.</p>
   },
   intuitive: {
     title: <div>Intuitive Search <br /> Function</div>,
+    titleHeight: "120px",
     intro: (
       <div>
         <p>The search box is the most frequently used element in Dictionary.com. We realized that users were searching for the same words within different sessions, which led to a re-think of the recent searches feature. We allowed the users to have one touch access to their previously searched words.</p>

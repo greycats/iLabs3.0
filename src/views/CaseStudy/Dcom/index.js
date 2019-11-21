@@ -29,17 +29,15 @@ export default () => {
           </Banner>
         </StyledSection>
 
-        <TheStory {...dcomData.theStoryData}></TheStory>
+        <TheStory {...dcomData.theStory}></TheStory>
 
         <div style={{ background: '#f5f5f5', paddingTop: '70px' }}>
           <TextAndAnimation
             layoutType='right-text'
             {...dcomData.theChallenge}
-            titleStyle={
-              {
-                width: '599px'
-              }
-            }
+            titleStyle={{
+              width: '599px'
+            }}
             showLottie={false}
             wrapMinHeight="485px"
           />
@@ -54,12 +52,9 @@ export default () => {
           layoutType='left-text'
           {...dcomData.smoothTransition}
           wrapMinHeight="500px"
-          titleHeight="180px"
-          titleStyle={
-            {
-              width: '496px'
-            }
-          }
+          titleStyle={{
+            width: '496px'
+          }}
           animateIcon={SmoothTransition}
           animationStyle={{
             top: '-120px',
@@ -69,12 +64,9 @@ export default () => {
         <TextAndAnimation
           layoutType='right-text'
           {...dcomData.intuitive}
-          titleHeight="120px"
-          titleStyle={
-            {
-              width: '550px'
-            }
-          }
+          titleStyle={{
+            width: '550px'
+          }}
           animateIcon={Intuitive}
           animationStyle={{
             width: '690px',
@@ -88,22 +80,18 @@ export default () => {
           {...dcomData.onboardingData}
           animateIcon={onboardingLottie}
           wrapMinHeight="930px"
-          titleStyle={
-            {
-              width: '550px'
-            }
-          }
+          titleStyle={{
+            width: '550px'
+          }}
         />
 
         <TextAndAnimation
           layoutType='left-text'
           {...dcomData.homeScreen}
           wrapMinHeight="1060px"
-          titleStyle={
-            {
-              width: '600px'
-            }
-          }
+          titleStyle={{
+            width: '600px'
+          }}
           animateIcon={HomeScreen}
           animateWidth={930}
           animationStyle={{

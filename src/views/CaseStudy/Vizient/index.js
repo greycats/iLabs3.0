@@ -37,29 +37,26 @@ export default () => {
             <BannerContent />
           </Banner>
         </StyledSection>
-        <TheStory {...vizientData.theStoryData}></TheStory>
+        <TheStory {...vizientData.theStory}></TheStory>
         <TextAndLottieSection
-          {...vizientData.theChallengeData}
+          {...vizientData.theChallenge}
           style={{
             background: `url(${ChallengeImg})`,
             backgroundSize: 'contain'
           }}
         />
         <TextAndLottieSection
-          {...vizientData.theSolutionData}
+          {...vizientData.theSolution}
         />
         <Toolkit />
 
         <TextAndAnimation
           layoutType='left-text'
           {...vizientData.componentsForWeb}
-          titleHeight="120px"
-          titleStyle={
-            {
-              width: '495px',
-              marginTop: '230px'
-            }
-          }
+          titleStyle={{
+            width: '495px',
+            marginTop: '230px'
+          }}
           animateIcon={ComponentsForWeb}
           animateWidth={815}
           animationStyle={{
@@ -71,13 +68,10 @@ export default () => {
         <TextAndAnimation
           layoutType='right-text'
           {...vizientData.basedOn}
-          titleHeight="120px"
-          titleStyle={
-            {
-              width: '495px',
-              marginTop: '140px',
-            }
-          }
+          titleStyle={{
+            width: '495px',
+            marginTop: '140px',
+          }}
           animateIcon={BaseOn}
           animationStyle={{
             width: '745px',
@@ -89,12 +83,10 @@ export default () => {
         <TextAndAnimation
           layoutType='right-text'
           {...vizientData.typeface}
-          titleStyle={
-            {
-              width: '495px',
-              marginTop: '230px',
-            }
-          }
+          titleStyle={{
+            width: '495px',
+            marginTop: '230px',
+          }}
           animateIcon={TypefaceImage}
           animateWidth={740}
           SubComponent={
@@ -103,11 +95,9 @@ export default () => {
               return (
                 <TypePosition>
                   <LottieAnimation
-                    triggerRelativePosition={
-                      {
-                        top: '-200px'
-                      }
-                    }
+                    triggerRelativePosition={{
+                      top: '-200px'
+                    }}
                     width='495px'
                     height='109px'
                     options={{
@@ -126,12 +116,10 @@ export default () => {
         <TextAndAnimation
           layoutType='left-text'
           {...vizientData.color}
-          titleStyle={
-            {
-              width: '495px',
-              marginTop: '150px',
-            }
-          }
+          titleStyle={{
+            width: '495px',
+            marginTop: '150px',
+          }}
           animateIcon={ColorImage}
           animateWidth={740}
           SubComponent={
@@ -140,11 +128,9 @@ export default () => {
               return (
                 <CirclePosition>
                   <LottieAnimation
-                    triggerRelativePosition={
-                      {
-                        top: '-200px'
-                      }
-                    }
+                    triggerRelativePosition={{
+                      top: '-200px'
+                    }}
                     width='458px'
                     height='100px'
                     options={{

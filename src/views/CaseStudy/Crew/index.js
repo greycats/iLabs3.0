@@ -173,7 +173,7 @@ export default () => {
           </div>
         </StyledSection>
 
-        <TheStory {...crewData.theStoryData}></TheStory>
+        <TheStory {...crewData.theStory}></TheStory>
 
         <div style={{ backgroundColor: '#f5f5f5' }}>
           <TheChallenge list={challengeData} />
@@ -194,13 +194,13 @@ export default () => {
         <TextAndAnimation
           layoutType='left-text'
           {...crewData.startSmall}
+          wrapStyle={{
+            padding: '240px 0 0'
+          }}
           wrapMinHeight="988px"
-          titleHeight="120px"
-          titleStyle={
-            {
-              width: '520px'
-            }
-          }
+          titleStyle={{
+            width: '520px'
+          }}
           animateIcon={StartSmall}
           animationStyle={{
             top: '-120px',
@@ -212,12 +212,9 @@ export default () => {
         <TextAndAnimation
           layoutType='right-text'
           {...crewData.streamlined}
-          titleHeight="120px"
-          titleStyle={
-            {
-              width: '520px'
-            }
-          }
+          titleStyle={{
+            width: '520px'
+          }}
           animateIcon={Streamlined}
           animationStyle={{
             top: '-200px',
@@ -231,12 +228,13 @@ export default () => {
         <TextAndAnimation
           layoutType='up-text'
           {...crewData.buildTeam}
+          wrapStyle={{
+            padding: '0 0 150px'
+          }}
           wrapMinHeight="420px"
-          titleStyle={
-            {
-              width: '600px'
-            }
-          }
+          titleStyle={{
+            width: '600px'
+          }}
         />
         <AvatarComments dataList={crewData.commentList} />
 
