@@ -112,7 +112,7 @@ const TheChallenge = ({ list }) => {
   return (
     <div style={{ display: 'flex' }} className="layout-1240 panel challenge-wrap">
       <div style={{
-        width: '40%'
+        width: '48%'
       }} className="title-part">
         <AnimationPlayer
           target={
@@ -141,7 +141,8 @@ const TheChallenge = ({ list }) => {
         />
       </div>
       <div style={{
-        paddingTop: '80px'
+        paddingTop: '80px',
+        paddingLeft: '40px'
       }}>
         {
           list.map((item, index) =>
