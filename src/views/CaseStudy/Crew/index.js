@@ -13,7 +13,151 @@ import StyledSection from 'components/Styled/Section'
 import BannerContent from './BannerContent'
 import crewData from 'data/crewData'
 
-import AnimationPlayer from 'components/AnimationPlayer'
+import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
+
+import ChallengeAnimation1 from 'assets/imgs/crew/Challenge-1.json'
+import ChallengeAnimation2 from 'assets/imgs/crew/Challenge-2.json'
+import ChallengeAnimation3 from 'assets/imgs/crew/Challenge-3.json'
+
+const challengeData = [
+  {
+    lottieData: ChallengeAnimation1,
+    title: 'QUICK DEVELOPMENT',
+    description: 'To launch on 2 platforms simultaneously on short, regular ship cycles'
+  },
+  {
+    lottieData: ChallengeAnimation2,
+    title: 'CLEAN CODE',
+    description: 'To meet a consistently high bar of code quality and performance to satisfy client and user expectations'
+  },
+  {
+    lottieData: ChallengeAnimation3,
+    title: 'QUICK PROGRESS',
+    description: 'To meet a consistently high bar of code quality and performance to satisfy client and user expectations'
+  }
+]
+
+const TheChallenge = ({ list }) => {
+  const rowHeight = 120
+  const RowAnimation = (data, index) => (
+    <LottieAnimation
+      width='82px'
+      triggerRelativePosition={
+        {
+          top: `-${index * rowHeight}px`
+        }
+      }
+      delay={index * 0.3}
+      options={{
+        animationData: data
+      }}
+    />
+  )
+
+  const Row = ({
+    index = 0,
+    lottieData = ChallengeAnimation1,
+    title = 'QUICK DEVELOPMENT',
+    description = 'To launch on 2 platforms simultaneously on short, regular ship cycles'
+  }) => (
+      <div style={{ display: 'flex', marginBottom: '25px', height: '90px' }}>
+        <div style={{ width: '82px' }}>
+          <AnimationPlayer
+            triggerRelativePosition={
+              {
+                top: `-${index * rowHeight}px`
+              }
+            }
+            target={
+              RowAnimation(lottieData, index)
+            }
+          />
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '10px', width: '420px' }}>
+          <AnimationPlayer
+            triggerRelativePosition={
+              {
+                top: `-${index * rowHeight}px`
+              }
+            }
+            target={
+              <div>
+                <p style={{
+                  fontSize: '14px',
+                  color: '#2c2c2c',
+                  fontWeight: 'bold',
+                  marginBottom: '10px'
+                }}>{title}</p>
+                <p style={{
+                  fontSize: '16px',
+                  color: '#656565'
+                }}>{description}</p>
+              </div>
+            }
+            animations={[
+              {
+                from: {
+                  opacity: 0,
+                },
+                to: {
+                  opacity: 1
+                }
+              }
+            ]}
+          />
+        </div>
+      </div>
+    )
+
+  return (
+    <div style={{ display: 'flex' }} className="layout-1240 panel challenge-wrap">
+      <div style={{
+        width: '40%'
+      }} className="title-part">
+        <AnimationPlayer
+          target={
+            <div className="title-wrap" style={{ width: '85%' }}>
+              <CommonTitle
+                title="The Challenge"
+                intro="Our challenge was to build a high-performance communication platform connecting a mobile workforce, keeping in mind that Crew's service is designed specifically for workers who don't have ready access to effective communications services on the job."
+              />
+            </div>
+          }
+          animations={
+            [
+              {
+                duration: 1,
+                from: {
+                  opacity: 0,
+                  height: 0
+                },
+                to: {
+                  opacity: 1,
+                  height: '394px'
+                }
+              }
+            ]
+          }
+        />
+      </div>
+      <div style={{
+        paddingTop: '80px'
+      }}>
+        {
+          list.map((item, index) =>
+            <Row
+              key={index}
+              index={index}
+              lottieData={item.lottieData}
+              title={item.title}
+              description={item.description}
+            />
+          )
+        }
+      </div>
+    </div>
+  )
+}
 
 export default () => {
 
@@ -30,41 +174,8 @@ export default () => {
 
         <TheStory {...crewData.theStoryData}></TheStory>
 
-        <div style={{ display: 'flex' }} className="layout-1240 panel challenge-wrap">
-          <div style={{
-            width: '50%'
-          }} className="title-part">
-            <AnimationPlayer
-              target={
-                <div className="title-wrap">
-                  <CommonTitle
-                    title="The Challenge"
-                    intro="Our challenge was to build a high-performance communication platform connecting a mobile workforce, keeping in mind that Crew's service is designed specifically for workers who don't have ready access to effective communications services on the job."
-                  />
-                </div>
-              }
-              animations={
-                [
-                  {
-                    duration: 1,
-                    from: {
-                      opacity: 0,
-                      height: 0
-                    },
-                    to: {
-                      opacity: 1,
-                      height: '394px'
-                    }
-                  }
-                ]
-              }
-            />
-          </div>
-          <div style={{
-            width: '50%'
-          }}>
-
-          </div>
+        <div style={{ backgroundColor: '#f5f5f5' }}>
+          <TheChallenge list={challengeData} />
         </div>
 
         <TextAndLottieSection
@@ -75,7 +186,7 @@ export default () => {
             height: 380
           }}
           style={{
-            height:815
+            height: 815
           }}
         />
 
