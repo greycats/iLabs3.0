@@ -6,24 +6,27 @@ import TextAndLottieSection from 'components/TextAndLottieSection'
 import CommentsCard from 'components/CommentsCard'
 
 import StyledPage from 'components/Styled/Page'
+import StyledSection from 'components/Styled/Section'
+
 import BaseOn from 'assets/imgs/vizient/BaseOn'
-// import BannerContent from './BannerContent'
+import BannerContent from './BannerContent'
 import GSData from 'data/GSData'
 
 import AnimationPlayer from 'components/AnimationPlayer'
+import Questions from './Questions'
 
 export default () => {
 
   return (
     <StyledPage>
       <div>
-        {/* <StyledSection>
+        <StyledSection>
           <div className="animation-banner">
             <Banner image={null}>
               <BannerContent />
             </Banner>
           </div>
-        </StyledSection> */}
+        </StyledSection>
 
         <TheStory {...GSData.theStory}></TheStory>
 
@@ -47,6 +50,9 @@ export default () => {
             width: '600px'
           }}
         />
+
+        <Questions />
+
 
         <div style={{
           background: 'linear-gradient(0deg, #E0EBF8, #E0EBF8)',
