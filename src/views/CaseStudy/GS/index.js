@@ -12,7 +12,7 @@ import BannerContent from './BannerContent'
 import Questions from './Questions'
 
 import TheChallenge from 'assets/imgs/gs/3-challenge-5-devices/data.json'
-import GSData from 'data/gsData'
+import GSData from '../../../data/gsData'
 
 export default () => {
 
