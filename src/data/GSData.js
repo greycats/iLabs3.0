@@ -8,13 +8,13 @@ export default {
         number: 40,
         name: 'Yearly Users',
         suffix: <span style={{ fontSize: '28px' }}>M</span>,
-        img: require('assets/imgs/dcom/Review.json')
+        img: require('assets/imgs/gs/2-story-1-yearly-users/data.json')
       },
       {
         number: 271,
         suffix: <span style={{ fontSize: '28px' }}>K</span>,
         name: 'School Profiles',
-        img: require('assets/imgs/dcom/Increase-icon.json')
+        img: require('assets/imgs/gs/2-story-2-school-profiles/data.json')
       }
     ]
   },
@@ -25,22 +25,22 @@ export default {
       {
         name: 'Simple navigation',
         text: 'Simplify navigation to showcase the most important data upfront',
-        img: require('assets/imgs/vizient/The-challenge/Many products.json')
+        img: require('assets/imgs/gs/3-challenge-1-navigation/data.json')
       },
       {
         name: 'Increase engagement',
         text: 'Make reviews more prominent to increase engagement with the profiles',
-        img: require('assets/imgs/vizient/The-challenge/Inconsistency Interface.json')
+        img: require('assets/imgs/gs/3-challenge-2-engagement/data.json')
       },
       {
         name: 'Diverse userbase',
         text: 'Redesign the page to account for the needs of a diverse userbase',
-        img: require('assets/imgs/vizient/The-challenge/Mising Interactions.json')
+        img: require('assets/imgs/gs/3-challenge-3-userbase/data.json')
       },
       {
         name: 'Visualization',
         text: 'Present vast quantities of data in a meaningful way',
-        img: require('assets/imgs/vizient/The-challenge/Mising Interactions.json')
+        img: require('assets/imgs/gs/3-challenge-4-vizualization/data.json')
       },
     ]
   },
@@ -90,11 +90,71 @@ export default {
       <p> The GreatSchools brand is a visual system that communicates the heart of its identity. Typography is an essential part to express Greatschools personality to the audiences. We use Open Sans and Caecilia as our primary typefaces.</p>
       <p>Caecilia is a serif font with a rather ancient root which establish a trustworthy and respectable feeling. This typeface is dedicated to school names and add some accent to the school profile page.</p>
       <p>Open Sans is a humanist sans-serif typeface that we use for headers, sub-headers, and body text because of its high readability. The font features natural width and open curves which conveys friendliness and openness. </p>
-    </div>)
+    </div>),
+    animationList: [
+      {
+        img: require('assets/imgs/gs/12-typeface-open_sans-1/data.json'),
+        style: {
+          width: 192,
+          height: 218,
+          marginRight: 50
+        }
+      },
+      {
+        img: require('assets/imgs/gs/12-typeface-open_sans-2/data.json'),
+        style: {
+          width: 220,
+          height: 60
+        }
+      },
+      {
+        img: require('assets/imgs/gs/12-typeface-open_sans-3/data.json'),
+        style: {
+          width: 600,
+          height: 116
+        }
+      },
+      {
+        img: require('assets/imgs/gs/12-typeface-caecilia-1/data.json'),
+        style: {
+          width: 192,
+          height: 218,
+          marginRight: 50
+        }
+      },
+      {
+        img: require('assets/imgs/gs/12-typeface-caecilia-2/data.json'),
+        style: {
+          width: 220,
+          height: 60
+        }
+      },
+      {
+        img: require('assets/imgs/gs/12-typeface-caecilia-3/data.json'),
+        style: {
+          width: 600,
+          height: 116
+        }
+      }
+    ]
   },
   colors: {
     title: 'Colors',
-    intro: <p>The platform closely follows the brand colors which are shades of blue and green. These color schemes fit well with the GreatSchool nurturing brand personality, at the same time, offer good contrast and clarity to the visual elements. </p>
+    intro: <p>The platform closely follows the brand colors which are shades of blue and green. These color schemes fit well with the GreatSchool nurturing brand personality, at the same time, offer good contrast and clarity to the visual elements. </p>,
+    animationList: [
+      {
+        img: require('assets/imgs/gs/13-colors-1/data.json'),
+      },
+      {
+        img: require('assets/imgs/gs/13-colors-2/data.json'),
+      },
+      {
+        img: require('assets/imgs/gs/13-colors-3/data.json'),
+      },
+      {
+        img: require('assets/imgs/gs/13-colors-4/data.json'),
+      }
+    ]
   },
   grid: {
     title: 'Grid',
@@ -103,7 +163,7 @@ export default {
       <p>In Greatschools, since the information is heavy, grids help create consistency, proportion, rhythm, and harmony across the designs and make it easier for the user to follow. </p>
     </div>)
   },
-  sitemapc: {
+  sitemap: {
     title: 'Sitemap',
     intro: <p>Here is the overall sitemap of GreatSchools! it is provides information about the flow of platform and the relationships between them.</p>
   },
