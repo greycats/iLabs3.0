@@ -2,40 +2,40 @@ import InImg from 'assets/imgs/in.svg'
 
 export const logoList = [
   {
-    img: 'great-schools',
-  },
-  {
-    img: 'dictionary'
-  },
-  {
     img: 'vizient'
   },
   {
     img: 'xealth'
   },
   {
-    img: 'portal'
+    img: 'wine'
   },
   {
-    img: 'cision'
+    img: 'dictionary'
   },
   {
-    img: 'joist'
-  },
-  {
-    img: 'cherwell'
+    img: 'great-schools',
   },
   {
     img: 'uiew'
   },
   {
-    img: 'pared'
+    img: 'fiton'
   },
   {
-    img: 'bombfell'
+    img: 'motif'
   },
   {
-    img: 'wine'
+    img: 'affirm'
+  },
+  {
+    img: 'revinate'
+  },
+  {
+    img: 'mlabs'
+  },
+  {
+    img: 'rollbar'
   }
 ]
 export const introList = [
