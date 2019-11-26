@@ -1,18 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
 import TextAndAnimation from 'components/TextAndAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import CommentsCard from 'components/CommentsCard'
+import { LottieAnimation } from 'components/AnimationPlayer'
 
 import StyledPage from 'components/Styled/Page'
-import BaseOn from 'assets/imgs/vizient/BaseOn'
-import TheChallenge from 'assets/imgs/gs/3-challenge-5-devices/data.json'
-// import BannerContent from './BannerContent'
-import GSData from 'data/gsData'
+import StyledSection from 'components/Styled/Section'
+import BannerContent from './BannerContent'
+import Questions from './Questions'
 
-import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
+import TheChallenge from 'assets/imgs/gs/3-challenge-5-devices/data.json'
+import GSData from 'data/gsData'
 
 export default () => {
 
@@ -48,13 +48,13 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        {/* <StyledSection>
+        <StyledSection>
           <div className="animation-banner">
             <Banner image={null}>
               <BannerContent />
             </Banner>
           </div>
-        </StyledSection> */}
+        </StyledSection>
 
         <TheStory {...GSData.theStory}></TheStory>
 
@@ -110,6 +110,9 @@ export default () => {
           animateHeight={1000}
         />
 
+        <Questions />
+
+
         <div style={{
           background: 'linear-gradient(0deg, #E0EBF8, #E0EBF8)',
           padding: '270px 0 160px',
@@ -161,11 +164,11 @@ export default () => {
           }}
           wrapMinHeight={1200}
           animateIcon={require('assets/imgs/gs/7-data/data.json')}
-          animateHeight={645}
           animationStyle={{
             position: 'absolute',
             top: '300px',
-            right: 0
+            right: 0,
+            paddingLeft: 200
           }}
         />
 
@@ -314,10 +317,10 @@ export default () => {
           animateIcon={require('assets/imgs/gs/14-grid/data.json')}
         />
 
-        <div className="layout-1240">
+        <div className="layout-1240" style={{marginBottom: 50}}>
           <TextAndAnimation
             layoutType='up-text'
-            {...GSData.sitemapc}
+            {...GSData.sitemap}
             titleStyle={{
               width: '600px'
             }}

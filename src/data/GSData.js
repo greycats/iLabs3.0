@@ -163,7 +163,7 @@ export default {
       <p>In Greatschools, since the information is heavy, grids help create consistency, proportion, rhythm, and harmony across the designs and make it easier for the user to follow. </p>
     </div>)
   },
-  sitemapc: {
+  sitemap: {
     title: 'Sitemap',
     intro: <p>Here is the overall sitemap of GreatSchools! it is provides information about the flow of platform and the relationships between them.</p>
   },
