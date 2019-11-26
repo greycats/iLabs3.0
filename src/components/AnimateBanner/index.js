@@ -376,7 +376,9 @@ export const AnimateBanner = ({ children, ...props }) => {
   }, [initSprit])
 
   return (
-    <div>
+    <div style={{
+      minWidth: '1280px'
+    }}>
       <div id={renderId} ref={bgRef} style={{
         position: 'absolute',
         zIndex: -1
