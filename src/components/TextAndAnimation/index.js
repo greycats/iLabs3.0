@@ -8,10 +8,7 @@
  * 2.right-text
  * 3.up-text
  */
-import React, { useEffect, useState } from 'react'
-import AnimateIcon from '../../assets/imgs/vizient/Components'
-import { SectionTitleWrap, AbsolutePositionWrap } from 'components/Styled'
-
+import React from 'react'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import classnames from 'classnames'
 
