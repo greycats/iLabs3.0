@@ -5,10 +5,24 @@ import 'assets/styles/common.sass'
 import routes from './routes'
 import PreloadManager from 'scripts/PreloadManager'
 
-
 function App() {
   const [loaded, setLoaded] = useState(false)
   const [assetLoaded, setAssetLoaded] = useState(false)
+
+  const [jsLoaded, setJsLoaded] = useState(false)
+
+  const loadJS = () => Promise.all([
+    import('./views/Home'),
+    import('./views/CaseStudy'),
+    import('./views/OurWork'),
+    import('views/CaseStudy/Vizient'),
+    import('views/CaseStudy/Dcom'),
+    import('views/CaseStudy/Crew'),
+    import('views/CaseStudy/GS')
+  ]).then(() => {
+    console.log('js loaded!')
+    setJsLoaded(true)
+  })
 
   const doneLoad = () => {
     setTimeout(() => {
@@ -57,7 +71,7 @@ function App() {
       {
         id: 'andriod-icon',
         src: require('assets/imgs/dcom/andriodicon.png')
-      }
+      },
     ])
 
     PreloadManager.load()
@@ -67,12 +81,13 @@ function App() {
   }
 
   useEffect(() => {
+    loadJS()
     loadFile()
     window.addEventListener('load', doneLoad)
     return () => window.removeEventListener('load', doneLoad)
   }, [])
 
-  if (!loaded || !assetLoaded) {
+  if (!loaded || !assetLoaded || !jsLoaded) {
     return (
       <div className="App">
         <Preload />

@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Router, Route } from 'react-router-dom'
 import { AnimatedSwitch } from 'react-router-transition'
 import history from './history'
-import HomeView from './views/Home'
-import CaseStudy from './views/CaseStudy'
-import OurWork from './views/OurWork'
 
+const HomeView = lazy(() => import('./views/Home'))
+const CaseStudy = lazy(() => import('./views/CaseStudy'))
+const OurWork = lazy(() => import('./views/OurWork'))
 
 const routes = (
+  <Suspense fallback={(() => {
+    return (
+      <div>
+        ...
+      </div>
+    )
+  })()}>
   <Router history={history}>
     <AnimatedSwitch
       atEnter={{ opacity: 0 }}
@@ -38,6 +45,7 @@ const routes = (
       }} />
     </AnimatedSwitch>
   </Router>
+  </Suspense>
 )
 
 export default routes

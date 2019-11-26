@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import styled from 'styled-components'
 
 import { getLocationSearch } from 'utils'
 
 import Header from 'components/Header'
-import Footer from '../../components/Footer'
-import Vizient from './Vizient'
-import Dcom from './Dcom'
-import Crew from './Crew'
-import GS from './GS'
+import Footer from 'components/Footer'
+
+const Vizient = lazy(() => import('views/CaseStudy/Vizient'))
+const Dcom = lazy(() => import('views/CaseStudy/Dcom'))
+const Crew = lazy(() => import('views/CaseStudy/Crew'))
+const GS = lazy(() => import('views/CaseStudy/GS'))
 
 const CaseStudyWrap = styled.div`
   min-width: 1366px;
