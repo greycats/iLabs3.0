@@ -62,16 +62,7 @@ const TheChallenge = ({ list }) => {
   }) => (
       <div style={{ display: 'flex', marginBottom: '25px', height: '90px' }}>
         <div style={{ width: '82px' }}>
-          <AnimationPlayer
-            triggerRelativePosition={
-              {
-                top: `-${index * rowHeight}px`
-              }
-            }
-            target={
-              RowAnimation(lottieData, index)
-            }
-          />
+          { RowAnimation(lottieData, index) }
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '10px', width: '420px' }}>
           <AnimationPlayer
