@@ -18,9 +18,33 @@ function App() {
     import('views/CaseStudy/Vizient'),
     import('views/CaseStudy/Dcom'),
     import('views/CaseStudy/Crew'),
-    import('views/CaseStudy/GS')
+
+    import('views/CaseStudy/GS'),
+    import('views/CaseStudy/GS/Questions'),
+    import('views/CaseStudy/GS/TheChallenge'),
+    import('views/CaseStudy/GS/Presentation'),
+    import('views/CaseStudy/GS/FirstLook'),
+
+    import('assets/imgs/gs/1-hero'),
+    import('assets/imgs/gs/2-story-1-yearly-users'),
+    import('assets/imgs/gs/2-story-2-school-profiles'),
+    import('assets/imgs/gs/3-challenge-1-navigation'),
+    import('assets/imgs/gs/3-challenge-2-engagement'),
+    import('assets/imgs/gs/3-challenge-3-userbase'),
+    import('assets/imgs/gs/3-challenge-4-vizualization'),
+    import('assets/imgs/gs/3-challenge-5-devices'),
+    import('assets/imgs/gs/4-solution'),
+    import('assets/imgs/gs/12-typeface-open_sans-1/data.json'),
+    import('assets/imgs/gs/12-typeface-open_sans-2/data.json'),
+    import('assets/imgs/gs/12-typeface-open_sans-3/data.json'),
+    import('assets/imgs/gs/12-typeface-caecilia-1/data.json'),
+    import('assets/imgs/gs/12-typeface-caecilia-2/data.json'),
+    import('assets/imgs/gs/12-typeface-caecilia-3/data.json'),
+    import('assets/imgs/gs/13-colors-1/data.json'),
+    import('assets/imgs/gs/13-colors-2/data.json'),
+    import('assets/imgs/gs/13-colors-3/data.json'),
+    import('assets/imgs/gs/13-colors-4/data.json')
   ]).then(() => {
-    console.log('js loaded!')
     setJsLoaded(true)
   })
 
@@ -71,7 +95,7 @@ function App() {
       {
         id: 'andriod-icon',
         src: require('assets/imgs/dcom/andriodicon.png')
-      },
+      }
     ])
 
     PreloadManager.load()
