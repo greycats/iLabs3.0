@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
-import TextAndAnimation from 'components/TextAndAnimation'
-// import TextAndLottieSection from 'components/TextAndLottieSection'
-import CommentsCard from 'components/CommentsCard'
-import { LottieAnimation } from 'components/AnimationPlayer'
 
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
