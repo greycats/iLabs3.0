@@ -46,7 +46,7 @@ const Challenge = ({GSData}) => {
   }, [])
 
   if (!animationData) {
-    return null
+    return <div style={{height: '1300px', opacity: 0}}></div>
   }
 
   return (

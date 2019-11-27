@@ -24,6 +24,8 @@ function App() {
     import('views/CaseStudy/GS/TheChallenge'),
     import('views/CaseStudy/GS/Presentation'),
     import('views/CaseStudy/GS/FirstLook'),
+    import('views/CaseStudy/GS/Progressive'),
+    import('views/CaseStudy/GS/Others'),
 
     import('assets/imgs/gs/1-hero'),
     import('assets/imgs/gs/2-story-1-yearly-users'),
