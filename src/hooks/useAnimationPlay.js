@@ -13,7 +13,11 @@ export default (id = hashCode(), delay = 0, onStart = _.noop) => {
         .triggerElement(elementSelector)
         .addTo(controller)
         .on('start', () => {
-          _.delay(setPlayAnimation, delay * 1000, true)
+          if (delay > 0) {
+            _.delay(setPlayAnimation, delay * 1000, true)
+          } else {
+            setPlayAnimation(true)
+          }
           onStart()
         })
     } catch (error) {

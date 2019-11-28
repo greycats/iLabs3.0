@@ -1,3 +1,5 @@
+import { lazy } from 'react'
+
 export const getLocationSearch = key => {
 	var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)", "i")
 	var r = window.location.search.substr(1).match(reg) || []
@@ -18,3 +20,5 @@ function makeid(length) {
 }
 
 export const hashCode = (s = 'random_anim_') => s + makeid(24)
+
+export const lazyImport = cb => lazy(() => cb)

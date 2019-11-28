@@ -1,6 +1,6 @@
 import PreloadManager from '../scripts/PreloadManager'
-import VizentImage from '~/assets/imgs/vizient-1.png'
 import _ from 'lodash'
+
 export default () => ({
   intro: {
     title: 'iLabs3.0 Intro',

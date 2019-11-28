@@ -1,11 +1,12 @@
-import React, { lazy, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { Router, Route } from 'react-router-dom'
 import { AnimatedSwitch } from 'react-router-transition'
 import history from './history'
+import { lazyImport } from 'utils'
 
-const HomeView = lazy(() => import('./views/Home'))
-const CaseStudy = lazy(() => import('./views/CaseStudy'))
-const OurWork = lazy(() => import('./views/OurWork'))
+const HomeView = lazyImport(import('./views/Home'))
+const CaseStudy = lazyImport(import('./views/CaseStudy'))
+const OurWork = lazyImport(import('./views/OurWork'))
 
 const routes = (
   <Suspense fallback={(() => {

@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import styled from 'styled-components'
 
 import { LottieAnimation } from 'components/AnimationPlayer'
-import BgAnimation from 'assets/imgs/gs/banner.json'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -16,12 +15,26 @@ const StyledContainer = styled.div`
 `
 
 export default () => {
+  const [data, setData] = useState(null)
+  const getData = async () => {
+    const d = await import('assets/imgs/gs/1-hero')
+    setData(d.default)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  if (!data) {
+    return null
+  }
+
   return (
     <StyledContainer>
       <div style={{ position: 'absolute', height: '55vh', width: '100%', minHeight: '480px' }}>
         <LottieAnimation
           options={{
-            animationData: BgAnimation
+            animationData: data
           }}
         />
       </div>
