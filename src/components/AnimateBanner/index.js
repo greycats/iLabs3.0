@@ -31,6 +31,14 @@ export default () => {
     setInitSprit(initPixiAnim())
   }
 
+  const resizeCB = () => {
+    pixiApp.renderer.resize(window.innerWidth, 800)
+  }
+  useEffect(() => {
+    window.addEventListener('resize', resizeCB)
+    return () => window.removeEventListener('resize', resizeCB)
+  }, [])
+
   function initPixiAnim() {
     document.querySelector('#pixi-bg canvas') && document.querySelector('#pixi-bg canvas').remove()
 
@@ -237,7 +245,7 @@ export default () => {
 export const AnimateBanner = ({ children, ...props }) => {
   const [renderId] = useState(hashCode('banner'))
   const [initSprit, setInitSprit] = useState([])
-  const [pixiApp] = useState(new PIXI.Application({
+  const [pixiApp, setPixiApp] = useState(new PIXI.Application({
     antialias: true,
     backgroundColor: 0x2c2c2c,
     forceCanvas: true,
@@ -374,6 +382,14 @@ export const AnimateBanner = ({ children, ...props }) => {
   useEffect(() => {
     contentAnim()
   }, [initSprit])
+
+  const resizeCB = () => {
+    pixiApp.renderer.resize(window.innerWidth, props.height || 800)
+  }
+  useEffect(() => {
+    window.addEventListener('resize', resizeCB)
+    return () => window.removeEventListener('resize', resizeCB)
+  }, [])
 
   return (
     <div style={{
