@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
 import BannerContent from './BannerContent'
@@ -28,6 +29,8 @@ import useImage from 'hooks/useImage'
 
 export default () => {
   const VizientImage = useImage('vizient-image')
+
+  const isPC = window.isPC
 
   return (
     <StyledPage>
@@ -101,11 +104,7 @@ export default () => {
                     width='495px'
                     height='109px'
                     options={{
-                      autoplay: true,
                       animationData: TypefaceText,
-                      rendererSettings: {
-                        preserveAspectRatio: 'xMidYMid slice'
-                      }
                     }} />
                 </TypePosition>
               )
@@ -121,24 +120,20 @@ export default () => {
             marginTop: '150px',
           }}
           animateIcon={ColorImage}
-          animateWidth={740}
+          animateWidth={isPC ? 740 : '100%'}
           SubComponent={
             () => {
-              const CirclePosition = AbsolutePositionWrap({ left: '-25px', top: '320px' })
+              const CirclePosition = isPC ? AbsolutePositionWrap({ left: '-25px', top: '320px' }) : styled.div``
               return (
                 <CirclePosition>
                   <LottieAnimation
                     triggerRelativePosition={{
                       top: '-200px'
                     }}
-                    width='458px'
-                    height='100px'
+                    width={isPC ? '458px' : 'auto'}
+                    height={isPC ? '100px' : 'auto'}
                     options={{
-                      autoplay: true,
                       animationData: ColorCircle,
-                      rendererSettings: {
-                        preserveAspectRatio: 'xMidYMid slice'
-                      }
                     }} />
                 </CirclePosition>
               )

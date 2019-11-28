@@ -37,12 +37,12 @@ export default {
   },
   startSmall: {
     title: <div>Start small, <br />scale when ready</div>,
-    titleHeight: "120px",
+    titleHeight: 120,
     intro: <p>Despite an aggressive time frame for the MVP, we did not immediately ramp up our team to maximum capacity. Instead, we focused a small team of 2 engineers to understand the roadmap and technical guidelines around performance, scale and acceptable technical debt. We focused on small projects to gain expertise and iron out any project/communication issues. As our start up team became self-sufficient we added additional engineers that we managed independently to scale without slowing down progress for the entire team.</p>
   },
   streamlined: {
     title: <div>Streamlined <br /> Communication</div>,
-    titleHeight: "120px",
+    titleHeight: 120,
     intro: <p>In a fast-moving project with tight deadlines and short focused sprints, it is important to have efficient communication. We wanted to reduce management overhead on the Crew team so that they could focus on back-end development to maintain the cadence needed to ship the MVP in 3 months. We assigned an on-site technical lead, who worked directly with the Crew team to manage daily communication with our team. This ensured that our team was always on the same page with regards to priorities and trade-offs.</p>
   },
   buildTeam: {

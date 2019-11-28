@@ -2,7 +2,7 @@
 
 .story-wrap
   @include flex-box($JC: space-between, $AI: flex-start)
-  height: 670px
+  // height: 670px
   .left-part
     height: 50px
     .title-wrap
@@ -45,3 +45,14 @@
             color: $title-color
             font-family: 'Gilroy-Bold'
 
+.is-phone
+  .story-wrap
+    display: block
+    // height: 9.12rem
+    .right-part
+      width: auto
+      .data-wrap
+        display: block
+        .data-item
+          width: auto
+          margin-bottom: .48rem

@@ -4,9 +4,11 @@ import CommonTitle from 'components/CommonTitle'
 import './index.sass'
 
 const lottieDuration = .8
+const isPC = window.isPC
 
 export default ({
   story = [],
+  storyHeight = 0,
   dataList = []
 }) => {
   return (
@@ -30,6 +32,7 @@ export default ({
               },
               duration: .8
             }]}
+            height={44}
           />
         </div>
         <div className="right-part">
@@ -47,6 +50,7 @@ export default ({
               triggerRelativePosition={{
                 top: '-200px'
               }}
+              height={storyHeight}
             />
           </div>
           <div className="data-wrap">
@@ -59,17 +63,13 @@ export default ({
                         top: '-200px'
                       }}
                       id={`story_lottie_${index}`}
-                      delay={index * lottieDuration}
+                      delay={isPC ? index * lottieDuration : 0}
                       options={{
-                        autoplay: true,
-                        loop: false,
                         animationData: item.img,
-                        rendererSettings: {
-                          preserveAspectRatio: 'xMidYMid slice'
-                        }
                       }}
-                      height={86}
                       width={86}
+                      height={96}
+                      wrapHeight={96}
                     />
                   </div>
                   <div className="number">
@@ -78,7 +78,7 @@ export default ({
                         top: '-200px'
                       }}
                       id={`story_countup_${index}`}
-                      delay={index * lottieDuration}
+                      delay={isPC ? index * lottieDuration : 0}
                       end={item.number}
                       decimals={item.decimals}
                       suffix={item.suffix}
@@ -91,7 +91,7 @@ export default ({
                         from: { opacity: 0 },
                         to: { opacity: 1 }
                       }]}
-                      delay={index * lottieDuration}
+                      delay={isPC ? index * lottieDuration : 0}
                       triggerRelativePosition={{
                         top: '-200px'
                       }}

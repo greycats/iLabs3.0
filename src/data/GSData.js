@@ -51,17 +51,17 @@ export default {
   },
   importance: {
     title: <div>The importance <br /> of the first glance</div>,
-    titleHeight: '120px',
+    titleHeight: 120,
     intro: <p>GreatSchools aggregates 80 data points to rank schools in a fair and balanced manner. Presenting that much information at one time would overwhelm users. The challenge was to present the easiest, most relevant data to users up front, then provide mechanisms for them to discover more and dig deeper on their own.</p>
   },
   presentation: {
     title: <div>It's all about data <br /> presentation</div>,
-    titleHeight: '120px',
+    titleHeight: 120,
     intro: <p>We tested various combinations of data presentation and discovery models.</p>
   },
   progressive: {
     title: 'Progressive disclosure eases data overload',
-    titleHeight: '120px',
+    titleHeight: 120,
     intro: (<div>
       <p>Organized related metrics into groups and presented them as shelves that the user could quickly scan through.</p>
       <p>Analyzed usage to understand the most highly used groups of metrics and the datapoints within that group.</p>
@@ -76,12 +76,12 @@ export default {
   },
   digDeeper: {
     title: 'Dig deeper without losing context',
-    titleHeight: '120px',
+    titleHeight: 120,
     intro: <p>When users find interesting data points, they naturally want to dig deeper. It is important to present more information to the user within the context of the data they are looking at. We designed Pop-Hovers and Pop-Outs to reduce click paths and let the use focus on data.</p>
   },
   higherQuality: {
     title: 'Higher quality user reviews increase engagement',
-    titleHeight: '120px',
+    titleHeight: 120,
     intro: <p>User reviews play a key role in influencing a parent's perception about a school. School profiles with a large amount of higher quality reviews were proven to have more engagement. Beside auditing the review section, we looked closely at Foresee data to identify ways to enoucarage users to provide higher quality reviews.</p>
   },
   typeface: {

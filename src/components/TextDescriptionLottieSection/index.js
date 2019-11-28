@@ -108,11 +108,7 @@ export default ({
                     top: '-200px'
                   }}
                   options={{
-                    autoplay: true,
                     animationData: lottieIcon,
-                    rendererSettings: {
-                      preserveAspectRatio: 'xMidYMid slice'
-                    }
                   }}
                   height={'800px'}
                   width={'1700px'}

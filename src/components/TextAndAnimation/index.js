@@ -2,7 +2,7 @@
  * @Author: Gary
  * @Date: 2019-11-18 14:09:53
  * @Last Modified by: Gary
- * @Last Modified time: 2019-11-21 15:33:45
+ * @Last Modified time: 2019-11-27 16:51:14
  * layoutType:
  * 1.left-text
  * 2.right-text
@@ -14,6 +14,8 @@ import classnames from 'classnames'
 
 import { hashCode } from 'utils'
 import './index.sass'
+
+const isPC = window.isPC
 
 const AnimateTitle = ({
   id = hashCode(),
@@ -76,7 +78,7 @@ export default ({
   subTitle = '',
   intro = '',
   titleStyle = {},
-  titleHeight = "60px",
+  titleHeight = 60,
   showLottie = true,
   animateIcon = null,
   animateWidth = 'auto',
@@ -87,9 +89,9 @@ export default ({
   wrapStyle = {}
 }) => {
   return (
-    <div className={classnames("text-animation-wrap", layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight, ...wrapStyle }}>
+    <div className={classnames("text-animation-wrap", !isPC ? 'up-text panel' : layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight, ...wrapStyle }}>
       <div className="title-part" style={titleStyle}>
-        <AnimateTitle id={id + '0'} title={title} titleHeight={titleHeight} />
+        <AnimateTitle id={id + '0'} title={title} titleHeight={isPC ? titleHeight : (titleHeight / 60 * 0.38 + 'rem')} />
         {
           subTitle ?
             <AnimateText id={id + '1'} intro={subTitle} isSubTitle={subTitle} />
@@ -100,23 +102,34 @@ export default ({
           SubComponent ? <SubComponent /> : null
         }
       </div>
-      <div className="animation-part" style={animationStyle}>
-        {
-          showLottie ?
-            <LottieAnimation
-              options={{
-                autoplay: true,
-                animationData: animateIcon,
-                rendererSettings: {
-                  preserveAspectRatio: 'xMidYMid slice'
-                }
-              }}
-              width={animateWidth}
-              height={animateHeight}
-            />
-            : null
-        }
-      </div>
+      {
+        isPC ?
+          <div className="animation-part" style={animationStyle}>
+            {
+              showLottie ?
+                <LottieAnimation
+                  options={{
+                    animationData: animateIcon,
+                  }}
+                  width={animateWidth}
+                  height={animateHeight}
+                />
+                : null
+            }
+          </div>
+          :
+          <div className="animation-part">
+            {
+              showLottie ?
+                <LottieAnimation
+                  options={{
+                    animationData: animateIcon,
+                  }}
+                />
+                : null
+            }
+          </div>
+      }
     </div >
   )
 }

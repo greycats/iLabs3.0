@@ -6,11 +6,13 @@ import classNames from 'classnames'
 import './index.sass'
 
 const lottieDuration = .8
+const isPC = window.isPC
 
 export default ({
-  intro = '',
-  list = [],
   title = '',
+  intro = '',
+  introHeight = 0,
+  list = [],
   style = {},
   withName = true,
   lottieSize = {
@@ -30,7 +32,7 @@ export default ({
         },
         to: {
           opacity: 1,
-          height: '94px'
+          height: isPC ? '60px' : '0.38rem'
         },
         duration: .8
       }
@@ -54,10 +56,11 @@ export default ({
           <AnimationPlayer
             target={
               <div className="title-wrap">
-                <CommonTitle title={title} titleMargin='50px' isWhite={isWhite} />
+                <CommonTitle title={title} titleMargin={isPC ? '50px' : '0.01rem'} isWhite={isWhite} />
               </div>
             }
             animations={animationOptions.title}
+            height={isPC ? '60px' : '0.38rem'}
           />
           <AnimationPlayer
             target={
@@ -66,6 +69,7 @@ export default ({
               </div>
             }
             animations={animationOptions.intro}
+            height={introHeight}
           />
         </div>
         <div className={classNames("content-wrap", { 'is-white': isWhite })}>
@@ -73,20 +77,17 @@ export default ({
             list.map((item, index) => {
               return (
                 <div key={index} className="challenge-item" style={itemStyle}>
-                  <div className="icon">
+                  <div className="icon" style={{ width: isPC ? 'auto' : lottieSize.width }}>
                     <LottieAnimation
                       triggerRelativePosition={{
                         top: '-200px'
                       }}
-                      delay={index * lottieDuration}
+                      delay={isPC ? index * lottieDuration : 0}
                       options={{
-                        autoplay: true,
-                        animationData: item.img,
-                        rendererSettings: {
-                          preserveAspectRatio: 'xMidYMid slice'
-                        }
+                        animationData: item.img
                       }}
                       {...lottieSize}
+                      wrapHeight={lottieSize.height}
                     />
                   </div>
                   {
@@ -112,9 +113,10 @@ export default ({
                               opacity: 1
                             },
                             duration: lottieDuration,
-                            delay: lottieDuration * index
+                            delay: isPC ? index * lottieDuration : 0
                           }
                         ]}
+                        height={isPC ? '127px' : '1.27rem'}
                       />
                       : null
                   }
