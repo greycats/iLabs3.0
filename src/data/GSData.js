@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default async () => ({
+export default {
   theStory: {
     story: ['GreatSchools is the leading national nonprofit empowering parents to unlock educational opportunities for their children. GreatSchools provides school information and parenting resources to help millions of American families choose the right school, support learning at home, and guide their children to great futures. We were tasked with a complete re-design of the most trafficed page on the site, which was the school profile page.'],
     dataList: [
@@ -8,13 +8,13 @@ export default async () => ({
         number: 40,
         name: 'Yearly Users',
         suffix: <span style={{ fontSize: '28px' }}>M</span>,
-        img: (await import('assets/imgs/gs/2-story-1-yearly-users')).default
+        img: require('assets/imgs/gs/2-story-1-yearly-users/data.json')
       },
       {
         number: 271,
         suffix: <span style={{ fontSize: '28px' }}>K</span>,
         name: 'School Profiles',
-        img: (await import('assets/imgs/gs/2-story-2-school-profiles')).default
+        img: require('assets/imgs/gs/2-story-2-school-profiles/data.json')
       }
     ]
   },
@@ -25,22 +25,22 @@ export default async () => ({
       {
         name: 'Simple navigation',
         text: 'Simplify navigation to showcase the most important data upfront',
-        img:  (await import('assets/imgs/gs/3-challenge-1-navigation')).default
+        img: require('assets/imgs/gs/3-challenge-1-navigation/data.json')
       },
       {
         name: 'Increase engagement',
         text: 'Make reviews more prominent to increase engagement with the profiles',
-        img: (await import('assets/imgs/gs/3-challenge-2-engagement')).default
+        img: require('assets/imgs/gs/3-challenge-2-engagement/data.json')
       },
       {
         name: 'Diverse userbase',
         text: 'Redesign the page to account for the needs of a diverse userbase',
-        img: (await import ('assets/imgs/gs/3-challenge-3-userbase')).default
+        img: require('assets/imgs/gs/3-challenge-3-userbase/data.json')
       },
       {
         name: 'Visualization',
         text: 'Present vast quantities of data in a meaningful way',
-        img: (await import('assets/imgs/gs/3-challenge-4-vizualization')).default
+        img: require('assets/imgs/gs/3-challenge-4-vizualization/data.json')
       },
     ]
   },
@@ -93,7 +93,7 @@ export default async () => ({
     </div>),
     animationList: [
       {
-        img: await import('assets/imgs/gs/12-typeface-open_sans-1/data.json'),
+        img: require('assets/imgs/gs/12-typeface-open_sans-1/data.json'),
         style: {
           width: 192,
           height: 218,
@@ -101,21 +101,21 @@ export default async () => ({
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-open_sans-2/data.json'),
+        img: require('assets/imgs/gs/12-typeface-open_sans-2/data.json'),
         style: {
           width: 220,
           height: 60
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-open_sans-3/data.json'),
+        img: require('assets/imgs/gs/12-typeface-open_sans-3/data.json'),
         style: {
           width: 600,
           height: 116
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-caecilia-1/data.json'),
+        img: require('assets/imgs/gs/12-typeface-caecilia-1/data.json'),
         style: {
           width: 192,
           height: 218,
@@ -123,14 +123,14 @@ export default async () => ({
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-caecilia-2/data.json'),
+        img: require('assets/imgs/gs/12-typeface-caecilia-2/data.json'),
         style: {
           width: 220,
           height: 60
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-caecilia-3/data.json'),
+        img: require('assets/imgs/gs/12-typeface-caecilia-3/data.json'),
         style: {
           width: 600,
           height: 116
@@ -143,16 +143,16 @@ export default async () => ({
     intro: <p>The platform closely follows the brand colors which are shades of blue and green. These color schemes fit well with the GreatSchool nurturing brand personality, at the same time, offer good contrast and clarity to the visual elements. </p>,
     animationList: [
       {
-        img: await import('assets/imgs/gs/13-colors-1/data.json'),
+        img: require('assets/imgs/gs/13-colors-1/data.json'),
       },
       {
-        img: await import('assets/imgs/gs/13-colors-2/data.json'),
+        img: require('assets/imgs/gs/13-colors-2/data.json'),
       },
       {
-        img: await import('assets/imgs/gs/13-colors-3/data.json'),
+        img: require('assets/imgs/gs/13-colors-3/data.json'),
       },
       {
-        img: await import('assets/imgs/gs/13-colors-4/data.json'),
+        img: require('assets/imgs/gs/13-colors-4/data.json'),
       }
     ]
   },
@@ -187,4 +187,4 @@ export default async () => ({
       date: 'Female, 50,usertesting.com '
     }
   ]
-})
+}

@@ -3,7 +3,9 @@ import Preload from 'components/Preload'
 import './App.css'
 import 'assets/styles/common.sass'
 import routes from './routes'
+import { isPCOS, flexible } from './utils/flexible'
 import PreloadManager from 'scripts/PreloadManager'
+import classNames from 'classnames'
 
 function App() {
   const [loaded, setLoaded] = useState(false)
@@ -113,6 +115,12 @@ function App() {
     return () => window.removeEventListener('load', doneLoad)
   }, [])
 
+  const isPC = isPCOS()
+  window.isPC = isPC
+  if (!isPC) {
+    flexible(375, 750)
+  }
+
   if (!loaded || !assetLoaded || !jsLoaded) {
     return (
       <div className="App">
@@ -121,7 +129,7 @@ function App() {
     )
   }
   return (
-    <div className="App">
+    <div className={classNames("App", { 'is-phone': !isPC })}>
       {routes}
     </div>
   );

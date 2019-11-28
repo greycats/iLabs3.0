@@ -5,6 +5,8 @@ import GoToArrow from '../GoToArrow'
 import Img from '../../assets/imgs/icons/footer-icons.svg'
 import './index.sass'
 
+const isPC = window.isPC
+
 export default ({
   controllerId = 'footer-trigger'
 }) => {
@@ -32,7 +34,7 @@ export default ({
                 <div className="layout-1240 footer">
                   <div>
                     <div className="footer-title">We would love to work with you.</div>
-                    <GoToArrow text="Send message" isWhite={true}></GoToArrow>
+                    <GoToArrow text="contact us" isWhite={true}></GoToArrow>
                   </div>
                   <div className="footer-list">
                     <div>
@@ -42,9 +44,13 @@ export default ({
                         <li>415 869-8842</li>
                       </ul>
                     </div>
-                    <div className="icon-list">
-                      <img src={Img} />
-                    </div>
+                    {
+                      isPC ?
+                        <div className="icon-list">
+                          <img src={Img} />
+                        </div>
+                        : null
+                    }
                   </div>
                   <div className="footer-list">
                     <div>
@@ -55,6 +61,12 @@ export default ({
                         <li>San Francisco, CA 94108</li>
                       </ul>
                     </div>
+                    {
+                      isPC ? null :
+                        <div className="icon-list">
+                          <img src={Img} />
+                        </div>
+                    }
                     <div className="list-title">Copyright © 2019 interactivelabs.co</div>
                   </div>
                 </div>

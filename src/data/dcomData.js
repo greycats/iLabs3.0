@@ -38,12 +38,12 @@ export default {
   },
   smoothTransition: {
     title: 'A smooth transition from Dictionary to Thesaurus',
-    titleHeight: "180px",
+    titleHeight: 180,
     intro: <p>Our research showed that Thesaurus was one of the highly used app features. Previously users had to go through a 2 step process to use the Thesaurus. Now, user can search for thesaurus anywhere between the app with a simple toggle.</p>
   },
   intuitive: {
     title: <div>Intuitive Search <br /> Function</div>,
-    titleHeight: "120px",
+    titleHeight: 120,
     intro: (
       <div>
         <p>The search box is the most frequently used element in Dictionary.com. We realized that users were searching for the same words within different sessions, which led to a re-think of the recent searches feature. We allowed the users to have one touch access to their previously searched words.</p>

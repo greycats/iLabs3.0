@@ -49,7 +49,8 @@ export const LottieAnimation = ({
     bottom: 'unset',
     left: 'unset'
   },
-  loop = false
+  loop = false,
+  wrapHeight = 0
 }) => {
   const playAnimation = useAnimationPlay(id, delay, onStart)
   const currentOptions = {
@@ -80,7 +81,7 @@ export const LottieAnimation = ({
             height={height}
             width={width}
           />
-          : null
+          : <div style={{ height: wrapHeight }}></div>
       }
     </Fragment>
   )
@@ -178,7 +179,8 @@ export default ({
     bottom: 'unset',
     left: 'unset'
   },
-  delay = 0
+  delay = 0,
+  height = 0
 }) => {
   const playAnimation = useAnimationPlay(id, delay, onStart)
 
@@ -191,7 +193,7 @@ export default ({
       {
         playAnimation
           ? <Animations target={target} animations={animations} />
-          : null
+          : <div style={{ height }}></div>
       }
     </Fragment>
   )

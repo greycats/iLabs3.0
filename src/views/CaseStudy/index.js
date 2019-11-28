@@ -11,12 +11,17 @@ const Dcom = lazy(() => import('views/CaseStudy/Dcom'))
 const Crew = lazy(() => import('views/CaseStudy/Crew'))
 const GS = lazy(() => import('views/CaseStudy/GS'))
 
-const CaseStudyWrap = styled.div`
-  min-width: 1366px;
-  max-width: 1920px;
-  margin: 0 auto;
-  overflow: hidden;
-`
+const CaseStudyWrap = window.isPC ?
+  styled.div`
+    min-width: 1366px;
+    max-width: 1920px;
+    margin: 0 auto;
+    overflow: hidden;
+  `
+  :
+  styled.div`
+    overflow: hidden;
+  `
 
 export default () => {
   const name = getLocationSearch('name')
