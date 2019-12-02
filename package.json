@@ -57,6 +57,7 @@
     "react-dom": "^16.11.0",
     "react-gsap": "^1.2.0",
     "react-lottie": "^1.2.3",
+    "react-responsive-carousel": "^3.1.51",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
     "react-router-transition": "^2.0.0",

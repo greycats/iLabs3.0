@@ -10,7 +10,7 @@ import AndriodIcon from 'assets/imgs/crew/gray-andriod.png'
 import MobileApple from 'assets/imgs/crew/mobile/apple.svg'
 import MobileAndriod from 'assets/imgs/crew/mobile/andriod.svg'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
-import BgAnimation from 'assets/imgs/crew/1-hero.json'
+import BgAnimation from 'assets/imgs/crew/1-Hero/data.json'
 
 const isPC = window.isPC
 

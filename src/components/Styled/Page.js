@@ -31,4 +31,10 @@ export default styled.div`
       height: 60vh;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    .animation-banner {
+      height: 100vh;
+    }
+  }
 `

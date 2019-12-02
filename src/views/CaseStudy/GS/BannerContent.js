@@ -6,6 +6,8 @@ import { LottieAnimation } from 'components/AnimationPlayer'
 import { MobileBannerContainer } from 'components/Styled'
 import MobileBannerBg from 'assets/imgs/gs/mobile/banner.json'
 
+import MobileImage from 'assets/imgs/mobile/gs/banner/data.json'
+
 const StyledContainer = styled.div`
   position: relative;
 
