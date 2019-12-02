@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
 
 const StyledCarousel = styled.div`
+  .carousel .slider-wrapper {
+    padding: 100px;
+  }
   .carousel .slider-wrapper.axis-horizontal .slider .slide {
     background: transparent;
     opacity: .1;
     transition: opacity .3s ease-in-out;
   }
-  .carousel .slider-wrapper {
-    padding: 100px;
-  }
   .carousel .slider-wrapper.axis-horizontal .slider .slide.selected {
     opacity: 1;
-    transition: opacity .5s ease-in-out .3s;
+    transition: opacity .5s ease-in-out .1s;
   }
   .carousel .slide img {
     padding: 10px;
@@ -94,7 +94,7 @@ const List = ({
                 key={index}
                 style={{
                   display: 'flex',
-                  height: '80px',
+                  height: '60px',
                   alignItems: 'center',
                   color: '#fff',
                   fontSize: '22px',
@@ -168,6 +168,16 @@ const devListData = [
 
 export default () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  const onResize = () => {
+    setWindowWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   return (
     <div style={{background: '#2c2c2c'}}>
@@ -202,7 +212,13 @@ export default () => {
               }}
             />
           </div>
-          <div style={{ width: '65%' }}>
+          <div style={{
+              width: '65%',
+              marginTop: windowWidth > 1280 ? '15%' : '25%',
+              position: 'absolute',
+              left: '50%',
+              maxWidth: windowWidth > 1280 ? '800px' : '600px'
+            }}>
             <StyledCarousel>
               <ServiceCarousel currentIndex={currentIndex} />
             </StyledCarousel>
