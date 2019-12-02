@@ -14,6 +14,7 @@ import ComponentsForWeb from 'assets/imgs/vizient/Components'
 import BaseOn from 'assets/imgs/vizient/BaseOn'
 import ColorCircle from 'assets/imgs/vizient/ColorCircle'
 import TypefaceText from 'assets/imgs/vizient/TypefaceText'
+import MobileTypefaceText from 'assets/imgs/vizient/mobile/Typeface.png'
 import TypefaceImage from 'assets/imgs/vizient/Typeface'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
@@ -23,7 +24,7 @@ import ColorImage from 'assets/imgs/vizient/Color'
 import vizientData from 'data/vizientData'
 
 import { AbsolutePositionWrap } from 'components/Styled'
-import { LottieAnimation } from 'components/AnimationPlayer'
+import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
 import useImage from 'hooks/useImage'
 
@@ -35,11 +36,16 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        <StyledSection>
-          <Banner image={VizientImage}>
+        {
+          isPC ?
+            <StyledSection>
+              <Banner image={VizientImage}>
+                <BannerContent />
+              </Banner>
+            </StyledSection>
+            :
             <BannerContent />
-          </Banner>
-        </StyledSection>
+        }
         <TheStory {...vizientData.theStory}></TheStory>
         <TextAndLottieSection
           {...vizientData.theChallenge}
@@ -94,8 +100,8 @@ export default () => {
           animateWidth={740}
           SubComponent={
             () => {
-              const TypePosition = AbsolutePositionWrap({ left: '-30px', top: '208px' })
-              return (
+              const TypePosition = AbsolutePositionWrap({ left: ' -30px', top: '208px' })
+              return isPC ?
                 <TypePosition>
                   <LottieAnimation
                     triggerRelativePosition={{
@@ -104,10 +110,34 @@ export default () => {
                     width='495px'
                     height='109px'
                     options={{
-                      animationData: TypefaceText,
+                      animationData: TypefaceText
                     }} />
                 </TypePosition>
-              )
+                :
+                <AnimationPlayer
+                  target={
+                    <div style={{
+                      position: 'relative'
+                    }}>
+                      <img src={MobileTypefaceText} />
+                    </div>
+                  }
+                  animations={
+                    [
+                      {
+                        from: {
+                          opacity: 0,
+                          top: '100px'
+                        },
+                        to: {
+                          opacity: 1,
+                          top: 0
+                        }
+                      }
+                    ]
+                  }
+                />
+
             }
           }
         />

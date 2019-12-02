@@ -7,7 +7,7 @@ export default ({ animateList, controllerId }) => (
     {
       animateList.map((item, index) => {
         item.controllerId = item.controllerId || controllerId
-        return AnimateItem(item, index)
+        return item.isHidden ? <div key={index}></div> : AnimateItem(item, index)
       })
     }
   </Controller>

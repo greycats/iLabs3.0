@@ -18,6 +18,8 @@ const FirstLook = lazyImport(import('views/CaseStudy/GS/FirstLook'))
 const Progressive = lazyImport(import('views/CaseStudy/GS/Progressive'))
 const Others = lazyImport(import('views/CaseStudy/GS/Others'))
 
+const isPC = window.isPC
+
 export default () => {
   const [GSData, setGSdata] = useState(null)
 
@@ -36,13 +38,18 @@ export default () => {
 
   return (
     <StyledPage>
-      <StyledSection>
-        <div className="animation-banner">
-          <Banner image={null}>
-            <BannerContent />
-          </Banner>
-        </div>
-      </StyledSection>
+      {
+        isPC ?
+          <StyledSection>
+            <div className="animation-banner">
+              <Banner image={null}>
+                <BannerContent />
+              </Banner>
+            </div>
+          </StyledSection>
+          :
+          <BannerContent />
+      }
 
       <TheStory {...GSData.theStory}></TheStory>
 
@@ -58,7 +65,7 @@ export default () => {
 
       <Progressive GSData={GSData} />
 
-      <Others GSData={GSData}/>
+      <Others GSData={GSData} />
     </StyledPage>
   )
 }
