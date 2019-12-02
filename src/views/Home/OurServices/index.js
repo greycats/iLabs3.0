@@ -4,25 +4,20 @@ import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
 
 const StyledCarousel = styled.div`
-  .carousel .slider-wrapper {
-    padding: 100px;
-  }
-
   .carousel .slider-wrapper.axis-horizontal .slider .slide {
-    margin: 15px;
-    max-width: 812px;
     background: transparent;
     opacity: .1;
     transition: opacity .3s ease-in-out;
   }
+  .carousel .slider-wrapper {
+    padding: 100px;
+  }
   .carousel .slider-wrapper.axis-horizontal .slider .slide.selected {
     opacity: 1;
-    margin-top: 17px;
     transition: opacity .5s ease-in-out .3s;
-    transition: margin-top .5s ease-in-out .3s;
   }
-  .carousel .slider-wrapper.axis-horizontal .slider {
-    max-width: 812px;
+  .carousel .slide img {
+    padding: 10px;
   }
 `
 
@@ -70,6 +65,9 @@ const ServiceCarousel = ({
       </div>
       <div>
         <img src={require("assets/imgs/home/services/Dev-5.png")} />
+      </div>
+      <div>
+        <img src={require("assets/imgs/home/services/Dev-6.png")} />
       </div>
     </Carousel>
   )
