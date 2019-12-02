@@ -64,9 +64,7 @@ const TitlePosition = styled.div`
   top: 5%;
   height: 100%
 `
-
-export default () => {
-
+const PCBanner = () => {
   const MacImage = getImage('banner-mac-image')
   const Mac =
     <ImagePosition>
@@ -101,3 +99,11 @@ export default () => {
     </StyledContainer>
   )
 }
+
+const MobileBanner = () => {
+  return <div>
+    this is mobile banner
+  </div>
+}
+
+export default window.isPC ? PCBanner : MobileBanner

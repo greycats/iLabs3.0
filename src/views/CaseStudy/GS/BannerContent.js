@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import { LottieAnimation } from 'components/AnimationPlayer'
 
+import MobileImage from 'assets/imgs/mobile/gs/banner/data.json'
+
 const StyledContainer = styled.div`
   position: relative;
 
@@ -14,7 +16,7 @@ const StyledContainer = styled.div`
   }
 `
 
-export default () => {
+const PCBanner = () => {
   const [data, setData] = useState(null)
   const getData = async () => {
     const d = await import('assets/imgs/gs/1-hero')
@@ -41,3 +43,17 @@ export default () => {
     </StyledContainer>
   )
 }
+
+const MobileBanner = () => {
+  return (
+    <div>
+      <LottieAnimation
+        options={{
+          animationData: MobileImage
+        }}
+      />
+    </div>
+  )
+}
+
+export default window.isPC ? PCBanner : MobileBanner

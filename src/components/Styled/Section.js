@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  padding-left: 200px
+  padding-left: ${ window.isPC ? '200px': 0}
 `
