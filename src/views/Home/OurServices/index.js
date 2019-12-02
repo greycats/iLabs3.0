@@ -12,6 +12,14 @@ const StyledCarousel = styled.div`
     margin: 15px;
     max-width: 812px;
     background: transparent;
+    opacity: .1;
+    transition: opacity .3s ease-in-out;
+  }
+  .carousel .slider-wrapper.axis-horizontal .slider .slide.selected {
+    opacity: 1;
+    margin-top: 17px;
+    transition: opacity .5s ease-in-out .3s;
+    transition: margin-top .5s ease-in-out .3s;
   }
   .carousel .slider-wrapper.axis-horizontal .slider {
     max-width: 812px;
@@ -29,7 +37,9 @@ const ServiceCarousel = ({
       showStatus={false}
       showIndicators={false}
       infiniteLoop={true}
-      // centerMode={true}
+      centerMode={true}
+      centerSlidePercentage={100}
+      transitionTime={800}
     >
       <div>
         <img src={require("assets/imgs/home/services/Design-1.png")} />
@@ -162,42 +172,44 @@ export default () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   return (
-    <div style={{
-      display: 'flex'
-    }}>
-      <div style={{ width: '35%', background: '#2c2c2c', paddingLeft: '10%', paddingTop: '100px', paddingBottom: '100px', minWidth: '650px' }}>
-        <p style={{ fontSize: '44px', fontWeight: 'bold', color: '#fff', marginBottom: '40px' }}>Our services</p>
-        <p style={{
-          color: '#fff',
-          fontSize: '24px',
-          width: '490px',
-          lineHeight: '1.8',
-          marginBottom: '100px'
-        }}>We offer a wide variety of services that cover the gamut of full stack development.</p>
-        <List
-          title='Product Design'
-          onClickItem={(index) => {
-            console.log('click', index)
-            setCurrentIndex(index)
-          }}
-          list={designListData}
-        />
-        <br />
-        <br />
-        <br />
-        <List
-          title='Product Development'
-          list={devListData}
-          onClickItem={(index) => {
-            console.log('click', index + designListData.length)
-            setCurrentIndex(index + designListData.length)
-          }}
-        />
-      </div>
-      <div style={{ width: '65%' }}>
-        <StyledCarousel>
-          <ServiceCarousel currentIndex={currentIndex} />
-        </StyledCarousel>
+    <div style={{background: '#2c2c2c'}}>
+      <div className="layout-1240 panel challenge-wrap">
+        <div style={{
+          display: 'flex'
+        }}>
+          <div style={{ width: '35%',  minWidth: '650px' }}>
+            <p style={{ fontSize: '44px', fontWeight: 'bold', color: '#fff', marginBottom: '40px' }}>Our services</p>
+            <p style={{
+              color: '#fff',
+              fontSize: '24px',
+              width: '490px',
+              lineHeight: '1.8',
+              marginBottom: '100px'
+            }}>We offer a wide variety of services that cover the gamut of full stack development.</p>
+            <List
+              title='Product Design'
+              onClickItem={(index) => {
+                setCurrentIndex(index)
+              }}
+              list={designListData}
+            />
+            <br />
+            <br />
+            <br />
+            <List
+              title='Product Development'
+              list={devListData}
+              onClickItem={(index) => {
+                setCurrentIndex(index + designListData.length)
+              }}
+            />
+          </div>
+          <div style={{ width: '65%' }}>
+            <StyledCarousel>
+              <ServiceCarousel currentIndex={currentIndex} />
+            </StyledCarousel>
+          </div>
+        </div>
       </div>
     </div>
   )
