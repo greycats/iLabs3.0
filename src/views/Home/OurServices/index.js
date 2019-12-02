@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import _ from 'lodash'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
@@ -76,6 +77,7 @@ const ServiceCarousel = ({
 const List = ({
   title = '',
   list = [],
+  activeItem = null,
   onClickItem = () => { }
 }) => {
   return (
@@ -98,7 +100,8 @@ const List = ({
                   alignItems: 'center',
                   color: '#fff',
                   fontSize: '22px',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  position: 'relative'
                 }} onClick={() => {
                   onClickItem(index, item)
                 }}>
@@ -107,6 +110,13 @@ const List = ({
                   marginLeft: '32px',
                   width: '32px'
                 }} /> {item.text}
+                <div style={{
+                  position: 'absolute',
+                  width: _.isEqual(activeItem, item) ? '90%' : '0',
+                  height: '100%',
+                  background: 'rgba(255, 255, 255, 0.16)',
+                  transition: _.isEqual(activeItem, item) ? 'width .5s ease' : null
+                }}/>
               </div>
             )
           })
@@ -167,7 +177,8 @@ const devListData = [
 ]
 
 export default () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeItem, setActiveItem] = useState(null)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const onResize = () => {
@@ -196,8 +207,10 @@ export default () => {
             }}>We offer a wide variety of services that cover the gamut of full stack development.</p>
             <List
               title='Product Design'
-              onClickItem={(index) => {
-                setCurrentIndex(index)
+              activeItem={activeItem}
+              onClickItem={(index, item) => {
+                setActiveIndex(index)
+                setActiveItem(item)
               }}
               list={designListData}
             />
@@ -207,8 +220,10 @@ export default () => {
             <List
               title='Product Development'
               list={devListData}
-              onClickItem={(index) => {
-                setCurrentIndex(index + designListData.length)
+              activeItem={activeItem}
+              onClickItem={(index, item) => {
+                setActiveIndex(index + designListData.length)
+                setActiveItem(item)
               }}
             />
           </div>
@@ -220,7 +235,7 @@ export default () => {
               maxWidth: windowWidth > 1280 ? '800px' : '600px'
             }}>
             <StyledCarousel>
-              <ServiceCarousel currentIndex={currentIndex} />
+              <ServiceCarousel currentIndex={activeIndex} />
             </StyledCarousel>
           </div>
         </div>
