@@ -235,12 +235,10 @@ export default ({ data = fakeData() }) => {
         setProjectType(getLocationSearch('type'))
       }, 50)
     })
-    return () => history.listen(null)
   }, [])
 
   useEffect(() => {
     if (!listData.length) {
-      // setListData(data)
       setListData(_.filter(data, item => {
         const type = projectType
         if (type && type !== 'all') {

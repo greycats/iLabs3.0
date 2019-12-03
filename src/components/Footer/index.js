@@ -12,7 +12,7 @@ export default ({
 }) => {
   return (
     <div className="footer-wrap">
-      <div id={controllerId} style={{ position: 'absolute', top: 300 - (document.body.clientHeight / 2) }}></div>
+      <div id={controllerId} style={{ position: 'absolute', top: 300 - (window.innerHeight / 2.5) }}></div>
       <Controller>
         <Scene
           triggerElement={'#' + controllerId}

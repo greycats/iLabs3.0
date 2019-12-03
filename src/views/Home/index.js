@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import AnimateBanner from 'components/AnimateBanner'
 import OurClients from './OurClients'
 import HowWeWork from './HowWeWork'
-import OurStory from './OurStory'
 import OurServices from './OurServices'
+import Footer from 'components/Footer'
 
 export default () => {
   return (
     <div>
-      <AnimateBanner></AnimateBanner>
+      <AnimateBanner>
+      </AnimateBanner>
       <OurServices></OurServices>
       <OurClients></OurClients>
       <HowWeWork></HowWeWork>
-      <OurStory></OurStory>
+      <Footer />
     </div>
   )
 }

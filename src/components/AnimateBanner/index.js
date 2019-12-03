@@ -4,6 +4,8 @@ import ScrollMagic from 'scrollmagic'
 import CommonTitle from 'components/CommonTitle'
 import AnimateList from 'components/AnimateList'
 import logo from 'logo.svg'
+import GoToArrow from 'components/GoToArrow'
+import history from 'history.js'
 
 import { hashCode } from 'utils'
 
@@ -236,6 +238,12 @@ export default () => {
             <CommonTitle {...titleData}></CommonTitle>
           </div>
           <AnimateList></AnimateList>
+          <GoToArrow text="See all work" onClick={() => {
+            console.log('fff?')
+            history.push('/ourwork')
+          }}/>
+          <br/>
+          <br/>
         </div>
       </div>
     </div>
@@ -267,7 +275,7 @@ export const AnimateBanner = ({ children, ...props }) => {
         .staggerTo(initSprit, 0.2, { pixi: { x: '-=500' } }, 0.001, 'step1-=.4')
         .staggerTo(initSprit, 1.5, { pixi: { x: '+=100' } }, 0.01, 'step1+=.5')
 
-      tl()
+    tl()
   }
 
   function initPixiAnim() {
@@ -398,9 +406,9 @@ export const AnimateBanner = ({ children, ...props }) => {
       <div id={renderId} ref={bgRef} style={{
         position: 'absolute',
         zIndex: -1
-      }}/>
-        <img src={logo} className="logo-img" alt="" />
-        { children }
+      }} />
+      <img src={logo} className="logo-img" alt="" />
+      {children}
     </div>
   )
 }
