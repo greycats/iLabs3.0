@@ -6,6 +6,7 @@ import routes from './routes'
 import { isPCOS, flexible } from './utils/flexible'
 import PreloadManager from 'scripts/PreloadManager'
 import classNames from 'classnames'
+import history from 'history.js'
 
 function App() {
   const [loaded, setLoaded] = useState(false)
@@ -111,6 +112,12 @@ function App() {
   useEffect(() => {
     loadJS()
     loadFile()
+    history.listen((...args) => {
+      const method = args[1]
+      if (_.includes(['POP', 'PUSH'], method)) {
+        window.scrollTo(0, 0)
+      }
+    })
     window.addEventListener('load', doneLoad)
     return () => window.removeEventListener('load', doneLoad)
   }, [])
