@@ -62,7 +62,7 @@ const TheChallenge = ({ list }) => {
   }) => (
       <div style={{ display: 'flex', marginBottom: '25px', height: '90px' }}>
         <div style={{ width: '82px' }}>
-          { RowAnimation(lottieData, index) }
+          {RowAnimation(lottieData, index)}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '10px', width: '420px' }}>
           <AnimationPlayer
@@ -152,19 +152,24 @@ const TheChallenge = ({ list }) => {
 }
 
 export default () => {
-
+  const isPC = window.isPC
   return (
     <StyledPage>
       <div>
-        <StyledSection>
-          <div className="animation-banner">
-            <Banner image={null}>
+        {
+          isPC ?
+            <StyledSection>
+              <div className="animation-banner">
+                <Banner image={null}>
+                  <BannerContent />
+                </Banner>
+              </div>
+            </StyledSection>
+            :
               <BannerContent />
-            </Banner>
-          </div>
-        </StyledSection>
+        }
 
-        <TheStory {...crewData.theStory}></TheStory>
+        <TheStory {...crewData.theStory} wrapStyle={isPC ? {} : {marginTop: '-1.8rem'}}></TheStory>
 
         <div style={{ backgroundColor: '#f5f5f5' }}>
           <TheChallenge list={challengeData} />

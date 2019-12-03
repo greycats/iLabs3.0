@@ -2,12 +2,17 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { StyledSectionWitheTitle } from 'components/Styled'
+import { StyledSectionWitheTitle, MobileBannerContainer } from 'components/Styled'
 
+import MobileBannerBg from 'assets/imgs/crew/mobile/banner.json'
 import AppleIcon from 'assets/imgs/crew/gray-apple.png'
 import AndriodIcon from 'assets/imgs/crew/gray-andriod.png'
+import MobileApple from 'assets/imgs/crew/mobile/apple.svg'
+import MobileAndriod from 'assets/imgs/crew/mobile/andriod.svg'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import BgAnimation from 'assets/imgs/crew/1-Hero/data.json'
+
+const isPC = window.isPC
 
 const StyledContainer = styled.div`
   position: relative;
@@ -101,37 +106,65 @@ const TitlePosition = styled.div`
   height: 100%
 `
 
-export default () => {
-  return (
-    <StyledContainer>
-      <div style={{ position: 'absolute', height: '55vh', width: '100%', minHeight: '480px' }}>
-        <LottieAnimation
-          options={{
-            animationData: BgAnimation
-          }}
-        />
-        <TitlePosition>
-          <StyledSectionWitheTitle>
-            <p style={{ color: '#656565' }}>
-              Crew
+const PCBanner = () => (
+  <StyledContainer>
+    <div style={{ position: 'absolute', height: '55vh', width: '100%', minHeight: '480px' }}>
+      <LottieAnimation
+        options={{
+          animationData: BgAnimation
+        }}
+      />
+      <TitlePosition>
+        <StyledSectionWitheTitle>
+          <p style={{ color: '#656565' }}>
+            Crew
           </p>
-          </StyledSectionWitheTitle>
+        </StyledSectionWitheTitle>
 
-          <p className="title-tip">
-            Communicate with teams and managers on the go
+        <p className="title-tip">
+          Communicate with teams and managers on the go
         </p>
-          <div style={{
-            display: 'flex',
-            position: 'absolute',
-            bottom: '20%'
-          }}>
-            <div style={{ marginRight: '100px' }}>
-              <ServiceList />
-            </div>
-            <AvailableList AppleIcon={AppleIcon} AndriodIcon={AndriodIcon} />
+        <div style={{
+          display: 'flex',
+          position: 'absolute',
+          bottom: '20%'
+        }}>
+          <div style={{ marginRight: '100px' }}>
+            <ServiceList />
           </div>
-        </TitlePosition>
+          <AvailableList AppleIcon={AppleIcon} AndriodIcon={AndriodIcon} />
+        </div>
+      </TitlePosition>
+    </div>
+  </StyledContainer>
+)
+
+const MobileBanner = () => (
+  <MobileBannerContainer>
+    <LottieAnimation
+      options={{
+        animationData: MobileBannerBg,
+        width: '100%'
+      }}
+    />
+    <div className="mobile-banner-text">
+      <div className="panel">
+        <div className="mobile-title">Crew</div>
+        <p className="title-tip">Communicate with teams and managers on the go</p>
+        <div className="list-title">SERVICES</div>
+        <div className="list-wrap">
+          <div>Mobile Development</div>
+        </div>
+        <div className="list-title">Available on</div>
+        <div className="imgs">
+          <img className="item" src={MobileApple} alt="apple" />
+          <img className="item" src={MobileAndriod} alt="andriod" />
+        </div>
       </div>
-    </StyledContainer>
-  )
+    </div>
+  </MobileBannerContainer>
+)
+
+export default () => {
+  return isPC ? PCBanner() : MobileBanner()
 }

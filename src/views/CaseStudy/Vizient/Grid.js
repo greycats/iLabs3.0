@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import CommonTitle from 'components/CommonTitle'
 import Grid from 'assets/imgs/vizient/Grid.png'
 import Grid2 from 'assets/imgs/vizient/Grid2.png'
+import GridMobile from 'assets/imgs/vizient/mobile/Grid.png'
 
 const GridWrap = styled.div`
   width: 100%;
@@ -46,7 +47,8 @@ export default () => {
       ),
       delay: .4,
       from: { opacity: 0, top: '100px' },
-      to: { opacity: 1, top: 0 }
+      to: { opacity: 1, top: 0 },
+      isHidden: !isPC
     },
     {
       content: (
@@ -54,11 +56,21 @@ export default () => {
       ),
       delay: .6,
       from: { opacity: 0, top: '100px' },
-      to: { opacity: 1, top: 0 }
+      to: { opacity: 1, top: 0 },
+      isHidden: !isPC
+    },
+    {
+      content: (
+        <img src={GridMobile} style={imgStyle} />
+      ),
+      delay: .6,
+      from: { opacity: 0, top: '100px' },
+      to: { opacity: 1, top: 0 },
+      isHidden: isPC
     }
   ]
   return (
-    <GridWrap style={{height: isPC ? '1620px' : 'auto'}}>
+    <GridWrap style={{height: isPC ? '1620px' : '9.7rem'}}>
       <div className="layout-1240 panel">
         <div id={controllerId} />
         <ControllerList animateList={animateList} controllerId={controllerId} />

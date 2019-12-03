@@ -19,15 +19,21 @@ import useImage from 'hooks/useImage'
 
 export default () => {
   const BgImage = useImage('dcom-banner-image')
+  const isPC = window.isPC
 
   return (
     <StyledPage>
       <div>
-        <StyledSection>
-          <Banner image={BgImage}>
+        {
+          isPC ?
+            <StyledSection>
+              <Banner image={BgImage}>
+                <BannerContent />
+              </Banner>
+            </StyledSection>
+            :
             <BannerContent />
-          </Banner>
-        </StyledSection>
+        }
 
         <TheStory {...dcomData.theStory}></TheStory>
 

@@ -3,11 +3,13 @@ import React from 'react'
 import { Tween, Timeline } from 'react-gsap'
 import styled from 'styled-components'
 
-import { StyledSectionWitheTitle } from 'components/Styled'
+import { StyledSectionWitheTitle, MobileBannerContainer } from 'components/Styled'
+import { LottieAnimation } from 'components/AnimationPlayer'
 
 import useImage from 'hooks/useImage'
 import AppleIcon from 'assets/imgs/dcom/appleicon.png'
 import AndriodIcon from 'assets/imgs/dcom/andriodicon.png'
+import MobileBannerBg from 'assets/imgs/dcom/mobile/banner.json'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -51,7 +53,7 @@ const ServiceList = () => {
   )
 }
 
-const AvailableList = ({AppleIcon, AndriodIcon}) => {
+const AvailableList = ({ AppleIcon, AndriodIcon }) => {
   const list = [
     AppleIcon,
     AndriodIcon
@@ -76,7 +78,7 @@ const AvailableList = ({AppleIcon, AndriodIcon}) => {
     <StyledList>
       <p className="title">{'Available on'.toUpperCase()}</p>
       {
-        list.map((icon, index) => <img className="item" src={icon} alt="" key={index}/>)
+        list.map((icon, index) => <img className="item" src={icon} alt="" key={index} />)
       }
     </StyledList>
   )
@@ -95,13 +97,12 @@ const TitlePosition = styled.div`
   top: 5%;
   height: 100%
 `
-
-export default () => {
+const PCBanner = () => {
   const BrandImage = useImage('dcom-brand-image')
 
   const Mac =
     <ImagePosition>
-      <img src={BrandImage} alt=""  style={{ width: '100%' }} />
+      <img src={BrandImage} alt="" style={{ width: '100%' }} />
     </ImagePosition>
 
   return (
@@ -119,10 +120,10 @@ export default () => {
           position: 'absolute',
           top: '60%'
         }}>
-          <div style={{marginRight: '100px'}}>
+          <div style={{ marginRight: '100px' }}>
             <ServiceList />
           </div>
-          <AvailableList AppleIcon={AppleIcon} AndriodIcon={AndriodIcon}/>
+          <AvailableList AppleIcon={AppleIcon} AndriodIcon={AndriodIcon} />
         </div>
       </TitlePosition>
       <Timeline
@@ -140,4 +141,37 @@ export default () => {
       </Timeline>
     </StyledContainer>
   )
+}
+
+const MobileBanner = () => (
+  <MobileBannerContainer>
+    <LottieAnimation
+      options={{
+        animationData: MobileBannerBg,
+        width: '100%'
+      }}
+    />
+    <div className="mobile-banner-text">
+      <div className="panel">
+        <div className="mobile-title">Dictionary.com</div>
+        <p className="title-tip">How we helped Dictionary.com increase visit frequency by 10%</p>
+        <div className="list-title">SERVICES</div>
+        <div className="list-wrap">
+          <div>UX/UI Design</div>
+          <div>Prototype</div>
+          <div>User Testing</div>
+          <div>Mobile Development</div>
+        </div>
+        <div className="list-title">Available on</div>
+        <div className="imgs">
+          <img className="item" src={AppleIcon} alt="apple" />
+          <img className="item" src={AndriodIcon} alt="andriod" />
+        </div>
+      </div>
+    </div>
+  </MobileBannerContainer>
+)
+
+export default () => {
+  return isPC ? PCBanner() : MobileBanner()
 }

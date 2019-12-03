@@ -3,8 +3,9 @@ import React from 'react'
 import { Tween, Timeline } from 'react-gsap'
 import styled from 'styled-components'
 
-import { StyledSectionWitheTitle } from 'components/Styled'
+import { StyledSectionWitheTitle, MobileBannerContainer } from 'components/Styled'
 import { getImage } from 'scripts/PreloadManager'
+import MobileBannerBg from '../../../assets/imgs/vizient/mobile/banner-bg.png'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -64,13 +65,14 @@ const TitlePosition = styled.div`
   top: 5%;
   height: 100%
 `
+
+
 const PCBanner = () => {
   const MacImage = getImage('banner-mac-image')
   const Mac =
     <ImagePosition>
-      <img src={MacImage} alt=""  style={{ width: '100%' }} />
+      <img src={MacImage} alt="" style={{ width: '100%' }} />
     </ImagePosition>
-
   return (
     <StyledContainer>
       <TitlePosition>
@@ -100,10 +102,51 @@ const PCBanner = () => {
   )
 }
 
+const MobileImagePosition = styled.div`
+  position: absolute;
+  right: -15%;
+  width: 100%;
+`
+
 const MobileBanner = () => {
-  return <div>
-    this is mobile banner
-  </div>
+  const MacImage = getImage('banner-mac-image')
+  const Mac =
+    <MobileImagePosition>
+      <img src={MacImage} alt="" style={{ width: '100%' }} />
+    </MobileImagePosition>
+  return (
+    <MobileBannerContainer>
+      <img src={MobileBannerBg} />
+      <div className="mobile-banner-text">
+        <div className="panel">
+          <div className="mobile-title">Vizient</div>
+          <p className="title-tip">Helping millions of parents get a great education for their child</p>
+          <div className="list-title">SERVICES</div>
+          <div className="list-wrap">
+            <div>Design Direction</div>
+            <div>Strategy</div>
+            <div>Development</div>
+          </div>
+        </div>
+      </div>
+      <Timeline
+        target={Mac}
+        repeat={-1}
+      >
+        <Tween
+          from={{ top: '40%' }} to={{ top: '41%' }}
+          duration={0.7}
+        ></Tween>
+        <Tween
+          from={{ top: '41%' }} to={{ top: '40%' }}
+          duration={0.7}
+        ></Tween>
+      </Timeline>
+    </MobileBannerContainer>
+  )
 }
 
-export default window.isPC ? PCBanner : MobileBanner
+export default () => {
+  const isPC = window.isPC
+  return isPC ? PCBanner() : MobileBanner()
+}

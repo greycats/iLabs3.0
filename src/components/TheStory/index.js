@@ -9,10 +9,11 @@ const isPC = window.isPC
 export default ({
   story = [],
   storyHeight = 0,
-  dataList = []
+  dataList = [],
+  wrapStyle = {}
 }) => {
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', ...wrapStyle }}>
       <div className="layout-1240 panel story-wrap">
         <div className="left-part">
           <AnimationPlayer
