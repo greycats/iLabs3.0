@@ -35,6 +35,35 @@ export default {
       { img: require('assets/imgs/crew/4-3-Build-a-highly-reliable.json') }
     ]
   },
+  theSolutionsMobile: [
+    'assets/imgs/crew/mobile/Solutions-1.png',
+    'assets/imgs/crew/mobile/Solutions-1.png',
+    'assets/imgs/crew/mobile/Solutions-1.png',
+  ],
+  challengeData: {
+    title: 'The Challenge',
+    intro: "Our challenge was to build a high-performance communication platform connecting a mobile workforce, keeping in mind that Crew's service is designed specifically for workers who don't have ready access to effective communications services on the job.",
+    list: [
+      {
+        lottieData: require('assets/imgs/crew/Challenge-1.json'),
+        title: 'QUICK DEVELOPMENT',
+        description: 'To launch on 2 platforms simultaneously on short, regular ship cycles',
+        mobileHeight: '1.32rem'
+      },
+      {
+        lottieData: require('assets/imgs/crew/Challenge-2.json'),
+        title: 'CLEAN CODE',
+        description: 'To meet a consistently high bar of code quality and performance to satisfy client and user expectations',
+        mobileHeight: '1.82rem'
+      },
+      {
+        lottieData: require('assets/imgs/crew/Challenge-3.json'),
+        title: 'QUICK PROGRESS',
+        description: 'To meet a consistently high bar of code quality and performance to satisfy client and user expectations',
+        mobileHeight: '1.82rem'
+      }
+    ]
+  },
   startSmall: {
     title: <div>Start small, <br />scale when ready</div>,
     titleHeight: 120,
@@ -51,34 +80,22 @@ export default {
   },
   commentList: [
     {
-      img: require('assets/imgs/vizient/AVATAR01.png'),
-      name: 'Beth Roed1',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+      title: 'An invaluable tool for our team',
+      content: '"Crew had been an invaluable tool for our team to keep each other updating with ongoing situations pertaining to our job. I like the option for private chat, and to input a daily schedule as well. Well worth the time."',
+      name: 'ErisTay',
+      date: 'Female, 32'
     },
     {
-      img: require('assets/imgs/vizient/AVATAR02.png'),
-      name: 'Beth Roed2',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+      title: 'Highly recommend',
+      content: '"Great tool for teams. It has been an incredible way to keep tasks and communication centralized and organized. Would highly recommend."',
+      name: 'Ashley Martinez',
+      date: 'Female, 25'
     },
     {
-      img: require('assets/imgs/vizient/AVATAR03.png'),
-      name: 'Beth Roed3',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
-    },
-    {
-      img: require('assets/imgs/vizient/AVATAR04.png'),
-      name: 'Beth Roed4',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
-    },
-    {
-      img: require('assets/imgs/vizient/AVATAR05.png'),
-      name: 'Beth Roed5',
-      intro: 'Business Development Director, Cision',
-      comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
+      title: 'A true asset',
+      content: '"I am the President of Axcess Professional Staffing and this app has been a true asset to use and our team! Thanks and koodos to CREW"',
+      name: 'ROCMom',
+      date: 'Female, 50'
     }
   ]
 }

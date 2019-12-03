@@ -14,6 +14,8 @@ const Solution = ({ GSData }) => {
     getData()
   }, [])
 
+  const isPC = window.isPC
+
   return (
     <TextAndAnimation
       layoutType='right-text'
@@ -21,7 +23,7 @@ const Solution = ({ GSData }) => {
       titleStyle={{
         width: '600px'
       }}
-      wrapMinHeight={1550}
+      wrapMinHeight={isPC ? 1550 : '6rem'}
       animateIcon={animationData}
       animationStyle={{
         width: '640px',
@@ -30,6 +32,10 @@ const Solution = ({ GSData }) => {
       }}
       animateWidth={1550}
       animateHeight={1000}
+      mobileAnimateWidth="130%"
+      mobileAnimationStyle={{
+        marginLeft: '-38%'
+      }}
     />
   )
 }

@@ -83,9 +83,12 @@ export default ({
   animateIcon = null,
   animateWidth = 'auto',
   animateHeight = 'auto',
+  mobileAnimateWidth = 'auto',
+  mobileAnimateHeight = 'auto',
   SubComponent = null,
   wrapMinHeight = '750px',
   animationStyle = {},
+  mobileAnimationStyle = {},
   wrapStyle = {}
 }) => {
   return (
@@ -102,34 +105,19 @@ export default ({
           SubComponent ? <SubComponent /> : null
         }
       </div>
-      {
-        isPC ?
-          <div className="animation-part" style={animationStyle}>
-            {
-              showLottie ?
-                <LottieAnimation
-                  options={{
-                    animationData: animateIcon,
-                  }}
-                  width={animateWidth}
-                  height={animateHeight}
-                />
-                : null
-            }
-          </div>
-          :
-          <div className="animation-part">
-            {
-              showLottie ?
-                <LottieAnimation
-                  options={{
-                    animationData: animateIcon,
-                  }}
-                />
-                : null
-            }
-          </div>
-      }
+      <div className="animation-part" style={isPC ? animationStyle : mobileAnimationStyle}>
+        {
+          showLottie ?
+            <LottieAnimation
+              options={{
+                animationData: animateIcon,
+              }}
+              width={isPC ? animateWidth : mobileAnimateWidth}
+              height={isPC ? animateHeight : mobileAnimateHeight}
+            />
+            : null
+        }
+      </div>
     </div >
   )
 }
