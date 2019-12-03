@@ -5,13 +5,13 @@ import Form from './Form'
 export default () => {
   return (
     <div style={{
-      minHeight: '1200px',
+      minHeight: '1300px',
       position: 'relative'
     }}>
       <div style={{
         maxWidth: '1280px',
         margin: '0 auto',
-        paddingTop: '200px',
+        paddingTop: '100px',
         minHeight: '100vh'
       }}>
         <div style={{

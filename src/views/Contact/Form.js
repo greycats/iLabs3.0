@@ -17,7 +17,7 @@ const InputField = React.forwardRef((props, ref) => {
 
   // Build the field
   return (
-    <>
+    <div style={{position: 'relative', width: '90%'}}>
       <input {...getInputProps({ ref, ...rest })} />
 
       {/*
@@ -26,23 +26,23 @@ const InputField = React.forwardRef((props, ref) => {
       */}
 
       {isValidating ? (
-        <em>Validating...</em>
+        <em className="info">Validating...</em>
       ) : isTouched && error ? (
-        <strong>{error}</strong>
+        <strong className="info">{error}</strong>
       ) : message ? (
-        <small>{message}</small>
+        <small className="info">{message}</small>
       ) : null}
-    </>
+    </div>
   );
 });
 
 export default () => {
   const defaultValues = React.useMemo(
     () => ({
-      name: "tanner",
-      age: "29",
-      email: "tanner@gmail.com",
-      friends: ["jaylen"]
+      name: '',
+      email: '',
+      linkedIn: '',
+      project: ''
     }),
     []
   );
@@ -68,10 +68,10 @@ export default () => {
   });
 
   return (
-    <Form>
-      <div className="cotact-form">
+    <Form className="contact-form">
+      <div>
         <label>
-          Name:{" "}
+          Name{" "}
           <InputField
             field="name"
             validate={value => (!value ? "Required" : false)}
@@ -80,20 +80,7 @@ export default () => {
       </div>
       <div>
         <label>
-          Age:{" "}
-          <InputField
-            field="age"
-            type="number"
-            validate={value =>
-              value < 10 ? "You must be at least 10 years old" : false
-            }
-            min="1"
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          Email:{" "}
+          Email{" "}
           <InputField
             field="email"
             validate={async value => {
@@ -119,9 +106,9 @@ export default () => {
       </div>
       <div>
         <label>
-          Username:{" "}
+          Linkedin{" "}
           <InputField
-            field="username"
+            field="linkedIn"
             validate={(value, { debounce, setMeta }) => {
               console.log("checkusername");
               if (!value) {
@@ -136,7 +123,7 @@ export default () => {
                   return;
                 }
 
-                setMeta({ error: null, message: "Username is available!" });
+                setMeta({ error: null, message: "" });
               }, 2000);
             }}
           />
@@ -144,8 +131,8 @@ export default () => {
       </div>
       <div>
         <label>
-          Notes:{" "}
-          <InputField field="other.notes" defaultValue="This is a note." />
+          Project{" "}
+          <InputField field="project" />
         </label>
       </div>
 
@@ -156,12 +143,12 @@ export default () => {
       {isSubmitting ? (
         "Submitting..."
       ) : (
-        <div>
-          <button type="submit" disabled={!canSubmit}>
-            Submit
+          <div>
+            <button type="submit" disabled={!canSubmit}>
+              Submit
           </button>
-        </div>
-      )}
+          </div>
+        )}
     </Form>
   );
 }
