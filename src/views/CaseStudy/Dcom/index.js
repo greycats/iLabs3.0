@@ -85,16 +85,21 @@ export default () => {
           layoutType='up-text'
           {...dcomData.onboardingData}
           animateIcon={onboardingLottie}
-          wrapMinHeight="930px"
+          wrapMinHeight={isPC ? "930px" : '4.9rem'}
           titleStyle={{
             width: '550px'
           }}
+          mobileAnimationStyle={{
+            marginLeft: '-25%'
+          }}
+          mobileAnimateWidth='120%'
+          titleHeight={isPC ? 60 : 120}
         />
 
         <TextAndAnimation
           layoutType='left-text'
           {...dcomData.homeScreen}
-          wrapMinHeight="1060px"
+          wrapMinHeight={isPC ? "1060px" : '6.55rem'}
           titleStyle={{
             width: '600px'
           }}

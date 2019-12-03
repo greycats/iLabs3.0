@@ -6,40 +6,53 @@
   margin: 0 auto 240px
   .comment-card-list
     @include flex-box($JC: space-between, $FW: wrap)
-    .comment-card-item
-      width: 600px
-      height: 350px
-      padding: 40px
-      @include flex-box($FD: column)
-      border: 1px solid #FAFAFA
-      border-radius: 4px
-      box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05)
-      margin-bottom: 20px
-      &:first-child
-        width: 100%
-        height: 290px
-      img
-        width: 120px
-      .title
-        font-size: 32px
-        line-height: 60px
-        font-weight: 600
-        color: $title-color
-      .content
-        line-height: 28px
-        letter-spacing: 1px
-        flex: 1
-      .name
-        font-size: 18px
-        line-height: 28px
-        color: $title-color
-        font-weight: 600
-        letter-spacing: 0.3px
-        margin-bottom: 10px
-      .date
-        font-size: 12px
-        line-height: 12px
-        letter-spacing: 1.6px
-        color: #919191
-        text-transform: uppercase
 
+.comment-card-item
+  width: 600px
+  height: 350px
+  padding: 40px
+  @include flex-box($FD: column)
+  border: 1px solid #FAFAFA
+  border-radius: 4px
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05)
+  margin-bottom: 20px
+  &:first-child
+    width: 100%
+    height: 290px
+  .card-star
+    width: 120px
+  .card-title
+    font-size: 32px
+    line-height: 60px
+    font-weight: 600
+    color: $title-color
+  .card-content
+    line-height: 28px
+    letter-spacing: 1px
+    flex: 1
+  .card-name
+    font-size: 18px
+    line-height: 28px
+    color: $title-color
+    font-weight: 600
+    letter-spacing: 0.3px
+    margin-bottom: 10px
+  .card-date
+    font-size: 12px
+    line-height: 12px
+    letter-spacing: 1.6px
+    color: #919191
+    text-transform: uppercase
+
+.m-comment-card-wrap
+  margin-bottom: 1rem
+  .comment-card-item
+    width: 3.32rem
+    height: 4.86rem
+    align-items: center
+    padding: 0.35rem 0.24rem
+    .card-star
+      width: 1.2rem
+    .card-title
+      line-height: 1
+      margin: 0.24rem 0

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import { LottieAnimation } from 'components/AnimationPlayer'
 
-const Challenge = ({GSData}) => {
+const isPC = window.isPC
+
+const Challenge = ({ GSData }) => {
   const [animationData, setAnimationData] = useState(null)
 
   const challengeCircleStyle = (index) => {
@@ -46,7 +48,7 @@ const Challenge = ({GSData}) => {
   }, [])
 
   if (!animationData) {
-    return <div style={{height: '1300px', opacity: 0}}></div>
+    return <div style={{ height: '1300px', opacity: 0 }}></div>
   }
 
   return (
@@ -54,7 +56,7 @@ const Challenge = ({GSData}) => {
       background: 'linear-gradient(75.35deg, #2D79D1 -30.2%, #52A2FF 118.87%)',
       position: 'relative',
       overflow: 'hidden',
-      height: 1615
+      height: isPC ? 1615 : '19.2rem'
     }}>
       <div style={challengeCircleStyle(0)}></div>
       <div style={challengeCircleStyle(1)}></div>
@@ -71,12 +73,14 @@ const Challenge = ({GSData}) => {
           height: 169
         }}
       />
-      <div style={{
-        width: '1800px',
-        marginLeft: '50%',
-        transform: 'translateX(-50%)',
-        marginTop: '85px'
-      }}>
+      <div style={isPC ?
+        {
+          width: '1800px',
+          marginLeft: '50%',
+          transform: 'translateX(-50%)',
+          marginTop: '85px'
+        } : {}
+      }>
         <LottieAnimation
           options={{
             animationData,

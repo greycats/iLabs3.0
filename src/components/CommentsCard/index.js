@@ -2,25 +2,22 @@ import React from 'react'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import Star from 'assets/imgs/dcom/Star.svg'
 import { hashCode } from 'utils'
+import MobileCarousel from 'components/MobileCarousel'
 import './index.sass'
 
-const CommentsCard = ({ commentList }) => (
-  <div className="comment-card-list">
-    {
-      commentList.map((item, index) => (
-        <div className="comment-card-item" key={index}>
-          <img src={Star} />
-          <div className="title">{item.title}</div>
-          <div className="content">{item.content}</div>
-          <div className="name">{item.name}</div>
-          <div className="date">{item.date}</div>
-        </div>
-      ))
-    }
-  </div>
-)
+const isPC = window.isPC
 
-export default ({
+const CommentsCard = ({ commentList }) => commentList.map((item, index) => (
+  <div className="comment-card-item" key={index}>
+    <img className="card-star" src={Star} />
+    <div className="card-title">{item.title}</div>
+    <div className="card-content">{item.content}</div>
+    <div className="card-name">{item.name}</div>
+    <div className="card-date">{item.date}</div>
+  </div>
+))
+
+const PCComments = ({
   commentList = [],
   id = hashCode('comment-card')
 }) => {
@@ -30,7 +27,9 @@ export default ({
         id={id}
         target={
           <div style={{ position: 'relative' }}>
-            <CommentsCard commentList={commentList} />
+            <div className="comment-card-list">
+              <CommentsCard commentList={commentList} />
+            </div>
           </div>
         }
         triggerRelativePosition={{ top: '-100px' }}
@@ -51,3 +50,15 @@ export default ({
     </div>
   )
 }
+
+const MobileComments = ({
+  commentList = []
+}) => {
+  return (
+    <div className="m-comment-card-wrap">
+      <MobileCarousel list={CommentsCard({ commentList })} />
+    </div>
+  )
+}
+
+export default isPC ? PCComments : MobileComments

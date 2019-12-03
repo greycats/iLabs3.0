@@ -21,7 +21,8 @@ export default ({
   },
   titleWidth = 495,
   itemStyle = {},
-  isWhite = false
+  isWhite = false,
+  withLottie = true
 }) => {
   const animationOptions = {
     title: [
@@ -72,59 +73,65 @@ export default ({
             height={introHeight}
           />
         </div>
-        <div className={classNames("content-wrap", { 'is-white': isWhite })}>
-          {
-            list.map((item, index) => {
-              return (
-                <div key={index} className="challenge-item" style={itemStyle}>
-                  <div className="icon" style={{ width: isPC ? 'auto' : lottieSize.width }}>
-                    <LottieAnimation
-                      triggerRelativePosition={{
-                        top: '-200px'
-                      }}
-                      delay={isPC ? index * lottieDuration : 0}
-                      options={{
-                        animationData: item.img
-                      }}
-                      {...lottieSize}
-                      wrapHeight={lottieSize.height}
-                    />
-                  </div>
-                  {
-                    withName ?
-                      <AnimationPlayer
-                        target={
-                          (
-                            <Fragment>
-                              <div className="name">{item.name}</div>
-                              <div className="tezt">{item.text}</div>
-                            </Fragment>
-                          )
+        {
+          withLottie ?
+            (
+              <div className={classNames("content-wrap", { 'is-white': isWhite })}>
+                {
+                  list.map((item, index) => {
+                    return (
+                      <div key={index} className="challenge-item" style={itemStyle}>
+                        <div className="icon" style={{ width: isPC ? 'auto' : lottieSize.width }}>
+                          <LottieAnimation
+                            triggerRelativePosition={{
+                              top: '-200px'
+                            }}
+                            delay={isPC ? index * lottieDuration : 0}
+                            options={{
+                              animationData: item.img
+                            }}
+                            {...lottieSize}
+                            wrapHeight={lottieSize.height}
+                          />
+                        </div>
+                        {
+                          withName ?
+                            <AnimationPlayer
+                              target={
+                                (
+                                  <Fragment>
+                                    <div className="name">{item.name}</div>
+                                    <div className="tezt">{item.text}</div>
+                                  </Fragment>
+                                )
+                              }
+                              triggerRelativePosition={{
+                                top: '-350px'
+                              }}
+                              animations={[
+                                {
+                                  from: {
+                                    opacity: 0
+                                  },
+                                  to: {
+                                    opacity: 1
+                                  },
+                                  duration: lottieDuration,
+                                  delay: isPC ? index * lottieDuration : 0
+                                }
+                              ]}
+                              height={isPC ? '127px' : '1.27rem'}
+                            />
+                            : null
                         }
-                        triggerRelativePosition={{
-                          top: '-350px'
-                        }}
-                        animations={[
-                          {
-                            from: {
-                              opacity: 0
-                            },
-                            to: {
-                              opacity: 1
-                            },
-                            duration: lottieDuration,
-                            delay: isPC ? index * lottieDuration : 0
-                          }
-                        ]}
-                        height={isPC ? '127px' : '1.27rem'}
-                      />
-                      : null
-                  }
-                </div>
-              )
-            })
-          }
-        </div>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            )
+            : null
+        }
       </div>
     </div>
   )

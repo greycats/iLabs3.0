@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
+
+const isPC = window.isPC
 
 export default ({
   intro = '',
@@ -36,19 +38,20 @@ export default ({
               ]
             }
           />
-          <div style={{
+          <div style={isPC ? {
             display: 'flex',
             justifyContent: 'space-between',
             height: '250px'
-          }}>
+          } : {}}>
             <div>
               <AnimationPlayer
                 target={
                   <div>
                     <div style={{
-                      width: '564px',
+                      width: isPC ? '564px' : 'auto',
                       letterSpacing: '1px',
-                      lineHeight: '28px'
+                      lineHeight: '28px',
+                      marginBottom: isPC ? 0 : '0.5rem'
                     }}>{intro}</div>
                   </div>
                 }
@@ -71,7 +74,7 @@ export default ({
               <AnimationPlayer
                 target={
                   <div style={{
-                    width: '600px',
+                    width: isPC ? '600px' : 'auto',
                     fontSize: '24px',
                     fontWeight: 'bold',
                     letterSpacing: '1px',
