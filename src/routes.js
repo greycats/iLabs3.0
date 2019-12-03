@@ -23,7 +23,7 @@ const routes = (
       atActive={{ opacity: 1 }}
       className="switch-wrapper"
     >
-      <Route path="/home" render={(props) => {
+      <Route exact path="/" render={(props) => {
         return (
           <HomeView
             {...props}

@@ -98,9 +98,13 @@ const ProjectList = ({ listData = [] }) => {
           return (
             <div
               key={index}
+              onClick={() => {
+                history.push(item.link)
+              }}
               style={{
                 width: '35%',
                 height: '750px',
+                cursor: 'pointer'
               }}>
               <AnimationPlayer
                 triggerRelativePosition={{
@@ -175,49 +179,49 @@ const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'apps'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'development'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'marketing'
   }
 ]

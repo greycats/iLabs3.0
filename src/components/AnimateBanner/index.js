@@ -37,7 +37,10 @@ export default () => {
     pixiApp.renderer.resize(window.innerWidth, 800)
   }
   useEffect(() => {
-    window.addEventListener('resize', resizeCB)
+    window.scrollTo(0, 0)
+    setTimeout(() => {
+      window.addEventListener('resize', resizeCB)
+    }, 500)
     return () => window.removeEventListener('resize', resizeCB)
   }, [])
 
@@ -239,7 +242,6 @@ export default () => {
           </div>
           <AnimateList></AnimateList>
           <GoToArrow text="See all work" onClick={() => {
-            console.log('fff?')
             history.push('/ourwork')
           }}/>
           <br/>
@@ -407,7 +409,9 @@ export const AnimateBanner = ({ children, ...props }) => {
         position: 'absolute',
         zIndex: -1
       }} />
-      <img src={logo} className="logo-img" alt="" />
+      <img src={logo} className="logo-img" alt="" onClick={() => {
+        history.push('/')
+      }}/>
       {children}
     </div>
   )
