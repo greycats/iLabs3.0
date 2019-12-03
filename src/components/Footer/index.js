@@ -4,6 +4,7 @@ import { Tween } from 'react-gsap'
 import GoToArrow from '../GoToArrow'
 import Img from '../../assets/imgs/icons/footer-icons.svg'
 import './index.sass'
+import history from 'history.js'
 
 const isPC = window.isPC
 
@@ -34,7 +35,12 @@ export default ({
                 <div className="layout-1240 footer">
                   <div>
                     <div className="footer-title">We would love to work with you.</div>
-                    <GoToArrow text="contact us" isWhite={true}></GoToArrow>
+                    {
+                      window.location.pathname.indexOf('/contact') === -1 ?
+                      <GoToArrow text="contact us" isWhite={true} onClick={() => {
+                        history.push('/contact')
+                      }}></GoToArrow> : null
+                    }
                   </div>
                   <div className="footer-list">
                     <div>

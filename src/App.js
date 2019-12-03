@@ -18,6 +18,7 @@ function App() {
     import('./views/Home'),
     import('./views/CaseStudy'),
     import('./views/OurWork'),
+    import('./views/Contact'),
     import('views/CaseStudy/Vizient'),
     import('views/CaseStudy/Dcom'),
     import('views/CaseStudy/Crew'),
