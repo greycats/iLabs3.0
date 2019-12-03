@@ -35,6 +35,11 @@ export default {
       { img: require('assets/imgs/crew/4-3-Build-a-highly-reliable.json') }
     ]
   },
+  theSolutionsMobile: [
+    'assets/imgs/crew/mobile/Solutions-1.png',
+    'assets/imgs/crew/mobile/Solutions-1.png',
+    'assets/imgs/crew/mobile/Solutions-1.png',
+  ],
   challengeData: {
     title: 'The Challenge',
     intro: "Our challenge was to build a high-performance communication platform connecting a mobile workforce, keeping in mind that Crew's service is designed specifically for workers who don't have ready access to effective communications services on the job.",
