@@ -229,7 +229,7 @@ export default () => {
           </div>
           <div style={{
               width: '65%',
-              marginTop: windowWidth > 1280 ? '15%' : '25%',
+              marginTop: windowWidth > 1280 ? '10%' : '25%',
               position: 'absolute',
               left: '50%',
               maxWidth: windowWidth > 1280 ? '800px' : '600px'

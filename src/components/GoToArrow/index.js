@@ -6,7 +6,8 @@ class GoToArrow extends Component {
   static defaultProps = {
     text: '',
     status: 'in',
-    isWhite: false
+    isWhite: false,
+    onClick: () => {}
   }
 
   state = {
@@ -14,7 +15,10 @@ class GoToArrow extends Component {
   }
 
   arrowOnClick = () => {
-    // this.setState({ status: this.state.status === 'in' ? 'out' : 'in' })
+    this.setState({ status: this.state.status === 'in' ? 'out' : 'in' })
+    setTimeout(() => {
+      this.props.onClick()
+    }, 500)
   }
   render() {
     const { status } = this.state

@@ -98,9 +98,13 @@ const ProjectList = ({ listData = [] }) => {
           return (
             <div
               key={index}
+              onClick={() => {
+                history.push(item.link)
+              }}
               style={{
                 width: '35%',
                 height: '750px',
+                cursor: 'pointer'
               }}>
               <AnimationPlayer
                 triggerRelativePosition={{
@@ -175,49 +179,49 @@ const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'apps'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'development'
   },
   {
     image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
     text: 'aa',
-    link: '',
+    link: '/casestudy?name=vizient',
     type: 'marketing'
   }
 ]
@@ -235,12 +239,10 @@ export default ({ data = fakeData() }) => {
         setProjectType(getLocationSearch('type'))
       }, 50)
     })
-    return () => history.listen(null)
   }, [])
 
   useEffect(() => {
     if (!listData.length) {
-      // setListData(data)
       setListData(_.filter(data, item => {
         const type = projectType
         if (type && type !== 'all') {

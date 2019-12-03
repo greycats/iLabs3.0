@@ -4,6 +4,8 @@ import ScrollMagic from 'scrollmagic'
 import CommonTitle from 'components/CommonTitle'
 import AnimateList from 'components/AnimateList'
 import logo from 'logo.svg'
+import GoToArrow from 'components/GoToArrow'
+import history from 'history.js'
 
 import { hashCode } from 'utils'
 
@@ -35,7 +37,10 @@ export default () => {
     pixiApp.renderer.resize(window.innerWidth, 800)
   }
   useEffect(() => {
-    window.addEventListener('resize', resizeCB)
+    window.scrollTo(0, 0)
+    setTimeout(() => {
+      window.addEventListener('resize', resizeCB)
+    }, 500)
     return () => window.removeEventListener('resize', resizeCB)
   }, [])
 
@@ -236,6 +241,11 @@ export default () => {
             <CommonTitle {...titleData}></CommonTitle>
           </div>
           <AnimateList></AnimateList>
+          <GoToArrow text="See all work" onClick={() => {
+            history.push('/ourwork')
+          }}/>
+          <br/>
+          <br/>
         </div>
       </div>
     </div>
@@ -267,7 +277,7 @@ export const AnimateBanner = ({ children, ...props }) => {
         .staggerTo(initSprit, 0.2, { pixi: { x: '-=500' } }, 0.001, 'step1-=.4')
         .staggerTo(initSprit, 1.5, { pixi: { x: '+=100' } }, 0.01, 'step1+=.5')
 
-      tl()
+    tl()
   }
 
   function initPixiAnim() {
@@ -398,9 +408,11 @@ export const AnimateBanner = ({ children, ...props }) => {
       <div id={renderId} ref={bgRef} style={{
         position: 'absolute',
         zIndex: -1
+      }} />
+      <img src={logo} className="logo-img" alt="" onClick={() => {
+        history.push('/')
       }}/>
-        <img src={logo} className="logo-img" alt="" />
-        { children }
+      {children}
     </div>
   )
 }

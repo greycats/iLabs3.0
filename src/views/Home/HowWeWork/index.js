@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import CommonTitle from 'components/CommonTitle'
-import GoToArrow from 'components/GoToArrow'
-import Img from 'assets/imgs/gif/work.svg'
+import { LottieAnimation } from 'components/AnimationPlayer'
 import './index.sass'
-const tl = new TimelineMax()
 
 export default () => {
   useEffect(() => {
@@ -15,22 +13,22 @@ export default () => {
   }
   const howList = [
     {
-      img: Img,
+      img: require('assets/imgs/how-we-work/1/data.json'),
       title: 'Collaborative',
       intro: 'We collaborate with you and integrate your input at every step of the way.'
     },
     {
-      img: Img,
+      img: require('assets/imgs/how-we-work/2/data.json'),
       title: 'Iterative',
       intro: 'We iterative on solutions, user test frequently and fine tune based on numbers to maximize outcomes.'
     },
     {
-      img: Img,
+      img: require('assets/imgs/how-we-work/3/data.json'),
       title: 'Flexible',
       intro: 'We deploy a flexible team with diverse skills to cover all bases.'
     },
     {
-      img: Img,
+      img: require('assets/imgs/how-we-work/4/data.json'),
       title: 'Data Driven',
       intro: 'We believe metrics are the only clear indicators of success. We set goals/KPIs to exceed them.'
     }
@@ -40,17 +38,32 @@ export default () => {
       <div className="layout-1240 panel">
         <CommonTitle {...titleData}></CommonTitle>
         <div className="how-wrap">
-        {
-          howList.map((item, index) => (
-            <div key={index} className="how-item">
-              <img src={item.img} />
-              <div className="title">{item.title}</div>
-              <div className="intro">{item.intro}</div>
-            </div>
-          ))
-        }
+          {
+            howList.map((item, index) => {
+              return (
+                <div key={index} className="how-item">
+                  <LottieAnimation
+                    triggerRelativePosition={{
+                      top: '-40vh'
+                    }}
+                    width='120%'
+                    options={{
+                      loop: true,
+                      animationData: item.img
+                    }}
+                  />
+                  <div style={{
+                    position: 'relative',
+                    left: '20px'
+                  }}>
+                    <div className="title">{item.title}</div>
+                    <div className="intro">{item.intro}</div>
+                  </div>
+                </div>
+              )
+            })
+          }
         </div>
-        <GoToArrow text="View process"></GoToArrow>
       </div>
     </div>
   )

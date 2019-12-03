@@ -7,6 +7,7 @@ import { lazyImport } from 'utils'
 const HomeView = lazyImport(import('./views/Home'))
 const CaseStudy = lazyImport(import('./views/CaseStudy'))
 const OurWork = lazyImport(import('./views/OurWork'))
+const Contact = lazyImport(import('./views/Contact'))
 
 const routes = (
   <Suspense fallback={(() => {
@@ -23,7 +24,7 @@ const routes = (
       atActive={{ opacity: 1 }}
       className="switch-wrapper"
     >
-      <Route path="/home" render={(props) => {
+      <Route exact path="/" render={(props) => {
         return (
           <HomeView
             {...props}
@@ -40,6 +41,13 @@ const routes = (
       <Route path="/ourwork" render={(props) => {
         return (
           <OurWork
+            {...props}
+          />
+        )
+      }} />
+      <Route path="/contact" render={(props) => {
+        return (
+          <Contact
             {...props}
           />
         )

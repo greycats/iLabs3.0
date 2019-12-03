@@ -55,7 +55,7 @@ export default () => {
     )
     tl1.set('.preload', { css: { display: 'none' } })
     if (window.location.pathname === '/') {
-      history.push('/home')
+      history.push('/')
     }
   }
 
