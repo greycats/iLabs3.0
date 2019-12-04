@@ -9,7 +9,7 @@ export default () => {
   const [isSent, setIsSent] = useState(false)
   return (
     <div style={{
-      minHeight: '1300px',
+      minHeight: '1350px',
       position: 'relative'
     }}>
       <img style={{
