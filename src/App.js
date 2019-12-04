@@ -101,7 +101,23 @@ function App() {
       {
         id: 'andriod-icon',
         src: require('assets/imgs/dcom/andriodicon.png')
-      }
+      },
+      {
+        id: 'vizient-thumbnail',
+        src: require('assets/imgs/projects/thumbnails/vizient.png'),
+      },
+      {
+        id: 'crew-thumbnail',
+        src: require('assets/imgs/projects/thumbnails/crew.png'),
+      },
+      {
+        id: 'gs-thumbnail',
+        src: require('assets/imgs/projects/thumbnails/gs.png'),
+      },
+      {
+        id: 'dcom-thumbnail',
+        src: require('assets/imgs/projects/thumbnails/dcom.png'),
+      },
     ])
 
     PreloadManager.load()

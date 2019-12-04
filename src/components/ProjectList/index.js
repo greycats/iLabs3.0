@@ -1,55 +1,32 @@
 import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
 import PreloadManager from 'scripts/PreloadManager'
+import history from 'history.js'
 
 export const fakeData = () => [
   {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
     text: 'aa',
     link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
     text: 'aa',
-    link: '/casestudy?name=vizient',
+    link: '/casestudy?name=crew',
     type: 'enterprise'
   },
   {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
     text: 'aa',
-    link: '/casestudy?name=vizient',
+    link: '/casestudy?name=dcom',
     type: 'enterprise'
   },
   {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
     text: 'aa',
-    link: '/casestudy?name=vizient',
+    link: '/casestudy?name=gs',
     type: 'enterprise'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'enterprise'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'apps'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'development'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'marketing'
   }
 ]
 
