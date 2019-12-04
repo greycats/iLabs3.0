@@ -34,8 +34,8 @@ export default () => {
         <div style={{
           position: 'absolute',
           left: 0,
-          top: '700px',
-          height: '100px',
+          top: '720px',
+          height: '80px',
           width: '58%',
           backgroundColor: '#fff'
         }}></div>

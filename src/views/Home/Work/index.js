@@ -1,6 +1,8 @@
 import React from 'react'
 import ProjectList, { fakeData } from 'components/ProjectList'
 import CommonTitle from 'components/CommonTitle'
+import GoToArrow from 'components/GoToArrow'
+import history from 'history.js'
 
 const titleData = {
   title: 'Featured Work',
@@ -9,11 +11,14 @@ const titleData = {
 
 export default () => {
   return (
-    <div className="layout-1240 panel">
+    <div className="layout-1240">
       <CommonTitle {...titleData}></CommonTitle>
       <br />
       <br />
       <ProjectList listData={fakeData()}></ProjectList>
+      <GoToArrow text="See all work" onClick={() => {
+        history.push('/ourwork')
+      }}></GoToArrow>
     </div>
   )
 }
