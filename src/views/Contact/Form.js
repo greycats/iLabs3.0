@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import GoToArrow from 'components/GoToArrow'
 
 import "./style.sass";
 
@@ -36,7 +37,9 @@ const InputField = React.forwardRef((props, ref) => {
   );
 });
 
-export default () => {
+export default ({
+  onSubmitted = () => {}
+}) => {
   const defaultValues = React.useMemo(
     () => ({
       name: '',
@@ -54,36 +57,43 @@ export default () => {
     meta: { isSubmitting, isSubmitted, canSubmit, error }
   } = useForm({
     defaultValues,
-    validate: values => {
-      if (values.name === "tanner" && values.age !== "29") {
-        return "This is not tanner's correct age";
-      }
-      return false;
-    },
+    // validate: values => {
+    //   if (values.name === "tanner" && values.age !== "29") {
+    //     return "This is not tanner's correct age";
+    //   }
+    //   return false;
+    // },
     onSubmit: async (values, instance) => {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // await new Promise(resolve => setTimeout(resolve, 1000));
       console.log(values);
-    },
-    // debugForm: false
+      setTimeout(() => {
+        onSubmitted()
+      }, 500)
+    }
   });
 
+  useEffect(() => {
+    console.log('isSubmitted', isSubmitted)
+  }, [isSubmitted])
   return (
     <Form className="contact-form">
       <div>
         <label>
-          Name{" "}
+          Name *{" "}
           <InputField
             field="name"
             validate={value => (!value ? "Required" : false)}
+            placeholder="What's your name?"
           />
         </label>
       </div>
       <div>
         <label>
-          Email{" "}
+          Email *{" "}
           <InputField
             field="email"
-            validate={async value => {
+            placeholder="Your email"
+            validate={async (value, instance) => {
               if (!value) {
                 return "Email is required";
               }
@@ -94,12 +104,10 @@ export default () => {
 
               console.log(`Checking email: ${value}...`);
 
-              // We're going to mock that for now
-              await new Promise(resolve => setTimeout(resolve, 2000));
+              return false
 
-              return value === "tanner@gmail.com"
-                ? "Email is already being used"
-                : false;
+              // We're going to mock that for now
+              // await new Promise(resolve => setTimeout(resolve, 2000));
             }}
           />
         </label>
@@ -109,44 +117,34 @@ export default () => {
           Linkedin{" "}
           <InputField
             field="linkedIn"
-            validate={(value, { debounce, setMeta }) => {
-              console.log("checkusername");
-              if (!value) {
-                return "Username is required";
-              }
-
-              return debounce(async () => {
-                console.log("Checking username...");
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                if (value === "tanner") {
-                  setMeta({ error: "Username is unavailable", message: null });
-                  return;
-                }
-
-                setMeta({ error: null, message: "" });
-              }, 2000);
-            }}
+            placeholder="Can you share your Linkedin profile?"
           />
         </label>
       </div>
       <div>
         <label>
-          Project{" "}
-          <InputField field="project" />
+          Project *{" "}
+          <InputField
+            field="project"
+            placeholder="Tell us about the project"
+            validate={value => (!value ? "Required" : false)}
+          />
         </label>
       </div>
 
-      {isSubmitted ? <em>Thanks for submitting!</em> : null}
+      {/* {isSubmitted ? <em>Thanks for submitting!</em> : null} */}
 
       {error ? <strong>{error}</strong> : null}
 
       {isSubmitting ? (
-        "Submitting..."
+        ""
       ) : (
-          <div>
-            <button type="submit" disabled={!canSubmit}>
-              Submit
-          </button>
+          <div style={{
+            textAlign: "center"
+          }}>
+            <button type="submit" disabled={!canSubmit} style={{marginRight: '100px'}}>
+              <GoToArrow text="Send Message" />
+            </button>
           </div>
         )}
     </Form>
@@ -154,7 +152,11 @@ export default () => {
 }
 
 function validateEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  // var re = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  // var re = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
+  // return re.test(email);
 }
 

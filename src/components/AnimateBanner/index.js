@@ -390,7 +390,9 @@ export const AnimateBanner = ({ children, ...props }) => {
     initContent()
   }, [])
   useEffect(() => {
-    contentAnim()
+    if (initSprit.length === 0) {
+      contentAnim()
+    }
   }, [initSprit])
 
   const resizeCB = () => {
@@ -407,6 +409,7 @@ export const AnimateBanner = ({ children, ...props }) => {
     }}>
       <div id={renderId} ref={bgRef} style={{
         position: 'absolute',
+        top: 0,
         zIndex: -1
       }} />
       <img src={logo} className="logo-img" alt="" onClick={() => {

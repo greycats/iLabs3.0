@@ -178,7 +178,8 @@ const devListData = [
 
 export default () => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [activeItem, setActiveItem] = useState(null)
+  // const [activeItem, setActiveItem] = useState(null)
+  const [activeItem, setActiveItem] = useState(designListData[0])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const onResize = () => {

@@ -19,6 +19,11 @@ class GoToArrow extends Component {
     setTimeout(() => {
       this.props.onClick()
     }, 500)
+    setTimeout(() => {
+      this.setState({
+        status: 'in'
+      })
+    }, 1500)
   }
   render() {
     const { status } = this.state
