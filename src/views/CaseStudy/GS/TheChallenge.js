@@ -38,7 +38,7 @@ const Challenge = ({ GSData }) => {
   }
 
   const getData = async () => {
-    const data = await import('assets/imgs/gs/3-challenge-5-devices')
+    const data = await import('assets/imgs/gs/3-challenge/5-devices')
 
     setAnimationData(data.default)
   }

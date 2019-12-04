@@ -1,10 +1,10 @@
 import React from 'react'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
-import approachData from 'assets/imgs/gs/questions/approach.json'
-import step1Data from 'assets/imgs/gs/questions/1.json'
-import step2Data from 'assets/imgs/gs/questions/2.json'
-import step3Data from 'assets/imgs/gs/questions/3.json'
+import approachData from 'assets/imgs/gs/5-questions/approach.json'
+import step1Data from 'assets/imgs/gs/5-questions/1.json'
+import step2Data from 'assets/imgs/gs/5-questions/2.json'
+import step3Data from 'assets/imgs/gs/5-questions/3.json'
 
 const isPC = window.isPC
 

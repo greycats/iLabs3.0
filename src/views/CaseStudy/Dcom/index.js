@@ -7,13 +7,13 @@ import TextDescriptionLottieSection from 'components/TextDescriptionLottieSectio
 import CommentsCard from 'components/CommentsCard'
 import MobileCarousel from 'components/MobileCarousel'
 
-import Solution from 'assets/imgs/dcom/2-Solutions/data.json'
-import SmoothTransition from 'assets/imgs/dcom/Switcher.json'
-import Intuitive from 'assets/imgs/dcom/4-Intuitive-search-function/data.json'
-import HomeScreen from 'assets/imgs/dcom/6-Ipad/data.json'
+import Solution from 'assets/imgs/dcom/2-Solutions'
+import SmoothTransition from 'assets/imgs/dcom/3-Switcher.json'
+import Intuitive from 'assets/imgs/dcom/4-Intuitive-search-function'
+import onboardingLottie from 'assets/imgs/dcom/5-Onboarding-New-User'
+import HomeScreen from 'assets/imgs/dcom/6-Ipad'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
-import onboardingLottie from 'assets/imgs/dcom/5-Onboarding-New-User/data.json'
 import BannerContent from './BannerContent'
 import dcomData from 'data/dcomData'
 

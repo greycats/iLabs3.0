@@ -12,17 +12,17 @@ export default {
         number: 5,
         name: 'Reviews on App Store',
         suffix: <img src={Star} />,
-        img: require('assets/imgs/crew/2-Story-1-Review.json')
+        img: require('assets/imgs/crew/2-Story/2-Story-1-Review.json')
       },
       {
         number: 3,
         name: 'Months to MVP on both platforms',
-        img: require('assets/imgs/crew/2-Story-2-Month.json')
+        img: require('assets/imgs/crew/2-Story/2-Story-2-Month.json')
       },
       {
         number: 50,
         name: 'Top 50 business apps on iOS and Android',
-        img: require('assets/imgs/crew/2-Story-3-Top.json')
+        img: require('assets/imgs/crew/2-Story/2-Story-3-Top.json')
       }
     ]
   },
@@ -30,9 +30,9 @@ export default {
     title: 'The Solutions',
     intro: 'We built an agile development team of 4 engineers plus a SF based lead engineer that worked lock step with the Crew engineering team.',
     list: [
-      { img: require('assets/imgs/crew/4-1-Co-Dev.json') },
-      { img: require('assets/imgs/crew/4-2-Launch-MVP.json') },
-      { img: require('assets/imgs/crew/4-3-Build-a-highly-reliable.json') }
+      { img: require('assets/imgs/crew/4-Solution/4-1-Co-Dev.json') },
+      { img: require('assets/imgs/crew/4-Solution/4-2-Launch-MVP.json') },
+      { img: require('assets/imgs/crew/4-Solution/4-3-Build-a-highly-reliable.json') }
     ]
   },
   theSolutionsMobile: [
@@ -45,19 +45,19 @@ export default {
     intro: "Our challenge was to build a high-performance communication platform connecting a mobile workforce, keeping in mind that Crew's service is designed specifically for workers who don't have ready access to effective communications services on the job.",
     list: [
       {
-        lottieData: require('assets/imgs/crew/Challenge-1.json'),
+        lottieData: require('assets/imgs/crew/3-Challenge/Challenge-1.json'),
         title: 'QUICK DEVELOPMENT',
         description: 'To launch on 2 platforms simultaneously on short, regular ship cycles',
         mobileHeight: '1.32rem'
       },
       {
-        lottieData: require('assets/imgs/crew/Challenge-2.json'),
+        lottieData: require('assets/imgs/crew/3-Challenge/Challenge-2.json'),
         title: 'CLEAN CODE',
         description: 'To meet a consistently high bar of code quality and performance to satisfy client and user expectations',
         mobileHeight: '1.82rem'
       },
       {
-        lottieData: require('assets/imgs/crew/Challenge-3.json'),
+        lottieData: require('assets/imgs/crew/3-Challenge/Challenge-3.json'),
         title: 'QUICK PROGRESS',
         description: 'To meet a consistently high bar of code quality and performance to satisfy client and user expectations',
         mobileHeight: '1.82rem'

@@ -10,16 +10,16 @@ import Grid from './Grid'
 import Leverage from './Leverage'
 import AvatarComments from 'components/AvatarComments'
 
-import ComponentsForWeb from 'assets/imgs/vizient/Components'
-import BaseOn from 'assets/imgs/vizient/BaseOn'
-import ColorCircle from 'assets/imgs/vizient/ColorCircle'
-import TypefaceText from 'assets/imgs/vizient/TypefaceText'
+import ComponentsForWeb from 'assets/imgs/vizient/6-Components'
+import BaseOn from 'assets/imgs/vizient/7-BaseOn'
+import ColorImage from 'assets/imgs/vizient/10-Color'
+import ColorCircle from 'assets/imgs/vizient/10-Color/ColorCircle'
+import TypefaceText from 'assets/imgs/vizient/9-Typeface/text'
 import MobileTypefaceText from 'assets/imgs/vizient/mobile/Typeface.png'
-import TypefaceImage from 'assets/imgs/vizient/Typeface'
+import TypefaceImage from 'assets/imgs/vizient/9-Typeface/screenshot'
 import StyledPage from 'components/Styled/Page'
 import StyledSection from 'components/Styled/Section'
-import ChallengeImg from 'assets/imgs/vizient/challenge-image.png'
-import ColorImage from 'assets/imgs/vizient/Color'
+import ChallengeImg from 'assets/imgs/vizient/3-The-challenge/challenge-image.png'
 
 import vizientData from 'data/vizientData'
 
@@ -171,7 +171,10 @@ export default () => {
           }
         />
         <Grid />
-        <AvatarComments dataList={vizientData.commentList} />
+        {
+          isPC ? <AvatarComments dataList={vizientData.commentList} /> : null
+        }
+
       </div>
     </StyledPage>
   )

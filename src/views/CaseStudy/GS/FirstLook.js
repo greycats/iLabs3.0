@@ -17,7 +17,7 @@ const PCImgs = () => (
     }}>
       <LottieAnimation
         options={{
-          animationData: require('assets/imgs/gs/6-first-glance-1/data.json'),
+          animationData: require('assets/imgs/gs/6-first-glance/1.json'),
         }}
         width={800}
       />
@@ -29,7 +29,7 @@ const PCImgs = () => (
     }}>
       <LottieAnimation
         options={{
-          animationData: require('assets/imgs/gs/6-first-glance-2/data.json'),
+          animationData: require('assets/imgs/gs/6-first-glance/2.json'),
         }}
         width={800}
       />

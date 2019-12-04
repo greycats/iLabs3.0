@@ -5,7 +5,7 @@ const Solution = ({ GSData }) => {
   const [animationData, setAnimationData] = useState(null)
 
   const getData = async () => {
-    const data = await import('assets/imgs/gs/4-solution')
+    const data = await import('assets/imgs/gs/4-solution/data.json')
 
     setAnimationData(data.default)
   }

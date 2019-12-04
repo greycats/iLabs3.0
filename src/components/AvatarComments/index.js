@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Controller, Scene } from 'react-scrollmagic'
 import { Tween, Timeline } from 'react-gsap'
 import ControllerList from 'components/AnimateWrap/controllerList'
-import OrangeIcon from 'assets/imgs/vizient/Orange Icon.png'
+import OrangeIcon from 'assets/imgs/vizient/12-avatars/Orange Icon.png'
 import classnames from 'classnames'
 import './index.sass'
 

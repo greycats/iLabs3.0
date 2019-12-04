@@ -2,8 +2,8 @@ import React from 'react'
 import ControllerList from 'components/AnimateWrap/controllerList'
 import styled from 'styled-components'
 import CommonTitle from 'components/CommonTitle'
-import Grid from 'assets/imgs/vizient/Grid.png'
-import Grid2 from 'assets/imgs/vizient/Grid2.png'
+import Grid from 'assets/imgs/vizient/11-Grid/Grid.png'
+import Grid2 from 'assets/imgs/vizient/11-Grid/Grid2.png'
 import GridMobile from 'assets/imgs/vizient/mobile/Grid.png'
 
 const GridWrap = styled.div`

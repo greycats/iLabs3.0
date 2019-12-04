@@ -13,18 +13,18 @@ export default {
       {
         number: 5,
         name: 'Products',
-        img: require('assets/imgs/vizient/The-story/Product.json')
+        img: require('assets/imgs/vizient/2-The-story/Product.json')
       },
       {
         number: 10,
         name: 'Team members',
-        img: require('assets/imgs/vizient/The-story/Teammember.json')
+        img: require('assets/imgs/vizient/2-The-story/Teammember.json')
       },
       {
         number: 250,
         suffix: '+',
         name: 'App Screens',
-        img: require('assets/imgs/vizient/The-story/AppscreenIcon.json')
+        img: require('assets/imgs/vizient/2-The-story/AppscreenIcon.json')
       }
     ]
   },
@@ -36,17 +36,17 @@ export default {
       {
         name: 'Many Products',
         text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-challenge/Many products.json')
+        img: require('assets/imgs/vizient/3-The-challenge/Many products.json')
       },
       {
         name: 'Inconsistency Interface',
         text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-challenge/Inconsistency Interface.json')
+        img: require('assets/imgs/vizient/3-The-challenge/Inconsistency Interface.json')
       },
       {
         name: 'Missing Interactions',
         text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-challenge/Mising Interactions.json')
+        img: require('assets/imgs/vizient/3-The-challenge/Mising Interactions.json')
       },
     ]
   },
@@ -59,17 +59,17 @@ export default {
       {
         name: 'UI Toolkit',
         text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-solution/UI Toolkit.json')
+        img: require('assets/imgs/vizient/4-The-solution/UI Toolkit.json')
       },
       {
         name: 'Clear Documentation',
         text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-solution/Clear Document.json')
+        img: require('assets/imgs/vizient/4-The-solution/Clear Document.json')
       },
       {
         name: 'Design Language',
         text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
-        img: require('assets/imgs/vizient/The-solution/Designlanguage.json')
+        img: require('assets/imgs/vizient/4-The-solution/Designlanguage.json')
       },
     ]
   },
@@ -102,31 +102,31 @@ export default {
   },
   commentList: [
     {
-      img: require('assets/imgs/vizient/AVATAR01.png'),
+      img: require('assets/imgs/vizient/12-avatars/AVATAR01.png'),
       name: 'Beth Roed1',
       intro: 'Business Development Director, Cision',
       comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
     },
     {
-      img: require('assets/imgs/vizient/AVATAR02.png'),
+      img: require('assets/imgs/vizient/12-avatars/AVATAR02.png'),
       name: 'Beth Roed2',
       intro: 'Business Development Director, Cision',
       comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
     },
     {
-      img: require('assets/imgs/vizient/AVATAR03.png'),
+      img: require('assets/imgs/vizient/12-avatars/AVATAR03.png'),
       name: 'Beth Roed3',
       intro: 'Business Development Director, Cision',
       comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
     },
     {
-      img: require('assets/imgs/vizient/AVATAR04.png'),
+      img: require('assets/imgs/vizient/12-avatars/AVATAR04.png'),
       name: 'Beth Roed4',
       intro: 'Business Development Director, Cision',
       comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"
     },
     {
-      img: require('assets/imgs/vizient/AVATAR05.png'),
+      img: require('assets/imgs/vizient/12-avatars/AVATAR05.png'),
       name: 'Beth Roed5',
       intro: 'Business Development Director, Cision',
       comment: "“I like the cleaner look. Compare to what we have now, it's quantum leap”"

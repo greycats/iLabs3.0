@@ -1,6 +1,6 @@
 import React from 'react'
 import ControllerList from 'components/AnimateWrap/controllerList'
-import Green from 'assets/imgs/vizient/Path 2.png'
+import Green from 'assets/imgs/vizient/5-toolkit/Path 1.png'
 import useImage from 'hooks/useImage'
 import './index.sass'
 

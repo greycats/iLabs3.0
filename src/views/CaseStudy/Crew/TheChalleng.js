@@ -1,5 +1,5 @@
 import React from 'react'
-import ChallengeAnimation1 from 'assets/imgs/crew/Challenge-1.json'
+import ChallengeAnimation1 from 'assets/imgs/crew/3-Challenge/Challenge-1.json'
 import CommonTitle from 'components/CommonTitle'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 

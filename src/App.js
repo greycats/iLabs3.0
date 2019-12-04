@@ -32,24 +32,18 @@ function App() {
     import('views/CaseStudy/GS/Others'),
 
     import('assets/imgs/gs/1-hero'),
-    import('assets/imgs/gs/2-story-1-yearly-users'),
-    import('assets/imgs/gs/2-story-2-school-profiles'),
-    import('assets/imgs/gs/3-challenge-1-navigation'),
-    import('assets/imgs/gs/3-challenge-2-engagement'),
-    import('assets/imgs/gs/3-challenge-3-userbase'),
-    import('assets/imgs/gs/3-challenge-4-vizualization'),
-    import('assets/imgs/gs/3-challenge-5-devices'),
-    import('assets/imgs/gs/4-solution'),
-    import('assets/imgs/gs/12-typeface-open_sans-1/data.json'),
-    import('assets/imgs/gs/12-typeface-open_sans-2/data.json'),
-    import('assets/imgs/gs/12-typeface-open_sans-3/data.json'),
-    import('assets/imgs/gs/12-typeface-caecilia-1/data.json'),
-    import('assets/imgs/gs/12-typeface-caecilia-2/data.json'),
-    import('assets/imgs/gs/12-typeface-caecilia-3/data.json'),
-    import('assets/imgs/gs/13-colors-1/data.json'),
-    import('assets/imgs/gs/13-colors-2/data.json'),
-    import('assets/imgs/gs/13-colors-3/data.json'),
-    import('assets/imgs/gs/13-colors-4/data.json')
+    import('assets/imgs/gs/2-story/1-yearly-users'),
+    import('assets/imgs/gs/2-story/2-school-profiles'),
+    import('assets/imgs/gs/3-challenge/1-navigation'),
+    import('assets/imgs/gs/3-challenge/2-engagement'),
+    import('assets/imgs/gs/3-challenge/3-userbase'),
+    import('assets/imgs/gs/3-challenge/4-vizualization'),
+    import('assets/imgs/gs/3-challenge/5-devices'),
+    import('assets/imgs/gs/4-solution/data.json'),
+    import('assets/imgs/gs/13-colors/1.json'),
+    import('assets/imgs/gs/13-colors/2.json'),
+    import('assets/imgs/gs/13-colors/3.json'),
+    import('assets/imgs/gs/13-colors/4.json')
   ]).then(() => {
     setJsLoaded(true)
   })
@@ -68,23 +62,23 @@ function App() {
       },
       {
         id: 'banner-mac-image',
-        src: require('assets/imgs/vizient/Mac.png')
+        src: require('assets/imgs/vizient/1-Mac.png')
       },
       {
         id: 'vizient-image',
-        src: require('assets/imgs/vizient/Banner.png')
+        src: require('assets/imgs/vizient/1-Banner.png')
       },
       {
         id: 'vizient-mac-image',
-        src: require('assets/imgs/vizient/Mac2.png')
+        src: require('assets/imgs/vizient/8-Leveraged/Mac.png')
       },
       {
         id: 'toolkit',
-        src: require('assets/imgs/vizient/toolkit.png')
+        src: require('assets/imgs/vizient/5-toolkit/mac.png')
       },
       {
         id: 'orange-path',
-        src: require('assets/imgs/vizient/Path 15.png')
+        src: require('assets/imgs/vizient/5-toolkit/Path 2.png')
       },
       {
         id: 'dcom-banner-image',

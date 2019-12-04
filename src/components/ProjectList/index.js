@@ -1,6 +1,7 @@
 import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
 import PreloadManager from 'scripts/PreloadManager'
+import history from 'history.js'
 
 export const fakeData = () => [
   {

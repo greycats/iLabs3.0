@@ -11,19 +11,19 @@ export default {
         number: 4.5,
         decimals: 1,
         name: 'Reviews on App Store',
-        img: require('assets/imgs/dcom/Review.json')
+        img: require('assets/imgs/dcom/1-Story/Review.json')
       },
       {
         number: 10,
         suffix: <sup style={{ fontSize: '20px' }}>%</sup>,
         name: 'Increase in visit frequency',
-        img: require('assets/imgs/dcom/Increase-icon.json')
+        img: require('assets/imgs/dcom/1-Story/Increase-icon.json')
       },
       {
         number: 10,
         suffix: <sup style={{ fontSize: '20px' }}>M+</sup>,
         name: 'Unique monthly visitors',
-        img: require('assets/imgs/dcom/Star-icon.json')
+        img: require('assets/imgs/dcom/1-Story/Star-icon.json')
       }
     ]
   },

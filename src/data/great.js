@@ -8,13 +8,13 @@ export default async () => ({
         number: 40,
         name: 'Yearly Users',
         suffix: <span style={{ fontSize: '28px' }}>M</span>,
-        img: (await import('assets/imgs/gs/2-story-1-yearly-users')).default
+        img: (await import('assets/imgs/gs/2-story/1-yearly-users')).default
       },
       {
         number: 271,
         suffix: <span style={{ fontSize: '28px' }}>K</span>,
         name: 'School Profiles',
-        img: (await import('assets/imgs/gs/2-story-2-school-profiles')).default
+        img: (await import('assets/imgs/gs/2-story/2-school-profiles')).default
       }
     ]
   },
@@ -25,22 +25,22 @@ export default async () => ({
       {
         name: 'Simple navigation',
         text: 'Simplify navigation to showcase the most important data upfront',
-        img: (await import('assets/imgs/gs/3-challenge-1-navigation')).default
+        img: (await import('assets/imgs/gs/3-challenge/1-navigation')).default
       },
       {
         name: 'Increase engagement',
         text: 'Make reviews more prominent to increase engagement with the profiles',
-        img: (await import('assets/imgs/gs/3-challenge-2-engagement')).default
+        img: (await import('assets/imgs/gs/3-challenge/2-engagement')).default
       },
       {
         name: 'Diverse userbase',
         text: 'Redesign the page to account for the needs of a diverse userbase',
-        img: (await import('assets/imgs/gs/3-challenge-3-userbase')).default
+        img: (await import('assets/imgs/gs/3-challenge/3-userbase')).default
       },
       {
         name: 'Visualization',
         text: 'Present vast quantities of data in a meaningful way',
-        img: (await import('assets/imgs/gs/3-challenge-4-vizualization')).default
+        img: (await import('assets/imgs/gs/3-challenge/4-vizualization')).default
       },
     ]
   },
@@ -97,7 +97,7 @@ export default async () => ({
     </div>),
     animationList: [
       {
-        img: (await import('assets/imgs/gs/typeface/Open Sans-1.png')).default,
+        img: (await import('assets/imgs/gs/12-typeface/Open Sans-1.png')).default,
         style: {
           width: 192,
           height: 218,
@@ -108,7 +108,7 @@ export default async () => ({
         }
       },
       {
-        img: (await import('assets/imgs/gs/typeface/Open Sans-2.png')).default,
+        img: (await import('assets/imgs/gs/12-typeface/Open Sans-2.png')).default,
         style: {
           width: 220,
           height: 60
@@ -118,7 +118,7 @@ export default async () => ({
         }
       },
       {
-        img: (await import('assets/imgs/gs/typeface/Open Sans-3.png')).default,
+        img: (await import('assets/imgs/gs/12-typeface/Open Sans-3.png')).default,
         mobileImg: (await import('assets/imgs/gs/mobile/Open Sans-3-mobile.png')).default,
         style: {
           width: 600,
@@ -129,7 +129,7 @@ export default async () => ({
         }
       },
       {
-        img: (await import('assets/imgs/gs/typeface/Caecilia-1.png')).default,
+        img: (await import('assets/imgs/gs/12-typeface/Caecilia-1.png')).default,
         style: {
           width: 192,
           height: 218,
@@ -140,7 +140,7 @@ export default async () => ({
         }
       },
       {
-        img: (await import('assets/imgs/gs/typeface/Caecilia-2.png')).default,
+        img: (await import('assets/imgs/gs/12-typeface/Caecilia-2.png')).default,
         style: {
           width: 220,
           height: 60
@@ -150,7 +150,7 @@ export default async () => ({
         }
       },
       {
-        img: (await import('assets/imgs/gs/typeface/Caecilia-3.png')).default,
+        img: (await import('assets/imgs/gs/12-typeface/Caecilia-3.png')).default,
         mobileImg: (await import('assets/imgs/gs/mobile/Caecilia-3-mobile.png')).default,
         style: {
           width: 600,
@@ -164,16 +164,16 @@ export default async () => ({
     intro: <p>The platform closely follows the brand colors which are shades of blue and green. These color schemes fit well with the GreatSchool nurturing brand personality, at the same time, offer good contrast and clarity to the visual elements. </p>,
     animationList: [
       {
-        img: await import('assets/imgs/gs/13-colors-1/data.json'),
+        img: await import('assets/imgs/gs/13-colors/1.json'),
       },
       {
-        img: await import('assets/imgs/gs/13-colors-2/data.json'),
+        img: await import('assets/imgs/gs/13-colors/2.json'),
       },
       {
-        img: await import('assets/imgs/gs/13-colors-3/data.json'),
+        img: await import('assets/imgs/gs/13-colors/3.json'),
       },
       {
-        img: await import('assets/imgs/gs/13-colors-4/data.json'),
+        img: await import('assets/imgs/gs/13-colors/4.json'),
       }
     ]
   },

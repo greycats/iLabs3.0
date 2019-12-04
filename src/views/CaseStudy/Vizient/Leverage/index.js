@@ -3,7 +3,7 @@ import { Tween, Timeline } from 'react-gsap'
 import min from 'lodash/min'
 import CommonTitle from 'components/CommonTitle'
 import ControllerList from 'components/AnimateWrap/controllerList'
-import Grey from 'assets/imgs/vizient/Grey Pattern.png'
+import Grey from 'assets/imgs/vizient/8-Leveraged/Grey Pattern.png'
 import './index.sass'
 import useImage from 'hooks/useImage'
 
