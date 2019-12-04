@@ -36,9 +36,9 @@ export default {
     ]
   },
   theSolutionsMobile: [
-    'assets/imgs/crew/mobile/Solutions-1.png',
-    'assets/imgs/crew/mobile/Solutions-1.png',
-    'assets/imgs/crew/mobile/Solutions-1.png',
+    require('assets/imgs/crew/mobile/Solutions-1.png'),
+    require('assets/imgs/crew/mobile/Solutions-2.png'),
+    require('assets/imgs/crew/mobile/Solutions-3.png'),
   ],
   challengeData: {
     title: 'The Challenge',

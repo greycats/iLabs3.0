@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextAndAnimation from 'components/TextAndAnimation'
 
-export default ({GSData}) => {
+export default ({ GSData }) => {
   const [animationData, setAnimationData] = useState(null)
 
   const getData = async () => {
@@ -14,6 +14,7 @@ export default ({GSData}) => {
     getData()
   }, [])
 
+  const isPC = window.isPC
   return (
     <TextAndAnimation
       layoutType='up-text'
@@ -21,13 +22,17 @@ export default ({GSData}) => {
       titleStyle={{
         width: '520px'
       }}
-      wrapMinHeight={1200}
+      wrapMinHeight={isPC ? 1200 : '4.5rem'}
       animateIcon={animationData}
       animationStyle={{
         position: 'absolute',
         top: '300px',
         right: 0,
         paddingLeft: 200
+      }}
+      mobileAnimationStyle={{
+        width: '100vw',
+        marginLeft: '-0.25rem'
       }}
     />
   )

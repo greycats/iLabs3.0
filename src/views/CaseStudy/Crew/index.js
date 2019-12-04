@@ -16,6 +16,7 @@ import crewData from 'data/crewData'
 
 export default () => {
   const isPC = window.isPC
+  const mobileSolutionList = crewData.theSolutionsMobile.map((item, index) => <img src={item} key={index} />)
   return (
     <StyledPage>
       <div>
@@ -57,7 +58,7 @@ export default () => {
                 {...crewData.theSolutions}
                 withLottie={false}
               />
-              <MobileCarousel />
+              <MobileCarousel list={mobileSolutionList} />
             </div>
         }
 
@@ -67,8 +68,8 @@ export default () => {
           wrapStyle={isPC ? {
             padding: '240px 0 0'
           } : {
-            marginTop: '1rem'
-          }}
+              marginTop: '1rem'
+            }}
           wrapMinHeight="988px"
           titleStyle={{
             width: '520px'

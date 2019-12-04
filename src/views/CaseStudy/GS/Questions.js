@@ -6,6 +6,8 @@ import step1Data from 'assets/imgs/gs/questions/1.json'
 import step2Data from 'assets/imgs/gs/questions/2.json'
 import step3Data from 'assets/imgs/gs/questions/3.json'
 
+const isPC = window.isPC
+
 const RowAnimations = () => {
   const dataList = [
     step1Data,
@@ -14,10 +16,10 @@ const RowAnimations = () => {
   ]
 
   return (
-    <div style={{
+    <div style={isPC ? {
       display: 'flex',
       alignItems: 'center'
-    }}>
+    } : {}}>
       {
         dataList.map((d, index) => (
           <LottieAnimation
@@ -26,6 +28,9 @@ const RowAnimations = () => {
             options={{
               animationData: d
             }}
+            triggerRelativePosition={(!isPC && index !== 0) ? {
+              marginTop: '-0.8rem'
+            } : {}}
           />
         ))
       }
@@ -62,7 +67,7 @@ const TextList = () => {
           <p style={{
             color: '#2C2C2C',
             fontSize: '16px',
-            width: '360px',
+            width: isPC ? '360px' : 'auto',
             marginBottom: '20px'
           }}>{t.content}</p>
         </div>
@@ -73,14 +78,15 @@ const TextList = () => {
 
 export default () => {
   return (
-    <div className="layout-1240 panel challenge-wrap" style={{ height: '95vh', minHeight: '1350px' }}>
+    <div className="layout-1240 panel challenge-wrap" style={{ height: isPC ? '95vh' : '15.8rem', minHeight: '1350px' }}>
       <AnimationPlayer
         target={
           <div style={{
-            fontSize: '44px',
+            fontSize: isPC ? '44px' : '32px',
+            lineHeight: 1,
             fontWeight: 'bold',
             color: '#2C2C2C',
-            marginBottom: '100px'
+            marginBottom: isPC ? '100px' : '0.54rem'
           }}>
             The Questions
           </div>
@@ -99,8 +105,8 @@ export default () => {
         }
       />
       <RowAnimations />
-      <div style={{ display: 'flex' }}>
-        <div style={{ width: '40%' }}>
+      <div style={{ display: isPC ? 'flex' : 'block' }}>
+        <div style={{ width: isPC ? '40%' : 'auto' }}>
           <AnimationPlayer
             triggerRelativePosition={{
               top: '-120px'
@@ -112,7 +118,8 @@ export default () => {
                   color: '#2C2C2C',
                   fontSize: '16px',
                   fontWeight: 'bold',
-                  marginBottom: '50px'
+                  marginBottom: '50px',
+                  textTransform: 'uppercase'
                 }}>Holistic approach</p>
                 <TextList />
               </div>
@@ -131,7 +138,7 @@ export default () => {
             }
           />
         </div>
-        <div>
+        <div style={isPC ? {} : { transform: 'scale(1.2)', marginTop: '0.4rem' }}>
           <LottieAnimation
             options={{
               animationData: approachData

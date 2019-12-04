@@ -1,5 +1,5 @@
 import React from 'react'
-import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
+import AnimationPlayer from 'components/AnimationPlayer'
 import Star from 'assets/imgs/dcom/Star.svg'
 import { hashCode } from 'utils'
 import MobileCarousel from 'components/MobileCarousel'

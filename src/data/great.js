@@ -25,7 +25,7 @@ export default async () => ({
       {
         name: 'Simple navigation',
         text: 'Simplify navigation to showcase the most important data upfront',
-        img:  (await import('assets/imgs/gs/3-challenge-1-navigation')).default
+        img: (await import('assets/imgs/gs/3-challenge-1-navigation')).default
       },
       {
         name: 'Increase engagement',
@@ -35,7 +35,7 @@ export default async () => ({
       {
         name: 'Diverse userbase',
         text: 'Redesign the page to account for the needs of a diverse userbase',
-        img: (await import ('assets/imgs/gs/3-challenge-3-userbase')).default
+        img: (await import('assets/imgs/gs/3-challenge-3-userbase')).default
       },
       {
         name: 'Visualization',
@@ -54,6 +54,10 @@ export default async () => ({
     titleHeight: 120,
     intro: <p>GreatSchools aggregates 80 data points to rank schools in a fair and balanced manner. Presenting that much information at one time would overwhelm users. The challenge was to present the easiest, most relevant data to users up front, then provide mechanisms for them to discover more and dig deeper on their own.</p>
   },
+  importanceImgs: [
+    (await import('assets/imgs/gs/mobile/Importance-1.png')).default,
+    (await import('assets/imgs/gs/mobile/Importance-2.png')).default
+  ],
   presentation: {
     title: <div>It's all about data <br /> presentation</div>,
     titleHeight: 120,
@@ -93,44 +97,61 @@ export default async () => ({
     </div>),
     animationList: [
       {
-        img: await import('assets/imgs/gs/12-typeface-open_sans-1/data.json'),
+        img: (await import('assets/imgs/gs/typeface/Open Sans-1.png')).default,
         style: {
           width: 192,
           height: 218,
           marginRight: 50
+        },
+        mobileStyle: {
+          marginBottom: '0.3rem'
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-open_sans-2/data.json'),
+        img: (await import('assets/imgs/gs/typeface/Open Sans-2.png')).default,
         style: {
           width: 220,
           height: 60
+        },
+        mobileStyle: {
+          marginBottom: '0.3rem'
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-open_sans-3/data.json'),
+        img: (await import('assets/imgs/gs/typeface/Open Sans-3.png')).default,
+        mobileImg: (await import('assets/imgs/gs/mobile/Open Sans-3-mobile.png')).default,
         style: {
           width: 600,
           height: 116
+        },
+        mobileStyle: {
+          marginBottom: '0.5rem'
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-caecilia-1/data.json'),
+        img: (await import('assets/imgs/gs/typeface/Caecilia-1.png')).default,
         style: {
           width: 192,
           height: 218,
           marginRight: 50
+        },
+        mobileStyle: {
+          marginBottom: '0.3rem'
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-caecilia-2/data.json'),
+        img: (await import('assets/imgs/gs/typeface/Caecilia-2.png')).default,
         style: {
           width: 220,
           height: 60
+        },
+        mobileStyle: {
+          marginBottom: '0.3rem'
         }
       },
       {
-        img: await import('assets/imgs/gs/12-typeface-caecilia-3/data.json'),
+        img: (await import('assets/imgs/gs/typeface/Caecilia-3.png')).default,
+        mobileImg: (await import('assets/imgs/gs/mobile/Caecilia-3-mobile.png')).default,
         style: {
           width: 600,
           height: 116

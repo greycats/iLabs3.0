@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import TextAndAnimation from 'components/TextAndAnimation'
 import CommentsCard from 'components/CommentsCard'
-import { LottieAnimation } from 'components/AnimationPlayer'
+import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
+
+const isPC = window.isPC
 
 export default ({ GSData }) => {
   return (
@@ -16,9 +18,9 @@ export default ({ GSData }) => {
         animationStyle={{
           width: 720
         }}
-        wrapStyle={{
+        wrapStyle={isPC ? {
           padding: 0
-        }}
+        } : {}}
       />
 
       <TextAndAnimation
@@ -41,21 +43,21 @@ export default ({ GSData }) => {
           width: '520px'
         }}
         animateIcon={require('assets/imgs/gs/10-reviews/data.json')}
-        wrapStyle={{
+        wrapStyle={isPC ? {
           padding: '100px 0 50px'
-        }}
+        } : {}}
         animationStyle={{
           width: 720,
           transform: 'translateY(-160px)',
         }}
       />
 
-      <div style={{ height: 750, marginBottom: 70 }}>
+      <div style={isPC ? { height: 750, marginBottom: 70 } : { height: '1.5rem' }}>
         <LottieAnimation
           options={{
             animationData: require('assets/imgs/gs/11-devices/data.json'),
           }}
-          height={750}
+          width={'100vw'}
         />
       </div>
 
@@ -69,19 +71,31 @@ export default ({ GSData }) => {
             width: '586px'
           }}
         />
-        <div style={{
+        <div style={isPC ? {
           height: 550,
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent: 'space-between'
-        }}>
+          justifyContent: 'space-between',
+          alignItems: 'baseline'
+        } : {
+            padding: '0 0.25rem',
+            height: '7.8rem'
+          }}
+        >
           {
             GSData.typeface.animationList.map((item, index) => (
-              <div key={index} style={item.style}>
-                <LottieAnimation
-                  options={{
-                    animationData: item.img,
-                  }}
+              <div key={index} style={isPC ? item.style : item.mobileStyle}>
+                <AnimationPlayer
+                  target={
+                    <img src={!isPC && item.mobileImg ? item.mobileImg : item.img} style={{ position: 'relative' }} />
+                  }
+                  delay={isPC ? (index % 3) * 0.2 : (index * 0.2)}
+                  animations={
+                    [{
+                      from: { opacity: 0, top: '50px' },
+                      to: { opacity: 1, top: 0 }
+                    }]
+                  }
                 />
               </div>
             ))
@@ -92,7 +106,7 @@ export default ({ GSData }) => {
       <div className="layout-1240">
         <TextAndAnimation
           layoutType='right-text'
-          wrapMinHeight={450}
+          wrapMinHeight={isPC ? 450 : '2.5rem'}
           title={GSData.colors.title}
           intro={GSData.colors.intro}
           titleStyle={{
@@ -107,14 +121,13 @@ export default ({ GSData }) => {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
-          marginTop: '-200px',
-          marginBottom: 105
+          marginTop: isPC ? '-200px' : '-0.5rem',
+          marginBottom: 105,
+          padding: isPC ? 0 : '0 0.25rem'
         }}>
           {
             GSData.colors.animationList.map((item, index) => (
-              <div key={index} style={{
-                width: 264
-              }}>
+              <div key={index} style={isPC ? { width: 264 } : { width: '45%' }}>
                 <LottieAnimation
                   options={{
                     animationData: item.img,
@@ -133,6 +146,10 @@ export default ({ GSData }) => {
           width: '243px'
         }}
         animateIcon={require('assets/imgs/gs/14-grid/data.json')}
+        mobileAnimationStyle={{
+          width: '100vw',
+          marginLeft: '-0.25rem'
+        }}
       />
 
       <div className="layout-1240" style={{ marginBottom: 50 }}>
@@ -142,7 +159,12 @@ export default ({ GSData }) => {
           titleStyle={{
             width: '600px'
           }}
+          wrapMinHeight={isPC ? 1020 : '4.5rem'}
           animateIcon={require('assets/imgs/gs/15-sitemap/data.json')}
+          mobileAnimationStyle={{
+            width: '100vw',
+            marginLeft: '-0.25rem'
+          }}
         />
       </div>
       <CommentsCard commentList={GSData.commentList} />
