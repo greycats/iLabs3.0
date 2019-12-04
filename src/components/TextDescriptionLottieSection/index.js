@@ -99,13 +99,13 @@ export default ({
               />
             </div>
           </div>
-          <div style={{
-            height: '775px',
-            position: 'relative',
-            left: '-260px'
-          }}>
-            {
-              lottieIcon ?
+          {
+            lottieIcon ?
+              <div style={{
+                height: '775px',
+                position: 'relative',
+                left: '-260px'
+              }}>
                 <LottieAnimation
                   triggerRelativePosition={{
                     top: '-200px'
@@ -115,9 +115,10 @@ export default ({
                   }}
                   height={'800px'}
                   width={'1700px'}
-                /> : null
-            }
-          </div>
+                />
+              </div>
+              : null
+          }
         </div>
       </div>
     </div>

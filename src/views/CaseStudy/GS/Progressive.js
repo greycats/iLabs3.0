@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import TextAndAnimation from 'components/TextAndAnimation'
+
+const isPC = window.isPC
 
 export default ({ GSData }) => {
   return (
@@ -14,9 +16,9 @@ export default ({ GSData }) => {
         width: 720,
         transform: 'translateY(-150px)',
       }}
-      wrapStyle={{
+      wrapStyle={isPC ? {
         padding: 0
-      }}
+      } : {}}
     />
   )
 }

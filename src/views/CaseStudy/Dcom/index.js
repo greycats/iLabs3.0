@@ -1,9 +1,11 @@
 import React from 'react'
+import styled from 'styled-components'
 import TheStory from 'components/TheStory'
 import Banner from 'components/Banner'
 import TextAndAnimation from 'components/TextAndAnimation'
 import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
 import CommentsCard from 'components/CommentsCard'
+import MobileCarousel from 'components/MobileCarousel'
 
 import Solution from 'assets/imgs/dcom/2-Solutions/data.json'
 import SmoothTransition from 'assets/imgs/dcom/Switcher.json'
@@ -20,6 +22,8 @@ import useImage from 'hooks/useImage'
 export default () => {
   const BgImage = useImage('dcom-banner-image')
   const isPC = window.isPC
+
+  const mobileSolutionList = dcomData.theSolution.mobileCarousel.map((item, index) => <img src={item} key={index} />)
 
   return (
     <StyledPage>
@@ -49,10 +53,20 @@ export default () => {
           />
         </div>
 
-        <TextDescriptionLottieSection
-          {...dcomData.theSolution}
-          lottieIcon={Solution}
-        />
+        {
+          isPC ?
+            <TextDescriptionLottieSection
+              {...dcomData.theSolution}
+              lottieIcon={Solution}
+            />
+            :
+            <div>
+              <TextDescriptionLottieSection
+                {...dcomData.theSolution}
+              />
+              <MobileCarousel list={mobileSolutionList} />
+            </div>
+        }
 
         <TextAndAnimation
           layoutType='left-text'
