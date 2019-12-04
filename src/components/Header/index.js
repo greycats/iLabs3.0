@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from 'logo-black.svg';
+import history from 'history.js'
 
 const Header = ({ isFixed }) => styled.div`
   height: 60px;
@@ -15,7 +16,9 @@ export default ({ isFixed = true }) => {
   const StyledHeader = Header({ isFixed })
   return (
     <StyledHeader>
-      <img src={logo} alt="" />
+      <img src={logo} alt="" style={{cursor: 'pointer'}} onClick={() => {
+        history.push('/')
+      }}/>
     </StyledHeader>
   )
 }

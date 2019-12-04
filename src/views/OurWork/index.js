@@ -5,8 +5,14 @@ import ProjectList, { fakeData } from 'components/ProjectList'
 import history from 'history.js'
 import { getLocationSearch } from 'utils'
 import Footer from 'components/Footer'
+import CommonTitle from 'components/CommonTitle'
 
 import _ from 'lodash'
+
+const titleData = {
+  title: 'A selection of case studies',
+  intro: 'Explore some of our latest projects.'
+}
 
 const NavBar = ({
   NavList = [
@@ -84,15 +90,18 @@ const NavBar = ({
 const Title = () => <AnimationPlayer
   target={
     <div style={{
-      height: '600px',
-      lineHeight: '500px',
-      paddingLeft: '20%',
-      fontSize: '96px',
-      color: '#fff'
+      minHeight: '600px'
     }}>
-      <h1 className="bold">
-        our work
-              </h1>
+      <div className="layout-1240">
+        <h1 className="bold" style={{
+          fontSize: '96px',
+          color: '#fff',
+          position: 'relative',
+          top: '200px'
+        }}>
+          our work
+      </h1>
+      </div>
     </div>
   }
   animations={
@@ -142,15 +151,29 @@ export default ({ data = fakeData() }) => {
 
   return (
     <div>
-      <AnimateBanner height={600} />
-      <Title/>
-      <NavBar
+      <AnimateBanner height={600}>
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          top: '520px',
+          height: '80px',
+          width: '58%',
+          backgroundColor: '#fff'
+        }}></div>
+      </AnimateBanner>
+      <Title />
+      {/* <NavBar
         onNavChange={type => {
           history.replace(`/ourwork?type=${type}`)
         }}
-      />
-      <div style={{ marginTop: '100px', paddingBottom: '100px'}}>
+      /> */}
+      <div className="layout-1240">
+        <CommonTitle {...titleData}></CommonTitle>
+        <br />
+        <br />
         <ProjectList listData={listData} />
+        <br />
+        <br />
       </div>
       <Footer />
     </div>
