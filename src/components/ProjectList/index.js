@@ -1,5 +1,57 @@
 import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
+import PreloadManager from 'scripts/PreloadManager'
+
+export const fakeData = () => [
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'enterprise'
+  },
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'enterprise'
+  },
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'enterprise'
+  },
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'enterprise'
+  },
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'enterprise'
+  },
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'apps'
+  },
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'development'
+  },
+  {
+    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
+    text: 'aa',
+    link: '/casestudy?name=vizient',
+    type: 'marketing'
+  }
+]
 
 const ProjectList = ({ listData = [] }) => {
   return (
@@ -7,7 +59,7 @@ const ProjectList = ({ listData = [] }) => {
       display: 'flex',
       flexWrap: 'wrap',
       minWidth: '1280px',
-      marginLeft: '18%'
+      // marginLeft: '18%'
     }}>
       {
         listData.map((item, index) => {
@@ -20,7 +72,7 @@ const ProjectList = ({ listData = [] }) => {
                 history.push(item.link)
               }}
               style={{
-                width: '35%',
+                width: '45%',
                 height: '750px',
                 cursor: 'pointer'
               }}>
@@ -30,8 +82,8 @@ const ProjectList = ({ listData = [] }) => {
                 }}
                 target={
                   <div style={{
-                    width: '80%',
-                    maxWidth: '540px',
+                    width: '90%',
+                    maxWidth: '600px',
                     height: '700px',
                     position: 'relative',
                     background: `url(${item.image})`,

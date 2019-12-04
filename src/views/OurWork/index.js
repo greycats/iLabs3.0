@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { AnimateBanner } from 'components/AnimateBanner'
 import AnimationPlayer from 'components/AnimationPlayer'
-import ProjectList from 'components/ProjectList'
+import ProjectList, { fakeData } from 'components/ProjectList'
 import history from 'history.js'
 import { getLocationSearch } from 'utils'
-import PreloadManager from 'scripts/PreloadManager'
 import Footer from 'components/Footer'
 
 import _ from 'lodash'
@@ -111,56 +110,7 @@ const Title = () => <AnimationPlayer
 />
 
 
-const fakeData = () => [
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'enterprise'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'enterprise'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'enterprise'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'enterprise'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'enterprise'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'apps'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'development'
-  },
-  {
-    image: _.get(PreloadManager.getResult('vizient-image'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=vizient',
-    type: 'marketing'
-  }
-]
+
 export default ({ data = fakeData() }) => {
   const [listData, setListData] = useState([])
 

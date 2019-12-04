@@ -7,6 +7,7 @@ import OurServices from './OurServices'
 import Footer from 'components/Footer'
 
 import CommonTitle from 'components/CommonTitle'
+import ProjectList, { fakeData } from 'components/ProjectList'
 
 const titleData = {
   title: 'Featured Work',
@@ -55,6 +56,9 @@ export default () => {
       </div>
       <div className="layout-1240 panel">
         <CommonTitle {...titleData}></CommonTitle>
+        <br/>
+        <br/>
+        <ProjectList listData={fakeData()}></ProjectList>
       </div>
       <OurServices />
       <OurClients></OurClients>
