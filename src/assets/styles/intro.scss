@@ -10,16 +10,17 @@
     overflow: hidden;
   }
   .header-sec {
-    display: inline-block;
-    position: absolute;
+    // display: inline-block;
+    position: relative;
     height: 0;
     padding: 0;
     color: white;
     box-sizing: border-box;
-    left: 150px;
+    // left: 150px;
     top: 160px;
     overflow: hidden;
-    width: 360px;
+    width: 1280px;
+    margin: 0 auto;
     // user-select: none;
     h1 {
       font-size: 56px;
