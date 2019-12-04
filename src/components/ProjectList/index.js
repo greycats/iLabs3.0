@@ -2,30 +2,35 @@ import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
 import PreloadManager from 'scripts/PreloadManager'
 import history from 'history.js'
+import TextBg from 'assets/imgs/text-bg.svg'
 
 export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
-    text: 'aa',
+    text: 'Vizient',
+    typeText: 'Enterprise platform',
     link: '/casestudy?name=vizient',
     type: 'enterprise'
   },
   {
-    image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=crew',
+    image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
+    text: 'GreatSchools',
+    typeText: 'Website',
+    link: '/casestudy?name=gs',
     type: 'enterprise'
   },
   {
     image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
-    text: 'aa',
+    text: 'Dictionary.com',
+    typeText: 'Website',
     link: '/casestudy?name=dcom',
     type: 'enterprise'
   },
   {
-    image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
-    text: 'aa',
-    link: '/casestudy?name=gs',
+    image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
+    text: 'Crew',
+    typeText: 'App',
+    link: '/casestudy?name=crew',
     type: 'enterprise'
   }
 ]
@@ -36,7 +41,6 @@ const ProjectList = ({ listData = [] }) => {
       display: 'flex',
       flexWrap: 'wrap',
       minWidth: '1280px',
-      // marginLeft: '18%'
     }}>
       {
         listData.map((item, index) => {
@@ -64,8 +68,36 @@ const ProjectList = ({ listData = [] }) => {
                     height: '700px',
                     position: 'relative',
                     background: `url(${item.image})`,
-                    marginTop: isSecondItemOfRow ? '50px' : '0'
+                    marginTop: isSecondItemOfRow ? '50px' : '0',
+                    left: isSecondItemOfRow ? '20px' : 'unset'
                   }}>
+                    <img src={TextBg} alt="" style={{
+                      position: 'absolute',
+                      bottom: '80px',
+                      right: '-30px',
+                      zIndex: 1
+                    }}/>
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      width: '300px',
+                      position: 'absolute',
+                      bottom: '95px',
+                      right: '15px',
+                      alignItems: 'flex-end',
+                      zIndex: 2
+                    }}>
+                      <p style={{
+                        fontSize: '28px',
+                        lineHeight: '28px',
+                        fontWeight: 'bold',
+                        color: '#040404'
+                      }}>{ item.text }</p>
+                      <p style={{
+                        fontSize: '14px',
+                        color: '#656565'
+                      }}>{ item.typeText }</p>
+                    </div>
                   </div>
                 }
                 animations={
