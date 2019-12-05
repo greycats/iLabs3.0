@@ -6,17 +6,20 @@ import OurServices from './OurServices'
 import Footer from 'components/Footer'
 import Work from './Work'
 
+import MobileHome from './Mobile'
+
 export default () => {
   return (
-    <div style={{
-    }}>
-      <Banner/>
-      <Work/>
-      <br/>
-      <OurServices />
-      <OurClients />
-      <HowWeWork />
-      <Footer />
-    </div>
+    window.isPC ?
+      <>
+        <Banner />
+        <Work />
+        <br />
+        <OurServices />
+        <OurClients />
+        <HowWeWork />
+        <Footer />
+      </>
+      : <MobileHome></MobileHome>
   )
 }

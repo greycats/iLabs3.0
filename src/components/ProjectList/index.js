@@ -35,6 +35,46 @@ export const fakeData = () => [
   }
 ]
 
+const ProjectCard = ({ item }) => {
+  return (
+    <div style={{
+      width: '90%',
+      maxWidth: '600px',
+      height: '700px',
+      position: 'relative',
+      background: `url(${item.image})`,
+    }}>
+      <img src={TextBg} alt="" style={{
+        position: 'absolute',
+        bottom: '80px',
+        right: '-30px',
+        zIndex: 1
+      }} />
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: '300px',
+        position: 'absolute',
+        bottom: '95px',
+        right: '15px',
+        alignItems: 'flex-end',
+        zIndex: 2
+      }}>
+        <p style={{
+          fontSize: '28px',
+          lineHeight: '28px',
+          fontWeight: 'bold',
+          color: '#040404'
+        }}>{item.text}</p>
+        <p style={{
+          fontSize: '14px',
+          color: '#656565'
+        }}>{item.typeText}</p>
+      </div>
+    </div>
+  )
+}
+
 const ProjectList = ({ listData = [] }) => {
   return (
     <div style={{
@@ -63,41 +103,11 @@ const ProjectList = ({ listData = [] }) => {
                 }}
                 target={
                   <div style={{
-                    width: '90%',
-                    maxWidth: '600px',
-                    height: '700px',
-                    position: 'relative',
-                    background: `url(${item.image})`,
                     marginTop: isSecondItemOfRow ? '50px' : '0',
+                    position: 'relative',
                     left: isSecondItemOfRow ? '20px' : 'unset'
                   }}>
-                    <img src={TextBg} alt="" style={{
-                      position: 'absolute',
-                      bottom: '80px',
-                      right: '-30px',
-                      zIndex: 1
-                    }}/>
-                    <div style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      width: '300px',
-                      position: 'absolute',
-                      bottom: '95px',
-                      right: '15px',
-                      alignItems: 'flex-end',
-                      zIndex: 2
-                    }}>
-                      <p style={{
-                        fontSize: '28px',
-                        lineHeight: '28px',
-                        fontWeight: 'bold',
-                        color: '#040404'
-                      }}>{ item.text }</p>
-                      <p style={{
-                        fontSize: '14px',
-                        color: '#656565'
-                      }}>{ item.typeText }</p>
-                    </div>
+                    <ProjectCard item={item} />
                   </div>
                 }
                 animations={

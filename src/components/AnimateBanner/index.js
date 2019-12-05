@@ -259,7 +259,7 @@ export const AnimateBanner = ({ children, ...props }) => {
     antialias: true,
     backgroundColor: 0x2c2c2c,
     forceCanvas: true,
-    width: global.LAYOUT.width,
+    width: window.innerWidth,
     height: props.height || 800,
   }))
 
@@ -405,7 +405,7 @@ export const AnimateBanner = ({ children, ...props }) => {
 
   return (
     <div style={{
-      minWidth: '1280px'
+      minWidth: window.isPC ? '1280px' : '100vw'
     }}>
       <div id={renderId} ref={bgRef} style={{
         position: 'absolute',
