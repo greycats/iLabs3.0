@@ -3,6 +3,7 @@ import _ from 'lodash'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
+import { getImage } from 'scripts/PreloadManager.js'
 
 const StyledCarousel = styled.div`
   .carousel .slider-wrapper {
@@ -38,37 +39,37 @@ const ServiceCarousel = ({
       transitionTime={800}
     >
       <div>
-        <img src={require("assets/imgs/home/services/Design-1.png")} />
+        <img src={getImage('service-design-1')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Design-2.png")} />
+        <img src={getImage('service-design-2')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Design-3.png")} />
+        <img src={getImage('service-design-3')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Design-4.png")} />
+        <img src={getImage('service-design-4')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Design-5.png")} />
+        <img src={getImage('service-design-5')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Dev-1.png")} />
+        <img src={getImage('service-dev-1')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Dev-2.png")} />
+        <img src={getImage('service-dev-2')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Dev-3.png")} />
+        <img src={getImage('service-dev-3')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Dev-4.png")} />
+        <img src={getImage('service-dev-4')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Dev-5.png")} />
+        <img src={getImage('service-dev-5')} />
       </div>
       <div>
-        <img src={require("assets/imgs/home/services/Dev-6.png")} />
+        <img src={getImage('service-dev-6')} />
       </div>
     </Carousel>
   )

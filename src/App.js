@@ -112,6 +112,50 @@ function App() {
         id: 'dcom-thumbnail',
         src: require('assets/imgs/projects/thumbnails/dcom.png'),
       },
+      {
+        id: 'service-design-1',
+        src: require("assets/imgs/home/services/Design-1.png")
+      },
+      {
+        id: 'service-design-2',
+        src: require("assets/imgs/home/services/Design-2.png")
+      },
+      {
+        id: 'service-design-3',
+        src: require("assets/imgs/home/services/Design-3.png")
+      },
+      {
+        id: 'service-design-4',
+        src: require("assets/imgs/home/services/Design-4.png")
+      },
+      {
+        id: 'service-design-5',
+        src: require("assets/imgs/home/services/Design-5.png")
+      },
+      {
+        id: 'service-dev-1',
+        src: require("assets/imgs/home/services/Dev-1.png")
+      },
+      {
+        id: 'service-dev-2',
+        src: require("assets/imgs/home/services/Dev-2.png")
+      },
+      {
+        id: 'service-dev-3',
+        src: require("assets/imgs/home/services/Dev-3.png")
+      },
+      {
+        id: 'service-dev-4',
+        src: require("assets/imgs/home/services/Dev-4.png")
+      },
+      {
+        id: 'service-dev-5',
+        src: require("assets/imgs/home/services/Dev-5.png")
+      },
+      {
+        id: 'service-dev-6',
+        src: require("assets/imgs/home/services/Dev-6.png")
+      }
     ])
 
     PreloadManager.load()
