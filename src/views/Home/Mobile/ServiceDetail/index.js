@@ -21,13 +21,18 @@ export default () => {
       left: 0,
       transition: 'top 0.5s ease'
     }}>
-      <img src={Close} alt="" style={{
+      <div style={{
         position: 'absolute',
-        top: '20px',
-        left: '20px'
-      }} onClick={hideService}/>
+        width: '100%',
+        height: '100px',
+        paddingTop: '20px',
+        paddingLeft: '20px'
+      }} onClick={hideService}>
+      <img src={Close} alt="" />
+      </div>
       <img src={store.serviceImage} alt="" style={{
-        width: '100%'
+        width: '100%',
+        marginTop: '100px'
       }}/>
     </div>
   )
