@@ -40,15 +40,19 @@ export default ({
     <div key={1} style={{ width: '80vw', height: '3rem', background: '#aaa' }}></div>,
     <div key={2} style={{ width: '80vw', height: '3rem', background: '#aaa' }}></div>
   ],
-  centerSlidePercentage = 100
+  centerSlidePercentage = 100,
+  infiniteLoop = false,
+  selectedItem = 0
 }) => {
   console.log(list)
   return (
     <CarouselWrap>
       <Carousel
+        selectedItem={selectedItem}
         showThumbs={false}
         showArrows={false}
         showStatus={false}
+        infiniteLoop={infiniteLoop}
         centerSlidePercentage={centerSlidePercentage}
         transitionTime={500}
         centerMode

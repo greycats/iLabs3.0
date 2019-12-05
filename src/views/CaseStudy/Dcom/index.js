@@ -19,6 +19,26 @@ import dcomData from 'data/dcomData'
 
 import useImage from 'hooks/useImage'
 
+const MobileSolutionWrap = styled.div`
+  .carousel.carousel-slider {
+    margin-bottom: 1rem;
+    .slide {
+      .slide-item {
+        transition: all 0.3s
+        img {
+          transform: scale(1.2)
+        }
+      }
+      &.selected .slide-item {
+        transform: translateY(20px);
+      }
+    }
+    .control-dots {
+      bottom: -0.6rem;
+    }
+  }
+`
+
 export default () => {
   const BgImage = useImage('dcom-banner-image')
   const isPC = window.isPC
@@ -60,12 +80,16 @@ export default () => {
               lottieIcon={Solution}
             />
             :
-            <div>
+            <MobileSolutionWrap>
               <TextDescriptionLottieSection
                 {...dcomData.theSolution}
               />
-              <MobileCarousel list={mobileSolutionList} />
-            </div>
+              <MobileCarousel
+                list={mobileSolutionList}
+                centerSlidePercentage={70}
+                selectedItem={1}
+              />
+            </MobileSolutionWrap>
         }
 
         <TextAndAnimation
