@@ -9,7 +9,11 @@ const titleData = {
 export default () => {
   return (
     <div>
-      <CommonTitle {...titleData}></CommonTitle>
+      <br/>
+      <br/>
+      <div className="container">
+        <CommonTitle {...titleData}></CommonTitle>
+      </div>
     </div>
   )
 }
