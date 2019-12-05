@@ -15,7 +15,7 @@ export default ({
   return (
     <div style={style}>
       <div className="layout-1240 panel" style={{ position: 'relative' }}>
-        <div className="title-part">
+        <div className="title-part" style={isPC ? {} : {height: '8.6rem'}}>
           <AnimationPlayer
             target={
               <div className="title-wrap">
@@ -31,7 +31,7 @@ export default ({
                   },
                   to: {
                     opacity: 1,
-                    height: '94px'
+                    height: isPC ? '94px' : '0.6rem'
                   },
                   duration: .8
                 }

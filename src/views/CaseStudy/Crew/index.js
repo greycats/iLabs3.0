@@ -16,7 +16,7 @@ import crewData from 'data/crewData'
 
 export default () => {
   const isPC = window.isPC
-  const mobileSolutionList = crewData.theSolutionsMobile.map((item, index) => <img src={item} key={index} />)
+  const mobileSolutionList = crewData.theSolutionsMobile.map((item, index) => <img src={item} key={index} style={{ padding: '0 0.05rem' }} />)
   return (
     <StyledPage>
       <div>
@@ -58,7 +58,12 @@ export default () => {
                 {...crewData.theSolutions}
                 withLottie={false}
               />
-              <MobileCarousel list={mobileSolutionList} />
+              <div style={{padding: '0 0.2rem'}}>
+                <MobileCarousel
+                  list={mobileSolutionList}
+                  centerSlidePercentage={95}
+                />
+              </div>
             </div>
         }
 

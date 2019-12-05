@@ -56,7 +56,9 @@ const MobileComments = ({
 }) => {
   return (
     <div className="m-comment-card-wrap">
-      <MobileCarousel list={CommentsCard({ commentList })} />
+      <MobileCarousel
+        list={CommentsCard({ commentList })}
+      />
     </div>
   )
 }
