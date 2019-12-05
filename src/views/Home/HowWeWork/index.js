@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import CommonTitle from 'components/CommonTitle'
 import { LottieAnimation } from 'components/AnimationPlayer'
+import GoToArrow from 'components/GoToArrow'
 import './index.sass'
 
 export default () => {
@@ -51,6 +52,7 @@ export default () => {
                       loop: true,
                       animationData: item.img
                     }}
+                    wrapHeight={270}
                   />
                   <div style={{
                     position: 'relative',
@@ -64,6 +66,7 @@ export default () => {
             })
           }
         </div>
+        <GoToArrow text="View process"></GoToArrow>
       </div>
     </div>
   )
