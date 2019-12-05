@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
 import { getImage } from 'scripts/PreloadManager.js'
+import { designListData, devListData } from 'data/services'
 
 const StyledCarousel = styled.div`
   .carousel .slider-wrapper {
@@ -126,56 +127,6 @@ const List = ({
     </div>
   )
 }
-
-const designListData = [
-  {
-    text: 'User Research',
-    icon: require('assets/imgs/home/Design/User-Research.svg')
-  },
-  {
-    text: 'Ideation',
-    icon: require('assets/imgs/home/Design/Ideation.svg')
-  },
-  {
-    text: 'Creative Concept',
-    icon: require('assets/imgs/home/Design/Creative-Concept.svg')
-  },
-  {
-    text: 'Visual Design',
-    icon: require('assets/imgs/home/Design/Visual-Design.svg')
-  },
-  {
-    text: 'Prototype & Interation Design',
-    icon: require('assets/imgs/home/Design/Prototype.svg')
-  }
-]
-
-const devListData = [
-  {
-    text: 'Mobile Development',
-    icon: require('assets/imgs/home/Dev/Mobile-Development.svg')
-  },
-  {
-    text: 'Fullstack Web Development',
-    icon: require('assets/imgs/home/Dev/Fullstack-Web-Development.svg')
-  },
-  {
-    text: 'Analytics and Big Data Solutions',
-    icon: require('assets/imgs/home/Dev/Analytics-Big-Data.svg')
-  },
-  {
-    text: 'Support and DevOps',
-    icon: require('assets/imgs/home/Dev/Support-DevOps.svg')
-  },
-  {
-    text: 'Technology Infrastructure Support',
-    icon: require('assets/imgs/home/Dev/Technology-Infrastructure.svg')
-  },
-  {
-    text: 'IT Security',
-    icon: require('assets/imgs/home/Dev/IT-Security.svg')
-  },
-]
 
 export default () => {
   const [activeIndex, setActiveIndex] = useState(0)
