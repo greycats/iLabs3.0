@@ -20,6 +20,7 @@ const CaseStudyWrap = window.isPC ?
   `
   :
   styled.div`
+    width: 100%;
     overflow: hidden;
   `
 

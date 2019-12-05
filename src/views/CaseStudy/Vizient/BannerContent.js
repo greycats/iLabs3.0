@@ -116,7 +116,7 @@ const MobileBanner = () => {
     </MobileImagePosition>
   return (
     <MobileBannerContainer>
-      <img src={MobileBannerBg} />
+      <img src={MobileBannerBg} style={{ width: '100%' }}/>
       <div className="mobile-banner-text">
         <div className="panel">
           <div className="mobile-title">Vizient</div>

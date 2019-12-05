@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
+import React from 'react'
+import AnimationPlayer from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
 import './index.sass'
 import { logoList, introList } from './data'

@@ -10,16 +10,20 @@ import MobileHome from './Mobile'
 
 export default () => {
   return (
-    window.isPC ?
-      <>
-        <Banner />
-        <Work />
-        <br />
-        <OurServices />
-        <OurClients />
-        <HowWeWork />
-        <Footer />
-      </>
-      : <MobileHome></MobileHome>
+    <>
+      {
+        window.isPC ?
+          <>
+            <Banner />
+            <Work />
+            <br />
+            <OurServices />
+            <OurClients />
+            <HowWeWork />
+          </>
+          : <MobileHome />
+      }
+      <Footer />
+    </>
   )
 }

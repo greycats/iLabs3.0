@@ -13,7 +13,7 @@ export default ({
 }) => {
   return (
     <div className="footer-wrap">
-      <div id={controllerId} style={{ position: 'absolute', top: 300 - (window.innerHeight / 2.5) }}></div>
+      <div id={controllerId} style={{ position: 'absolute', top: isPC ? (300 - (window.innerHeight / 2.5)) : -(window.innerHeight / 2) }}></div>
       <Controller>
         <Scene
           triggerElement={'#' + controllerId}
@@ -37,9 +37,9 @@ export default ({
                     <div className="footer-title">We would love to work with you.</div>
                     {
                       window.location.pathname.indexOf('/contact') === -1 ?
-                      <GoToArrow text="contact us" isWhite={true} onClick={() => {
-                        history.push('/contact')
-                      }}></GoToArrow> : null
+                        <GoToArrow text="contact us" isWhite={true} onClick={() => {
+                          history.push('/contact')
+                        }}></GoToArrow> : null
                     }
                   </div>
                   <div className="footer-list">
