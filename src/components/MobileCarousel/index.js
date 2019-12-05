@@ -10,6 +10,9 @@ const CarouselWrap = styled.div`
       .slide-item {
         display: flex;
         justify-content: center;
+        &>img {
+          height: 100%;
+        }
       }
     }
 

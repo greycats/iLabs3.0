@@ -21,12 +21,12 @@ import useImage from 'hooks/useImage'
 
 const MobileSolutionWrap = styled.div`
   .carousel.carousel-slider {
-    margin-bottom: 1rem;
+    margin: 0.2rem 0 1rem;
     .slide {
       .slide-item {
         transition: all 0.3s
         img {
-          transform: scale(1.2)
+          transform: scale(1.2);
         }
       }
       &.selected .slide-item {
