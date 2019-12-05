@@ -29,16 +29,10 @@ export default () => {
           target={
             <CommonTitle {...titleData}></CommonTitle>
           }
-          animations={[
-            {
-              from: {
-                opacity: 0
-              },
-              to: {
-                opacity: 1
-              }
-            }
-          ]}
+          animations={[{
+            from: { opacity: 0 },
+            to: { opacity: 1 }
+          }]}
         />
         <AnimationPlayer
           target={
@@ -52,18 +46,18 @@ export default () => {
               }
             </div>
           }
-          animations={[
-            {
-              from: {
-                opacity: 0,
-                left: 100
-              },
-              to: {
-                opacity: 1,
-                left: 0
-              }
+          animations={[{
+            from: {
+              opacity: 0,
+              left: 100,
+              top: 100
+            },
+            to: {
+              opacity: 1,
+              left: 0,
+              top: 0
             }
-          ]}
+          }]}
         />
 
         <AnimationPlayer
@@ -74,18 +68,18 @@ export default () => {
               />
             </div>
           }
-          animations={[
-            {
-              from: {
-                opacity: 0,
-                left: 100
-              },
-              to: {
-                opacity: 1,
-                left: 0
-              }
+          animations={[{
+            from: {
+              opacity: 0,
+              left: 100,
+              top: 100
+            },
+            to: {
+              opacity: 1,
+              left: 0,
+              top: 0
             }
-          ]}
+          }]}
           delay={.5}
         />
       </div>
