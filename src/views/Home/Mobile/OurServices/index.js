@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { designListData, devListData } from 'data/services'
 import _ from 'lodash'
 import Arrow from 'assets/imgs/arrow.svg'
-import { useAppContext } from 'hooks/useShareState'
+import { useAppContext, serviceAction, serviceImageAction } from 'hooks/useShareState'
 
 const List = ({
   title = '',
@@ -58,10 +58,6 @@ export default () => {
   const [activeItem, setActiveItem] = useState(null)
 
   const { dispatch } = useAppContext()
-  const action = showService => dispatch({
-    type: 'SET_SHOW_SERVICE',
-    showService
-  })
 
   return (
     <div style={{ background: '#2c2c2c', position: 'relative'}}>
@@ -82,19 +78,21 @@ export default () => {
             activeItem={activeItem}
             onClickItem={(index, item) => {
               setActiveItem(item),
-              action(true)
+              serviceAction(dispatch, true)
+              serviceImageAction(dispatch, item.image)
             }}
-            list={designListData}
+            list={designListData()}
           />
           <br />
           <br />
           <List
             title='Product Development'
-            list={devListData}
+            list={devListData()}
             activeItem={activeItem}
             onClickItem={(index, item) => {
               setActiveItem(item)
-              action(true)
+              serviceAction(dispatch, true)
+              serviceImageAction(dispatch, item.image)
             }}
           />
         </div>

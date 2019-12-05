@@ -1,7 +1,8 @@
 import { createContext, useReducer, useContext } from 'react'
 
 const initialState = {
-  showService: false
+  showService: false,
+  serviceImage: ''
 }
 
 function reducer (state, action) {
@@ -11,6 +12,11 @@ function reducer (state, action) {
         ...state,
         showService: action.showService
       }
+    case 'SET_SERVICE_IMAGE':
+      return {
+        ...state,
+        serviceImage: action.serviceImage
+      }
     default:
       return state
   }
@@ -19,3 +25,13 @@ function reducer (state, action) {
 export const AppContext = createContext()
 export const useAppContext = () => useContext(AppContext)
 export default () => useReducer(reducer, initialState)
+
+export const serviceAction = (dispatch, showService) => dispatch({
+  type: 'SET_SHOW_SERVICE',
+  showService
+})
+
+export const serviceImageAction = (dispatch, serviceImage) => dispatch({
+  type: 'SET_SERVICE_IMAGE',
+  serviceImage
+})

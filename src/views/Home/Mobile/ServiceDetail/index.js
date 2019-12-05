@@ -1,15 +1,13 @@
 import React from 'react'
-import { useAppContext } from 'hooks/useShareState'
+import { useAppContext, serviceAction } from 'hooks/useShareState'
+import Close from 'assets/imgs/close.svg'
 
 export default () => {
   const { store, dispatch } = useAppContext()
   const { showService } = store
 
   const hideService = () => {
-    dispatch({
-      type: 'SET_SHOW_SERVICE',
-      showService: false
-    })
+    serviceAction(dispatch, false)
   }
   return (
     <div style={{
@@ -18,11 +16,19 @@ export default () => {
       height: '100vh',
       minHeight: '100vh',
       zIndex: 10,
-      background: 'red',
+      background: '#f5f5f5',
       top: showService ? 0 : '100vh',
       left: 0,
       transition: 'top 0.5s ease'
-    }} onClick={hideService}>
+    }}>
+      <img src={Close} alt="" style={{
+        position: 'absolute',
+        top: '20px',
+        left: '20px'
+      }} onClick={hideService}/>
+      <img src={store.serviceImage} alt="" style={{
+        width: '100%'
+      }}/>
     </div>
   )
 }

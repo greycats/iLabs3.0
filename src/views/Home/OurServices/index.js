@@ -131,7 +131,7 @@ const List = ({
 export default () => {
   const [activeIndex, setActiveIndex] = useState(0)
   // const [activeItem, setActiveItem] = useState(null)
-  const [activeItem, setActiveItem] = useState(designListData[0])
+  const [activeItem, setActiveItem] = useState(designListData()[0])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const onResize = () => {
@@ -165,17 +165,17 @@ export default () => {
                 setActiveIndex(index)
                 setActiveItem(item)
               }}
-              list={designListData}
+              list={designListData()}
             />
             <br />
             <br />
             <br />
             <List
               title='Product Development'
-              list={devListData}
+              list={devListData()}
               activeItem={activeItem}
               onClickItem={(index, item) => {
-                setActiveIndex(index + designListData.length)
+                setActiveIndex(index + designListData().length)
                 setActiveItem(item)
               }}
             />
