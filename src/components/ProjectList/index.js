@@ -3,6 +3,7 @@ import AnimationPlayer from 'components/AnimationPlayer'
 import PreloadManager from 'scripts/PreloadManager'
 import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
+import CommonTitle from 'components/CommonTitle'
 
 export const fakeData = () => [
   {
@@ -35,42 +36,113 @@ export const fakeData = () => [
   }
 ]
 
-const ProjectCard = ({ item }) => {
+const ProjectCard = ({ item, showText = true }) => {
   return (
     <div style={{
-      width: '90%',
+      // width: '90%',
       maxWidth: '600px',
-      height: '700px',
+      cursor: 'pointer',
+      height: showText ? '700px' : '445px',
       position: 'relative',
       background: `url(${item.image})`,
-    }}>
-      <img src={TextBg} alt="" style={{
-        position: 'absolute',
-        bottom: '80px',
-        right: '-30px',
-        zIndex: 1
-      }} />
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '300px',
-        position: 'absolute',
-        bottom: '95px',
-        right: '15px',
-        alignItems: 'flex-end',
-        zIndex: 2
-      }}>
-        <p style={{
-          fontSize: '28px',
-          lineHeight: '28px',
-          fontWeight: 'bold',
-          color: '#040404'
-        }}>{item.text}</p>
-        <p style={{
-          fontSize: '14px',
-          color: '#656565'
-        }}>{item.typeText}</p>
-      </div>
+      backgroundRepeat: 'no-repeat'
+    }}
+      onClick={() => {
+        history.push(item.link)
+      }}
+    >
+      {
+        showText
+          ? <>
+            <img src={TextBg} alt="" style={{
+              position: 'absolute',
+              bottom: '80px',
+              right: '-30px',
+              zIndex: 1
+            }} />
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '300px',
+              position: 'absolute',
+              bottom: '95px',
+              right: '15px',
+              alignItems: 'flex-end',
+              zIndex: 2
+            }}>
+              <p style={{
+                fontSize: '28px',
+                lineHeight: '28px',
+                fontWeight: 'bold',
+                color: '#040404'
+              }}>{item.text}</p>
+              <p style={{
+                fontSize: '14px',
+                color: '#656565'
+              }}>{item.typeText}</p>
+            </div>
+          </>
+          : null
+      }
+    </div>
+  )
+}
+
+export const MobileList = ({ listData = fakeData() }) => {
+  return (
+    <div>
+      {
+        listData.map((item, index) => {
+          return (
+            <div key={index}>
+              <div style={{
+                height: '480px'
+              }}>
+                <AnimationPlayer
+                  target={
+                    <div style={{
+                      width: 0
+                    }}>
+                      <ProjectCard item={item} showText={false} />
+                    </div>
+                  }
+                  animations={
+                    [
+                      {
+                        to: {
+                          width: '100%'
+                        }
+                      }
+                    ]
+                  }
+                />
+              </div>
+              <AnimationPlayer
+                triggerRelativePosition={{
+                  top: '-440px'
+                }}
+                target={
+                  <div>
+                    <CommonTitle title={item.text} intro={item.typeText} />
+                  </div>
+                }
+                animations={[
+                  {
+                    from: {
+                      opacity: 0
+                    },
+                    to: {
+                      opacity: 1
+                    }
+                  }
+                ]}
+              />
+              <br />
+              <br />
+            </div>
+          )
+        })
+      }
     </div>
   )
 }
@@ -89,9 +161,6 @@ const ProjectList = ({ listData = [] }) => {
           return (
             <div
               key={index}
-              onClick={() => {
-                history.push(item.link)
-              }}
               style={{
                 width: '45%',
                 height: '750px',
@@ -134,4 +203,5 @@ const ProjectList = ({ listData = [] }) => {
     </div>
   )
 }
+
 export default ProjectList
