@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { designListData, devListData } from 'data/services'
 import _ from 'lodash'
+import Arrow from 'assets/imgs/arrow.svg'
 
 const List = ({
   title = '',
@@ -11,7 +12,7 @@ const List = ({
   return (
     <div>
       <p style={{
-        fontSize: '32px',
+        fontSize: '24px',
         fontWeight: 'bold',
         color: '#fff',
         marginBottom: '30px'
@@ -24,10 +25,10 @@ const List = ({
                 key={index}
                 style={{
                   display: 'flex',
-                  height: '60px',
+                  height: '50px',
                   alignItems: 'center',
                   color: '#fff',
-                  fontSize: '22px',
+                  fontSize: '16px',
                   cursor: 'pointer',
                   position: 'relative'
                 }} onClick={() => {
@@ -35,9 +36,14 @@ const List = ({
                 }}>
                 <img src={item.icon} alt="" style={{
                   marginRight: '10px',
-                  marginLeft: '32px',
-                  width: '32px'
+                  marginLeft: 0,
+                  width: '22px'
                 }} /> {item.text}
+                <img src={Arrow} alt="" style={{
+                  position: 'absolute',
+                  right: '10px',
+                  top: '33%'
+                }}/>
               </div>
             )
           })
@@ -48,24 +54,22 @@ const List = ({
 }
 
 export default () => {
-  const [activeItem, setActiveItem] = useState(designListData[0])
+  const [activeItem, setActiveItem] = useState(null)
 
+  console.log('activeItem,', activeItem)
   return (
-    <div style={{ background: '#2c2c2c' }}>
-      <div
-      className="container"
-      style={{
+    <div style={{ background: '#2c2c2c', position: 'relative'}}>
+      <div className="container" style={{
         display: 'flex',
         padding: '50px 0'
       }}>
-        <div style={{ width: '35%', minWidth: '650px' }}>
-          <p style={{ fontSize: '44px', fontWeight: 'bold', color: '#fff', marginBottom: '40px' }}>Our services</p>
+        <div>
+          <span style={{ fontSize: '32px', fontWeight: 'bold', color: '#fff', marginBottom: '40px' }}>Our services</span>
           <p style={{
             color: '#fff',
-            fontSize: '24px',
-            width: '490px',
+            fontSize: '16px',
             lineHeight: '1.8',
-            marginBottom: '100px'
+            marginBottom: '50px'
           }}>We offer a wide variety of services that cover the gamut of full stack development.</p>
           <List
             title='Product Design'
@@ -75,7 +79,6 @@ export default () => {
             }}
             list={designListData}
           />
-          <br />
           <br />
           <br />
           <List
@@ -88,7 +91,17 @@ export default () => {
           />
         </div>
       </div>
-
+      <div style={{
+        position: 'absolute',
+        width: '100vw',
+        height: '100%',
+        minHeight: '100vh',
+        zIndex: 10,
+        // background: 'red',
+        top: 0,
+        left: 0
+      }}>
+      </div>
     </div>
   )
 }
