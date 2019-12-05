@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { designListData, devListData } from 'data/services'
 import _ from 'lodash'
 import Arrow from 'assets/imgs/arrow.svg'
+import { useAppContext } from 'hooks/useShareState'
 
 const List = ({
   title = '',
@@ -56,7 +57,12 @@ const List = ({
 export default () => {
   const [activeItem, setActiveItem] = useState(null)
 
-  console.log('activeItem,', activeItem)
+  const { dispatch } = useAppContext()
+  const action = showService => dispatch({
+    type: 'SET_SHOW_SERVICE',
+    showService
+  })
+
   return (
     <div style={{ background: '#2c2c2c', position: 'relative'}}>
       <div className="container" style={{
@@ -75,7 +81,8 @@ export default () => {
             title='Product Design'
             activeItem={activeItem}
             onClickItem={(index, item) => {
-              setActiveItem(item)
+              setActiveItem(item),
+              action(true)
             }}
             list={designListData}
           />
@@ -87,20 +94,10 @@ export default () => {
             activeItem={activeItem}
             onClickItem={(index, item) => {
               setActiveItem(item)
+              action(true)
             }}
           />
         </div>
-      </div>
-      <div style={{
-        position: 'absolute',
-        width: '100vw',
-        height: '100%',
-        minHeight: '100vh',
-        zIndex: 10,
-        // background: 'red',
-        top: 0,
-        left: 0
-      }}>
       </div>
     </div>
   )
