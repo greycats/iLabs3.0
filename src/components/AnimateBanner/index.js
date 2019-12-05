@@ -410,7 +410,7 @@ export const AnimateBanner = ({ children, ...props }) => {
       <div id={renderId} ref={bgRef} style={{
         position: 'absolute',
         top: 0,
-        zIndex: -1
+        zIndex: window.isPC ? -1 : 0
       }} />
       <img src={logo} className="logo-img" alt="" onClick={() => {
         history.push('/')
