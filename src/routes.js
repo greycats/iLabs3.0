@@ -8,20 +8,12 @@ const HomeView = lazyImport(import('./views/Home'))
 const CaseStudy = lazyImport(import('./views/CaseStudy'))
 const OurWork = lazyImport(import('./views/OurWork'))
 const Contact = lazyImport(import('./views/Contact'))
-import Loading from 'components/TempLoading'
+import { FullPageLoading } from 'components/TempLoading'
 
 const routes = (
   <Suspense fallback={(() => {
     return (
-      <div style={{
-        width: '100vw',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <Loading/>
-      </div>
+      <FullPageLoading />
     )
   })()}>
   <Router history={history}>

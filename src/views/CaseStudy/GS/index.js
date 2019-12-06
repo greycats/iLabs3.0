@@ -17,6 +17,7 @@ const Presentation = lazyImport(import('views/CaseStudy/GS/Presentation'))
 const FirstLook = lazyImport(import('views/CaseStudy/GS/FirstLook'))
 const Progressive = lazyImport(import('views/CaseStudy/GS/Progressive'))
 const Others = lazyImport(import('views/CaseStudy/GS/Others'))
+import { FullPageLoading } from 'components/TempLoading'
 
 const isPC = window.isPC
 
@@ -33,7 +34,7 @@ export default () => {
   }, [])
 
   if (!GSData) {
-    return <div style={{ height: '1000vh', opacity: 0 }}></div>
+    return <FullPageLoading />
   }
 
   return (

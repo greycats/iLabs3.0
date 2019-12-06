@@ -1,4 +1,20 @@
 import React from 'react'
 import './style.css'
 
-export default () => <div class="lds-dual-ring"></div>
+const Loading = () => <div class="lds-dual-ring"></div>
+
+export const FullPageLoading = () => {
+  return (
+    <div style={{
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <Loading />
+    </div>
+  )
+}
+
+export default Loading
