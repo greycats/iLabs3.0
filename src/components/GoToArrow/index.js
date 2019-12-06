@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Tween, Timeline } from 'react-gsap'
+import noop from 'lodash/noop'
 import './index.sass'
 
 class GoToArrow extends Component {
   static defaultProps = {
     text: '',
     status: 'in',
-    isWhite: false,
-    onClick: () => {}
+    isWhite: false
   }
 
   state = {
@@ -15,20 +15,16 @@ class GoToArrow extends Component {
   }
 
   arrowOnClick = () => {
+    const { onClick } = this.props
+    if (!onClick) return
     this.setState({ status: this.state.status === 'in' ? 'out' : 'in' })
     setTimeout(() => {
-      this.props.onClick()
-    }, 500)
-    setTimeout(() => {
-      this.setState({
-        status: 'in'
-      })
-    }, 1500)
+      onClick()
+    }, 300)
   }
   render() {
     const { status } = this.state
     const tweenData = {
-      empty: {},
       in: {
         circle: {
           to: { css: { height: '60px', width: '60px' } },
