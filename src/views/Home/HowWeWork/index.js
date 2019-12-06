@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import CommonTitle from 'components/CommonTitle'
 import MobileCarousel from 'components/MobileCarousel'
 import { LottieAnimation } from 'components/AnimationPlayer'
-import GoToArrow from 'components/GoToArrow'
 import './index.sass'
 
 const isPC = window.isPC
@@ -77,7 +76,6 @@ export default () => {
               centerSlidePercentage={80}
             />
         }
-        <GoToArrow text="View process" />
       </div>
     </div>
   )
