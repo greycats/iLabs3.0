@@ -77,7 +77,7 @@ export default () => {
               centerSlidePercentage={80}
             />
         }
-        <GoToArrow text="View process"></GoToArrow>
+        {/* <GoToArrow text="View process"></GoToArrow> */}
       </div>
     </div>
   )

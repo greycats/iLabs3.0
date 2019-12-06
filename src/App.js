@@ -110,47 +110,47 @@ function App() {
       },
       {
         id: 'service-design-1',
-        src: require("assets/imgs/home/services/Design-1.png")
+        src: require("assets/imgs/home/services/Design-1.jpg")
       },
       {
         id: 'service-design-2',
-        src: require("assets/imgs/home/services/Design-2.png")
+        src: require("assets/imgs/home/services/Design-2.jpg")
       },
       {
         id: 'service-design-3',
-        src: require("assets/imgs/home/services/Design-3.png")
+        src: require("assets/imgs/home/services/Design-3.jpg")
       },
       {
         id: 'service-design-4',
-        src: require("assets/imgs/home/services/Design-4.png")
+        src: require("assets/imgs/home/services/Design-4.jpg")
       },
       {
         id: 'service-design-5',
-        src: require("assets/imgs/home/services/Design-5.png")
+        src: require("assets/imgs/home/services/Design-5.jpg")
       },
       {
         id: 'service-dev-1',
-        src: require("assets/imgs/home/services/Dev-1.png")
+        src: require("assets/imgs/home/services/Dev-1.jpg")
       },
       {
         id: 'service-dev-2',
-        src: require("assets/imgs/home/services/Dev-2.png")
+        src: require("assets/imgs/home/services/Dev-2.jpg")
       },
       {
         id: 'service-dev-3',
-        src: require("assets/imgs/home/services/Dev-3.png")
+        src: require("assets/imgs/home/services/Dev-3.jpg")
       },
       {
         id: 'service-dev-4',
-        src: require("assets/imgs/home/services/Dev-4.png")
+        src: require("assets/imgs/home/services/Dev-4.jpg")
       },
       {
         id: 'service-dev-5',
-        src: require("assets/imgs/home/services/Dev-5.png")
+        src: require("assets/imgs/home/services/Dev-5.jpg")
       },
       {
         id: 'service-dev-6',
-        src: require("assets/imgs/home/services/Dev-6.png")
+        src: require("assets/imgs/home/services/Dev-6.jpg")
       }
     ])
 
