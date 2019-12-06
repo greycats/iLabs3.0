@@ -14,23 +14,25 @@ export default () => {
     await greatSchool()
   }
   useEffect(() => {
-    getData()
-    Promise.all([
-      import('views/CaseStudy/GS'),
-      import('views/CaseStudy/GS/Questions'),
-      import('views/CaseStudy/GS/TheChallenge'),
-      import('views/CaseStudy/GS/Presentation'),
-      import('views/CaseStudy/GS/FirstLook'),
-      import('views/CaseStudy/GS/Progressive'),
-      import('views/CaseStudy/GS/Others')
-    ]).then(() => [
-      import('views/CaseStudy'),
-      import('views/OurWork'),
-      import('views/Contact'),
-      import('views/CaseStudy/Vizient'),
-      import('views/CaseStudy/Dcom'),
-      import('views/CaseStudy/Crew'),
-    ])
+    setTimeout(() => {
+      getData()
+      Promise.all([
+        import('views/CaseStudy/GS'),
+        import('views/CaseStudy/GS/Questions'),
+        import('views/CaseStudy/GS/TheChallenge'),
+        import('views/CaseStudy/GS/Presentation'),
+        import('views/CaseStudy/GS/FirstLook'),
+        import('views/CaseStudy/GS/Progressive'),
+        import('views/CaseStudy/GS/Others')
+      ]).then(() => [
+        import('views/CaseStudy'),
+        import('views/OurWork'),
+        import('views/Contact'),
+        import('views/CaseStudy/Vizient'),
+        import('views/CaseStudy/Dcom'),
+        import('views/CaseStudy/Crew'),
+      ])
+    }, 500)
   }, [])
   return (
     <>
