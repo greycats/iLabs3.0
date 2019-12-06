@@ -12,13 +12,13 @@ const Header = ({ isFixed }) => styled.div`
   top: 0;
 `
 
-export default ({ isFixed = true }) => {
+export default ({ isFixed = true, link = '/' }) => {
   const StyledHeader = Header({ isFixed })
   return (
     <StyledHeader>
-      <img src={logo} alt="" style={{cursor: 'pointer'}} onClick={() => {
-        history.push('/')
-      }}/>
+      <img src={logo} alt="" style={{ cursor: 'pointer' }} onClick={() => {
+        history.push(link)
+      }} />
     </StyledHeader>
   )
 }

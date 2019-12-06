@@ -5,6 +5,8 @@ import "./style.sass";
 
 import { useForm, useField, splitFormProps } from "react-form";
 
+const isPC = window.isPC
+
 const InputField = React.forwardRef((props, ref) => {
   // Let's use splitFormProps to get form-specific props
   const [field, fieldOptions, rest] = splitFormProps(props);
@@ -18,7 +20,7 @@ const InputField = React.forwardRef((props, ref) => {
 
   // Build the field
   return (
-    <div style={{position: 'relative', width: '90%'}}>
+    <div style={{ position: 'relative', width: isPC ? '90%' : '100%' }}>
       <input {...getInputProps({ ref, ...rest })} />
 
       {/*
@@ -38,7 +40,7 @@ const InputField = React.forwardRef((props, ref) => {
 });
 
 export default ({
-  onSubmitted = () => {}
+  onSubmitted = () => { }
 }) => {
   const defaultValues = React.useMemo(
     () => ({
@@ -142,7 +144,7 @@ export default ({
           <div style={{
             textAlign: "center"
           }}>
-            <button type="submit" disabled={!canSubmit} style={{marginRight: '100px'}}>
+            <button type="submit" disabled={!canSubmit} style={{ marginRight: '100px' }}>
               <GoToArrow text="Send Message" />
             </button>
           </div>

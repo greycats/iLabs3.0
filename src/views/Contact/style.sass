@@ -1,3 +1,35 @@
+@import 'assets/styles/variable.sass'
+
+.contact-page
+  min-height: 1350px
+  position: relative
+  .contact-wrap
+    max-width: 1280px
+    margin: 0 auto 140px
+    padding-top: 100px
+    min-height: 100vh
+    .contact-content
+      max-width: 800px
+      margin: 0 auto
+      .content-title
+        font-size: 64px
+        color: $title-color
+        line-height: 80px
+        margin-bottom: 40px
+      .contact-intro
+        margin-bottom: 50px
+
+.is-phone .contact-wrap
+  padding: 1rem 0.25rem 0
+  margin-bottom: 1rem
+  .content-title
+    font-size: 48px
+    line-height: 60px
+  .contact-intro
+    line-height: 28px
+
+
+
 .contact-form
   button
     border: none
@@ -12,6 +44,10 @@
     border: none
     border-bottom: 1px solid #bbbbbb
     font-size: 16px
+
+  textarea
+    width: 300px
+    height: 150px
 
   textarea:focus
   input:focus
@@ -35,8 +71,11 @@
       font-size: 12px
       color: #f44336
 
-.contact-form
-  textarea
-    width: 300px
-    height: 150px
-
+.is-phone .contact-form
+  label
+    display: block
+    margin-bottom: 50px
+    input
+      width: 100%
+      line-height: 34px
+      padding: 0
