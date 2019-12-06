@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AnimateBanner } from 'components/AnimateBanner'
 import AnimationPlayer from 'components/AnimationPlayer'
-import ProjectList, { fakeData } from 'components/ProjectList'
+import ProjectList, { fakeData, MobileList } from 'components/ProjectList'
 import history from 'history.js'
 import { getLocationSearch } from 'utils'
 import Footer from 'components/Footer'
@@ -13,6 +13,8 @@ const titleData = {
   title: 'A selection of case studies',
   intro: 'Explore some of our latest projects.'
 }
+
+const isPC = window.isPC
 
 const NavBar = ({
   NavList = [
@@ -90,14 +92,16 @@ const NavBar = ({
 const Title = () => <AnimationPlayer
   target={
     <div style={{
-      minHeight: '600px'
+      minHeight: isPC ? '600px' : '400px'
     }}>
       <div className="layout-1240">
         <h1 className="bold" style={{
-          fontSize: '96px',
+          fontSize: isPC ? '96px' : '48px',
           color: '#fff',
           position: 'relative',
-          top: '200px'
+          top: '200px',
+          lineHeight: 1,
+          padding: isPC ? 0 : '0.25rem'
         }}>
           our work
       </h1>
@@ -151,15 +155,20 @@ export default ({ data = fakeData() }) => {
 
   return (
     <div>
-      <AnimateBanner height={600}>
-        <div style={{
-          position: 'absolute',
-          left: 0,
-          top: '520px',
-          height: '80px',
-          width: '58%',
-          backgroundColor: '#fff'
-        }}></div>
+      <AnimateBanner height={isPC ? 600 : 400}>
+        {
+          isPC ?
+            <div style={{
+              position: 'absolute',
+              left: 0,
+              top: '520px',
+              height: '80px',
+              width: '58%',
+              backgroundColor: '#fff'
+            }}></div>
+            :
+            null
+        }
       </AnimateBanner>
       <Title />
       {/* <NavBar
@@ -167,15 +176,20 @@ export default ({ data = fakeData() }) => {
           history.replace(`/ourwork?type=${type}`)
         }}
       /> */}
-      <div className="layout-1240">
+      <div className="layout-1240" style={isPC ? {} : { padding: '0.4rem  0.25rem 0' }}>
         <CommonTitle {...titleData}></CommonTitle>
         <br />
         <br />
-        <ProjectList listData={listData} />
+        {
+          isPC ?
+            <ProjectList listData={listData} />
+            :
+            <MobileList />
+        }
         <br />
         <br />
       </div>
       <Footer />
-    </div>
+    </div >
   )
 }
