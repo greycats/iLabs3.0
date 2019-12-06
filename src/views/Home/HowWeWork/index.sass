@@ -5,20 +5,32 @@
   .how-wrap
     margin: 80px 0
     @include flex-box($JC: space-between)
-    .how-item
-      height: 350px
-      width: 225px
-      .title
-        color: $title-color
-        font-size: 32px
-        line-height: 28px
-        margin: -35px 0 15px
-        font-family: 'GoogleSans-Regular'
-      .intro
-        color: #6B6B6B
-        font-size: 14px
-        line-height: 20px
-        font-family: 'GoogleSans-Regular'
-      svg
-        position: relative
-        right: 20px
+  .how-item
+    height: 350px
+    width: 225px
+    .title
+      color: $title-color
+      font-size: 32px
+      line-height: 28px
+      margin: -35px 0 15px
+      font-family: 'GoogleSans-Regular'
+    .intro
+      color: #6B6B6B
+      font-size: 14px
+      line-height: 20px
+      font-family: 'GoogleSans-Regular'
+    svg
+      position: relative
+      right: 20px
+
+.is-phone .work-wrap
+  .carousel
+    margin-bottom: 0.6rem
+    .control-dots .dot
+      width: 0.25rem
+      height: 0.03rem
+      background: #fff
+      border-radius: 0
+      opacity: 1
+      &.selected
+        background: $theme-red
