@@ -12,40 +12,26 @@ function App() {
   const [loaded, setLoaded] = useState(false)
   const [assetLoaded, setAssetLoaded] = useState(false)
 
-  const [jsLoaded, setJsLoaded] = useState(false)
+  const [jsLoaded, setJsLoaded] = useState(true)
 
   const loadJS = () => Promise.all([
-    import('./views/Home'),
-    import('./views/CaseStudy'),
-    import('./views/OurWork'),
-    import('./views/Contact'),
-    import('views/CaseStudy/Vizient'),
-    import('views/CaseStudy/Dcom'),
-    import('views/CaseStudy/Crew'),
+    // import('./views/Home'),
+    // import('./views/CaseStudy'),
+    // import('./views/OurWork'),
+    // import('./views/Contact'),
+    // import('views/CaseStudy/Vizient'),
+    // import('views/CaseStudy/Dcom'),
+    // import('views/CaseStudy/Crew'),
 
-    import('views/CaseStudy/GS'),
-    import('views/CaseStudy/GS/Questions'),
-    import('views/CaseStudy/GS/TheChallenge'),
-    import('views/CaseStudy/GS/Presentation'),
-    import('views/CaseStudy/GS/FirstLook'),
-    import('views/CaseStudy/GS/Progressive'),
-    import('views/CaseStudy/GS/Others'),
-
-    import('assets/imgs/gs/1-hero'),
-    import('assets/imgs/gs/2-story/1-yearly-users'),
-    import('assets/imgs/gs/2-story/2-school-profiles'),
-    import('assets/imgs/gs/3-challenge/1-navigation'),
-    import('assets/imgs/gs/3-challenge/2-engagement'),
-    import('assets/imgs/gs/3-challenge/3-userbase'),
-    import('assets/imgs/gs/3-challenge/4-vizualization'),
-    import('assets/imgs/gs/3-challenge/5-devices'),
-    import('assets/imgs/gs/4-solution/data.json'),
-    import('assets/imgs/gs/13-colors/1.json'),
-    import('assets/imgs/gs/13-colors/2.json'),
-    import('assets/imgs/gs/13-colors/3.json'),
-    import('assets/imgs/gs/13-colors/4.json')
+    // import('views/CaseStudy/GS'),
+    // import('views/CaseStudy/GS/Questions'),
+    // import('views/CaseStudy/GS/TheChallenge'),
+    // import('views/CaseStudy/GS/Presentation'),
+    // import('views/CaseStudy/GS/FirstLook'),
+    // import('views/CaseStudy/GS/Progressive'),
+    // import('views/CaseStudy/GS/Others')
   ]).then(() => {
-    setJsLoaded(true)
+    // setJsLoaded(true)
   })
 
   const doneLoad = () => {

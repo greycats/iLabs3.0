@@ -76,7 +76,7 @@ const TextList = () => {
   </div>
 }
 
-export default () => {
+export default ({ GSData }) => {
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ height: isPC ? '95vh' : '15.8rem', minHeight: '1350px' }}>
       <AnimationPlayer

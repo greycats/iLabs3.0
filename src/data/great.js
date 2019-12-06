@@ -207,5 +207,13 @@ export default async () => ({
       name: 'ROCMom',
       date: 'Female, 50,usertesting.com '
     }
-  ]
+  ],
+  other: {
+    disclouse: await (import('assets/imgs/gs/8-disclosure-2/data.json')),
+    deeper: await (import('assets/imgs/gs/9-deeper/data.json')),
+    review: await (import('assets/imgs/gs/10-reviews/data.json')),
+    device: await (import('assets/imgs/gs/11-devices/data.json')),
+    grid: await (import('assets/imgs/gs/14-grid/data.json')),
+    sitemap: await (import('assets/imgs/gs/15-sitemap/data.json'))
+  }
 })

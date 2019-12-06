@@ -14,7 +14,7 @@ export default ({ GSData }) => {
         titleStyle={{
           width: '520px'
         }}
-        animateIcon={require('assets/imgs/gs/8-disclosure-2/data.json')}
+        animateIcon={GSData.other.disclouse}
         animationStyle={{
           width: 720
         }}
@@ -29,7 +29,7 @@ export default ({ GSData }) => {
         titleStyle={{
           width: '520px'
         }}
-        animateIcon={require('assets/imgs/gs/9-deeper/data.json')}
+        animateIcon={GSData.other.deeper}
         animationStyle={{
           width: 720,
           transform: 'translateY(-50px)',
@@ -42,7 +42,7 @@ export default ({ GSData }) => {
         titleStyle={{
           width: '520px'
         }}
-        animateIcon={require('assets/imgs/gs/10-reviews/data.json')}
+        animateIcon={GSData.other.review}
         wrapStyle={isPC ? {
           padding: '100px 0 50px'
         } : {}}
@@ -55,7 +55,7 @@ export default ({ GSData }) => {
       <div style={isPC ? { height: 750, marginBottom: 70 } : { height: '1.5rem' }}>
         <LottieAnimation
           options={{
-            animationData: require('assets/imgs/gs/11-devices/data.json'),
+            animationData: GSData.other.device
           }}
           width={'100vw'}
         />
@@ -145,7 +145,7 @@ export default ({ GSData }) => {
         titleStyle={{
           width: '243px'
         }}
-        animateIcon={require('assets/imgs/gs/14-grid/data.json')}
+        animateIcon={GSData.other.grid}
         mobileAnimationStyle={{
           width: '100vw',
           marginLeft: '-0.25rem'
@@ -160,7 +160,7 @@ export default ({ GSData }) => {
             width: '600px'
           }}
           wrapMinHeight={isPC ? 1020 : '4.5rem'}
-          animateIcon={require('assets/imgs/gs/15-sitemap/data.json')}
+          animateIcon={GSData.other.sitemap}
           mobileAnimationStyle={{
             width: '100vw',
             marginLeft: '-0.25rem'

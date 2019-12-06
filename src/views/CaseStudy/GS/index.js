@@ -57,7 +57,7 @@ export default () => {
 
       <Solution GSData={GSData} />
 
-      <Questions />
+      <Questions GSData={GSData}/>
 
       <FirstLook GSData={GSData} />
 
