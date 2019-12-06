@@ -1,8 +1,36 @@
 import React, { useEffect } from 'react'
 import CommonTitle from 'components/CommonTitle'
+import MobileCarousel from 'components/MobileCarousel'
 import { LottieAnimation } from 'components/AnimationPlayer'
 import GoToArrow from 'components/GoToArrow'
 import './index.sass'
+
+const isPC = window.isPC
+
+const lottieList = ({ howList }) => howList.map((item, index) => {
+  return (
+    <div key={index} className="how-item">
+      <LottieAnimation
+        triggerRelativePosition={{
+          top: '-40vh'
+        }}
+        width='120%'
+        options={{
+          loop: true,
+          animationData: item.img
+        }}
+        wrapHeight={270}
+      />
+      <div style={{
+        position: 'relative',
+        left: '20px'
+      }}>
+        <div className="title">{item.title}</div>
+        <div className="intro">{item.intro}</div>
+      </div>
+    </div>
+  )
+})
 
 export default () => {
   useEffect(() => {
@@ -38,34 +66,17 @@ export default () => {
     <div className="work-wrap">
       <div className="layout-1240 panel">
         <CommonTitle {...titleData}></CommonTitle>
-        <div className="how-wrap">
-          {
-            howList.map((item, index) => {
-              return (
-                <div key={index} className="how-item">
-                  <LottieAnimation
-                    triggerRelativePosition={{
-                      top: '-40vh'
-                    }}
-                    width='120%'
-                    options={{
-                      loop: true,
-                      animationData: item.img
-                    }}
-                    wrapHeight={270}
-                  />
-                  <div style={{
-                    position: 'relative',
-                    left: '20px'
-                  }}>
-                    <div className="title">{item.title}</div>
-                    <div className="intro">{item.intro}</div>
-                  </div>
-                </div>
-              )
-            })
-          }
-        </div>
+        {
+          isPC ?
+            <div className="how-wrap">
+              <lottieList howList={howList} />
+            </div>
+            :
+            <MobileCarousel
+              list={lottieList({ howList })}
+              centerSlidePercentage={80}
+            />
+        }
         <GoToArrow text="View process"></GoToArrow>
       </div>
     </div>
