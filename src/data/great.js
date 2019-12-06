@@ -215,5 +215,11 @@ export default async () => ({
     device: await (import('assets/imgs/gs/11-devices/data.json')),
     grid: await (import('assets/imgs/gs/14-grid/data.json')),
     sitemap: await (import('assets/imgs/gs/15-sitemap/data.json'))
+  },
+  questions: {
+    approachData: await import('assets/imgs/gs/5-questions/approach.json'),
+    step1Data: await import ('assets/imgs/gs/5-questions/1.json'),
+    step2Data: await import ('assets/imgs/gs/5-questions/2.json'),
+    step3Data: await import ('assets/imgs/gs/5-questions/3.json'),
   }
 })

@@ -15,21 +15,21 @@ function App() {
   const [jsLoaded, setJsLoaded] = useState(true)
 
   const loadJS = () => Promise.all([
-    import('./views/Home'),
-    import('./views/CaseStudy'),
-    import('./views/OurWork'),
-    import('./views/Contact'),
-    import('views/CaseStudy/Vizient'),
-    import('views/CaseStudy/Dcom'),
-    import('views/CaseStudy/Crew'),
+    // import('./views/Home'),
+    // import('./views/CaseStudy'),
+    // import('./views/OurWork'),
+    // import('./views/Contact'),
+    // import('views/CaseStudy/Vizient'),
+    // import('views/CaseStudy/Dcom'),
+    // import('views/CaseStudy/Crew'),
 
-    import('views/CaseStudy/GS'),
-    import('views/CaseStudy/GS/Questions'),
-    import('views/CaseStudy/GS/TheChallenge'),
-    import('views/CaseStudy/GS/Presentation'),
-    import('views/CaseStudy/GS/FirstLook'),
-    import('views/CaseStudy/GS/Progressive'),
-    import('views/CaseStudy/GS/Others')
+    // import('views/CaseStudy/GS'),
+    // import('views/CaseStudy/GS/Questions'),
+    // import('views/CaseStudy/GS/TheChallenge'),
+    // import('views/CaseStudy/GS/Presentation'),
+    // import('views/CaseStudy/GS/FirstLook'),
+    // import('views/CaseStudy/GS/Progressive'),
+    // import('views/CaseStudy/GS/Others')
   ]).then(() => {
     // setJsLoaded(true)
   })

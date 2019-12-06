@@ -1,19 +1,14 @@
 import React from 'react'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
-import approachData from 'assets/imgs/gs/5-questions/approach.json'
-import step1Data from 'assets/imgs/gs/5-questions/1.json'
-import step2Data from 'assets/imgs/gs/5-questions/2.json'
-import step3Data from 'assets/imgs/gs/5-questions/3.json'
+// import approachData from 'assets/imgs/gs/5-questions/approach.json'
+// import step1Data from 'assets/imgs/gs/5-questions/1.json'
+// import step2Data from 'assets/imgs/gs/5-questions/2.json'
+// import step3Data from 'assets/imgs/gs/5-questions/3.json'
 
 const isPC = window.isPC
 
-const RowAnimations = () => {
-  const dataList = [
-    step1Data,
-    step2Data,
-    step3Data
-  ]
+const RowAnimations = ({dataList = []}) => {
 
   return (
     <div style={isPC ? {
@@ -76,7 +71,14 @@ const TextList = () => {
   </div>
 }
 
-export default ({ GSData }) => {
+export default ({ GSData = {} }) => {
+  const { approachData, step1Data, step2Data, step3Data } = GSData.questions
+  const dataList = [
+    step1Data,
+    step2Data,
+    step3Data
+  ]
+
   return (
     <div className="layout-1240 panel challenge-wrap" style={{ height: isPC ? '95vh' : '15.8rem', minHeight: '1350px' }}>
       <AnimationPlayer
@@ -104,7 +106,7 @@ export default ({ GSData }) => {
           ]
         }
       />
-      <RowAnimations />
+      <RowAnimations dataList={dataList} />
       <div style={{ display: isPC ? 'flex' : 'block' }}>
         <div style={{ width: isPC ? '40%' : 'auto' }}>
           <AnimationPlayer
