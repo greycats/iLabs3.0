@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-const Loading = () => <div class="lds-dual-ring"></div>
+const Loading = () => <div className="lds-dual-ring"></div>
 
 export const FullPageLoading = () => {
   return (

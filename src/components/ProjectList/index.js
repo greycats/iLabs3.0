@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
 import PreloadManager from 'scripts/PreloadManager'
 import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
+import Lottie from 'react-lottie'
 
 export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
+    lottie: require('assets/imgs/projects/hover/Vizient.json'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
     link: '/casestudy?name=vizient',
@@ -15,6 +17,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
+    lottie: require('assets/imgs/projects/hover/GS.json'),
     text: 'GreatSchools',
     typeText: 'Website',
     link: '/casestudy?name=gs',
@@ -22,6 +25,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
+    lottie: require('assets/imgs/projects/hover/Dcom.json'),
     text: 'Dictionary.com',
     typeText: 'Website',
     link: '/casestudy?name=dcom',
@@ -29,6 +33,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
+    lottie: require('assets/imgs/projects/hover/Crew.json'),
     text: 'Crew',
     typeText: 'App',
     link: '/casestudy?name=crew',
@@ -36,30 +41,68 @@ export const fakeData = () => [
   }
 ]
 
-const ProjectCard = ({ item, showText = true }) => {
+const ProjectCard = ({ item, showText = true, isMobile = false }) => {
+  const [isStopped, setIsStopped] = useState(true)
+  const [direction, setDirection] = useState(1)
   return (
     <div style={{
-      // width: '90%',
       maxWidth: '600px',
       cursor: 'pointer',
       height: showText ? '700px' : '445px',
       position: 'relative',
-      background: `url(${item.image})`,
-      backgroundRepeat: 'no-repeat'
+      backgroundImage: `url(${item.image})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'auto 100%'
     }}
       onClick={() => {
         history.push(item.link)
       }}
+      onMouseEnter={() => {
+        setDirection(1)
+        setIsStopped(false)
+      }}
+      onMouseLeave={() => {
+        setDirection(-1)
+      }}
     >
       {
         showText
-          ? <>
+          ? <div>
+            {
+              !isMobile ?
+                (<div style={{
+                  width: '94%',
+                  height: '100%',
+                  position: 'absolute',
+                  left: 0,
+                  top: 0
+                }}
+                >
+                  <Lottie
+                    options={{
+                      loop: false,
+                      autoplay: false,
+                      animationData: item.lottie,
+                      rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid slice'
+                      }
+                    }}
+                    height="100%"
+                    width="100%"
+                    isStopped={isStopped}
+                    direction={direction}
+                  />
+                </div>)
+                : null
+            }
+
             <img src={TextBg} alt="" style={{
               position: 'absolute',
               bottom: '80px',
               right: '-30px',
               zIndex: 1
             }} />
+
             <div style={{
               display: 'flex',
               flexDirection: 'column',
@@ -81,7 +124,7 @@ const ProjectCard = ({ item, showText = true }) => {
                 color: '#656565'
               }}>{item.typeText}</p>
             </div>
-          </>
+          </div>
           : null
       }
     </div>
@@ -103,17 +146,15 @@ export const MobileList = ({ listData = fakeData() }) => {
                     <div style={{
                       width: 0
                     }}>
-                      <ProjectCard item={item} showText={false} />
+                      <ProjectCard item={item} showText={false} isMobile={true} />
                     </div>
                   }
                   animations={
-                    [
-                      {
-                        to: {
-                          width: '100%'
-                        }
+                    [{
+                      to: {
+                        width: '100%'
                       }
-                    ]
+                    }]
                   }
                 />
               </div>

@@ -47,7 +47,6 @@ export default ({
   infiniteLoop = false,
   selectedItem = 0
 }) => {
-  console.log(list)
   return (
     <CarouselWrap>
       <Carousel

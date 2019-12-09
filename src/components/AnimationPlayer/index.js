@@ -71,10 +71,6 @@ export const LottieAnimation = ({
         playAnimation
           ? <Lottie
             options={{
-              autoplay: true,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
-              },
               loop,
               ...currentOptions,
             }}
