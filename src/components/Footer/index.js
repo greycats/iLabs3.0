@@ -37,7 +37,7 @@ export default ({
                     <div className="footer-title">We would love to work with you.</div>
                     {
                       window.location.pathname.indexOf('/contact') === -1 ?
-                        <GoToArrow text="contact us" isWhite={true} onClick={() => {
+                        <GoToArrow text="Send message" isWhite={true} onClick={() => {
                           history.push('/contact')
                         }}></GoToArrow> : null
                     }
