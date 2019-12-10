@@ -86,7 +86,7 @@ export default ({
                             triggerRelativePosition={{
                               top: '-200px'
                             }}
-                            delay={isPC ? index * lottieDuration : 0}
+                            delay={isPC ? index * 0.3 * lottieDuration : 0}
                             options={{
                               animationData: item.img
                             }}
@@ -117,7 +117,7 @@ export default ({
                                     opacity: 1
                                   },
                                   duration: lottieDuration,
-                                  delay: isPC ? index * lottieDuration : 0
+                                  delay: isPC ? index * 0.3 * lottieDuration : 0
                                 }
                               ]}
                               height={isPC ? '127px' : '1.27rem'}

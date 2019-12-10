@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Tween, Timeline } from 'react-gsap'
-import noop from 'lodash/noop'
 import './index.sass'
 
 class GoToArrow extends Component {

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProjectList, { fakeData } from 'components/ProjectList'
+import ProjectList from 'components/ProjectList'
 import CommonTitle from 'components/CommonTitle'
 import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
@@ -15,7 +15,7 @@ export default () => {
       <CommonTitle {...titleData}></CommonTitle>
       <br />
       <br />
-      <ProjectList listData={fakeData()}></ProjectList>
+      <ProjectList />
       <GoToArrow text="See all work" onClick={() => {
         history.push('/ourwork')
       }}></GoToArrow>
