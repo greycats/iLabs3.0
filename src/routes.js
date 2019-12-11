@@ -12,9 +12,9 @@ import { FullPageLoading } from 'components/TempLoading'
 
 const routes = (
   <Suspense fallback={(() => {
-    return (
-      <FullPageLoading />
-    )
+    return window.isPC
+    ? <FullPageLoading />
+    : <FullPageLoading />
   })()}>
   <Router history={history}>
     <AnimatedSwitch
