@@ -100,7 +100,7 @@ export default () => {
           animateWidth={740}
           SubComponent={
             () => {
-              const TypePosition = AbsolutePositionWrap({ left: ' -30px', top: '208px' })
+              const TypePosition = AbsolutePositionWrap({ left: ' -30px', top: '228px' })
               return isPC ?
                 <TypePosition>
                   <LottieAnimation

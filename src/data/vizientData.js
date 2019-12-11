@@ -89,6 +89,7 @@ export default {
   },
   basedOn: {
     title: <div>Based on <br /> material design</div>,
+    titleMargin: 50,
     titleHeight: 120,
     intro: <p>Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.</p>
   },
