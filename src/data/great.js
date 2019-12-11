@@ -1,6 +1,11 @@
 import React from 'react'
 
 export default async () => ({
+  banner: {
+    title: 'GreatSchool',
+    intro: 'Helping millions of parents get a great education for their child',
+    services: ['Design Direction', 'Strategy', 'Development']
+  },
   theStory: {
     story: ['GreatSchools is the leading national nonprofit empowering parents to unlock educational opportunities for their children. GreatSchools provides school information and parenting resources to help millions of American families choose the right school, support learning at home, and guide their children to great futures. We were tasked with a complete re-design of the most trafficed page on the site, which was the school profile page.'],
     dataList: [
@@ -218,8 +223,8 @@ export default async () => ({
   },
   questions: {
     approachData: await import('assets/imgs/gs/5-questions/approach.json'),
-    step1Data: await import ('assets/imgs/gs/5-questions/1.json'),
-    step2Data: await import ('assets/imgs/gs/5-questions/2.json'),
-    step3Data: await import ('assets/imgs/gs/5-questions/3.json'),
+    step1Data: await import('assets/imgs/gs/5-questions/1.json'),
+    step2Data: await import('assets/imgs/gs/5-questions/2.json'),
+    step3Data: await import('assets/imgs/gs/5-questions/3.json'),
   }
 })

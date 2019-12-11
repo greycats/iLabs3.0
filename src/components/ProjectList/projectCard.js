@@ -5,6 +5,8 @@ import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import Lottie from 'react-lottie'
 
+const isPC = window.isPC
+
 class ProjectCard extends Component {
 
   static defaultProps = {
@@ -22,17 +24,27 @@ class ProjectCard extends Component {
   }
 
   cardOnClick = () => {
-    history.push(this.props.item.link)
+    if (!isPC) {
+      history.push(this.props.item.link)
+      return
+    }
 
-    // const { expandStep } = this.state
-    // if (expandStep) return
-    // const { top, right, bottom } = document.getElementById('project-card' + this.props.index).getBoundingClientRect()
-    // this.setState({
-    //   cardPosition: { top, right: window.innerWidth - right, bottom: window.innerHeight - bottom },
-    //   expandStep: 1
-    // }, () => {
-    //   this.setState({ direction: -1 })
-    // })
+    const { expandStep } = this.state
+    if (expandStep) return
+    const { top, right, bottom } = document.getElementById('project-card' + this.props.index).getBoundingClientRect()
+    this.setState({
+      cardPosition: { top, right: window.innerWidth - right, bottom: window.innerHeight - bottom },
+      expandStep: 1,
+      direction: -1
+    }, () => {
+      setTimeout(() => {
+        this.setState({ expandStep: 2 }, () => {
+          setTimeout(() => {
+            this.setState({ expandStep: 3 })
+          }, 1000)
+        })
+      }, 800)
+    })
   }
 
   render() {
@@ -93,20 +105,6 @@ class ProjectCard extends Component {
                       width="100%"
                       isStopped={isStopped}
                       direction={direction}
-                      eventListeners={[
-                        {
-                          eventName: 'complete',
-                          callback: () => {
-                            if (this.state.expandStep === 1) {
-                              this.setState({ expandStep: 2 }, () => {
-                                setTimeout(() => {
-                                  this.setState({ expandStep: 3 })
-                                }, 1000)
-                              })
-                            }
-                          }
-                        }
-                      ]}
                     />
                   </div>)
                   : null
@@ -171,50 +169,50 @@ class ProjectCard extends Component {
                   }]
                 }
               />
-              {
-                expandStep >= 2 ?
-                  (<Animations
-                    target={
-                      <div style={{
-                        position: 'absolute',
-                        ...cardPosition
-                      }}>
-                        <Lottie
-                          options={{
-                            loop: false,
-                            autoplay: true,
-                            animationData: item.expandLottie,
-                            rendererSettings: {
-                              preserveAspectRatio: 'xMidYMid slice'
-                            }
-                          }}
-                          // isStopped={expandStep !== 3}
-                          eventListeners={[
-                            {
-                              eventName: 'complete',
-                              callback: () => {
-                                console.log('expand end')
-                                // history.push(item.link)
-                              }
-                            }
-                          ]}
-                        />
-                      </div>
-                    }
-                    animations={[{
-                      to: {
-                        top: 60,
-                        right: max([(window.innerWidth - 1920) / 2, 0]),
-                        left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
-                        bottom: 'auto'
-                      },
-                      duration: 1,
-                      delay: 0.8,
-                      // ease: 'SlowMo.easeIn'
-                    }]}
-                  />
-                  ) : null
-              }
+              <Animations
+                target={
+                  <div style={{
+                    position: 'absolute',
+                    ...cardPosition,
+                    height: '700px',
+                  }}>
+                    <Lottie
+                      options={{
+                        loop: false,
+                        autoplay: false,
+                        animationData: item.expandLottie,
+                        rendererSettings: {
+                          preserveAspectRatio: 'xMidYMid slice'
+                        }
+                      }}
+                      height="100%"
+                      isStopped={expandStep !== 3}
+                      eventListeners={[
+                        {
+                          eventName: 'complete',
+                          callback: () => {
+                            console.log('expand end')
+                            setTimeout(() => {
+                              history.push(item.link)
+                            }, 300)
+                          }
+                        }
+                      ]}
+                    />
+                  </div>
+                }
+                animations={[{
+                  to: {
+                    top: 60,
+                    right: max([(window.innerWidth - 1920) / 2, 0]),
+                    left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
+                    bottom: 'unset',
+                    height: 'unset'
+                  },
+                  duration: 1,
+                  delay: 1
+                }]}
+              />
             </div>
           ) : null
         }

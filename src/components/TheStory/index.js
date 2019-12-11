@@ -64,12 +64,11 @@ export default ({
                         top: '-200px'
                       }}
                       id={`story_lottie_${index}`}
-                      delay={isPC ? index * lottieDuration : 0}
+                      delay={isPC ? index * 0.2 * lottieDuration : 0}
                       options={{
                         animationData: item.img,
                       }}
                       width={86}
-                      height={96}
                       wrapHeight={96}
                     />
                   </div>
@@ -79,7 +78,7 @@ export default ({
                         top: '-200px'
                       }}
                       id={`story_countup_${index}`}
-                      delay={isPC ? index * lottieDuration : 0}
+                      delay={isPC ? index * 0.2 * lottieDuration : 0}
                       end={item.number}
                       decimals={item.decimals}
                       suffix={item.suffix}

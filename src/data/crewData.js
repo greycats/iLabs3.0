@@ -2,6 +2,13 @@ import React from 'react'
 import Star from 'assets/imgs/crew/Star.png'
 
 export default {
+  banner: {
+    title: 'Crew',
+    intro: <>Communicate with teams and <br /> managers on the go</>,
+    services: ['Mobile', 'Development'],
+    available: [require('assets/imgs/crew/dark-apple.png'), require('assets/imgs/crew/dark-andriod.png')],
+    mobileAvailable: [require('assets/imgs/crew/mobile/apple.svg'), require('assets/imgs/crew/mobile/andriod.svg')]
+  },
   theStory: {
     story: [
       'Crew is a group messaging app that allows managers and employees to communicate easily, stay in-sync anytime, anywhere. It allows co-workers stay on top of tasks and share shift schedules across the organization.',

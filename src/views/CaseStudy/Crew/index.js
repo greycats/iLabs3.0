@@ -1,6 +1,5 @@
 import React from 'react'
 import TheStory from 'components/TheStory'
-import Banner from 'components/Banner'
 import TextAndAnimation from 'components/TextAndAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import CommentsCard from 'components/CommentsCard'
@@ -8,11 +7,12 @@ import CommentsCard from 'components/CommentsCard'
 import StartSmall from 'assets/imgs/crew/5-phone-double.json'
 import Streamlined from 'assets/imgs/crew/6-phone-single.json'
 import StyledPage from 'components/Styled/Page'
-import StyledSection from 'components/Styled/Section'
-import BannerContent from './BannerContent'
 import TheChallenge from './TheChalleng'
 import MobileCarousel from 'components/MobileCarousel'
 import crewData from 'data/crewData'
+import CaseStudyBanner from 'components/CaseStudyBanner'
+import BgAnimation from 'assets/imgs/crew/1-Banner'
+import MobileBannerBg from 'assets/imgs/crew/mobile/banner.png'
 
 export default () => {
   const isPC = window.isPC
@@ -20,20 +20,9 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        {
-          isPC ?
-            <StyledSection>
-              <div className="animation-banner">
-                <Banner image={null}>
-                  <BannerContent />
-                </Banner>
-              </div>
-            </StyledSection>
-            :
-            <BannerContent />
-        }
+        <CaseStudyBanner {...crewData.banner} BgAnimation={BgAnimation} MobileBannerBg={MobileBannerBg} />
 
-        <TheStory {...crewData.theStory} wrapStyle={isPC ? {} : { marginTop: '-1.8rem' }}></TheStory>
+        <TheStory {...crewData.theStory}></TheStory>
 
         <div style={{ backgroundColor: '#f5f5f5' }}>
           <TheChallenge {...crewData.challengeData} />
@@ -58,7 +47,7 @@ export default () => {
                 {...crewData.theSolutions}
                 withLottie={false}
               />
-              <div style={{padding: '0 0.2rem'}}>
+              <div style={{ padding: '0 0.2rem' }}>
                 <MobileCarousel
                   list={mobileSolutionList}
                   centerSlidePercentage={95}

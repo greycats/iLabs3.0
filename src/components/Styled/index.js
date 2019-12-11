@@ -21,15 +21,19 @@ export const StyledSectionWitheTitle = styled.h1`
 `
 export const MobileBannerContainer = styled.div`
   position: relative;
+  .banner-bg {
+    width: 100%;
+  }
   .mobile-banner-text {
     position: absolute;
     top: 0;
     left: 0;
     color: #fff;
+    padding: 0.3rem 0.25rem;
 
     .mobile-title {
-      font-size: 48px;
-      line-height: 1;
+      font-size: 42px;
+      line-height: 60px;
       margin-bottom: 0.25rem;
     }
 
@@ -42,7 +46,8 @@ export const MobileBannerContainer = styled.div`
     .list-title {
       text-transform: uppercase;
       font-weight: bold;
-      margin-top: 35px;
+      margin-top: 0.35rem;
+      margin-bottom: 0.05rem;
       font-size: 12px;
       line-height: 1;
       letter-spacing: 2px;
@@ -56,6 +61,7 @@ export const MobileBannerContainer = styled.div`
     .imgs {
       margin-top: 0.1rem;
       img {
+        height: 0.28rem;
         margin-right: 0.2rem;
       }
     }

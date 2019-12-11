@@ -1,6 +1,13 @@
 import React from 'react'
 
 export default {
+  banner: {
+    title: 'Dictionary.com',
+    intro: <>How we helped Dictionary.com <br /> increase visit frequency by 10%</>,
+    services: ['UX/UI Design', 'Prototype', 'User Testing', 'Mobile Development'],
+    available: [require('assets/imgs/crew/dark-apple.png'), require('assets/imgs/crew/dark-andriod.png')],
+    mobileAvailable: [require('assets/imgs/dcom/appleicon.png'), require('assets/imgs/dcom/andriodicon.png')]
+  },
   theStory: {
     story: [
       'With 2,000,000+ trusted definitions and synonyms, 100+ million app downloads, Dictionary.com is the #1 English dictionary app for iPhone and Android.',

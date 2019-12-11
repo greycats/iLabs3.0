@@ -3,6 +3,11 @@ import React, { Fragment } from 'react'
 const isPC = window.isPC
 
 export default {
+  banner: {
+    title: 'Vizient',
+    intro: 'Unifying enterprise UI for under a single banner',
+    services: ['Visual Design', 'Prototype', 'Web Development', 'Product Management']
+  },
   theStory: {
     story: [
       'Vizient is the largest member-driven, health care performance improvement company in the country.',

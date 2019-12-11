@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import TheStory from 'components/TheStory'
-import Banner from 'components/Banner'
 import TextAndAnimation from 'components/TextAndAnimation'
 import TextDescriptionLottieSection from 'components/TextDescriptionLottieSection'
 import CommentsCard from 'components/CommentsCard'
@@ -13,9 +12,10 @@ import Intuitive from 'assets/imgs/dcom/4-Intuitive-search-function'
 import onboardingLottie from 'assets/imgs/dcom/5-Onboarding-New-User'
 import HomeScreen from 'assets/imgs/dcom/6-Ipad'
 import StyledPage from 'components/Styled/Page'
-import StyledSection from 'components/Styled/Section'
-import BannerContent from './BannerContent'
 import dcomData from 'data/dcomData'
+import CaseStudyBanner from 'components/CaseStudyBanner'
+import BgAnimation from 'assets/imgs/dcom/1-Banner.json'
+import MobileBannerBg from 'assets/imgs/dcom/mobile/banner.png'
 
 import useImage from 'hooks/useImage'
 
@@ -40,7 +40,6 @@ const MobileSolutionWrap = styled.div`
 `
 
 export default () => {
-  const BgImage = useImage('dcom-banner-image')
   const isPC = window.isPC
 
   const mobileSolutionList = dcomData.theSolution.mobileCarousel.map((item, index) => <img src={item} key={index} />)
@@ -48,16 +47,7 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        {
-          isPC ?
-            <StyledSection>
-              <Banner image={BgImage}>
-                <BannerContent />
-              </Banner>
-            </StyledSection>
-            :
-            <BannerContent />
-        }
+        <CaseStudyBanner {...dcomData.banner} BgAnimation={BgAnimation} MobileBannerBg={MobileBannerBg} />
 
         <TheStory {...dcomData.theStory}></TheStory>
 

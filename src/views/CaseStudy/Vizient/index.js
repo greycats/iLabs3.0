@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import TheStory from 'components/TheStory'
-import Banner from 'components/Banner'
-import BannerContent from './BannerContent'
 import TextAndAnimation from 'components/TextAndAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import Toolkit from './Toolkit'
@@ -18,9 +16,10 @@ import TypefaceText from 'assets/imgs/vizient/9-Typeface/text'
 import MobileTypefaceText from 'assets/imgs/vizient/mobile/Typeface.png'
 import TypefaceImage from 'assets/imgs/vizient/9-Typeface/screenshot'
 import StyledPage from 'components/Styled/Page'
-import StyledSection from 'components/Styled/Section'
 import ChallengeImg from 'assets/imgs/vizient/3-The-challenge/challenge-image.png'
-
+import CaseStudyBanner from 'components/CaseStudyBanner'
+import MobileBannerBg from 'assets/imgs/vizient/mobile/banner.png'
+import BgAnimation from 'assets/imgs/vizient/1-Banner.json'
 import vizientData from 'data/vizientData'
 
 import { AbsolutePositionWrap } from 'components/Styled'
@@ -29,23 +28,14 @@ import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import useImage from 'hooks/useImage'
 
 export default () => {
-  const VizientImage = useImage('vizient-image')
 
   const isPC = window.isPC
 
   return (
     <StyledPage>
       <div>
-        {
-          isPC ?
-            <StyledSection>
-              <Banner image={VizientImage}>
-                <BannerContent />
-              </Banner>
-            </StyledSection>
-            :
-            <BannerContent />
-        }
+        <CaseStudyBanner {...vizientData.banner} BgAnimation={BgAnimation} MobileBannerBg={MobileBannerBg} />
+
         <TheStory {...vizientData.theStory}></TheStory>
         <TextAndLottieSection
           {...vizientData.theChallenge}

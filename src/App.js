@@ -43,14 +43,6 @@ function App() {
   const loadFile = () => {
     PreloadManager.loadManifest([
       {
-        id: 'banner-mac-image',
-        src: require('assets/imgs/vizient/1-Mac.png')
-      },
-      {
-        id: 'vizient-image',
-        src: require('assets/imgs/vizient/1-Banner.png')
-      },
-      {
         id: 'vizient-mac-image',
         src: require('assets/imgs/vizient/8-Leveraged/Mac.png')
       },
@@ -61,14 +53,6 @@ function App() {
       {
         id: 'orange-path',
         src: require('assets/imgs/vizient/5-toolkit/Path 2.png')
-      },
-      {
-        id: 'dcom-banner-image',
-        src: require('assets/imgs/dcom/Bg.png')
-      },
-      {
-        id: 'dcom-brand-image',
-        src: require('assets/imgs/dcom/image.png')
       },
       {
         id: 'apple',
