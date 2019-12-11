@@ -1,7 +1,9 @@
 import React from 'react'
 import './style.css'
+import Loading from 'assets/imgs/loading.json'
+import { LottieAnimation } from 'components/AnimationPlayer'
 
-const Loading = () => <div className="lds-dual-ring"></div>
+// const Loading = () => <div className="lds-dual-ring"></div>
 
 export const FullPageLoading = () => {
   return (
@@ -12,7 +14,12 @@ export const FullPageLoading = () => {
       justifyContent: 'center',
       alignItems: 'center'
     }}>
-      <Loading />
+      <LottieAnimation
+        options={{
+          autoplay: true,
+          animationData: Loading
+        }}
+      />
     </div>
   )
 }
