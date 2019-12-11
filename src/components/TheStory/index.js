@@ -19,7 +19,7 @@ export default ({
           <AnimationPlayer
             target={
               <div className="title-wrap">
-                <CommonTitle title="The Story"></CommonTitle>
+                <div className="title">The Story</div>
               </div>
             }
             animations={[{

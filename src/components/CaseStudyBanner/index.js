@@ -16,7 +16,7 @@ const PCBanner = ({
     <div className="banner-wrap">
       <Lottie
         options={{
-          loop: false,
+          loop: true,
           autoplay: true,
           rendererSettings: {
             preserveAspectRatio: 'xMidYMid slice'

@@ -54,7 +54,7 @@ export default () => {
           {...vizientData.componentsForWeb}
           titleStyle={{
             width: '495px',
-            marginTop: '230px'
+            marginTop: '170px'
           }}
           animateIcon={ComponentsForWeb}
           animateWidth={815}
