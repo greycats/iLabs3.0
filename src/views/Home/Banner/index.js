@@ -8,7 +8,7 @@ import logo from 'logo.svg'
 export default () => {
   return (
     <div className="main intro ui-content">
-      <video src={BannerViewo} autoplay="autoplay" loop="loop" preload="auto" />
+      <video src={BannerViewo} autoplay="autoplay" loop="loop" preload="auto" style={{background: '#111'}} />
       <div style={{
         position: 'absolute',
         top: 0, left: 0,

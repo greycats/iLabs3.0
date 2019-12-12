@@ -2,6 +2,12 @@
 
 .main.intro {
   position: relative;
+  background: #111;
+  video {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: block;
+  }
 
   #pixi-bg {
     width: 100%;
