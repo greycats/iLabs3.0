@@ -1,14 +1,14 @@
 import React from 'react'
 
 import AnimationPlayer from 'components/AnimationPlayer'
-import BannerViewo from '../../../assets/imgs/video/homepage-banner.mp4'
+import BannerViewo from 'assets/imgs/video/homepage-banner.mp4'
 import history from 'history.js'
 import logo from 'logo.svg'
 
 export default () => {
   return (
     <div className="main intro ui-content">
-      <video src={BannerViewo} autoplay="autoplay" loop="loop" preload="auto" style={{background: '#111'}} />
+      <video src={BannerViewo} autoPlay="autoplay" loop="loop" preload="auto" />
       <div style={{
         position: 'absolute',
         top: 0, left: 0,
