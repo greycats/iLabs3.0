@@ -149,7 +149,7 @@ export default () => {
         <div style={{
           display: 'flex'
         }}>
-          <div style={{ width: '35%',  minWidth: '650px' }}>
+          <div style={{ minWidth: '500px' }}>
             <p style={{ fontSize: '44px', fontWeight: 'bold', color: '#fff', marginBottom: '40px' }}>Our services</p>
             <p style={{
               color: '#fff',
@@ -183,8 +183,6 @@ export default () => {
           <div style={{
               width: '65%',
               marginTop: windowWidth > 1280 ? '10%' : '25%',
-              position: 'absolute',
-              left: '50%',
               maxWidth: windowWidth > 1280 ? '800px' : '600px'
             }}>
             <StyledCarousel>

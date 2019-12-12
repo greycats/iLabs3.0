@@ -20,7 +20,8 @@ class ProjectCard extends Component {
     isStopped: true,
     direction: 1,
     expandStep: 0,
-    cardPosition: { top: 'unset', right: 'unset', bottom: 'unset', left: 'unset' }
+    cardPosition: { top: 'unset', right: 'unset', bottom: 'unset', left: 'unset' },
+    lottieHeight: 0
   }
 
   cardOnClick = () => {
@@ -39,9 +40,9 @@ class ProjectCard extends Component {
     }, () => {
       setTimeout(() => {
         this.setState({ expandStep: 2 }, () => {
-          setTimeout(() => {
-            this.setState({ expandStep: 3 })
-          }, 1000)
+          // setTimeout(() => {
+          //   this.setState({ expandStep: 3 })
+          // }, 1000)
         })
       }, 800)
     })
@@ -169,50 +170,85 @@ class ProjectCard extends Component {
                   }]
                 }
               />
-              <Animations
-                target={
-                  <div style={{
-                    position: 'absolute',
-                    ...cardPosition,
-                    height: '700px',
-                  }}>
-                    <Lottie
-                      options={{
-                        loop: false,
-                        autoplay: false,
-                        animationData: item.expandLottie,
-                        rendererSettings: {
-                          preserveAspectRatio: 'xMidYMid slice'
-                        }
-                      }}
-                      height="100%"
-                      isStopped={expandStep !== 3}
-                      eventListeners={[
-                        {
-                          eventName: 'complete',
-                          callback: () => {
-                            console.log('expand end')
-                            setTimeout(() => {
-                              history.push(item.link)
-                            }, 300)
-                          }
-                        }
-                      ]}
-                    />
-                  </div>
-                }
-                animations={[{
-                  to: {
-                    top: 60,
-                    right: max([(window.innerWidth - 1920) / 2, 0]),
-                    left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
-                    bottom: 'unset',
-                    height: 'unset'
-                  },
-                  duration: 1,
-                  delay: 1
-                }]}
-              />
+
+              {/* hide lottie, for getting lottie height */}
+              <div style={{
+                position: 'fixed',
+                top: 60,
+                right: max([(window.innerWidth - 1920) / 2, 0]),
+                left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
+                bottom: 'unset',
+                opacity: 0
+              }}
+                ref="hideLottie"
+              >
+                <Lottie
+                  options={{
+                    loop: false,
+                    autoplay: true,
+                    animationData: item.expandLottie,
+                    rendererSettings: {
+                      preserveAspectRatio: 'xMidYMid slice'
+                    }
+                  }}
+                  eventListeners={[
+                    {
+                      eventName: 'complete',
+                      callback: () => {
+                        this.setState({ expandStep: 3, lottieHeight: this.refs.hideLottie.clientHeight }, () => {
+                          console.log(this.state.lottieHeight)
+                        })
+                      }
+                    }
+                  ]}
+                />
+              </div>
+
+              {
+                expandStep === 3 ?
+                  <Animations
+                    target={
+                      <div style={{
+                        position: 'absolute',
+                        ...cardPosition,
+                        height: '700px',
+                      }}>
+                        <Lottie
+                          options={{
+                            loop: false,
+                            autoplay: true,
+                            animationData: item.expandLottie,
+                            rendererSettings: {
+                              preserveAspectRatio: 'xMidYMid slice'
+                            }
+                          }}
+                          height="100%"
+                          eventListeners={[
+                            {
+                              eventName: 'complete',
+                              callback: () => {
+                                console.log('expand end')
+                                setTimeout(() => {
+                                  history.push(item.link)
+                                }, 300)
+                              }
+                            }
+                          ]}
+                        />
+                      </div>
+                    }
+                    animations={[{
+                      to: {
+                        top: 60,
+                        right: max([(window.innerWidth - 1920) / 2, 0]),
+                        left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
+                        height: this.state.lottieHeight
+                      },
+                      duration: 1
+                    }]}
+                  />
+                  : null
+              }
             </div>
           ) : null
         }
