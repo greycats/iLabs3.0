@@ -2,7 +2,8 @@ import React from 'react'
 import { Controller, Scene } from 'react-scrollmagic'
 import { Tween } from 'react-gsap'
 import GoToArrow from '../GoToArrow'
-import Img from '../../assets/imgs/icons/footer-icons.svg'
+import IconIn from 'assets/imgs/icons/in.svg'
+import IconDribbble from 'assets/imgs/icons/dribbble.svg'
 import './index.sass'
 import history from 'history.js'
 
@@ -53,7 +54,8 @@ export default ({
                     {
                       isPC ?
                         <div className="icon-list">
-                          <img src={Img} />
+                          <a href="https://www.linkedin.com/company/interactive-labs-inc/about" target="_blank"><img src={IconIn} /></a>
+                          <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
                         </div>
                         : null
                     }
@@ -70,7 +72,8 @@ export default ({
                     {
                       isPC ? null :
                         <div className="icon-list">
-                          <img src={Img} />
+                          <a href="https://www.linkedin.com/company/interactive-labs-inc/about" target="_blank"><img src={IconIn} /></a>
+                          <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
                         </div>
                     }
                     <div className="list-title">Copyright © 2019 interactivelabs.co</div>

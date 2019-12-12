@@ -161,9 +161,8 @@ export default () => {
           }
         />
         <Grid />
-        {
-          isPC ? <AvatarComments dataList={vizientData.commentList} /> : null
-        }
+
+        {/* <AvatarComments dataList={vizientData.commentList} /> : null */}
 
       </div>
     </StyledPage>

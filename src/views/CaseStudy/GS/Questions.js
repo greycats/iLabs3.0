@@ -19,7 +19,6 @@ const RowAnimations = ({dataList = []}) => {
         dataList.map((d, index) => (
           <LottieAnimation
             key={index}
-            delay={index * .2}
             options={{
               animationData: d
             }}

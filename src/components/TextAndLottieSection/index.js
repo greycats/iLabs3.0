@@ -81,11 +81,8 @@ export default ({
                   list.map((item, index) => {
                     return (
                       <div key={index} className="challenge-item" style={itemStyle}>
-                        <div className="icon" style={{ width: isPC ? 'auto' : lottieSize.width }}>
+                        <div className="icon" style={{ width: isPC ? '86px' : lottieSize.width }}>
                           <LottieAnimation
-                            triggerRelativePosition={{
-                              top: '-200px'
-                            }}
                             delay={isPC ? index * 0.3 * lottieDuration : 0}
                             options={{
                               animationData: item.img
@@ -100,14 +97,11 @@ export default ({
                               target={
                                 (
                                   <Fragment>
-                                    <div className="name">{item.name}</div>
-                                    <div className="tezt">{item.text}</div>
+                                    <div className="name" style={isWhite ? { fontSize: 20, fontFamily: 'Gilroy-Bold', letterSpacing: 1 } : null}>{item.name}</div>
+                                    <div className="text">{item.text}</div>
                                   </Fragment>
                                 )
                               }
-                              triggerRelativePosition={{
-                                top: '-350px'
-                              }}
                               animations={[
                                 {
                                   from: {

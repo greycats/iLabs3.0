@@ -1,4 +1,5 @@
 import React from 'react'
+import Star from 'assets/imgs/crew/Star.png'
 
 export default {
   banner: {
@@ -18,6 +19,7 @@ export default {
         number: 4.5,
         decimals: 1,
         name: 'Reviews on App Store',
+        suffix: <img src={Star} />,
         img: require('assets/imgs/dcom/1-Story/Review.json')
       },
       {
