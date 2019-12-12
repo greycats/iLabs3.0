@@ -195,9 +195,7 @@ class ProjectCard extends Component {
                     {
                       eventName: 'complete',
                       callback: () => {
-                        this.setState({ expandStep: 3, lottieHeight: this.refs.hideLottie.clientHeight }, () => {
-                          console.log(this.state.lottieHeight)
-                        })
+                        this.setState({ expandStep: 3, lottieHeight: this.refs.hideLottie.clientHeight })
                       }
                     }
                   ]}
@@ -228,9 +226,7 @@ class ProjectCard extends Component {
                               eventName: 'complete',
                               callback: () => {
                                 console.log('expand end')
-                                setTimeout(() => {
-                                  history.push(item.link)
-                                }, 300)
+                                history.push(item.link)
                               }
                             }
                           ]}
