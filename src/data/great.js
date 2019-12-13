@@ -105,7 +105,7 @@ export default async () => ({
         img: (await import('assets/imgs/gs/12-typeface/Open Sans-1.png')).default,
         style: {
           width: 192,
-          height: 218,
+          // height: 218,
           marginRight: 50
         },
         mobileStyle: {
@@ -116,7 +116,7 @@ export default async () => ({
         img: (await import('assets/imgs/gs/12-typeface/Open Sans-2.png')).default,
         style: {
           width: 220,
-          height: 60
+          // height: 60
         },
         mobileStyle: {
           marginBottom: '0.3rem'
@@ -127,7 +127,7 @@ export default async () => ({
         mobileImg: (await import('assets/imgs/gs/mobile/Open Sans-3-mobile.png')).default,
         style: {
           width: 600,
-          height: 116
+          // height: 116
         },
         mobileStyle: {
           marginBottom: '0.5rem'
@@ -137,7 +137,7 @@ export default async () => ({
         img: (await import('assets/imgs/gs/12-typeface/Caecilia-1.png')).default,
         style: {
           width: 192,
-          height: 218,
+          // height: 218,
           marginRight: 50
         },
         mobileStyle: {
@@ -148,7 +148,7 @@ export default async () => ({
         img: (await import('assets/imgs/gs/12-typeface/Caecilia-2.png')).default,
         style: {
           width: 220,
-          height: 60
+          // height: 60
         },
         mobileStyle: {
           marginBottom: '0.3rem'
@@ -159,7 +159,7 @@ export default async () => ({
         mobileImg: (await import('assets/imgs/gs/mobile/Caecilia-3-mobile.png')).default,
         style: {
           width: 600,
-          height: 116
+          // height: 116
         }
       }
     ]

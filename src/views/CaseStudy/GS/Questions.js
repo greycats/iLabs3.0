@@ -139,7 +139,7 @@ export default ({ GSData = {} }) => {
             }
           />
         </div>
-        <div style={isPC ? {} : { transform: 'scale(1.2)', marginTop: '0.4rem' }}>
+        <div style={isPC ? {flex: 1} : { transform: 'scale(1.2)', marginTop: '0.4rem' }}>
           <LottieAnimation
             options={{
               animationData: approachData

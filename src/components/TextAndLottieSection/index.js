@@ -83,7 +83,7 @@ export default ({
                       <div key={index} className="challenge-item" style={itemStyle}>
                         <div className="icon" style={{ width: isPC ? '86px' : lottieSize.width }}>
                           <LottieAnimation
-                            delay={isPC ? index * 0.3 * lottieDuration : 0}
+                            delay={isPC ? index * 0.2 * lottieDuration : 0}
                             options={{
                               animationData: item.img
                             }}
@@ -111,7 +111,7 @@ export default ({
                                     opacity: 1
                                   },
                                   duration: lottieDuration,
-                                  delay: isPC ? index * 0.3 * lottieDuration : 0
+                                  delay: isPC ? index * 0.2 * lottieDuration : 0
                                 }
                               ]}
                               height={isPC ? '127px' : '1.27rem'}

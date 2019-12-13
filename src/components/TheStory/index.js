@@ -33,6 +33,9 @@ export default ({
               },
               duration: .8
             }]}
+            triggerRelativePosition={{
+              top: '-200px'
+            }}
             height={44}
           />
         </div>

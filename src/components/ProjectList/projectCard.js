@@ -32,19 +32,11 @@ class ProjectCard extends Component {
 
     const { expandStep } = this.state
     if (expandStep) return
-    const { top, right, bottom } = document.getElementById('project-card' + this.props.index).getBoundingClientRect()
+    const { top, bottom, left } = document.getElementById('project-card' + this.props.index).getBoundingClientRect()
     this.setState({
-      cardPosition: { top, right: window.innerWidth - right, bottom: window.innerHeight - bottom },
+      cardPosition: { top, left, bottom: window.innerHeight - bottom },
       expandStep: 1,
       direction: -1
-    }, () => {
-      setTimeout(() => {
-        this.setState({ expandStep: 2 }, () => {
-          // setTimeout(() => {
-          //   this.setState({ expandStep: 3 })
-          // }, 1000)
-        })
-      }, 800)
     })
   }
 
@@ -88,7 +80,7 @@ class ProjectCard extends Component {
                     width: '100%',
                     height: '100%',
                     position: 'absolute',
-                    zIndex: expandStep === 1 ? 11 : 'unset',
+                    zIndex: expandStep >= 2 && expandStep < 4 ? 11 : 'unset',
                     left: 0,
                     top: 0
                   }}
@@ -143,8 +135,52 @@ class ProjectCard extends Component {
             : null
         }
 
+        {/* hide lottie, for getting lottie height */}
         {
           expandStep >= 1 ? (
+            <div style={{
+              position: 'fixed',
+              top: 60,
+              right: max([(window.innerWidth - 1920) / 2, 0]),
+              left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
+              bottom: 'unset',
+              opacity: 0
+            }}
+              ref="hideLottie"
+            >
+              <Lottie
+                options={{
+                  loop: false,
+                  autoplay: true,
+                  animationData: item.expandLottie,
+                  rendererSettings: {
+                    preserveAspectRatio: 'xMidYMid slice'
+                  }
+                }}
+                isStopped={expandStep >= 3}
+                eventListeners={[
+                  {
+                    eventName: 'complete',
+                    callback: () => {
+                      this.setState({ expandStep: 2, lottieHeight: this.refs.hideLottie.clientHeight }, () => {
+                        setTimeout(() => {
+                          this.setState({ expandStep: 3 }, () => {
+                            setTimeout(() => {
+                              this.setState({ expandStep: 4 })
+                            })
+                          })
+                        }, 500)
+                      })
+                    }
+                  }
+                ]}
+              />
+            </div>
+          ) : null
+        }
+
+        {
+          expandStep >= 2 ? (
             <div style={{
               position: 'fixed',
               top: 0, left: 0,
@@ -171,45 +207,13 @@ class ProjectCard extends Component {
                 }
               />
 
-              {/* hide lottie, for getting lottie height */}
-              <div style={{
-                position: 'fixed',
-                top: 60,
-                right: max([(window.innerWidth - 1920) / 2, 0]),
-                left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
-                bottom: 'unset',
-                opacity: 0
-              }}
-                ref="hideLottie"
-              >
-                <Lottie
-                  options={{
-                    loop: false,
-                    autoplay: true,
-                    animationData: item.expandLottie,
-                    rendererSettings: {
-                      preserveAspectRatio: 'xMidYMid slice'
-                    }
-                  }}
-                  eventListeners={[
-                    {
-                      eventName: 'complete',
-                      callback: () => {
-                        this.setState({ expandStep: 3, lottieHeight: this.refs.hideLottie.clientHeight })
-                      }
-                    }
-                  ]}
-                />
-              </div>
-
               {
-                expandStep === 3 ?
+                expandStep >= 3 ?
                   <Animations
                     target={
                       <div style={{
                         position: 'absolute',
                         ...cardPosition,
-                        height: '700px',
                       }}>
                         <Lottie
                           options={{
@@ -221,11 +225,11 @@ class ProjectCard extends Component {
                             }
                           }}
                           height="100%"
+                          width="100%"
                           eventListeners={[
                             {
                               eventName: 'complete',
                               callback: () => {
-                                console.log('expand end')
                                 history.push(item.link)
                               }
                             }
@@ -233,15 +237,17 @@ class ProjectCard extends Component {
                         />
                       </div>
                     }
-                    animations={[{
-                      to: {
-                        top: 60,
-                        right: max([(window.innerWidth - 1920) / 2, 0]),
-                        left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
-                        height: this.state.lottieHeight
-                      },
-                      duration: 1
-                    }]}
+                    animations={[
+                      {
+                        to: {
+                          top: 60,
+                          right: max([(window.innerWidth - 1920) / 2, 0]),
+                          left: max([(window.innerWidth - 1920) / 2, 0]) + 200,
+                          bottom: window.innerHeight - (60 + this.state.lottieHeight)
+                        },
+                        // delay: .2
+                      }
+                    ]}
                   />
                   : null
               }

@@ -89,7 +89,7 @@ export default ({ GSData }) => {
                   target={
                     <img src={!isPC && item.mobileImg ? item.mobileImg : item.img} style={{ position: 'relative' }} />
                   }
-                  delay={isPC ? (index % 3) * 0.2 : (index * 0.2)}
+                  delay={isPC ? 0 : (index * 0.2)}
                   animations={
                     [{
                       from: { opacity: 0, top: '50px' },

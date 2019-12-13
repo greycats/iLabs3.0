@@ -40,17 +40,17 @@ export default {
     list: [
       {
         name: 'Many Products',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        text: "With dozen of products operating co-dependently, one of the biggest problems Vizient's facing is the lack of standardization.",
         img: require('assets/imgs/vizient/3-The-challenge/Many products.json')
       },
       {
         name: 'Inconsistency Interface',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        text: 'If every project is using a different UX toolset, with different standards, and UI patterns, the result is an inevitably disjointed experience across products.',
         img: require('assets/imgs/vizient/3-The-challenge/Inconsistency Interface.json')
       },
       {
         name: 'Missing Interactions',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        text: 'After rounds of auditing and researching, we found out that many of Vizient products are missing basic interaction to guide user behaviors. ',
         img: require('assets/imgs/vizient/3-The-challenge/Mising Interactions.json')
       },
     ]
@@ -63,17 +63,17 @@ export default {
     list: [
       {
         name: 'UI Toolkit',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        text: 'We developed a clear and concise UI toolkit, with easy-to-follow guidelines. No more guessing "what color goes there?" or "what size was that table?”',
         img: require('assets/imgs/vizient/4-The-solution/UI Toolkit.json')
       },
       {
         name: 'Clear Documentation',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        text: 'We introduced step-by-step documentation coupled with 1:1 meetings to showcase how to apply the tool-kits to design & developments. ',
         img: require('assets/imgs/vizient/4-The-solution/Clear Document.json')
       },
       {
         name: 'Design Language',
-        text: 'Jelly-o sesame snaps halvah croissant oat cake cookie. Cheesecake bear claw topping. Chupa chups apple.',
+        text: 'We established the visual language to set a foundation and provide continuity between each product. This fosters consistency and creates an impactful brand experience.',
         img: require('assets/imgs/vizient/4-The-solution/Designlanguage.json')
       },
     ]
