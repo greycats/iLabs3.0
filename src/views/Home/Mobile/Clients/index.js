@@ -60,7 +60,7 @@ export default () => {
           }]}
         />
 
-        <AnimationPlayer
+        {/* <AnimationPlayer
           target={
             <div className="client-intro">
               <MobileCarousel
@@ -81,7 +81,7 @@ export default () => {
             }
           }]}
           delay={.5}
-        />
+        /> */}
       </div>
     </div >
   )

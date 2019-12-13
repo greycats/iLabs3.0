@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import _ from 'lodash'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
 import { getImage } from 'scripts/PreloadManager.js'
 import { designListData, devListData } from 'data/services'
+import { scrollTop } from 'utils/index'
 
 const StyledCarousel = styled.div`
   .carousel .slider-wrapper {
@@ -118,7 +119,7 @@ const List = ({
                   height: '100%',
                   background: 'rgba(255, 255, 255, 0.16)',
                   transition: _.isEqual(activeItem, item) ? 'width .5s ease' : null
-                }}/>
+                }} />
               </div>
             )
           })
@@ -133,6 +134,7 @@ export default () => {
   // const [activeItem, setActiveItem] = useState(null)
   const [activeItem, setActiveItem] = useState(designListData()[0])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const scrollToList = useRef(null)
 
   const onResize = () => {
     setWindowWidth(window.innerWidth)
@@ -144,7 +146,7 @@ export default () => {
   }, [])
 
   return (
-    <div style={{background: '#2c2c2c'}}>
+    <div style={{ background: '#2c2c2c' }}>
       <div className="layout-1240 panel challenge-wrap">
         <div style={{
           display: 'flex'
@@ -162,6 +164,7 @@ export default () => {
               title='Product Design'
               activeItem={activeItem}
               onClickItem={(index, item) => {
+                scrollTop(scrollToList.current.offsetTop + 100, 200)
                 setActiveIndex(index)
                 setActiveItem(item)
               }}
@@ -175,16 +178,19 @@ export default () => {
               list={devListData()}
               activeItem={activeItem}
               onClickItem={(index, item) => {
+                scrollTop(scrollToList.current.offsetTop + 100, 200)
                 setActiveIndex(index + designListData().length)
                 setActiveItem(item)
               }}
             />
           </div>
           <div style={{
-              width: '65%',
-              marginTop: windowWidth > 1280 ? '10%' : '25%',
-              maxWidth: windowWidth > 1280 ? '800px' : '600px'
-            }}>
+            width: '65%',
+            marginTop: windowWidth > 1280 ? '10%' : '25%',
+            maxWidth: windowWidth > 1280 ? '800px' : '600px'
+          }}
+            ref={scrollToList}
+          >
             <StyledCarousel>
               <ServiceCarousel currentIndex={activeIndex} />
             </StyledCarousel>

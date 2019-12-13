@@ -40,7 +40,7 @@ export default () => {
           ]}
         />
 
-        <AnimationPlayer
+        {/* <AnimationPlayer
           target={
             <div className="client-intro">
               {
@@ -66,7 +66,7 @@ export default () => {
             }
           ]}
           delay={.5}
-        />
+        /> */}
       </div>
     </div>
   )
