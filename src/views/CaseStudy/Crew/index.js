@@ -62,11 +62,11 @@ export default () => {
           layoutType='left-text'
           {...crewData.startSmall}
           wrapStyle={isPC ? {
-            padding: '240px 0 0'
+            padding: '140px 0 0',
+            height: '900px'
           } : {
               marginTop: '1rem'
             }}
-          wrapMinHeight="988px"
           titleStyle={{
             width: '520px'
           }}
@@ -103,6 +103,9 @@ export default () => {
           wrapMinHeight="420px"
           titleStyle={{
             width: '600px'
+          }}
+          triggerRelativePosition={{
+            top: '-200px'
           }}
         />
 

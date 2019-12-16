@@ -24,6 +24,7 @@ export default () => {
       />
       <div style={{
         height: '100%',
+        width: '100vw',
         position: 'absolute',
         top: 0, left: 0,
         display: 'flex',
@@ -32,9 +33,8 @@ export default () => {
         padding: '0 25px'
       }}>
         <div style={{
-          width: '300px',
+          width: '100%',
           lineHeight: 1.3,
-          margin: '60px auto 0'
         }}>
           <AnimationPlayer
             triggerRelativePosition={{
@@ -58,7 +58,7 @@ export default () => {
                     Your Force <br />
                     Multiplier
                     </h1>
-                  <p style={{ color: '#fff', width: '280px', lineHeight: 1.6 }}>
+                  <p style={{ color: '#fff', lineHeight: '28px', letterSpacing: '1px' }}>
                     Welcome to Interactive Labs. We're a full stack digital consulting studio that crafts exceptional experiences across all industries.
                     </p>
                 </div>

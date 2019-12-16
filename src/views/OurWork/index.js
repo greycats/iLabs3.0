@@ -103,7 +103,7 @@ const Title = () => <AnimationPlayer
           lineHeight: 1,
           padding: isPC ? 0 : '0.25rem'
         }}>
-          our work
+          Our work
       </h1>
       </div>
     </div>

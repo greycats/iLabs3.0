@@ -41,7 +41,6 @@ export default () => {
           <>
             <Banner />
             <Work />
-            <br />
             <OurServices />
             <OurClients />
             <HowWeWork />

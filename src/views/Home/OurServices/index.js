@@ -115,6 +115,8 @@ const List = ({
                 }} /> {item.text}
                 <div style={{
                   position: 'absolute',
+                  left: 0,
+                  top: 0,
                   width: _.isEqual(activeItem, item) ? '90%' : '0',
                   height: '100%',
                   background: 'rgba(255, 255, 255, 0.16)',

@@ -2,7 +2,7 @@
  * @Author: Gary
  * @Date: 2019-11-18 14:09:53
  * @Last Modified by: Gary
- * @Last Modified time: 2019-11-27 16:51:14
+ * @Last Modified time: 2019-12-16 11:35:20
  * layoutType:
  * 1.left-text
  * 2.right-text
@@ -20,7 +20,8 @@ const isPC = window.isPC
 const AnimateTitle = ({
   id = hashCode(),
   title,
-  titleHeight
+  titleHeight,
+  triggerRelativePosition
 }) => (
     <AnimationPlayer
       id={id}
@@ -39,13 +40,15 @@ const AnimateTitle = ({
           }
         }
       ]}
+      triggerRelativePosition={triggerRelativePosition}
     />
   )
 
 const AnimateText = ({
   id = hashCode(),
   intro,
-  isSubTitle = ''
+  isSubTitle = '',
+  triggerRelativePosition
 }) => (
     <AnimationPlayer
       id={id}
@@ -67,6 +70,7 @@ const AnimateText = ({
           delay: .3
         }
       ]}
+      triggerRelativePosition={triggerRelativePosition}
     />
   )
 
@@ -89,15 +93,16 @@ export default ({
   wrapMinHeight = '750px',
   animationStyle = {},
   mobileAnimationStyle = {},
-  wrapStyle = {}
+  wrapStyle = {},
+  triggerRelativePosition
 }) => {
   return (
     <div className={classnames("text-animation-wrap", !isPC ? 'up-text panel' : layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight, ...wrapStyle }}>
       <div className="title-part" style={titleStyle}>
-        <AnimateTitle id={id + '0'} title={title} titleHeight={isPC ? titleHeight : (titleHeight / 60 * 0.38 + 'rem')} />
+        <AnimateTitle id={id + '0'} title={title} titleHeight={isPC ? titleHeight : (titleHeight / 60 * 0.38 + 'rem')} triggerRelativePosition={triggerRelativePosition} />
         {
           subTitle ?
-            <AnimateText id={id + '1'} intro={subTitle} isSubTitle={subTitle} />
+            <AnimateText id={id + '1'} intro={subTitle} isSubTitle={subTitle} triggerRelativePosition={triggerRelativePosition} />
             : null
         }
         <AnimateText id={id + '1'} intro={intro} />
@@ -114,6 +119,7 @@ export default ({
               }}
               width={isPC ? animateWidth : mobileAnimateWidth}
               height={isPC ? animateHeight : mobileAnimateHeight}
+              triggerRelativePosition={triggerRelativePosition}
             />
             : null
         }
