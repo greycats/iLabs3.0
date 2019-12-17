@@ -29,7 +29,7 @@ export default ({
               },
               to: {
                 opacity: 1,
-                height: '44px'
+                height: isPC ? '44px' : '32px'
               },
               duration: .8
             }]}

@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment } from 'react'
-import logo from 'logo.svg';
+import logo from 'assets/imgs/logo.svg'
 import { Power0 } from 'gsap'
 import history from 'history.js'
 

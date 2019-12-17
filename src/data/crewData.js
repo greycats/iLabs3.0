@@ -5,7 +5,7 @@ export default {
   banner: {
     title: 'Crew',
     intro: <>Communicate with teams and <br /> managers on the go</>,
-    services: ['Mobile', 'Development'],
+    services: ['Mobile Development'],
     available: [require('assets/imgs/crew/dark-apple.png'), require('assets/imgs/crew/dark-andriod.png')],
     mobileAvailable: [require('assets/imgs/crew/mobile/apple.svg'), require('assets/imgs/crew/mobile/andriod.svg')]
   },

@@ -3,7 +3,7 @@ import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
 import BannerViewo from 'assets/imgs/video/homepage-banner.mp4'
 import history from 'history.js'
-import logo from 'logo.svg'
+import logo from 'assets/imgs/logo.svg'
 
 export default () => {
   return (

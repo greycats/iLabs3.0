@@ -53,7 +53,7 @@ export default () => {
       </TextWrap>
       <img
         src={require(`assets/imgs/home/services/mobile/Rectangle 77-${serviceIndex}.png`)}
-        style={{ display: 'blocl', width: '100%' }}
+        style={{ display: 'block', width: '100%' }}
       />
     </div>
   )
