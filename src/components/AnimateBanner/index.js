@@ -15,7 +15,7 @@ export const AnimateBanner = ({ children, ...props }) => {
   const [initSprit, setInitSprit] = useState([])
   const [pixiApp] = useState(new PIXI.Application({
     antialias: true,
-    backgroundColor: 0x2c2c2c,
+    backgroundColor: 0x070608,
     forceCanvas: true,
     width: window.innerWidth,
     height: props.height || 800,

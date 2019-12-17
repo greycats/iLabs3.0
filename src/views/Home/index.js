@@ -32,7 +32,7 @@ export default () => {
         import('views/CaseStudy/Dcom'),
         import('views/CaseStudy/Crew'),
       ])
-    }, 500)
+    }, 1500)
   }, [])
   return (
     <>

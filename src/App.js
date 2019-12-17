@@ -122,6 +122,10 @@ function App() {
         id: 'service-dev-6',
         src: require("assets/imgs/home/services/Dev-6.jpg")
       }
+      // {
+      //   id: 'home-banner-video',
+      //   src: 'assets/imgs/video/homepage-banner.mp4'
+      // }
     ])
 
     PreloadManager.load()

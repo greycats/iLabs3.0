@@ -11,7 +11,16 @@ const titleData = {
 
 export default () => {
   return (
-    <div className="layout-1240" style={{ marginBottom: 140 }}>
+    <div className="layout-1240" style={{ marginBottom: 140, position: 'relative' }}>
+      <div style={{
+          position: 'absolute',
+          left: '-4500px',
+          top: '-100px',
+          height: '80px',
+          width: '5000px',
+          backgroundColor: 'white',
+          zIndex: 10
+        }}></div>
       <div style={{ marginBottom: 80 }}>
         <CommonTitle {...titleData}></CommonTitle>
       </div>
