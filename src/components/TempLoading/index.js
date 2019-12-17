@@ -17,7 +17,8 @@ export const FullPageLoading = () => {
       <LottieAnimation
         options={{
           autoplay: true,
-          animationData: Loading
+          animationData: Loading,
+          loop: true
         }}
       />
     </div>
