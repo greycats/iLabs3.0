@@ -33,9 +33,10 @@ export default () => {
         width: '100%',
         height: '680px',
         zIndex: 0
-      }}>
+      }}
+      >
         <AnimateBanner height={680} />
-      </div>} once={true} >
+      </div>} >
         <div style={{
           height: '680px',
           backgroundColor: '#070608',
@@ -47,7 +48,6 @@ export default () => {
           <div style={{
             position: 'absolute',
             left: '-4300px',
-            // top: '-100px',
             bottom: 0,
             height: '80px',
             width: '5000px',

@@ -10,29 +10,35 @@ import MobileHome from './Mobile'
 import greatSchool from 'data/great.js'
 
 export default () => {
+  const getVideo = async () => {
+    await import('assets/imgs/2x/1 Hero/Hero-animation-1920x1080.mp4')
+  }
   const getData = async () => {
     await greatSchool()
   }
   useEffect(() => {
     setTimeout(() => {
-      getData()
-      Promise.all([
-        import('views/CaseStudy/GS'),
-        import('views/CaseStudy/GS/Questions'),
-        import('views/CaseStudy/GS/TheChallenge'),
-        import('views/CaseStudy/GS/Presentation'),
-        import('views/CaseStudy/GS/FirstLook'),
-        import('views/CaseStudy/GS/Progressive'),
-        import('views/CaseStudy/GS/Others')
-      ]).then(() => [
-        import('views/CaseStudy'),
-        import('views/OurWork'),
-        import('views/Contact'),
-        import('views/CaseStudy/Vizient'),
-        import('views/CaseStudy/Dcom'),
-        import('views/CaseStudy/Crew'),
-      ])
-    }, 1500)
+      getVideo()
+      setTimeout(() => {
+        getData()
+        Promise.all([
+          import('views/CaseStudy/GS'),
+          import('views/CaseStudy/GS/Questions'),
+          import('views/CaseStudy/GS/TheChallenge'),
+          import('views/CaseStudy/GS/Presentation'),
+          import('views/CaseStudy/GS/FirstLook'),
+          import('views/CaseStudy/GS/Progressive'),
+          import('views/CaseStudy/GS/Others')
+        ]).then(() => [
+          import('views/CaseStudy'),
+          import('views/OurWork'),
+          import('views/Contact'),
+          import('views/CaseStudy/Vizient'),
+          import('views/CaseStudy/Dcom'),
+          import('views/CaseStudy/Crew'),
+        ])
+      }, 500)
+    }, 0)
   }, [])
   return (
     <>
