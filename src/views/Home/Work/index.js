@@ -5,7 +5,7 @@ import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
 
 const titleData = {
-  title: 'Featured Work',
+  title: 'Featured Works',
   intro: 'Explore some of our latest projects.',
 }
 

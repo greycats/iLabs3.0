@@ -7,12 +7,17 @@ import logo from 'logo.svg'
 import LazyLoad from 'react-lazyload'
 
 export default () => {
-  const placeholder = <video src={BannerVideo} autoPlay="autoplay" loop="loop" preload="auto" />
+  const placeholder =
+        <video autoPlay muted loop preload="auto">
+          <source src={BannerVideo} type="video/mp4" />
+        </video>
 
   return (
     <div className="main intro ui-content">
       <LazyLoad placeholder={placeholder} once={true} height='100%'>
-        <video src={require('assets/imgs/2x/1 Hero/Hero-animation-1920x1080.mp4')} autoPlay="autoplay" loop="loop" preload="auto" />
+        <video autoPlay muted loop>
+          <source src={require('assets/imgs/2x/1 Hero/Hero-animation-1920x1080.mp4')} type="video/mp4" />
+        </video>
       </LazyLoad>
       <div style={{
         position: 'absolute',
