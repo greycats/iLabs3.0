@@ -2,7 +2,7 @@ import { createContext, useReducer, useContext } from 'react'
 
 const initialState = {
   showService: false,
-  serviceImage: ''
+  serviceIndex: 0
 }
 
 function reducer (state, action) {
@@ -12,10 +12,10 @@ function reducer (state, action) {
         ...state,
         showService: action.showService
       }
-    case 'SET_SERVICE_IMAGE':
+    case 'SET_SERVICE_INDEX':
       return {
         ...state,
-        serviceImage: action.serviceImage
+        serviceIndex: action.serviceIndex
       }
     default:
       return state
@@ -31,7 +31,7 @@ export const serviceAction = (dispatch, showService) => dispatch({
   showService
 })
 
-export const serviceImageAction = (dispatch, serviceImage) => dispatch({
-  type: 'SET_SERVICE_IMAGE',
-  serviceImage
+export const serviceIndexAction = (dispatch, serviceIndex) => dispatch({
+  type: 'SET_SERVICE_INDEX',
+  serviceIndex
 })
