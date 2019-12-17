@@ -57,6 +57,7 @@
     "react-dom": "^16.11.0",
     "react-form": "^4.0.1",
     "react-gsap": "^1.2.0",
+    "react-lazyload": "^2.6.5",
     "react-lottie": "^1.2.3",
     "react-responsive-carousel": "^3.1.51",
     "react-router-config": "^5.1.1",

@@ -1,14 +1,19 @@
 import React from 'react'
 
 import AnimationPlayer from 'components/AnimationPlayer'
-import BannerViewo from 'assets/imgs/video/homepage-banner.mp4'
+import BannerVideo from 'assets/imgs/video/homepage-banner.mp4'
 import history from 'history.js'
 import logo from 'logo.svg'
+import LazyLoad from 'react-lazyload'
 
 export default () => {
+  const placeholder = <video src={BannerVideo} autoPlay="autoplay" loop="loop" preload="auto" />
+
   return (
     <div className="main intro ui-content">
-      <video src={BannerViewo} autoPlay="autoplay" loop="loop" preload="auto" />
+      <LazyLoad placeholder={placeholder} once={true} height='100%'>
+        <video src={require('assets/imgs/2x/1 Hero/Hero-animation-1920x1080.mp4')} autoPlay="autoplay" loop="loop" preload="auto" />
+      </LazyLoad>
       <div style={{
         position: 'absolute',
         top: 0, left: 0,
