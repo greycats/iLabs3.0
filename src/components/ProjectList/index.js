@@ -11,7 +11,6 @@ export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/vizient/data.json'),
-    // expandLottie: require('assets/imgs/projects/expand/Vizient.json'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
     link: '/casestudy?name=vizient',
@@ -20,7 +19,6 @@ export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/gs/data.json'),
-    // expandLottie: require('assets/imgs/projects/expand/GS.json'),
     text: 'GreatSchools',
     typeText: 'Website',
     link: '/casestudy?name=gs',
@@ -29,7 +27,6 @@ export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
-    // expandLottie: require('assets/imgs/projects/expand/Dcom.json'),
     text: 'Dictionary.com',
     typeText: 'Website',
     link: '/casestudy?name=dcom',
@@ -38,7 +35,6 @@ export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/crew/data.json'),
-    // expandLottie: require('assets/imgs/projects/expand/Crew.json'),
     text: 'Crew',
     typeText: 'App',
     link: '/casestudy?name=crew',
@@ -47,119 +43,172 @@ export const fakeData = () => [
 ]
 
 const ProjectCard = ({ item, showText = true, isMobile = false }) => {
-  const ProjectCard = () => {
-    const [hovered, setHoverd] = useState(false)
-    const [direction, setDirection] = useState(1)
-    const [animationData, setAnimationData] = useState(null)
-    const [isStopped, setIsStopped] = useState(true)
-    const getAnimationData = async () => {
-      const data = await item.hoverLottie()
-      console.log('data ' , data)
-      setAnimationData(data.default)
-    }
-    useEffect(() => {
-      getAnimationData()
-    }, [])
-    const ProjectImage = ({ hovered }) => {
-      return (
-        <div style={{
-          overflow: 'hidden'
-        }}>
-          <Animations
-            target={
-              <div style={{
-                maxWidth: '600px',
-                cursor: 'pointer',
-                height: showText ? '700px' : '445px',
-                backgroundImage: `url(${item.image})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'auto 100%',
-              }} />
-            }
-            animations={[
-              {
-                from: {
-                  transform: hovered ? 'scale(1)' : 'scale(1.1)',
-                },
-                to: {
-                  transform: hovered ? 'scale(1.1)' : 'scale(1)',
-                }
-              }
-            ]}
-          />
-        </div>
-      )
-    }
+  const [hovered, setHoverd] = useState(false)
+  const [direction, setDirection] = useState(1)
+  const [animationData, setAnimationData] = useState(null)
+  const [isStopped, setIsStopped] = useState(true)
+  const [isClicked, setIsClicked] = useState(false)
+  const maskStyle = {
+    position: 'fixed',
+    top: 0, left: 0,
+    background: '#fff',
+    width: '100vw', height: 0,
+  }
+  const getAnimationData = async () => {
+    const data = await item.hoverLottie()
+    console.log('data ', data)
+    setAnimationData(data.default)
+  }
+  useEffect(() => {
+    getAnimationData()
+  }, [])
+  const ProjectImage = ({ hovered }) => {
     return (
-      <div
-        onMouseEnter={() => {
-          setHoverd(true)
-          setDirection(1)
-          if(animationData) {
-            setIsStopped(false)
+      <div style={{
+        overflow: 'hidden'
+      }}>
+        <Animations
+          target={
+            <div style={{
+              maxWidth: '600px',
+              cursor: 'pointer',
+              height: showText ? '700px' : '445px',
+              backgroundImage: `url(${item.image})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundSize: 'auto 100%',
+            }} />
           }
-        }}
-        onMouseLeave={() => {
-          setHoverd(false)
-          setDirection(-1)
-        }}
-        onClick={(e) => {
-          setTimeout(() => {
-            history.push(item.link)
-          }, 1500)
-        }}
-      >
-        {
-          animationData
-            ? <ProjectLottie
-              isStopped={isStopped}
-              direction={direction}
-              animationData={animationData}
-              />
-            : <ProjectImage hovered={hovered} />
-        }
+          animations={[
+            {
+              from: {
+                transform: hovered ? 'scale(1)' : 'scale(1.1)',
+              },
+              to: {
+                transform: hovered ? 'scale(1.1)' : 'scale(1)',
+              }
+            }
+          ]}
+        />
       </div>
     )
   }
-
   return (
     <div style={{
       position: 'relative',
     }}>
-      <ProjectCard/>
+      <div
+        style={{
+          position: 'relative',
+          zIndex: isClicked ? 11 : 'unset'
+        }}>
+
+        <div
+          onMouseEnter={() => {
+            if (isClicked) return
+            setHoverd(true)
+            setDirection(1)
+            if (animationData) {
+              setIsStopped(false)
+            }
+          }}
+          onMouseLeave={() => {
+            if (isClicked) return
+            setHoverd(false)
+            setDirection(-1)
+          }}
+          onClick={() => {
+            if (isMobile) {
+              history.push(item.link)
+              return
+            }
+            if (isClicked) return
+            setDirection(-1)
+            setIsClicked(true)
+            setTimeout(() => {
+              history.push(item.link)
+            }, 2500)
+          }}
+        >
+          {
+            animationData
+              ? <ProjectLottie
+                isStopped={isStopped}
+                direction={direction}
+                animationData={animationData}
+              />
+              : <ProjectImage hovered={hovered} />
+          }
+        </div>
+
+        {
+          showText
+            ? <>
+              <img src={TextBg} alt="" style={{
+                position: 'absolute',
+                bottom: '80px',
+                right: '-40px',
+                zIndex: 1
+              }} />
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '300px',
+                position: 'absolute',
+                bottom: '95px',
+                right: '10px',
+                alignItems: 'flex-end',
+                zIndex: 2
+              }}>
+                <p style={{
+                  fontSize: '28px',
+                  lineHeight: '28px',
+                  fontWeight: 'bold',
+                  color: '#040404'
+                }}>{item.text}</p>
+                <p style={{
+                  fontSize: '14px',
+                  color: '#656565'
+                }}>{item.typeText}</p>
+              </div>
+            </>
+            : null
+        }
+      </div>
+
       {
-        showText
-          ? <>
-            <img src={TextBg} alt="" style={{
-              position: 'absolute',
-              bottom: '80px',
-              right: '-40px',
-              zIndex: 1
-            }} />
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '300px',
-              position: 'absolute',
-              bottom: '95px',
-              right: '10px',
-              alignItems: 'flex-end',
-              zIndex: 2
-            }}>
-              <p style={{
-                fontSize: '28px',
-                lineHeight: '28px',
-                fontWeight: 'bold',
-                color: '#040404'
-              }}>{item.text}</p>
-              <p style={{
-                fontSize: '14px',
-                color: '#656565'
-              }}>{item.typeText}</p>
-            </div>
-          </>
-          : null
+        isClicked ? (
+          <div>
+            <Animations
+              target={
+                <div style={{ ...maskStyle, zIndex: 10 }}></div>
+              }
+              animations={
+                [{
+                  to: {
+                    height: '100vh'
+                  },
+                  duration: 1,
+                  delay: 1
+                }]
+              }
+            />
+            <Animations
+              target={
+                <div style={{ ...maskStyle, zIndex: 12 }}></div>
+              }
+              animations={
+                [{
+                  to: {
+                    height: '100vh'
+                  },
+                  duration: 1,
+                  delay: 1.5
+                }]
+              }
+            />
+          </div>
+        ) : null
       }
     </div>
   )
