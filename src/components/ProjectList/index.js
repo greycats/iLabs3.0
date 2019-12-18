@@ -45,10 +45,12 @@ export const fakeData = () => [
 const ProjectImage = ({ image, height = '700px' }) => {
   return (
     <div
-      className="project-image-container"
-      style={{
+      className={window.isPC ? 'project-image-container' : ''}
+      style={ window.isPC ? {
         overflow: 'hidden',
         width: '524px'
+      } : {
+        maxWidth: '100%'
       }}
     >
       <div
@@ -80,6 +82,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
   const [animationReady, setAnimationReady] = useState(false)
   const [isStopped, setIsStopped] = useState(true)
   const getAnimationData = async () => {
+    if (!window.isPC) return
     const data = await item.hoverLottie()
     setAnimationData(data.default)
     setTimeout(() => {
