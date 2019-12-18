@@ -34,3 +34,12 @@ body {
     transform: scale(2);
   }
 }
+
+.project-image-container .project-image {
+  transform: scale(1);
+  transition: transform .5s ease-in-out;
+}
+
+.project-image-container .project-image:hover {
+  transform: scale(1.1);
+}

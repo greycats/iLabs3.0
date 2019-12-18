@@ -46,63 +46,60 @@ export const fakeData = () => [
   }
 ]
 
+const ProjectImage = ({ image, height = '700px' }) => {
+  return (
+    <div
+      className="project-image-container"
+      style={{
+        overflow: 'hidden',
+        width: '524px'
+      }}
+    >
+      <div
+        className="project-image"
+        style={{
+          maxWidth: '600px',
+          cursor: 'pointer',
+          height,
+          backgroundImage: `url(${image})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'auto 100%',
+        }} />
+    </div>
+  )
+}
+
 const ProjectCard = ({ item, showText = true, isMobile = false }) => {
   const ProjectCard = () => {
-    const [hovered, setHoverd] = useState(false)
     const [direction, setDirection] = useState(1)
     const [animationData, setAnimationData] = useState(null)
+    const [animationReady, setAnimationReady] = useState(false)
     const [isStopped, setIsStopped] = useState(true)
     const getAnimationData = async () => {
       const data = await item.hoverLottie()
-      console.log('data ' , data)
       setAnimationData(data.default)
+      setTimeout(() => {
+        // workaround for safari flash issue
+        setAnimationReady(true)
+      }, 500)
     }
     useEffect(() => {
       getAnimationData()
     }, [])
-    const ProjectImage = ({ hovered }) => {
-      return (
-        <div style={{
-          overflow: 'hidden'
-        }}>
-          <Animations
-            target={
-              <div style={{
-                maxWidth: '600px',
-                cursor: 'pointer',
-                height: showText ? '700px' : '445px',
-                backgroundImage: `url(${item.image})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'auto 100%',
-              }} />
-            }
-            animations={[
-              {
-                from: {
-                  transform: hovered ? 'scale(1)' : 'scale(1.1)',
-                },
-                to: {
-                  transform: hovered ? 'scale(1.1)' : 'scale(1)',
-                }
-              }
-            ]}
-          />
-        </div>
-      )
-    }
+
     return (
       <div
         onMouseEnter={() => {
-          setHoverd(true)
-          setDirection(1)
-          if(animationData) {
+          if (animationReady) {
+            setDirection(1)
             setIsStopped(false)
           }
         }}
         onMouseLeave={() => {
-          setHoverd(false)
-          setDirection(-1)
+          if (animationReady) {
+            setDirection(-1)
+          }
         }}
         onClick={(e) => {
           setTimeout(() => {
@@ -111,13 +108,24 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
         }}
       >
         {
-          animationData
-            ? <ProjectLottie
-              isStopped={isStopped}
-              direction={direction}
-              animationData={animationData}
+          animationReady
+            ? <div style={{
+              display: animationReady ? 'block' : 'none',
+              width: '100%',
+              height: '100%',
+            }}>
+              <ProjectLottie
+                isStopped={isStopped}
+                direction={direction}
+                animationData={animationData}
               />
-            : <ProjectImage hovered={hovered} />
+            </div>
+            : <div style={{
+              width: '100%',
+              height: '100%',
+            }}>
+              <ProjectImage height={showText ? '700px' : '445px'} image={item.image} />
+            </div>
         }
       </div>
     )
@@ -127,7 +135,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     <div style={{
       position: 'relative',
     }}>
-      <ProjectCard/>
+      <ProjectCard />
       {
         showText
           ? <>
