@@ -290,7 +290,7 @@ const ProjectList = ({ listData = fakeData() }) => {
             <div
               key={index}
               style={{
-                width: '540px',
+                width: '524px',
                 height: '750px',
                 cursor: 'pointer'
               }}>
