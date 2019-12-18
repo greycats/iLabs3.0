@@ -115,7 +115,10 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             }
           }}
           onClick={() => {
-            if (isMobile) history.push(item.link)
+            if (isMobile) {
+              history.push(item.link)
+              return
+            }
             if (isClicked) return
             setDirection(-1)
             setIsClicked(true)
