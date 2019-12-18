@@ -80,7 +80,7 @@ class ProjectCard extends Component {
                     width: '100%',
                     height: '100%',
                     position: 'absolute',
-                    zIndex: expandStep >= 2 && expandStep < 4 ? 11 : 'unset',
+                    zIndex: expandStep === 2 ? 11 : 'unset',
                     left: 0,
                     top: 0
                   }}

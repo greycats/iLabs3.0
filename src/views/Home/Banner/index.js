@@ -4,8 +4,8 @@ import AnimationPlayer from 'components/AnimationPlayer'
 import { AnimateBanner } from 'components/AnimateBanner'
 // import BannerVideo from 'assets/imgs/video/homepage-banner.mp4'
 import history from 'history.js'
-import logo from 'logo.svg'
 import LazyLoad from 'react-lazyload'
+import logo from 'assets/imgs/logo.svg'
 
 export default () => {
   // const placeholder = () => {

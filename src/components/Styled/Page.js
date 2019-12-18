@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  padding-top: 60px;
+  padding-top: 100px;
 
   .animation-banner {
     height: 55vh;

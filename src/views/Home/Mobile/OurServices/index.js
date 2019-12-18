@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { designListData, devListData } from 'data/services'
 import _ from 'lodash'
 import Arrow from 'assets/imgs/arrow.svg'
-import { useAppContext, serviceAction, serviceImageAction } from 'hooks/useShareState'
+import { useAppContext, serviceAction, serviceIndexAction } from 'hooks/useShareState'
 
 const List = ({
   title = '',
@@ -79,7 +79,7 @@ export default () => {
             onClickItem={(index, item) => {
               setActiveItem(item),
               serviceAction(dispatch, true)
-              serviceImageAction(dispatch, item.image)
+              serviceIndexAction(dispatch, index)
             }}
             list={designListData()}
           />
@@ -92,7 +92,7 @@ export default () => {
             onClickItem={(index, item) => {
               setActiveItem(item)
               serviceAction(dispatch, true)
-              serviceImageAction(dispatch, item.image)
+              serviceIndexAction(dispatch, index + 5)
             }}
           />
         </div>

@@ -50,6 +50,25 @@ footer, header, hgroup, main, menu, nav, section {
 body {
 	line-height: 1;
 }
+button,input,select,textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+img,embed,object,audio,video {
+  height: auto;
+  max-width: 100%;
+}
 ol, ul {
 	list-style: none;
 }

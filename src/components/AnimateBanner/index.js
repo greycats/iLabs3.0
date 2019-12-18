@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import _ from 'lodash'
 import ScrollMagic from 'scrollmagic'
-import logo from 'logo.svg'
+import logo from 'assets/imgs/logo.svg'
 import history from 'history.js'
 
 import { hashCode } from 'utils'

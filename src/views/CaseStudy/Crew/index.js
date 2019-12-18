@@ -56,7 +56,7 @@ export default () => {
             </div>
         }
 
-        <div className="layout-1240" style={{width: '100%', height: 2, background: '#f5f5f5'}}></div>
+        <div className="layout-1240" style={{ height: 2, background: '#f5f5f5' }}></div>
 
         <TextAndAnimation
           layoutType='left-text'
