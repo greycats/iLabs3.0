@@ -11,7 +11,7 @@ import greatSchool from 'data/great.js'
 
 export default () => {
   const getVideo = async () => {
-    await import('assets/imgs/2x/1 Hero/Hero-animation-1920x1080.mp4')
+    await import('assets/imgs/2x/Hero/Hero-animation-1920x1080.mp4')
   }
   const getData = async () => {
     await greatSchool()

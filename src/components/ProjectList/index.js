@@ -10,7 +10,7 @@ import ProjectLottie from './ProjectLottie'
 export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
-    hoverLottie: async () => await import('assets/imgs/projects/hover/Vizient.json'),
+    hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/vizient/data.json'),
     // expandLottie: require('assets/imgs/projects/expand/Vizient.json'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
@@ -19,7 +19,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
-    hoverLottie: async () => await import('assets/imgs/projects/hover/GS.json'),
+    hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/gs/data.json'),
     // expandLottie: require('assets/imgs/projects/expand/GS.json'),
     text: 'GreatSchools',
     typeText: 'Website',
@@ -28,7 +28,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
-    hoverLottie: async () => await import('assets/imgs/projects/hover/Dcom.json'),
+    hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
     // expandLottie: require('assets/imgs/projects/expand/Dcom.json'),
     text: 'Dictionary.com',
     typeText: 'Website',
@@ -37,7 +37,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
-    hoverLottie: async () => await import('assets/imgs/projects/hover/Crew.json'),
+    hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/crew/data.json'),
     // expandLottie: require('assets/imgs/projects/expand/Crew.json'),
     text: 'Crew',
     typeText: 'App',
@@ -51,11 +51,11 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     const [hovered, setHoverd] = useState(false)
     const [direction, setDirection] = useState(1)
     const [animationData, setAnimationData] = useState(null)
-    const [isStopped, setIsStopped] = useState(false)
+    const [isStopped, setIsStopped] = useState(true)
     const getAnimationData = async () => {
-      const data = await item.hoverLottie().default
+      const data = await item.hoverLottie()
       console.log('data ' , data)
-      setAnimationData(data)
+      setAnimationData(data.default)
     }
     useEffect(() => {
       getAnimationData()
@@ -96,6 +96,9 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
         onMouseEnter={() => {
           setHoverd(true)
           setDirection(1)
+          if(animationData) {
+            setIsStopped(false)
+          }
         }}
         onMouseLeave={() => {
           setHoverd(false)
@@ -112,6 +115,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             ? <ProjectLottie
               isStopped={isStopped}
               direction={direction}
+              animationData={animationData}
               />
             : <ProjectImage hovered={hovered} />
         }

@@ -43,7 +43,7 @@ export default () => {
           position: 'relative'
         }}>
           <video autoPlay muted loop style={{ width: '100%', height: '680px' }}>
-            <source src={require('assets/imgs/2x/1 Hero/Hero-animation-1920x1080.mp4')} type="video/mp4" />
+            <source src={require('assets/imgs/2x/Hero/Hero-animation-1920x1080.mp4')} type="video/mp4" />
           </video>
           <div style={{
             position: 'absolute',
