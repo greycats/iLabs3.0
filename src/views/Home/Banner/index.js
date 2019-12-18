@@ -2,31 +2,13 @@ import React from 'react'
 
 import AnimationPlayer from 'components/AnimationPlayer'
 import { AnimateBanner } from 'components/AnimateBanner'
-// import BannerVideo from 'assets/imgs/video/homepage-banner.mp4'
 import history from 'history.js'
 import LazyLoad from 'react-lazyload'
 import logo from 'assets/imgs/logo.svg'
 
 export default () => {
-  // const placeholder = () => {
-  //   return (
-  //     <video autoPlay muted loop preload="auto">
-  //       <source src={BannerVideo} type="video/mp4" />
-  //     </video>
-  //   )
-  // }
-
   return (
     <div className="main intro ui-content">
-      {/* <div style={{
-        position: 'absolute',
-        top: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 0
-      }}>
-        <AnimateBanner height={680} />
-      </div> */}
       <LazyLoad placeholder={<div style={{
         position: 'absolute',
         top: 0,
@@ -88,14 +70,6 @@ export default () => {
             ]
           }
         />
-        {/* <div style={{
-          position: 'absolute',
-          left: 0,
-          bottom: 0,
-          height: '80px',
-          width: '58%',
-          backgroundColor: '#fff'
-        }}></div> */}
       </div>
     </div>
   )
