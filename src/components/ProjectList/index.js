@@ -1,17 +1,16 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import max from 'lodash/max'
-import AnimationPlayer from 'components/AnimationPlayer'
+import AnimationPlayer, { Animations } from 'components/AnimationPlayer'
 import PreloadManager from 'scripts/PreloadManager'
 import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
-import Lottie from 'react-lottie'
-// import ProjectCard from './projectCard'
+import ProjectLottie from './ProjectLottie'
 
 export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
-    // hoverLottie: require('assets/imgs/projects/hover/Vizient.json'),
+    hoverLottie: async () => await import('assets/imgs/projects/hover/Vizient.json'),
     // expandLottie: require('assets/imgs/projects/expand/Vizient.json'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
@@ -20,7 +19,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
-    // hoverLottie: require('assets/imgs/projects/hover/GS.json'),
+    hoverLottie: async () => await import('assets/imgs/projects/hover/GS.json'),
     // expandLottie: require('assets/imgs/projects/expand/GS.json'),
     text: 'GreatSchools',
     typeText: 'Website',
@@ -29,7 +28,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
-    // hoverLottie: require('assets/imgs/projects/hover/Dcom.json'),
+    hoverLottie: async () => await import('assets/imgs/projects/hover/Dcom.json'),
     // expandLottie: require('assets/imgs/projects/expand/Dcom.json'),
     text: 'Dictionary.com',
     typeText: 'Website',
@@ -38,7 +37,7 @@ export const fakeData = () => [
   },
   {
     image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
-    // hoverLottie: require('assets/imgs/projects/hover/Crew.json'),
+    hoverLottie: async () => await import('assets/imgs/projects/hover/Crew.json'),
     // expandLottie: require('assets/imgs/projects/expand/Crew.json'),
     text: 'Crew',
     typeText: 'App',
@@ -48,82 +47,92 @@ export const fakeData = () => [
 ]
 
 const ProjectCard = ({ item, showText = true, isMobile = false }) => {
-  const [isStopped, setIsStopped] = useState(true)
-  const [direction, setDirection] = useState(1)
-  const [expandStep, setExpandStep] = useState(0)
-  const [projectPosition, setProjectPosition] = useState({ top: 0, right: 0 })
+  const ProjectCard = () => {
+    const [hovered, setHoverd] = useState(false)
+    const [direction, setDirection] = useState(1)
+    const [animationData, setAnimationData] = useState(null)
+    const [isStopped, setIsStopped] = useState(false)
+    const getAnimationData = async () => {
+      const data = await item.hoverLottie().default
+      console.log('data ' , data)
+      setAnimationData(data)
+    }
+    useEffect(() => {
+      getAnimationData()
+    }, [])
+    const ProjectImage = ({ hovered }) => {
+      return (
+        <div style={{
+          overflow: 'hidden'
+        }}>
+          <Animations
+            target={
+              <div style={{
+                maxWidth: '600px',
+                cursor: 'pointer',
+                height: showText ? '700px' : '445px',
+                backgroundImage: `url(${item.image})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundSize: 'auto 100%',
+              }} />
+            }
+            animations={[
+              {
+                from: {
+                  transform: hovered ? 'scale(1)' : 'scale(1.1)',
+                },
+                to: {
+                  transform: hovered ? 'scale(1.1)' : 'scale(1)',
+                }
+              }
+            ]}
+          />
+        </div>
+      )
+    }
+    return (
+      <div
+        onMouseEnter={() => {
+          setHoverd(true)
+          setDirection(1)
+        }}
+        onMouseLeave={() => {
+          setHoverd(false)
+          setDirection(-1)
+        }}
+        onClick={(e) => {
+          setTimeout(() => {
+            history.push(item.link)
+          }, 1500)
+        }}
+      >
+        {
+          animationData
+            ? <ProjectLottie
+              isStopped={isStopped}
+              direction={direction}
+              />
+            : <ProjectImage hovered={hovered} />
+        }
+      </div>
+    )
+  }
+
   return (
     <div style={{
-      maxWidth: '600px',
-      cursor: 'pointer',
-      height: showText ? '700px' : '445px',
       position: 'relative',
-      backgroundImage: `url(${item.image})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'auto 100%'
-    }}
-      onClick={(e) => {
-        // if (expandStep) return
-        // const { top, right } = e.target.getBoundingClientRect()
-        // setProjectPosition({ top, right })
-        // setExpandStep(1)
-        // setDirection(-1)
-        // setTimeout(() => {
-        //   setExpandStep(2)
-        // }, 300)
-        setTimeout(() => {
-          history.push(item.link)
-        }, 1500)
-      }}
-      // onMouseEnter={() => {
-      //   if (expandStep) return
-      //   setDirection(1)
-      //   setIsStopped(false)
-      // }}
-      // onMouseLeave={() => {
-      //   if (expandStep) return
-      //   setDirection(-1)
-      //   setIsStopped(false)
-      // }}
-    >
+    }}>
+      <ProjectCard/>
       {
         showText
           ? <>
-            {
-              !isMobile ?
-                (<div style={{
-                  width: '100%',
-                  height: '100%',
-                  position: 'absolute',
-                  left: 0,
-                  top: 0
-                }}
-                >
-                  <Lottie
-                    options={{
-                      loop: false,
-                      autoplay: false,
-                      animationData: item.hoverLottie,
-                      rendererSettings: {
-                        preserveAspectRatio: 'xMidYMid slice'
-                      }
-                    }}
-                    height="100%"
-                    width="100%"
-                    isStopped={isStopped}
-                    direction={direction}
-                  />
-                </div>)
-                : null
-            }
-
             <img src={TextBg} alt="" style={{
               position: 'absolute',
               bottom: '80px',
               right: '-40px',
               zIndex: 1
             }} />
-
             <div style={{
               display: 'flex',
               flexDirection: 'column',
@@ -147,77 +156,6 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             </div>
           </>
           : null
-      }
-
-      {
-        expandStep === 2 ? (
-          <div style={{
-            position: 'fixed',
-            top: 0, left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 10
-          }}>
-            <AnimationPlayer
-              target={
-                <div style={{
-                  position: 'absolute',
-                  top: 0, left: 0,
-                  background: '#fff',
-                  height: 0,
-                  width: '100%'
-                }}></div>
-              }
-              animations={
-                [{
-                  to: {
-                    height: '100%'
-                  }
-                }]
-              }
-            />
-            <AnimationPlayer
-              target={
-                <div style={{
-                  position: 'absolute',
-                  top: projectPosition.top,
-                  right: projectPosition.right
-                }}>
-                  <Lottie
-                    options={{
-                      loop: false,
-                      autoplay: true,
-                      animationData: item.expandLottie,
-                      rendererSettings: {
-                        preserveAspectRatio: 'xMidYMid slice'
-                      }
-                    }}
-                    height="720px"
-                    // width="100%"
-                    // isStopped={true}
-                    eventListeners={[
-                      {
-                        eventName: 'complete',
-                        callback: () => {
-                          console.log('expand end')
-                        }
-                      }
-                    ]}
-                  />
-                </div>
-              }
-              animations={
-                [{
-                  to: {
-                    top: 60,
-                    right: max([(window.innerWidth - 1920) / 2, 0]),
-                    left: max([(window.innerWidth - 1920) / 2, 0]) + 200
-                  }
-                }]
-              }
-            />
-          </div>
-        ) : null
       }
     </div>
   )
