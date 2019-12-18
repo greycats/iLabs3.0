@@ -11,6 +11,7 @@ const ProjectLottie = ({ onLoad = () => {}, isStopped, direction, animationData 
       direction={direction}
       isStopped={isStopped}
       width='524px'
+      height='698px'
       options={{
         autoplay: false,
         loop: false,

@@ -7,6 +7,9 @@ import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
 import ProjectLottie from './ProjectLottie'
 
+const IMAGE_WIDTH = '524px'
+const IMAGE_HEIGHT = '698px'
+
 export const fakeData = () => [
   {
     image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
@@ -42,7 +45,7 @@ export const fakeData = () => [
   }
 ]
 
-const ProjectImage = ({ image, height = '700px' }) => {
+const ProjectImage = ({ image, height = '698px' }) => {
   return (
     <div
       className={window.isPC ? 'project-image-container' : ''}
@@ -62,7 +65,7 @@ const ProjectImage = ({ image, height = '700px' }) => {
           backgroundImage: `url(${image})`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundSize: 'auto 100%',
+          backgroundSize: window.isPC ? '524px 698px' : '100% 100%',
         }} />
     </div>
   )
@@ -88,7 +91,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     setTimeout(() => {
       // workaround for safari flash issue
       setAnimationReady(true)
-    }, 500)
+    }, 1500)
   }
   useEffect(() => {
     getAnimationData()
@@ -97,23 +100,25 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
   return (
     <div style={{
       position: 'relative',
+      height: showText ? '698px' : '445px'
     }}>
       <div
         style={{
           position: 'relative',
+          height: showText ? '698px' : '445px',
           zIndex: isClicked ? 11 : 'unset'
         }}>
         <div
           onMouseEnter={() => {
-            if (isClicked) return
             if (animationReady) {
+              if (isClicked) return
               setDirection(1)
               setIsStopped(false)
             }
           }}
           onMouseLeave={() => {
-            if (isClicked) return
             if (animationReady) {
+              if (isClicked) return
               setDirection(-1)
             }
           }}
@@ -133,7 +138,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
           {
             animationReady
               ? <div style={{
-                display: animationReady ? 'block' : 'none',
+                // display: animationReady ? 'block' : 'none',
                 width: '100%',
                 height: '100%',
               }}>
@@ -147,7 +152,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
                 width: '100%',
                 height: '100%',
               }}>
-                <ProjectImage height={showText ? '700px' : '445px'} image={item.image} />
+                <ProjectImage height={showText ? '698px' : '445px'} image={item.image} />
               </div>
           }
         </div>
@@ -191,6 +196,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             <Animations
               target={
                 <div style={{ ...maskStyle, zIndex: 10 }}></div>
+                // <div/>
               }
               animations={
                 [{
@@ -205,6 +211,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             <Animations
               target={
                 <div style={{ ...maskStyle, zIndex: 12 }}></div>
+                // <div/>
               }
               animations={
                 [{
