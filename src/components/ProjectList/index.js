@@ -91,7 +91,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     setTimeout(() => {
       // workaround for safari flash issue
       setAnimationReady(true)
-    }, 1500)
+    }, 500)
   }
   useEffect(() => {
     getAnimationData()
@@ -135,10 +135,9 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             }, 2500)
           }}
         >
-          {
-            animationReady
-              ? <div style={{
-                // display: animationReady ? 'block' : 'none',
+               <div style={{
+                display: animationReady ? 'block' : 'none',
+                // opacity: animationReady ? 1 : 0,
                 width: '100%',
                 height: '100%',
               }}>
@@ -148,13 +147,14 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
                   animationData={animationData}
                 />
               </div>
-              : <div style={{
+              <div style={{
+                display: !animationReady ? 'block' : 'none',
+                // opacity: !animationReady ? 1 : 0,
                 width: '100%',
                 height: '100%',
               }}>
                 <ProjectImage height={showText ? '698px' : '445px'} image={item.image} />
               </div>
-          }
         </div>
         {
           showText
@@ -196,7 +196,6 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             <Animations
               target={
                 <div style={{ ...maskStyle, zIndex: 10 }}></div>
-                // <div/>
               }
               animations={
                 [{
@@ -211,7 +210,6 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
             <Animations
               target={
                 <div style={{ ...maskStyle, zIndex: 12 }}></div>
-                // <div/>
               }
               animations={
                 [{
