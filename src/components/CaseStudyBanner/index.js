@@ -110,5 +110,5 @@ const MobileBanner = ({
   )
 
 export default (bannerData) => {
-  return isPC ? PCBanner(bannerData) : MobileBanner(bannerData)
+  return isPC || window.innerWidth > 800 ? PCBanner(bannerData) : MobileBanner(bannerData)
 }

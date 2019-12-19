@@ -17,15 +17,12 @@ import MobileTypefaceText from 'assets/imgs/vizient/mobile/Typeface.png'
 import TypefaceImage from 'assets/imgs/vizient/9-Typeface/screenshot'
 import StyledPage from 'components/Styled/Page'
 import ChallengeImg from 'assets/imgs/vizient/3-The-challenge/challenge-image.png'
-import CaseStudyBanner from 'components/CaseStudyBanner'
-import MobileBannerBg from 'assets/imgs/vizient/mobile/banner.png'
-import BgAnimation from 'assets/imgs/vizient/1-Banner.json'
 import vizientData from 'data/vizientData'
 
 import { AbsolutePositionWrap } from 'components/Styled'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
-import useImage from 'hooks/useImage'
+import Banner from './Banner'
 
 export default () => {
 
@@ -34,7 +31,7 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        <CaseStudyBanner {...vizientData.banner} BgAnimation={BgAnimation} MobileBannerBg={MobileBannerBg} />
+        <Banner/>
 
         <TheStory {...vizientData.theStory}></TheStory>
         <TextAndLottieSection
