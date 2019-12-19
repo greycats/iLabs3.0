@@ -28,6 +28,7 @@ const routes = (
             <HomeView
               {...props}
             />
+            // <LoadingWithBanner></LoadingWithBanner>
           )
         }} />
         <Route path="/casestudy" render={(props) => {

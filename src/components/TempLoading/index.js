@@ -4,17 +4,22 @@ import { LottieAnimation } from 'components/AnimationPlayer'
 import Header from 'components/Header'
 import { CaseStudyWrap } from 'views/CaseStudy/index.js'
 import Lottie from 'react-lottie'
-import StyledPage from 'components/Styled/Page'
-import VizientBanner from 'views/CaseStudy/Vizient/Banner.js'
+import VizientImage from 'assets/imgs/banners/vizient.jpg'
+import GsImage from 'assets/imgs/banners/gs.jpg'
 
 export const LoadingWithBanner = () => {
   return (
     <>
       <CaseStudyWrap>
         <Header></Header>
-        <StyledPage>
-          <VizientBanner></VizientBanner>
-        </StyledPage>
+          <div style={{
+            paddingTop: '100px',
+            paddingLeft: '200px'
+          }}>
+            <img src={GsImage} alt="" style={{
+              width: '100%'
+            }}/>
+          </div>
       </CaseStudyWrap>
       <div style={{
         width: '100vw',

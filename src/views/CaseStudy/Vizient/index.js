@@ -6,7 +6,6 @@ import TextAndLottieSection from 'components/TextAndLottieSection'
 import Toolkit from './Toolkit'
 import Grid from './Grid'
 import Leverage from './Leverage'
-import AvatarComments from 'components/AvatarComments'
 
 import ComponentsForWeb from 'assets/imgs/vizient/6-Components'
 import BaseOn from 'assets/imgs/vizient/7-BaseOn'
@@ -158,9 +157,6 @@ export default () => {
           }
         />
         <Grid />
-
-        {/* <AvatarComments dataList={vizientData.commentList} /> : null */}
-
       </div>
     </StyledPage>
   )
