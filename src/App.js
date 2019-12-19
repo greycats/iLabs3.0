@@ -7,12 +7,26 @@ import { isPCOS, flexible } from './utils/flexible'
 import PreloadManager from 'scripts/PreloadManager'
 import classNames from 'classnames'
 import history from 'history.js'
+import useShareState, { AppContext } from 'hooks/useShareState'
 
 function App() {
+  const [store, dispatch] = useShareState()
   const [loaded, setLoaded] = useState(false)
   const [assetLoaded, setAssetLoaded] = useState(false)
 
   const [jsLoaded, setJsLoaded] = useState(true)
+
+  const disableScroll = e => {
+    if (store.showService) {
+      e.preventDefault()
+      return false
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('touchmove', disableScroll, { passive: false })
+    return () => window.removeEventListener('touchmove', disableScroll, { passive: false })
+  }, [store])
 
   const loadJS = () => Promise.all([
     // import('./views/Home'),
@@ -161,9 +175,11 @@ function App() {
     )
   }
   return (
-    <div className={classNames("App", { 'is-phone': !isPC })}>
-      {routes}
-    </div>
+    <AppContext.Provider value={{ store, dispatch }}>
+      <div className={classNames("App", { 'is-phone': !isPC })}>
+        {routes}
+      </div>
+    </AppContext.Provider>
   );
 }
 

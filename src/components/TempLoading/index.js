@@ -4,15 +4,16 @@ import { LottieAnimation } from 'components/AnimationPlayer'
 import Header from 'components/Header'
 import { CaseStudyWrap } from 'views/CaseStudy/index.js'
 import Lottie from 'react-lottie'
-import { getLocationSearch } from 'utils'
 
 import VizientImage from 'assets/imgs/banners/vizient.jpg'
 import GsImage from 'assets/imgs/banners/gs.jpg'
 import DcomImage from 'assets/imgs/banners/dcom.jpg'
 import CrewImage from 'assets/imgs/banners/crew.jpg'
+import { useAppContext } from 'hooks/useShareState'
 
 export const LoadingWithBanner = () => {
-  const name = getLocationSearch('name')
+  const { store } = useAppContext()
+
   const imageMap = {
     vizient: VizientImage,
     gs: GsImage,
@@ -27,7 +28,7 @@ export const LoadingWithBanner = () => {
             paddingTop: '100px',
             paddingLeft: '200px'
           }}>
-            <img src={imageMap[name]} alt="" style={{
+            <img src={imageMap[store.caseName]} alt="" style={{
               width: '100%'
             }}/>
           </div>
