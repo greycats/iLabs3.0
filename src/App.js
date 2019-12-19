@@ -135,6 +135,22 @@ function App() {
       {
         id: 'service-dev-6',
         src: require("assets/imgs/home/services/Dev-6.jpg")
+      },
+      {
+        id: 'loading-banner-vizient',
+        src: require('assets/imgs/banners/vizient.jpg')
+      },
+      {
+        id: 'loading-banner-gs',
+        src: require('assets/imgs/banners/gs.jpg')
+      },
+      {
+        id: 'loading-banner-crew',
+        src: require('assets/imgs/banners/crew.jpg')
+      },
+      {
+        id: 'loading-banner-dcom',
+        src: require('assets/imgs/banners/dcom.jpg')
       }
       // {
       //   id: 'home-banner-video',

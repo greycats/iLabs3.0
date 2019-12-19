@@ -5,21 +5,20 @@ import Header from 'components/Header'
 import { CaseStudyWrap } from 'views/CaseStudy/index.js'
 import Lottie from 'react-lottie'
 
-import VizientImage from 'assets/imgs/banners/vizient.jpg'
-import GsImage from 'assets/imgs/banners/gs.jpg'
-import DcomImage from 'assets/imgs/banners/dcom.jpg'
-import CrewImage from 'assets/imgs/banners/crew.jpg'
 import { useAppContext } from 'hooks/useShareState'
+import { getImage } from 'scripts/PreloadManager'
 
 export const LoadingWithBanner = () => {
   const { store } = useAppContext()
 
   const imageMap = {
-    vizient: VizientImage,
-    gs: GsImage,
-    dcom: DcomImage,
-    crew: CrewImage
+    vizient: getImage('loading-banner-vizient'),
+    gs: getImage('loading-banner-gs'),
+    dcom: getImage('loading-banner-dcom'),
+    crew: getImage('loading-banner-crew')
   }
+  console.log('store.name ', store.caseName)
+  console.log('image', imageMap[store.caseName])
   return (
     <>
       <CaseStudyWrap>
@@ -28,7 +27,7 @@ export const LoadingWithBanner = () => {
             paddingTop: '100px',
             paddingLeft: '200px'
           }}>
-            <img src={imageMap[store.caseName]} alt="" style={{
+            <img src={imageMap[store.caseName || 'vizient']} alt="" style={{
               width: '100%'
             }}/>
           </div>

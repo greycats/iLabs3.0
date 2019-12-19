@@ -12,6 +12,7 @@ const Contact = lazyImport(import('./views/Contact'))
 
 const routes = (
   <Suspense fallback={(() => {
+    console.log('show banner loading',  window.isPC || window.innerWidth > 800)
     return window.isPC || window.innerWidth > 800
       ? <LoadingWithBanner />
       : <FullPageLoading />
