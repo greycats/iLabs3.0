@@ -20,8 +20,13 @@ const InputField = React.forwardRef((props, ref) => {
 
   // Build the field
   return (
-    <div style={{ position: 'relative', width: isPC ? '90%' : '100%' }}>
-      <input {...getInputProps({ ref, ...rest })} />
+    <div className="input-wrap">
+      {
+        rest.type === 'textarea' ?
+          <textarea {...getInputProps({ ref, ...rest })} />
+          :
+          <input {...getInputProps({ ref, ...rest })} />
+      }
 
       {/*
         Let's inline some validation and error information
@@ -81,7 +86,7 @@ export default ({
     <Form className="contact-form">
       <div>
         <label>
-          Name *{" "}
+          <span>Name *</span>
           <InputField
             field="name"
             validate={value => (!value ? "Required" : false)}
@@ -91,7 +96,7 @@ export default ({
       </div>
       <div>
         <label>
-          Email *{" "}
+          <span>Email *</span>
           <InputField
             field="email"
             placeholder="Your email"
@@ -116,7 +121,7 @@ export default ({
       </div>
       <div>
         <label>
-          Linkedin{" "}
+          <span>Linkedin</span>
           <InputField
             field="linkedIn"
             placeholder="Can you share your Linkedin profile?"
@@ -125,11 +130,12 @@ export default ({
       </div>
       <div>
         <label>
-          Project *{" "}
+          <span>Project *</span>
           <InputField
             field="project"
             placeholder="Tell us about the project"
             validate={value => (!value ? "Required" : false)}
+            type="textarea"
           />
         </label>
       </div>
@@ -141,10 +147,8 @@ export default ({
       {isSubmitting ? (
         ""
       ) : (
-          <div style={{
-            textAlign: "center"
-          }}>
-            <button type="submit" disabled={!canSubmit} style={{ marginRight: '100px' }}>
+          <div className="btn-wrap">
+            <button type="submit" disabled={!canSubmit}>
               <GoToArrow text="Send Message" />
             </button>
           </div>

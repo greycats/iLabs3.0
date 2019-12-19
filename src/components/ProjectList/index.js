@@ -46,12 +46,12 @@ const ProjectImage = ({ image, height = '700px' }) => {
   return (
     <div
       className={window.isPC ? 'project-image-container' : ''}
-      style={ window.isPC ? {
+      style={window.isPC ? {
         overflow: 'hidden',
         width: '524px'
       } : {
-        maxWidth: '100%'
-      }}
+          maxWidth: '100%'
+        }}
     >
       <div
         className="project-image"
@@ -228,6 +228,15 @@ export const MobileList = ({ listData = fakeData() }) => {
     <div>
       {
         listData.map((item, index) => {
+          const titleData = {
+            title: item.text,
+            intro: item.typeText,
+            titleSize: '28px',
+            titleMargin: '15px',
+            wrapStyle: {
+              marginBottom: '0.4rem'
+            }
+          }
           return (
             <div key={index}>
               <div style={{
@@ -256,7 +265,7 @@ export const MobileList = ({ listData = fakeData() }) => {
                 }}
                 target={
                   <div>
-                    <CommonTitle title={item.text} intro={item.typeText} />
+                    <CommonTitle {...titleData} />
                   </div>
                 }
                 animations={[
@@ -270,8 +279,6 @@ export const MobileList = ({ listData = fakeData() }) => {
                   }
                 ]}
               />
-              <br />
-              <br />
             </div>
           )
         })
@@ -284,9 +291,10 @@ const ProjectList = ({ listData = fakeData() }) => {
   return (
     <div style={{
       display: 'flex',
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
       flexWrap: 'wrap',
-      minWidth: '1280px',
+      minWidth: '1240px',
+      paddingRight: '50px'
     }}>
       {
         listData.map((item, index) => {
@@ -297,8 +305,9 @@ const ProjectList = ({ listData = fakeData() }) => {
               key={index}
               style={{
                 width: '524px',
-                height: '750px',
-                cursor: 'pointer'
+                height: '700px',
+                cursor: 'pointer',
+                marginBottom: '100px'
               }}>
               <AnimationPlayer
                 triggerRelativePosition={{
@@ -307,8 +316,8 @@ const ProjectList = ({ listData = fakeData() }) => {
                 target={
                   <div style={{
                     marginTop: isSecondItemOfRow ? '50px' : '0',
-                    position: 'relative',
-                    left: isSecondItemOfRow ? '20px' : 'unset'
+                    // position: 'relative',
+                    // left: isSecondItemOfRow ? '20px' : 'unset'
                   }}>
                     <ProjectCard item={item} index={index} />
                   </div>

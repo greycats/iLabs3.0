@@ -1,33 +1,58 @@
 @import 'assets/styles/variable.sass'
 
 .contact-page
-  min-height: 1350px
   position: relative
+  min-height: 100vh
+  overflow: hidden
   .contact-wrap
-    max-width: 1280px
-    margin: 0 auto 140px
-    padding-top: 100px
-    min-height: 100vh
+    width: 800px
+    min-height: 1180px
+    margin: 0 auto
+    padding: 200px 0
     .contact-content
-      max-width: 800px
       margin: 0 auto
+      position: relative
       .content-title
         font-size: 64px
         color: $title-color
         line-height: 80px
         margin-bottom: 40px
       .contact-intro
-        margin-bottom: 50px
+        margin-bottom: 80px
+        letter-spacing: 1px
+        line-height: 28px
+      .bg-left
+        position: absolute
+        top: -20px
+        left: -940px
+      .bg-right
+        position: absolute
+        top: -248px
+        left: 703px
 
 .is-phone .contact-wrap
+  width: 100%
   padding: 1rem 0.25rem 0
-  margin-bottom: 1rem
-  .content-title
-    font-size: 48px
-    line-height: 60px
-  .contact-intro
-    line-height: 28px
-
+  margin-bottom: 0.4rem
+  min-height: 10.68rem
+  .contact-content
+    .content-title
+      font-size: 48px
+      line-height: 60px
+      margin-bottom: 0.15rem
+    .contact-intro
+      margin-bottom: 0.5rem
+    .bg-left
+      width: 2.85rem
+      position: absolute
+      top: 2.3rem
+      left: -1.5rem
+      transform: rotate(50deg)
+    .bg-right
+      width: 3.2rem
+      position: absolute
+      top: -1.1rem
+      left: 1.02rem
 
 
 .contact-form
@@ -40,14 +65,9 @@
 
   input,
   textarea,
-    padding: 0.3rem
     border: none
-    border-bottom: 1px solid #bbbbbb
+    border-bottom: 1px solid #e8e8e8
     font-size: 16px
-
-  textarea
-    width: 300px
-    height: 150px
 
   textarea:focus
   input:focus
@@ -57,25 +77,45 @@
   label
     display: flex
     justify-content: space-between
-    align-items: center
-    margin-bottom: 30px
-
+    align-items: flex-start
+    margin-bottom: 40px
+    span
+      font-weight: bold
+      height: 40px
+      line-height: 40px
+    .input-wrap
+      width: 600px
+      position: relative
     input
-      width: 85%
-      line-height: 1.5
-
+      width: 100%
+      line-height: 1.75
+      letter-spacing: 0.5px
+    textarea
+      width: 100%
+      height: 114px
+      resize: none
     .info
       position: absolute
-      top: 30px
+      top: 40px
       left: 0
       font-size: 12px
       color: #f44336
+    textarea+.info
+      top: 116px
+
+  .btn-wrap
+    width: 600px
+    float: right
 
 .is-phone .contact-form
   label
     display: block
     margin-bottom: 50px
-    input
+    .input-wrap
       width: 100%
-      line-height: 34px
-      padding: 0
+      input
+        line-height: 34px
+        padding: 0
+  .btn-wrap
+    width: 100%
+    float: none

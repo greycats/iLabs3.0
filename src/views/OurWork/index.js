@@ -9,12 +9,17 @@ import CommonTitle from 'components/CommonTitle'
 
 import _ from 'lodash'
 
+const isPC = window.isPC
+
 const titleData = {
   title: 'A selection of case studies',
-  intro: 'Explore some of our latest projects.'
+  titleSize: '32px',
+  titleMargin: '15px',
+  intro: 'Explore some of our latest projects.',
+  wrapStyle: {
+    marginBottom: isPC ? '88px' : '0.4rem'
+  }
 }
-
-const isPC = window.isPC
 
 const NavBar = ({
   NavList = [
@@ -161,8 +166,8 @@ export default ({ data = fakeData() }) => {
             <div style={{
               position: 'absolute',
               left: 0,
-              top: '520px',
-              height: '80px',
+              top: '500px',
+              height: '100px',
               width: '58%',
               backgroundColor: '#fff'
             }}></div>
@@ -176,18 +181,14 @@ export default ({ data = fakeData() }) => {
           history.replace(`/ourwork?type=${type}`)
         }}
       /> */}
-      <div className="layout-1240" style={isPC ? {} : { padding: '0.4rem  0.25rem 0' }}>
+      <div className="layout-1240" style={isPC ? {marginBottom: 50} : { padding: '0.4rem  0.25rem 0' }}>
         <CommonTitle {...titleData}></CommonTitle>
-        <br />
-        <br />
         {
           isPC ?
             <ProjectList listData={listData} />
             :
             <MobileList />
         }
-        <br />
-        <br />
       </div>
       <Footer />
     </div >

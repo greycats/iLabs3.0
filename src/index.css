@@ -98,3 +98,6 @@ a:link, a:visited {
 a:hover {
 	color: inherit;
 }
+input, textarea, button {
+  outline:none
+}

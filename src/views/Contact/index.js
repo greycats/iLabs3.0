@@ -4,6 +4,8 @@ import Footer from 'components/Footer'
 import Form from './Form'
 import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
+import LeftBg from 'assets/imgs/contact/Contact-graphic-left.svg'
+import RightBg from 'assets/imgs/contact/Contact-graphic-right.svg'
 import './style.sass'
 
 export default () => {
@@ -31,13 +33,26 @@ export default () => {
                   In the meantime, take a look at our selected projects.
                 </p>
                 :
-                <p>We have strive to collaborate with enthusiastic teams, big or small to create something special.We have a tried a true process that will take your ideas and concepts and actualize them into the real world.</p>
+                <p>
+                  We have strive to collaborate with enthusiastic teams, big or small to create something special.
+                  <br />
+                  We have a tried a true process that will take your ideas and concepts and actualize them into the real world.
+                </p>
             }
           </div>
           {
             isSent ? <GoToArrow text="Our Work" onClick={() => {
               history.push('/ourwork')
             }} /> : <Form onSubmitted={() => setIsSent(true)} />
+          }
+          {
+            isSent ? (
+              <>
+                <img className="bg-left" src={LeftBg} />
+                <img className="bg-right" src={RightBg} />
+              </>
+            )
+              : null
           }
         </div>
       </div>

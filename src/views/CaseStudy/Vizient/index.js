@@ -143,7 +143,10 @@ export default () => {
           animateWidth={isPC ? 740 : '100%'}
           SubComponent={
             () => {
-              const CirclePosition = isPC ? AbsolutePositionWrap({ left: '-25px', top: '320px' }) : styled.div``
+              const CirclePosition = isPC ? styled.div`
+                margin-top: 60px;
+                margin-left: -30px;
+              ` : styled.div``
               return (
                 <CirclePosition>
                   <LottieAnimation

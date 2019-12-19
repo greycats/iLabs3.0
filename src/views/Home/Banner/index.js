@@ -31,7 +31,7 @@ export default () => {
             position: 'absolute',
             left: '-4300px',
             bottom: 0,
-            height: '80px',
+            height: '100px',
             width: '5000px',
             backgroundColor: 'white',
             zIndex: 10
