@@ -7,6 +7,8 @@ import { getImage } from 'scripts/PreloadManager.js'
 import { designListData, devListData } from 'data/services'
 import { scrollTop } from 'utils/index'
 
+import LazyLoad from 'react-lazyload'
+
 const StyledCarousel = styled.div`
   .carousel .slider-wrapper {
     padding: 100px;
@@ -26,7 +28,8 @@ const StyledCarousel = styled.div`
 `
 
 const ServiceCarousel = ({
-  currentIndex = 0
+  currentIndex = 0,
+  onChange
 }) => {
   return (
     <Carousel
@@ -39,39 +42,63 @@ const ServiceCarousel = ({
       centerMode={true}
       centerSlidePercentage={100}
       transitionTime={800}
+      swipeable={false}
+      onClickItem={index => onChange(index)}
     >
       <div>
-        <img src={getImage('service-design-1')} />
+        <LazyLoad placeholder={<img src={getImage('service-design-1')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Design-1.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-design-2')} />
+        <LazyLoad placeholder={<img src={getImage('service-design-2')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Design-2.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-design-3')} />
+        <LazyLoad placeholder={<img src={getImage('service-design-3')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Design-3.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-design-4')} />
+        <LazyLoad placeholder={<img src={getImage('service-design-4')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Design-4.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-design-5')} />
+        <LazyLoad placeholder={<img src={getImage('service-design-5')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Design-5.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-dev-1')} />
+        <LazyLoad placeholder={<img src={getImage('service-dev-1')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Dev-1.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-dev-2')} />
+        <LazyLoad placeholder={<img src={getImage('service-dev-2')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Dev-2.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-dev-3')} />
+        <LazyLoad placeholder={<img src={getImage('service-dev-3')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Dev-3.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-dev-4')} />
+        <LazyLoad placeholder={<img src={getImage('service-dev-4')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Dev-4.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-dev-5')} />
+        <LazyLoad placeholder={<img src={getImage('service-dev-5')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Dev-5.jpg')} />
+        </LazyLoad>
       </div>
       <div>
-        <img src={getImage('service-dev-6')} />
+        <LazyLoad placeholder={<img src={getImage('service-dev-6')} once={true}/>}>
+          <img src={require('assets/imgs/2x/OurServices/Dev-6.jpg')} />
+        </LazyLoad>
       </div>
     </Carousel>
   )
@@ -194,7 +221,14 @@ export default () => {
             ref={scrollToList}
           >
             <StyledCarousel>
-              <ServiceCarousel currentIndex={activeIndex} />
+              <ServiceCarousel currentIndex={activeIndex} onChange={index => {
+                setActiveIndex(index)
+                if (index < designListData().length) {
+                  setActiveItem(designListData()[index])
+                } else {
+                  setActiveItem(devListData()[index - designListData().length])
+                }
+              }}/>
             </StyledCarousel>
           </div>
         </div>
