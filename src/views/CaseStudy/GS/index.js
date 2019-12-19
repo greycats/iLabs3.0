@@ -15,7 +15,7 @@ const Presentation = lazyImport(import('views/CaseStudy/GS/Presentation'))
 const FirstLook = lazyImport(import('views/CaseStudy/GS/FirstLook'))
 const Progressive = lazyImport(import('views/CaseStudy/GS/Progressive'))
 const Others = lazyImport(import('views/CaseStudy/GS/Others'))
-import { FullPageLoading } from 'components/TempLoading'
+import { LoadingWithBanner } from 'components/TempLoading'
 
 export default () => {
   const [GSData, setGSdata] = useState(null)
@@ -30,7 +30,7 @@ export default () => {
   }, [])
 
   if (!GSData) {
-    return <FullPageLoading />
+    return <LoadingWithBanner />
   }
 
   return (

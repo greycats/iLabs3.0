@@ -1,8 +1,10 @@
 import { createContext, useReducer, useContext } from 'react'
+import { getLocationSearch } from 'utils'
 
 const initialState = {
   showService: false,
-  serviceIndex: 0
+  serviceIndex: 0,
+  caseName: getLocationSearch('name')
 }
 
 function reducer (state, action) {
@@ -16,6 +18,11 @@ function reducer (state, action) {
       return {
         ...state,
         serviceIndex: action.serviceIndex
+      }
+    case 'SET_CASE_NAME':
+      return {
+        ...state,
+        caseName: action.caseName
       }
     default:
       return state
@@ -34,4 +41,9 @@ export const serviceAction = (dispatch, showService) => dispatch({
 export const serviceIndexAction = (dispatch, serviceIndex) => dispatch({
   type: 'SET_SERVICE_INDEX',
   serviceIndex
+})
+
+export const caseNameAction = (dispatch, caseName) => dispatch({
+  type: 'SET_CASE_NAME',
+  caseName
 })
