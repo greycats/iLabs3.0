@@ -32,9 +32,11 @@ const Solution = ({ GSData }) => {
       }}
       animateWidth={1550}
       animateHeight={1000}
-      mobileAnimateWidth="130%"
-      mobileAnimationStyle={{
+      mobileAnimationStyle={isPC ? {
         marginLeft: '-38%'
+      } : {
+        transform: 'scale(1.5)',
+        marginTop: '1rem'
       }}
     />
   )

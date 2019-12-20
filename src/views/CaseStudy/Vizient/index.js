@@ -141,18 +141,18 @@ export default () => {
           }}
           animateIcon={ColorImage}
           animateWidth={isPC ? 740 : '100%'}
+          mobileAnimationStyle={{
+            transform: 'scale(1.2)'
+          }}
           SubComponent={
             () => {
-              const CirclePosition = isPC ? styled.div`
-                margin-top: 60px;
-                margin-left: -30px;
-              ` : styled.div``
+              const CirclePosition = isPC ? AbsolutePositionWrap({ left: '-25px', top: '335px' }) : styled.div``
               return (
                 <CirclePosition>
                   <LottieAnimation
-                    triggerRelativePosition={{
-                      top: '-200px'
-                    }}
+                    // triggerRelativePosition={{
+                    //   top: '-200px'
+                    // }}
                     width={isPC ? '458px' : 'auto'}
                     height={isPC ? '100px' : 'auto'}
                     options={{

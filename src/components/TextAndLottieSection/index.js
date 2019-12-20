@@ -66,7 +66,7 @@ export default ({
           <AnimationPlayer
             target={
               <div>
-                <CommonTitle intro={intro} width={titleWidth} isWhite={isWhite}></CommonTitle>
+                <CommonTitle intro={intro} width={titleWidth} isWhite={isWhite} minHeight='1.12rem'></CommonTitle>
               </div>
             }
             animations={animationOptions.intro}

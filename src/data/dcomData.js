@@ -1,5 +1,5 @@
 import React from 'react'
-import Star from 'assets/imgs/crew/Star.png'
+import Star from 'assets/imgs/crew/Star.svg'
 
 export default {
   banner: {

@@ -56,7 +56,11 @@ export default () => {
             </div>
         }
 
-        <div className="layout-1240" style={{ height: 2, background: '#f5f5f5' }}></div>
+        {
+          isPC ?
+            <div className="layout-1240" style={{ height: 2, background: '#f5f5f5' }}></div>
+            : null
+        }
 
         <TextAndAnimation
           layoutType='left-text'
@@ -76,6 +80,10 @@ export default () => {
             width: '720px'
           }}
           animateWidth={888}
+          mobileAnimationStyle={{
+            transform: 'scale(1.5)',
+            marginTop: '0.5rem'
+          }}
         />
 
         <TextAndAnimation
@@ -92,6 +100,10 @@ export default () => {
             height: '950px'
           }}
           animateWidth={1200}
+          mobileAnimationStyle={{
+            transform: 'scale(1.5)',
+            marginTop: '0.5rem'
+          }}
         />
 
         <TextAndAnimation

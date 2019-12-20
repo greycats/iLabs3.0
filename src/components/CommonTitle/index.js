@@ -10,7 +10,7 @@ export default ({
   isWhite = false,
   width = 'auto',
   titleSize = isPC ? '44px' : '32px',
-  titleMargin = isPC ? '32px' : '0.32rem',
+  titleMargin = isPC ? '32px' : '0.1rem',
   introSize = '16px',
   minHeight = 'auto',
   wrapStyle = {}

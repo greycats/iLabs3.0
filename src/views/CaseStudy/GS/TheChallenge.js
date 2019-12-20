@@ -64,7 +64,8 @@ const Challenge = ({ GSData }) => {
       <TextAndLottieSection
         {...GSData.theChallenge}
         itemStyle={{
-          width: 275
+          width: isPC ? 275 : '85%',
+          marginTop: '0.45rem'
         }}
         titleWidth={600}
         isWhite={true}
