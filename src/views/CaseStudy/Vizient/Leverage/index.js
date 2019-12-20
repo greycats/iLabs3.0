@@ -7,9 +7,9 @@ import Grey from 'assets/imgs/vizient/8-Leveraged/Grey Pattern.png'
 import './index.sass'
 import useImage from 'hooks/useImage'
 
-const isPC = window.isPC
 
 export default () => {
+  const isPC = window.isPC
   const controllerId = 'leverage-trigger'
   const clientWidth = min([document.body.clientWidth, 1920])
   const imgWidth = clientWidth - (clientWidth - 1240) / 2

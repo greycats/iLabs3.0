@@ -12,9 +12,8 @@ const GridWrap = styled.div`
   height: 1620px;
 `
 
-const isPC = window.isPC
-
 export default () => {
+  const isPC = window.isPC
   const controllerId = 'grid-trigger'
   const titleData = {
     title: 'Grid',
@@ -70,7 +69,7 @@ export default () => {
     }
   ]
   return (
-    <GridWrap style={{height: isPC ? '1620px' : '9.7rem'}}>
+    <GridWrap style={{ height: isPC ? '1620px' : '9.7rem' }}>
       <div className="layout-1240 panel">
         <div id={controllerId} />
         <ControllerList animateList={animateList} controllerId={controllerId} />

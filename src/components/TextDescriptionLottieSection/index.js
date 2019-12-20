@@ -3,7 +3,6 @@ import React from 'react'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
 
-const isPC = window.isPC
 
 export default ({
   intro = '',
@@ -12,10 +11,11 @@ export default ({
   style = {},
   lottieIcon = null
 }) => {
+  const isPC = window.isPC
   return (
     <div style={style}>
       <div className="layout-1240 panel" style={{ position: 'relative' }}>
-        <div className="title-part" style={isPC ? {} : {height: '8.6rem'}}>
+        <div className="title-part" style={isPC ? {} : { height: '8.6rem' }}>
           <AnimationPlayer
             target={
               <div className="title-wrap">

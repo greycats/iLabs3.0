@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import TextAndLottieSection from 'components/TextAndLottieSection'
 import { LottieAnimation } from 'components/AnimationPlayer'
 
-const isPC = window.isPC
 
 const Challenge = ({ GSData }) => {
+  const isPC = window.isPC
   const [animationData, setAnimationData] = useState(null)
 
   const challengeCircleStyle = (index) => {
@@ -56,7 +56,7 @@ const Challenge = ({ GSData }) => {
       background: 'linear-gradient(75.35deg, #2D79D1 -30.2%, #52A2FF 118.87%)',
       position: 'relative',
       overflow: 'hidden',
-      height: isPC ? 1615 : '19.2rem'
+      minHeight: isPC ? 1615 : '19.2rem'
     }}>
       <div style={challengeCircleStyle(0)}></div>
       <div style={challengeCircleStyle(1)}></div>

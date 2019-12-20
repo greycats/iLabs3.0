@@ -4,8 +4,6 @@ import MobileCarousel from 'components/MobileCarousel'
 import { LottieAnimation } from 'components/AnimationPlayer'
 import './index.sass'
 
-const isPC = window.isPC
-
 const lottieList = ({ howList }) => howList.map((item, index) => {
   return (
     <div key={index} className="how-item">
@@ -32,6 +30,7 @@ const lottieList = ({ howList }) => howList.map((item, index) => {
 })
 
 export default () => {
+  const isPC = window.isPC
   useEffect(() => {
   }, [])
   const titleData = {

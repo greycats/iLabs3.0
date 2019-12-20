@@ -15,8 +15,6 @@ import classnames from 'classnames'
 import { hashCode } from 'utils'
 import './index.sass'
 
-const isPC = window.isPC
-
 const AnimateTitle = ({
   id = hashCode(),
   title,
@@ -96,6 +94,7 @@ export default ({
   wrapStyle = {},
   triggerRelativePosition
 }) => {
+  const isPC = window.isPC
   return (
     <div className={classnames("text-animation-wrap", !isPC ? 'up-text panel' : layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight, ...wrapStyle }}>
       <div className="title-part" style={titleStyle}>

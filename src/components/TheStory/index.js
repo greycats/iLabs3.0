@@ -4,7 +4,6 @@ import CommonTitle from 'components/CommonTitle'
 import './index.sass'
 
 const lottieDuration = .8
-const isPC = window.isPC
 
 export default ({
   story = [],
@@ -12,6 +11,7 @@ export default ({
   dataList = [],
   wrapStyle = {}
 }) => {
+  const isPC = window.isPC
   return (
     <div style={{ position: 'relative', ...wrapStyle }}>
       <div className="layout-1240 panel story-wrap">
