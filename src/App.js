@@ -7,12 +7,26 @@ import { isPCOS, flexible } from './utils/flexible'
 import PreloadManager from 'scripts/PreloadManager'
 import classNames from 'classnames'
 import history from 'history.js'
+import useShareState, { AppContext } from 'hooks/useShareState'
 
 function App() {
+  const [store, dispatch] = useShareState()
   const [loaded, setLoaded] = useState(false)
   const [assetLoaded, setAssetLoaded] = useState(false)
 
   const [jsLoaded, setJsLoaded] = useState(true)
+
+  const disableScroll = e => {
+    if (store.showService) {
+      e.preventDefault()
+      return false
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('touchmove', disableScroll, { passive: false })
+    return () => window.removeEventListener('touchmove', disableScroll, { passive: false })
+  }, [store])
 
   const loadJS = () => Promise.all([
     // import('./views/Home'),
@@ -121,6 +135,22 @@ function App() {
       {
         id: 'service-dev-6',
         src: require("assets/imgs/home/services/Dev-6.jpg")
+      },
+      {
+        id: 'loading-banner-vizient',
+        src: require('assets/imgs/banners/vizient.jpg')
+      },
+      {
+        id: 'loading-banner-gs',
+        src: require('assets/imgs/banners/gs.jpg')
+      },
+      {
+        id: 'loading-banner-crew',
+        src: require('assets/imgs/banners/crew.jpg')
+      },
+      {
+        id: 'loading-banner-dcom',
+        src: require('assets/imgs/banners/dcom.jpg')
       }
       // {
       //   id: 'home-banner-video',
@@ -161,9 +191,11 @@ function App() {
     )
   }
   return (
-    <div className={classNames("App", { 'is-phone': !isPC })}>
-      {routes}
-    </div>
+    <AppContext.Provider value={{ store, dispatch }}>
+      <div className={classNames("App", { 'is-phone': !isPC })}>
+        {routes}
+      </div>
+    </AppContext.Provider>
   );
 }
 

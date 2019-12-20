@@ -7,8 +7,7 @@ import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
 import ProjectLottie from './ProjectLottie'
 
-const IMAGE_WIDTH = '524px'
-const IMAGE_HEIGHT = '698px'
+import { useAppContext, caseNameAction } from 'hooks/useShareState'
 
 export const fakeData = () => [
   {
@@ -17,7 +16,8 @@ export const fakeData = () => [
     text: 'Vizient',
     typeText: 'Enterprise platform',
     link: '/casestudy?name=vizient',
-    type: 'enterprise'
+    type: 'enterprise',
+    name: 'vizient'
   },
   {
     image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
@@ -25,7 +25,8 @@ export const fakeData = () => [
     text: 'GreatSchools',
     typeText: 'Website',
     link: '/casestudy?name=gs',
-    type: 'enterprise'
+    type: 'enterprise',
+    name: 'gs'
   },
   {
     image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
@@ -33,7 +34,8 @@ export const fakeData = () => [
     text: 'Dictionary.com',
     typeText: 'Website',
     link: '/casestudy?name=dcom',
-    type: 'enterprise'
+    type: 'enterprise',
+    name: 'dcom'
   },
   {
     image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
@@ -41,7 +43,8 @@ export const fakeData = () => [
     text: 'Crew',
     typeText: 'App',
     link: '/casestudy?name=crew',
-    type: 'enterprise'
+    type: 'enterprise',
+    name: 'crew'
   }
 ]
 
@@ -80,6 +83,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     width: '100vw', height: 0,
   }
 
+  const { dispatch } = useAppContext()
   const [direction, setDirection] = useState(1)
   const [animationData, setAnimationData] = useState(null)
   const [animationReady, setAnimationReady] = useState(false)
@@ -128,6 +132,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
               return
             }
             if (isClicked) return
+            caseNameAction(dispatch, item.name)
             setDirection(-1)
             setIsClicked(true)
             setTimeout(() => {

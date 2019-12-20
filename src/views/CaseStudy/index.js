@@ -11,7 +11,7 @@ const Dcom = lazy(() => import('views/CaseStudy/Dcom'))
 const Crew = lazy(() => import('views/CaseStudy/Crew'))
 const GS = lazy(() => import('views/CaseStudy/GS'))
 
-const CaseStudyWrap = window.isPC ?
+export const CaseStudyWrap = window.isPC || window.innerWidth > 800?
   styled.div`
     min-width: 1366px;
     max-width: 1920px;
