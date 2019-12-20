@@ -24,7 +24,7 @@ const PCBanner = ({
           animationData: BgAnimation
         }}
       />
-      <Animations
+      {/* <Animations
         target={
           <div className="banner-text">
             <div className="banner-title">{title}</div>
@@ -66,7 +66,7 @@ const PCBanner = ({
             }
           ]
         }
-      />
+      /> */}
     </div>
   )
 
