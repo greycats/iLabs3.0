@@ -5,8 +5,6 @@ import "./style.sass";
 
 import { useForm, useField, splitFormProps } from "react-form";
 
-const isPC = window.isPC
-
 const InputField = React.forwardRef((props, ref) => {
   // Let's use splitFormProps to get form-specific props
   const [field, fieldOptions, rest] = splitFormProps(props);

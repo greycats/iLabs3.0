@@ -118,9 +118,9 @@ export default () => {
             width: '550px'
           }}
           mobileAnimationStyle={{
-            marginLeft: '-25%'
+            transform: 'scale(1.5)',
+            marginTop: '0.5rem'
           }}
-          mobileAnimateWidth='120%'
           titleHeight={isPC ? 60 : 120}
         />
 

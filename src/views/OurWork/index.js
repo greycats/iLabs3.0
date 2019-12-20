@@ -181,7 +181,7 @@ export default ({ data = fakeData() }) => {
           history.replace(`/ourwork?type=${type}`)
         }}
       /> */}
-      <div className="layout-1240" style={isPC ? {marginBottom: 50} : { padding: '0.4rem  0.25rem 0' }}>
+      <div className="layout-1240" style={isPC ? { marginBottom: 50 } : { padding: '0.4rem  0.25rem 0' }}>
         <CommonTitle {...titleData}></CommonTitle>
         {
           isPC ?

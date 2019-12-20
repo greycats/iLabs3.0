@@ -7,11 +7,11 @@ import IconDribbble from 'assets/imgs/icons/dribbble.svg'
 import './index.sass'
 import history from 'history.js'
 
-const isPC = window.isPC
 
 export default ({
   controllerId = 'footer-trigger'
 }) => {
+  const isPC = window.isPC
   return (
     <div className="footer-wrap">
       <div id={controllerId} style={{ position: 'absolute', top: isPC ? (300 - (window.innerHeight / 2.5)) : -(window.innerHeight / 2) }}></div>

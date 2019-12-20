@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import './index.sass'
 
 const lottieDuration = .8
-const isPC = window.isPC
 
 export default ({
   title = '',
@@ -24,6 +23,7 @@ export default ({
   isWhite = false,
   withLottie = true
 }) => {
+  const isPC = window.isPC
   const animationOptions = {
     title: [
       {

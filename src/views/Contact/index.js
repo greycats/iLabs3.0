@@ -6,6 +6,7 @@ import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
 import LeftBg from 'assets/imgs/contact/Contact-graphic-left.svg'
 import RightBg from 'assets/imgs/contact/Contact-graphic-right.svg'
+import { scrollTop } from 'utils'
 import './style.sass'
 
 export default () => {
@@ -43,7 +44,10 @@ export default () => {
           {
             isSent ? <GoToArrow text="Our Work" onClick={() => {
               history.push('/ourwork')
-            }} /> : <Form onSubmitted={() => setIsSent(true)} />
+            }} /> : <Form onSubmitted={() => {
+              setIsSent(true)
+              scrollTop(0, 500)
+            }} />
           }
           {
             isSent ? (

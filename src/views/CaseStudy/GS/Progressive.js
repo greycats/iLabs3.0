@@ -1,9 +1,9 @@
 import React from 'react'
 import TextAndAnimation from 'components/TextAndAnimation'
 
-const isPC = window.isPC
 
 export default ({ GSData }) => {
+  const isPC = window.isPC
   return (
     <TextAndAnimation
       layoutType='left-text'

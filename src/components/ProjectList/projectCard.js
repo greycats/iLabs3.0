@@ -5,8 +5,6 @@ import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import Lottie from 'react-lottie'
 
-const isPC = window.isPC
-
 class ProjectCard extends Component {
 
   static defaultProps = {
@@ -25,7 +23,7 @@ class ProjectCard extends Component {
   }
 
   cardOnClick = () => {
-    if (!isPC) {
+    if (!window.isPC) {
       history.push(this.props.item.link)
       return
     }

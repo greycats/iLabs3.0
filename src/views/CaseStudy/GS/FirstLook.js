@@ -4,8 +4,6 @@ import TextAndAnimation from 'components/TextAndAnimation'
 import { LottieAnimation } from 'components/AnimationPlayer'
 import MobileCarousel from 'components/MobileCarousel'
 
-const isPC = window.isPC
-
 const PCImgs = () => (
   <div className="layout-1240" style={{
     position: 'relative'
@@ -62,6 +60,7 @@ const MobileImgs = ({ GSData }) => {
 }
 
 const FirstLook = ({ GSData }) => {
+  const isPC = window.isPC
   return (
     <div style={{
       background: 'linear-gradient(0deg, #E0EBF8, #E0EBF8)',

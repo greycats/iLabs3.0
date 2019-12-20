@@ -4,8 +4,6 @@ import { MobileBannerContainer } from 'components/Styled'
 import { Animations } from 'components/AnimationPlayer'
 import './index.sass'
 
-const isPC = window.isPC
-
 const PCBanner = ({
   title = '',
   intro = '',
@@ -110,5 +108,5 @@ const MobileBanner = ({
   )
 
 export default (bannerData) => {
-  return isPC || window.innerWidth > 800 ? PCBanner(bannerData) : MobileBanner(bannerData)
+  return window.isPC || window.innerWidth > 800 ? PCBanner(bannerData) : MobileBanner(bannerData)
 }

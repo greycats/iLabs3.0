@@ -3,9 +3,9 @@ import TextAndAnimation from 'components/TextAndAnimation'
 import CommentsCard from 'components/CommentsCard'
 import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
-const isPC = window.isPC
 
 export default ({ GSData }) => {
+  const isPC = window.isPC
   return (
     <div>
       <TextAndAnimation

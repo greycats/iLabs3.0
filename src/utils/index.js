@@ -25,7 +25,6 @@ export const lazyImport = cb => lazy(() => cb)
 
 
 export const scrollTop = (number = 0, time) => {
-  console.log(number)
   if (!time) {
     document.body.scrollTop = document.documentElement.scrollTop = number;
     return number
