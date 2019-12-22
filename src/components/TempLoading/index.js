@@ -7,30 +7,41 @@ import Lottie from 'react-lottie'
 
 import { useAppContext } from 'hooks/useShareState'
 import { getImage } from 'scripts/PreloadManager'
+import LazyLoad from 'react-lazyload'
+
+const imageMap = () => ({
+  vizient: getImage('loading-banner-vizient'),
+  gs: getImage('loading-banner-gs'),
+  dcom: getImage('loading-banner-dcom'),
+  crew: getImage('loading-banner-crew')
+})
 
 export const LoadingWithBanner = () => {
   const { store } = useAppContext()
 
-  const imageMap = {
-    vizient: getImage('loading-banner-vizient'),
-    gs: getImage('loading-banner-gs'),
-    dcom: getImage('loading-banner-dcom'),
-    crew: getImage('loading-banner-crew')
-  }
-  console.log('store.name ', store.caseName)
-  console.log('image', imageMap[store.caseName])
   return (
     <>
       <CaseStudyWrap>
         <Header></Header>
-          <div style={{
-            paddingTop: '100px',
-            paddingLeft: '200px'
-          }}>
-            <img src={imageMap[store.caseName || 'vizient']} alt="" style={{
+        <div style={{
+          paddingTop: '100px',
+          paddingLeft: '200px'
+        }}>
+          <LazyLoad placeholder={
+            <img src={imageMap()[store.caseName || 'vizient']} alt="" style={{
               width: '100%'
-            }}/>
-          </div>
+            }} />
+          }>
+            <img src={{
+              vizient: require('assets/imgs/banners/vizient2x.jpg'),
+              gs: require('assets/imgs/banners/gs2x.jpg'),
+              dcom: require('assets/imgs/banners/dcom2x.jpg'),
+              crew: require('assets/imgs/banners/crew2x.jpg'),
+            }[store.caseName || 'vizient']} alt="" style={{
+              width: '100%'
+            }} />
+          </LazyLoad>
+        </div>
       </CaseStudyWrap>
       <div style={{
         width: '100vw',

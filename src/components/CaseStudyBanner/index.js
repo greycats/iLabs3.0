@@ -1,7 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie'
 import { MobileBannerContainer } from 'components/Styled'
-import { Animations } from 'components/AnimationPlayer'
 import './index.sass'
 
 const PCBanner = ({
@@ -22,49 +21,6 @@ const PCBanner = ({
           animationData: BgAnimation
         }}
       />
-      {/* <Animations
-        target={
-          <div className="banner-text">
-            <div className="banner-title">{title}</div>
-            <div className="banner-intro">{intro}</div>
-            <div className="support">
-              <div className="services">
-                <div className="support-title">SERVICES</div>
-                {
-                  services.map((item, index) => (
-                    <p key={index}>{item}</p>
-                  ))
-                }
-              </div>
-              {
-                available.length ?
-                  <div className="available">
-                    <div className="support-title">Available on</div>
-                    {
-                      available.map((item, index) => (
-                        <img src={item} key={index} />
-                      ))
-                    }
-                  </div>
-                  : null
-              }
-            </div>
-          </div>
-        }
-        animations={
-          [
-            {
-              from: {
-                opacity: 0
-              },
-              to: {
-                opacity: 1
-              },
-              duration: 1
-            }
-          ]
-        }
-      /> */}
     </div>
   )
 

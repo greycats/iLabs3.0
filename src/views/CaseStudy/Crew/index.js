@@ -11,7 +11,6 @@ import TheChallenge from './TheChalleng'
 import MobileCarousel from 'components/MobileCarousel'
 import crewData from 'data/crewData'
 import CaseStudyBanner from 'components/CaseStudyBanner'
-// import BgAnimation from 'assets/imgs/crew/1-Banner'
 import BgAnimation from 'assets/imgs/banners/Crew/@1x/Crew-3-Floating-@1x/data.json'
 import MobileBannerBg from 'assets/imgs/crew/mobile/banner.png'
 

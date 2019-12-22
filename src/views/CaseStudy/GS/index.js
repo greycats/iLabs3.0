@@ -4,7 +4,6 @@ import StyledPage from 'components/Styled/Page'
 import greatSchool from '../../../data/great.js'
 import CaseStudyBanner from 'components/CaseStudyBanner'
 import MobileBannerBg from 'assets/imgs/gs/mobile/banner.png'
-// import BgAnimation from 'assets/imgs/gs/1-hero'
 import BgAnimation from 'assets/imgs/banners/GS/@1x/GreatSchools-3-Floating-@1x/data.json'
 
 import { lazyImport } from 'utils'
