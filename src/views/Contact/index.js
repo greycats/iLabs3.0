@@ -29,7 +29,7 @@ export default () => {
               isSent
                 ?
                 <p>
-                  We’ll follow up with you iwithin the next 24 hours.
+                  We’ll follow up with you within the next 24 hours.
                   <br />
                   In the meantime, take a look at our selected projects.
                 </p>

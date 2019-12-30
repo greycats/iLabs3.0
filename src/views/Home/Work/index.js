@@ -6,7 +6,7 @@ import history from 'history.js'
 
 const titleData = {
   title: 'Featured work',
-  intro: 'Explore some of our latest projects.',
+  intro: 'Explore some of our recent projects',
 }
 
 export default () => {
