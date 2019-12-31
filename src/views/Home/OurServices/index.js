@@ -111,7 +111,7 @@ const List = ({
   onClickItem = () => { }
 }) => {
   return (
-    <div>
+    <div style={{ marginBottom: '25px' }}>
       <p style={{
         fontSize: '32px',
         fontWeight: 'bold',
@@ -133,8 +133,10 @@ const List = ({
                   fontSize: '16px',
                   lineHeight: '28px',
                   cursor: 'pointer',
-                  position: 'relative'
-                }} onClick={() => {
+                  position: 'relative',
+                  opacity: _.isEqual(activeItem, item) ? 1 : 0.5
+                }}
+                onClick={() => {
                   onClickItem(index, item)
                 }}>
                 <img src={item.icon} alt="" style={{
@@ -204,21 +206,18 @@ export default () => {
               title='Product Design'
               activeItem={activeItem}
               onClickItem={(index, item) => {
-                scrollTop(scrollToList.current.offsetTop + 100, 200)
+                scrollTop(scrollToList.current.offsetTop, 200)
                 setActiveIndex(index)
                 setActiveItem(item)
               }}
               list={designListData()}
             />
-            <br />
-            <br />
-            <br />
             <List
               title='Product Development'
               list={devListData()}
               activeItem={activeItem}
               onClickItem={(index, item) => {
-                scrollTop(scrollToList.current.offsetTop + 100, 200)
+                scrollTop(scrollToList.current.offsetTop, 200)
                 setActiveIndex(index + designListData().length)
                 setActiveItem(item)
               }}
