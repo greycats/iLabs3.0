@@ -69,4 +69,38 @@ export const loadGSdata = () => {
   ])
 }
 
+export const loadCrewData = () => {
+  load([
+    {
+      id: 'crew_phone-double',
+      src: import('assets/imgs/2x/CaseStudy/crew/phone-double/data.json')
+    },
+    {
+      id: 'crew_phone-single',
+      src: import('assets/imgs/2x/CaseStudy/crew/phone-single/data.json')
+    }
+  ])
+}
+
+export const loadVizientData = () => {
+  load([
+    {
+      id: 'viz_components',
+      src: import('assets/imgs/2x/CaseStudy/vizient/components/data.json')
+    },
+    {
+      id: 'viz_color',
+      src: import('assets/imgs/2x/CaseStudy/vizient/color/data.json')
+    },
+    {
+      id: 'viz_material',
+      src: import('assets/imgs/2x/CaseStudy/vizient/material/data.json')
+    },
+    {
+      id: 'viz_type',
+      src: import('assets/imgs/2x/CaseStudy/vizient/type/data.json')
+    }
+  ])
+}
+
 export const getResult = id => _result[id]
