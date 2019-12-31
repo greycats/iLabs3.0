@@ -55,7 +55,7 @@ export default () => {
                 Your Force <br /> Multiplier
             </h1>
               <p>
-                Welcome to Interactive Labs. We're a full stack digital consulting studio that crafts exceptional experiences across all industries.
+                Amplify your product development efforts, capitalize on every market opportunity or insight.
             </p>
             </div>
           }
@@ -63,7 +63,7 @@ export default () => {
             [
               {
                 to: {
-                  height: '280px'
+                  height: '320px'
                 },
                 duration: 0.8
               }

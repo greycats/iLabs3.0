@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import styled from 'styled-components'
 import Banner from './Banner'
 import OurClients from './OurClients'
 import HowWeWork from './HowWeWork'
@@ -9,6 +10,11 @@ import Work from './Work'
 import MobileHome from './Mobile'
 import greatSchool from 'data/great.js'
 
+const HomeWrap = styled.div`
+    min-width: 1366px;
+    margin: 0 auto;
+    overflow: hidden;
+  `
 export default () => {
   const getVideo = async () => {
     await import('assets/imgs/2x/Hero/Hero-animation-1920x1080.mp4')
@@ -44,13 +50,13 @@ export default () => {
     <>
       {
         window.isPC ?
-          <>
+          <HomeWrap>
             <Banner />
             <Work />
             <OurServices />
             <OurClients />
             <HowWeWork />
-          </>
+          </HomeWrap>
           : <MobileHome />
       }
       <Footer />

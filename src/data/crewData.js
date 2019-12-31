@@ -95,20 +95,20 @@ export default {
     {
       title: 'An invaluable tool for our team',
       content: '"Crew had been an invaluable tool for our team to keep each other updating with ongoing situations pertaining to our job. I like the option for private chat, and to input a daily schedule as well. Well worth the time."',
-      name: 'ErisTay',
-      date: 'Female, 32'
+      name: 'fiyre43',
+      date: 'on iTunes, Dec 20, 2018'
     },
     {
       title: 'Highly recommend',
       content: '"Great tool for teams. It has been an incredible way to keep tasks and communication centralized and organized. Would highly recommend."',
-      name: 'Ashley Martinez',
-      date: 'Female, 25'
+      name: 'Dannyboy',
+      date: 'on ITunes, Nov 20, 2015'
     },
     {
       title: 'A true asset',
       content: '"I am the President of Axcess Professional Staffing and this app has been a true asset to use and our team! Thanks and koodos to CREW"',
-      name: 'ROCMom',
-      date: 'Female, 50'
+      name: 'Stacie Johnson',
+      date: 'on Google Play, Feb 22, 2016'
     }
   ]
 }

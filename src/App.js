@@ -93,6 +93,10 @@ function App() {
         src: require('assets/imgs/projects/thumbnails/dcom.png'),
       },
       {
+        id: 'service-bg',
+        src: require("assets/imgs/home/services/service-bg.png")
+      },
+      {
         id: 'service-design-1',
         src: require("assets/imgs/home/services/Design-1.jpg")
       },

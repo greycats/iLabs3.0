@@ -46,57 +46,57 @@ const ServiceCarousel = ({
       onClickItem={index => onChange(index)}
     >
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-design-1')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-design-1')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Design-1.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-design-2')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-design-2')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Design-2.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-design-3')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-design-3')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Design-3.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-design-4')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-design-4')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Design-4.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-design-5')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-design-5')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Design-5.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-dev-1')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-dev-1')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Dev-1.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-dev-2')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-dev-2')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Dev-2.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-dev-3')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-dev-3')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Dev-3.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-dev-4')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-dev-4')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Dev-4.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-dev-5')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-dev-5')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Dev-5.jpg')} />
         </LazyLoad>
       </div>
       <div>
-        <LazyLoad placeholder={<img src={getImage('service-dev-6')} once={true}/>}>
+        <LazyLoad placeholder={<img src={getImage('service-dev-6')} once={true} />}>
           <img src={require('assets/imgs/2x/OurServices/Dev-6.jpg')} />
         </LazyLoad>
       </div>
@@ -111,12 +111,13 @@ const List = ({
   onClickItem = () => { }
 }) => {
   return (
-    <div>
+    <div style={{ marginBottom: '25px' }}>
       <p style={{
         fontSize: '32px',
         fontWeight: 'bold',
         color: '#fff',
-        marginBottom: '30px'
+        marginBottom: '30px',
+        lineHeight: 1.4
       }}>{title}</p>
       <div>
         {
@@ -126,17 +127,20 @@ const List = ({
                 key={index}
                 style={{
                   display: 'flex',
-                  height: '60px',
+                  height: '44px',
                   alignItems: 'center',
                   color: '#fff',
-                  fontSize: '22px',
+                  fontSize: '16px',
+                  lineHeight: '28px',
                   cursor: 'pointer',
-                  position: 'relative'
-                }} onClick={() => {
+                  position: 'relative',
+                  opacity: _.isEqual(activeItem, item) ? 1 : 0.5
+                }}
+                onClick={() => {
                   onClickItem(index, item)
                 }}>
                 <img src={item.icon} alt="" style={{
-                  marginRight: '10px',
+                  marginRight: '17px',
                   marginLeft: '32px',
                   width: '32px'
                 }} /> {item.text}
@@ -147,7 +151,8 @@ const List = ({
                   width: _.isEqual(activeItem, item) ? '90%' : '0',
                   height: '100%',
                   background: 'rgba(255, 255, 255, 0.16)',
-                  transition: _.isEqual(activeItem, item) ? 'width .5s ease' : null
+                  transition: _.isEqual(activeItem, item) ? 'width .5s ease' : null,
+                  borderRadius: '6px'
                 }} />
               </div>
             )
@@ -159,9 +164,9 @@ const List = ({
 }
 
 export default () => {
-  const [activeIndex, setActiveIndex] = useState(0)
-  // const [activeItem, setActiveItem] = useState(null)
-  const [activeItem, setActiveItem] = useState(designListData()[0])
+  const [activeIndex, setActiveIndex] = useState(-1)
+  const [activeItem, setActiveItem] = useState(null)
+  // const [activeItem, setActiveItem] = useState(designListData()[0])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const scrollToList = useRef(null)
 
@@ -175,61 +180,83 @@ export default () => {
   }, [])
 
   return (
-    <div style={{ background: '#2c2c2c' }}>
+    <div style={{ background: '#2c2c2c', overflow: 'hidden' }}>
       <div className="layout-1240 panel challenge-wrap">
         <div style={{
           display: 'flex'
         }}>
-          <div style={{ minWidth: '500px' }}>
-            <p style={{ fontSize: '44px', fontWeight: 'bold', color: '#fff', marginBottom: '40px' }}>Our services</p>
+          <div style={{ width: '408px', marginRight: '67px' }}>
+            <p
+              style={{
+                fontSize: '44px',
+                lineHeight: 1,
+                fontWeight: 'bold',
+                color: '#fff',
+                marginBottom: '27px'
+              }}
+            >Our services</p>
             <p style={{
               color: '#fff',
               fontSize: '24px',
-              width: '490px',
-              lineHeight: '1.8',
-              marginBottom: '100px'
-            }}>We offer a wide variety of services that cover the gamut of full stack development.</p>
+              lineHeight: '1.5',
+              marginBottom: '64px',
+              opacity: 0.56
+            }}>Our multidisciplinary team of 70+ can execute on all key areas of the product development cycle.</p>
             <List
               title='Product Design'
               activeItem={activeItem}
               onClickItem={(index, item) => {
-                scrollTop(scrollToList.current.offsetTop + 100, 200)
+                scrollTop(scrollToList.current.offsetTop, 200)
                 setActiveIndex(index)
                 setActiveItem(item)
               }}
               list={designListData()}
             />
-            <br />
-            <br />
-            <br />
             <List
               title='Product Development'
               list={devListData()}
               activeItem={activeItem}
               onClickItem={(index, item) => {
-                scrollTop(scrollToList.current.offsetTop + 100, 200)
+                scrollTop(scrollToList.current.offsetTop, 200)
                 setActiveIndex(index + designListData().length)
                 setActiveItem(item)
               }}
             />
           </div>
           <div style={{
-            width: '65%',
-            marginTop: windowWidth > 1280 ? '10%' : '25%',
-            maxWidth: windowWidth > 1280 ? '800px' : '600px'
+            // width: '65%',
+            flex: 1,
+            // marginTop: windowWidth > 1280 ? '10%' : '25%',
+            // maxWidth: windowWidth > 1280 ? '800px' : '600px'
           }}
             ref={scrollToList}
           >
-            <StyledCarousel>
-              <ServiceCarousel currentIndex={activeIndex} onChange={index => {
-                setActiveIndex(index)
-                if (index < designListData().length) {
-                  setActiveItem(designListData()[index])
-                } else {
-                  setActiveItem(devListData()[index - designListData().length])
-                }
-              }}/>
-            </StyledCarousel>
+            {
+              activeIndex !== -1 ?
+                <StyledCarousel>
+                  <ServiceCarousel currentIndex={activeIndex} onChange={index => {
+                    setActiveIndex(index)
+                    if (index < designListData().length) {
+                      setActiveItem(designListData()[index])
+                    } else {
+                      setActiveItem(devListData()[index - designListData().length])
+                    }
+                  }} />
+                </StyledCarousel>
+                :
+                <div style={{ position: 'relative' }}>
+                  <div style={{
+                    position: 'absolute',
+                    width: '1266px',
+                    top: 0,
+                    left: 0
+                  }}>
+                    <LazyLoad placeholder={<img src={getImage('service-bg')} once={true} />}>
+                      <img src={require('assets/imgs/2x/OurServices/service-bg.png')} />
+                    </LazyLoad>
+                  </div>
+                </div>
+            }
           </div>
         </div>
       </div>

@@ -59,7 +59,7 @@ export default () => {
                     Multiplier
                     </h1>
                   <p style={{ color: '#fff', lineHeight: '28px', letterSpacing: '1px' }}>
-                    Welcome to Interactive Labs. We're a full stack digital consulting studio that crafts exceptional experiences across all industries.
+                    Amplify your product development efforts, capitalize on every market opportunity or insight.
                     </p>
                 </div>
               </div>

@@ -15,7 +15,7 @@ const titleData = {
   title: 'A selection of case studies',
   titleSize: '32px',
   titleMargin: '15px',
-  intro: 'Explore some of our latest projects.',
+  intro: 'Explore some of our recent projects',
   wrapStyle: {
     marginBottom: isPC ? '88px' : '0.4rem'
   }

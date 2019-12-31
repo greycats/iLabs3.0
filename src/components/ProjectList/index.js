@@ -111,55 +111,56 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
           position: 'relative',
           height: showText ? '698px' : '445px',
           zIndex: isClicked ? 11 : 'unset'
-        }}>
-        <div
-          onMouseEnter={() => {
-            if (animationReady) {
-              if (isClicked) return
-              setDirection(1)
-              setIsStopped(false)
-            }
-          }}
-          onMouseLeave={() => {
-            if (animationReady) {
-              if (isClicked) return
-              setDirection(-1)
-            }
-          }}
-          onClick={() => {
-            if (isMobile) {
-              history.push(item.link)
-              return
-            }
+        }}
+        onMouseEnter={() => {
+          if (animationReady) {
             if (isClicked) return
-            caseNameAction(dispatch, item.name)
+            setDirection(1)
+            setIsStopped(false)
+          }
+        }}
+        onMouseLeave={() => {
+          if (animationReady) {
+            if (isClicked) return
             setDirection(-1)
-            setIsClicked(true)
-            setTimeout(() => {
-              history.push(item.link)
-            }, 2500)
-          }}
+          }
+        }}
+        onClick={() => {
+          if (isMobile) {
+            history.push(item.link)
+            return
+          }
+          if (isClicked) return
+          caseNameAction(dispatch, item.name)
+          setDirection(-1)
+          setIsClicked(true)
+          setTimeout(() => {
+            history.push(item.link)
+          }, 2500)
+        }}
+      >
+        <div
         >
-               <div style={{
-                display: animationReady ? 'block' : 'none',
-                // opacity: animationReady ? 1 : 0,
-                width: '100%',
-                height: '100%',
-              }}>
-                <ProjectLottie
-                  isStopped={isStopped}
-                  direction={direction}
-                  animationData={animationData}
-                />
-              </div>
-              <div style={{
-                display: !animationReady ? 'block' : 'none',
-                // opacity: !animationReady ? 1 : 0,
-                width: '100%',
-                height: '100%',
-              }}>
-                <ProjectImage height={showText ? '698px' : '445px'} image={item.image} />
-              </div>
+          <div style={{
+            display: animationReady ? 'block' : 'none',
+            // opacity: animationReady ? 1 : 0,
+            width: '100%',
+            height: '100%',
+          }}>
+            <ProjectLottie
+              isStopped={isStopped}
+              direction={direction}
+              animationData={animationData}
+            />
+          </div>
+          <div style={{
+            display: !animationReady ? 'block' : 'none',
+            // opacity: !animationReady ? 1 : 0,
+            width: '100%',
+            height: '100%',
+          }}>
+            <ProjectImage height={showText ? '698px' : '445px'} image={item.image} />
+          </div>
         </div>
         {
           showText
