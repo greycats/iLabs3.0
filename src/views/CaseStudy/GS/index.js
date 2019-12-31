@@ -17,6 +17,9 @@ const Progressive = lazyImport(import('views/CaseStudy/GS/Progressive'))
 const Others = lazyImport(import('views/CaseStudy/GS/Others'))
 import { LoadingWithBanner } from 'components/TempLoading'
 
+// import PreloadManager from 'scripts/PreloadManager'
+import { load } from 'utils/lazyload'
+
 export default () => {
   const [GSData, setGSdata] = useState(null)
 
@@ -25,8 +28,17 @@ export default () => {
     setGSdata(data)
   }
 
+  const loadData = () => {
+    load([
+      {
+        id: 'challenge',
+        src: import('assets/imgs/2x/CaseStudy/gs/challenge/data.json'),
+      }
+    ])
+  }
   useEffect(() => {
     getData()
+    loadData()
   }, [])
 
   if (!GSData) {
