@@ -2,7 +2,6 @@ import React from 'react'
 import { getResult } from 'utils/lazyload'
 
 export default async () => {
-  console.log('result ', getResult('challenge'))
   return {
     banner: {
       title: 'GreatSchool',
@@ -33,7 +32,7 @@ export default async () => {
         {
           name: 'Simple navigation',
           text: 'Simplify navigation to showcase the most important data upfront',
-          img: getResult('challenge') || (await import('assets/imgs/gs/3-challenge/1-navigation')).default
+          img: getResult('gs_challenge') || (await import('assets/imgs/gs/3-challenge/1-navigation')).default
         },
         {
           name: 'Increase engagement',
@@ -62,6 +61,10 @@ export default async () => {
       titleHeight: 120,
       intro: <p>GreatSchools aggregates 80 data points to rank schools in a fair and balanced manner. Presenting that much information at one time would overwhelm users. The challenge was to present the easiest, most relevant data to users up front, then provide mechanisms for them to discover more and dig deeper on their own.</p>
     },
+    firstGlance: [
+      getResult('gs_first-glance-1') || (await import('assets/imgs/gs/6-first-glance/1.json')).default,
+      getResult('gs_first-glance-2') || (await import('assets/imgs/gs/6-first-glance/2.json')).default,
+    ],
     importanceImgs: [
       (await import('assets/imgs/gs/mobile/Importance-1.png')).default,
       (await import('assets/imgs/gs/mobile/Importance-2.png')).default
@@ -79,6 +82,7 @@ export default async () => {
         <p>Analyzed usage to understand the most highly used groups of metrics and the datapoints within that group.</p>
       </div>)
     },
+    progressiveAnimation: getResult('gs_disclosure-1') || (await import('assets/imgs/gs/8-disclosure-1/data.json')),
     designed: {
       intro: (<div>
         <p>Designed progressive disclosure so that the most important datapoints were presented up front, with the option for the user to dig deeper into the secondary or tertiary metrics.</p>
@@ -217,15 +221,15 @@ export default async () => {
       }
     ],
     other: {
-      disclouse: await (import('assets/imgs/gs/8-disclosure-2/data.json')),
-      deeper: await (import('assets/imgs/gs/9-deeper/data.json')),
-      review: await (import('assets/imgs/gs/10-reviews/data.json')),
-      device: await (import('assets/imgs/gs/11-devices/data.json')),
-      grid: await (import('assets/imgs/gs/14-grid/data.json')),
-      sitemap: await (import('assets/imgs/gs/15-sitemap/data.json'))
+      disclouse: getResult('gs_disclosure-2')  || (await (import('assets/imgs/gs/8-disclosure-2/data.json'))),
+      deeper: getResult('gs_deeper') || (await (import('assets/imgs/gs/9-deeper/data.json'))),
+      review: getResult('gs_reviews') || (await (import('assets/imgs/gs/10-reviews/data.json'))),
+      device: getResult('gs_devices') || (await (import('assets/imgs/gs/11-devices/data.json'))),
+      grid: getResult('gs_grid') || (await (import('assets/imgs/gs/14-grid/data.json'))),
+      sitemap: getResult('gs_sitemap') || (await (import('assets/imgs/gs/15-sitemap/data.json')))
     },
     questions: {
-      approachData: await import('assets/imgs/gs/5-questions/approach.json'),
+      approachData: getResult('gs_approach') || await import('assets/imgs/gs/5-questions/approach.json'),
       step1Data: await import('assets/imgs/gs/5-questions/1.json'),
       step2Data: await import('assets/imgs/gs/5-questions/2.json'),
       step3Data: await import('assets/imgs/gs/5-questions/3.json'),

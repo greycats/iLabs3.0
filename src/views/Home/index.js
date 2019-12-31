@@ -10,6 +10,8 @@ import Work from './Work'
 import MobileHome from './Mobile'
 import greatSchool from 'data/great.js'
 
+import { loadGSdata } from 'utils/lazyload'
+
 const HomeWrap = styled.div`
     min-width: 1366px;
     margin: 0 auto;
@@ -35,14 +37,18 @@ export default () => {
           import('views/CaseStudy/GS/FirstLook'),
           import('views/CaseStudy/GS/Progressive'),
           import('views/CaseStudy/GS/Others')
-        ]).then(() => [
-          import('views/CaseStudy'),
-          import('views/OurWork'),
-          import('views/Contact'),
-          import('views/CaseStudy/Vizient'),
-          import('views/CaseStudy/Dcom'),
-          import('views/CaseStudy/Crew'),
-        ])
+        ]).then(() => {
+          return Promise.all([
+            import('views/CaseStudy'),
+            import('views/OurWork'),
+            import('views/Contact'),
+            import('views/CaseStudy/Vizient'),
+            import('views/CaseStudy/Dcom'),
+            import('views/CaseStudy/Crew'),
+          ])
+        }).then(() => {
+          loadGSdata()
+        })
       }, 500)
     }, 0)
   }, [])

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import TextAndAnimation from 'components/TextAndAnimation'
+import { getResult } from 'utils/lazyload'
 
 export default ({ GSData }) => {
   const [animationData, setAnimationData] = useState(null)
 
   const getData = async () => {
-    const data = await import('assets/imgs/gs/7-data/data.json')
+    const data = getResult('gs_presentation') || (await import('assets/imgs/gs/7-data/data.json')).default
 
-    setAnimationData(data.default)
+    setAnimationData(data)
   }
 
   useEffect(() => {

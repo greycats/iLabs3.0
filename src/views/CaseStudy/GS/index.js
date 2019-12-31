@@ -18,7 +18,7 @@ const Others = lazyImport(import('views/CaseStudy/GS/Others'))
 import { LoadingWithBanner } from 'components/TempLoading'
 
 // import PreloadManager from 'scripts/PreloadManager'
-import { load } from 'utils/lazyload'
+import { loadGSdata } from 'utils/lazyload'
 
 export default () => {
   const [GSData, setGSdata] = useState(null)
@@ -29,12 +29,7 @@ export default () => {
   }
 
   const loadData = () => {
-    load([
-      {
-        id: 'challenge',
-        src: import('assets/imgs/2x/CaseStudy/gs/challenge/data.json'),
-      }
-    ])
+    loadGSdata()
   }
   useEffect(() => {
     getData()
