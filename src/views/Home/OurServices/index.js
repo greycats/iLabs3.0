@@ -82,9 +82,7 @@ const CarouselCard = ({
           <div className="text">{item.detail}</div>
         </div>
       </div>
-      <LazyLoad placeholder={<img src={item.placeholder} />}>
-        <img src={require(`assets/imgs/2x/OurServices/${item.text}.jpg`)} />
-      </LazyLoad>
+      <img src={item.placeholder} alt=""/>
     </CarouselCardStyle>
   )
 
