@@ -20,7 +20,6 @@ export default () => {
               <div className="logo-wrap">
                 {
                   logoList.map((item, index) => {
-                    console.log('getImage(`client-${item.img}`)', getImage(`client-${item.img}`))
                     return (
                       <div key={index} className="logo-item">
                         <img src={getImage(`client-${item.img}`)} />
