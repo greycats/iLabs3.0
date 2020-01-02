@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import TheStory from 'components/TheStory'
 import TextAndAnimation from 'components/TextAndAnimation'
 import TextAndLottieSection from 'components/TextAndLottieSection'
@@ -14,9 +14,14 @@ import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/Crew/@1x/Crew-3-Floating-@1x/data.json'
 import MobileBannerBg from 'assets/imgs/crew/mobile/banner.png'
 
+import { getResult, loadCrewData } from 'utils/lazyload'
+
 export default () => {
   const isPC = window.isPC
   const mobileSolutionList = crewData.theSolutionsMobile.map((item, index) => <img src={item} key={index} style={{ padding: '0 0.05rem' }} />)
+  useEffect(() => {
+    loadCrewData()
+  }, [])
   return (
     <StyledPage>
       <div>
@@ -74,7 +79,7 @@ export default () => {
           titleStyle={{
             width: '520px'
           }}
-          animateIcon={StartSmall}
+          animateIcon={getResult('crew_phone-double') || StartSmall}
           animationStyle={{
             top: '-120px',
             width: '720px'
@@ -92,7 +97,7 @@ export default () => {
           titleStyle={{
             width: '520px'
           }}
-          animateIcon={Streamlined}
+          animateIcon={getResult('crew_phone-single') || Streamlined}
           animationStyle={{
             top: '-200px',
             left: '-300px',

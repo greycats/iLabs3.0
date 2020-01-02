@@ -4,7 +4,7 @@ import TextAndAnimation from 'components/TextAndAnimation'
 import { LottieAnimation } from 'components/AnimationPlayer'
 import MobileCarousel from 'components/MobileCarousel'
 
-const PCImgs = () => (
+const PCImgs = ({GSData}) => (
   <div className="layout-1240" style={{
     position: 'relative'
   }}>
@@ -15,7 +15,7 @@ const PCImgs = () => (
     }}>
       <LottieAnimation
         options={{
-          animationData: require('assets/imgs/gs/6-first-glance/1.json'),
+          animationData: GSData.firstGlance[0],
         }}
         width={800}
       />
@@ -27,7 +27,7 @@ const PCImgs = () => (
     }}>
       <LottieAnimation
         options={{
-          animationData: require('assets/imgs/gs/6-first-glance/2.json'),
+          animationData: GSData.firstGlance[1],
         }}
         width={800}
       />
@@ -76,7 +76,7 @@ const FirstLook = ({ GSData }) => {
         wrapMinHeight={450}
       />
       {
-        isPC ? <PCImgs /> : <MobileImgs GSData={GSData} />
+        isPC ? <PCImgs GSData={GSData} /> : <MobileImgs GSData={GSData} />
       }
     </div>
   )

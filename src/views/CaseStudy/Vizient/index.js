@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import TheStory from 'components/TheStory'
 import TextAndAnimation from 'components/TextAndAnimation'
@@ -23,9 +23,15 @@ import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
 import Banner from './Banner'
 
+import { getResult, loadVizientData } from 'utils/lazyload'
+
 export default () => {
 
   const isPC = window.isPC
+
+  useEffect(() => {
+    loadVizientData()
+  }, [])
 
   return (
     <StyledPage>
@@ -52,7 +58,7 @@ export default () => {
             width: '495px',
             marginTop: '170px'
           }}
-          animateIcon={ComponentsForWeb}
+          animateIcon={getResult('viz_components') || ComponentsForWeb}
           animateWidth={815}
           animationStyle={{
             width: '745px',
@@ -67,7 +73,7 @@ export default () => {
             width: '495px',
             marginTop: '140px',
           }}
-          animateIcon={BaseOn}
+          animateIcon={getResult('viz_material') || BaseOn}
           animationStyle={{
             width: '745px',
           }}
@@ -96,7 +102,7 @@ export default () => {
                     width='495px'
                     height='109px'
                     options={{
-                      animationData: TypefaceText
+                      animationData: getResult('viz_type') || TypefaceText
                     }} />
                 </TypePosition>
                 :
@@ -152,7 +158,7 @@ export default () => {
                     width={isPC ? '458px' : 'auto'}
                     height={isPC ? '100px' : 'auto'}
                     options={{
-                      animationData: ColorCircle,
+                      animationData: getResult('viz_color') || ColorCircle,
                     }} />
                 </CirclePosition>
               )

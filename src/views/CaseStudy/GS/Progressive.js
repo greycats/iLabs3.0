@@ -11,7 +11,7 @@ export default ({ GSData }) => {
       titleStyle={{
         width: '520px'
       }}
-      animateIcon={require('assets/imgs/gs/8-disclosure-1/data.json')}
+      animateIcon={GSData.progressiveAnimation}
       animationStyle={{
         width: 720,
         transform: 'translateY(-150px)',
