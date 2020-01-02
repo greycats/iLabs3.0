@@ -3,10 +3,10 @@ import TheStory from 'components/TheStory'
 import StyledPage from 'components/Styled/Page'
 import greatSchool from '../../../data/great.js'
 import CaseStudyBanner from 'components/CaseStudyBanner'
-import MobileBannerBg from 'assets/imgs/gs/mobile/banner.png'
 import BgAnimation from 'assets/imgs/banners/GS/@1x/GreatSchools-3-Floating-@1x/data.json'
 
 import { lazyImport } from 'utils'
+import { getImage } from 'scripts/PreloadManager'
 
 const Questions = lazyImport(import('views/CaseStudy/GS/Questions'))
 const Challenge = lazyImport(import('views/CaseStudy/GS/TheChallenge'))
@@ -43,7 +43,7 @@ export default () => {
   return (
     <StyledPage>
 
-      <CaseStudyBanner {...GSData.banner} BgAnimation={BgAnimation} MobileBannerBg={MobileBannerBg} />
+      <CaseStudyBanner {...GSData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImage('vizient-gs-bg')} name="gs"/>
 
       <TheStory {...GSData.theStory}></TheStory>
 

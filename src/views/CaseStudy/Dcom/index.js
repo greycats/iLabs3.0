@@ -15,7 +15,7 @@ import StyledPage from 'components/Styled/Page'
 import dcomData from 'data/dcomData'
 import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/Dcom/@1x/Dcom-3-Floating-@1x/data.json'
-import MobileBannerBg from 'assets/imgs/dcom/mobile/banner.png'
+import { getImage } from 'scripts/PreloadManager'
 
 const MobileSolutionWrap = styled.div`
   .carousel.carousel-slider {
@@ -45,7 +45,7 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        <CaseStudyBanner {...dcomData.banner} BgAnimation={BgAnimation} MobileBannerBg={MobileBannerBg} />
+        <CaseStudyBanner {...dcomData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImage('vizient-dcom-bg')} name="dcom"/>
 
         <TheStory {...dcomData.theStory}></TheStory>
 
