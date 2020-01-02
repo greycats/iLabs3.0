@@ -2,7 +2,8 @@ import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
 import CommonTitle from 'components/CommonTitle'
 import './index.sass'
-import { logoList, introList } from './data'
+import { logoList } from './data'
+import { getImage } from 'scripts/PreloadManager'
 
 export default () => {
   const titleData = {
@@ -18,11 +19,14 @@ export default () => {
               <CommonTitle {...titleData}></CommonTitle>
               <div className="logo-wrap">
                 {
-                  logoList.map((item, index) => (
-                    <div key={index} className="logo-item">
-                      <img src={require(`assets/imgs/client-logos/${item.img || 'great-schools'}.svg`)} />
-                    </div>
-                  ))
+                  logoList.map((item, index) => {
+                    console.log('getImage(`client-${item.img}`)', getImage(`client-${item.img}`))
+                    return (
+                      <div key={index} className="logo-item">
+                        <img src={getImage(`client-${item.img}`)} />
+                      </div>
+                    )}
+                  )
                 }
               </div>
               <div className="more">+50 more</div>

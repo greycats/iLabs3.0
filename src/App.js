@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import _ from 'lodash'
 import Preload from 'components/Preload'
 import './App.css'
 import 'assets/styles/common.sass'
@@ -8,6 +9,7 @@ import PreloadManager from 'scripts/PreloadManager'
 import classNames from 'classnames'
 import history from 'history.js'
 import useShareState, { AppContext } from 'hooks/useShareState'
+import { logoList } from 'views/Home/OurClients/data.js'
 
 function App() {
   const [store, dispatch] = useShareState()
@@ -156,11 +158,15 @@ function App() {
         id: 'loading-banner-dcom',
         src: require('assets/imgs/banners/dcom.jpg')
       }
-      // {
-      //   id: 'home-banner-video',
-      //   src: 'assets/imgs/video/homepage-banner.mp4'
-      // }
-    ])
+    ].concat(
+      _.map(logoList, item => {
+        return {
+            id: `client-${item.img}`,
+            type: createjs.LoadQueue.IMAGE,
+            src: require(`assets/imgs/client-logos/${item.img || 'great-schools'}.svg`)
+          }
+      })
+    ))
 
     PreloadManager.load()
     PreloadManager.on('complete', function () {
