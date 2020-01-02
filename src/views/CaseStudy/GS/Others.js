@@ -57,7 +57,7 @@ export default ({ GSData }) => {
           options={{
             animationData: GSData.other.device
           }}
-          width={'100vw'}
+          width={document.body.offsetWidth > 1920 ? '1920px' : '100vw'}
         />
       </div>
 
