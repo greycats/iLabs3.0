@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { designListData, devListData } from 'data/services'
+import { serviceData } from 'data/services'
+import drop from 'lodash/drop'
+import dropRight from 'lodash/dropRight'
 import _ from 'lodash'
 import Arrow from 'assets/imgs/arrow.svg'
 import { useAppContext, serviceAction, serviceIndexAction } from 'hooks/useShareState'
 
+const designLength = 5
 const List = ({
   title = '',
   list = [],
@@ -35,7 +38,7 @@ const List = ({
                 }} onClick={() => {
                   onClickItem(index, item)
                 }}>
-                <img src={item.icon} alt="" style={{
+                <img src={item.whiteIcon} alt="" style={{
                   marginRight: '10px',
                   marginLeft: 0,
                   width: '22px'
@@ -44,7 +47,7 @@ const List = ({
                   position: 'absolute',
                   right: '10px',
                   top: '33%'
-                }}/>
+                }} />
               </div>
             )
           })
@@ -58,9 +61,10 @@ export default () => {
   const [activeItem, setActiveItem] = useState(null)
 
   const { dispatch } = useAppContext()
+  const serviceList = serviceData()
 
   return (
-    <div style={{ background: '#2c2c2c', position: 'relative'}}>
+    <div style={{ background: '#2c2c2c', position: 'relative' }}>
       <div className="container" style={{
         display: 'flex',
         padding: '50px 0'
@@ -78,21 +82,21 @@ export default () => {
             activeItem={activeItem}
             onClickItem={(index, item) => {
               setActiveItem(item),
-              serviceAction(dispatch, true)
+                serviceAction(dispatch, true)
               serviceIndexAction(dispatch, index)
             }}
-            list={designListData()}
+            list={dropRight(serviceList, serviceList.length - designLength)}
           />
           <br />
           <br />
           <List
             title='Product Development'
-            list={devListData()}
+            list={drop(serviceList, designLength)}
             activeItem={activeItem}
             onClickItem={(index, item) => {
               setActiveItem(item)
               serviceAction(dispatch, true)
-              serviceIndexAction(dispatch, index + 5)
+              serviceIndexAction(dispatch, index + designLength)
             }}
           />
         </div>

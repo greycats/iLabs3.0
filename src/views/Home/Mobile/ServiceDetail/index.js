@@ -3,6 +3,7 @@ import { useAppContext, serviceAction } from 'hooks/useShareState'
 import styled from 'styled-components'
 import Close from 'assets/imgs/close.svg'
 import detailData from 'data/mobileServiceData'
+import { serviceData } from 'data/services'
 
 const TextWrap = styled.div`
   padding: 0.25rem;
@@ -24,7 +25,7 @@ const TextWrap = styled.div`
 export default () => {
   const { store, dispatch } = useAppContext()
   const { showService } = store
-  const serviceIndex = store.serviceIndex
+  const itemData = serviceData()[store.serviceIndex]
   const hideService = () => {
     serviceAction(dispatch, false)
   }
@@ -48,11 +49,11 @@ export default () => {
         <img src={Close} alt="" />
       </div>
       <TextWrap>
-        <div className="title">{detailData[serviceIndex].title}</div>
-        <div className="detail">{detailData[serviceIndex].detail}</div>
+        <div className="title">{itemData.title}</div>
+        <div className="detail">{itemData.detail}</div>
       </TextWrap>
       <img
-        src={require(`assets/imgs/home/services/mobile/Rectangle 77-${serviceIndex}.png`)}
+        src={itemData.placeholder}
         style={{ display: 'block', width: '100%' }}
       />
     </div>
