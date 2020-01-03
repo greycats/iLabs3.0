@@ -1,5 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie'
+import LazyLoad from 'react-lazyload'
 import { MobileBannerContainer } from 'components/Styled'
 import './index.sass'
 
@@ -27,13 +28,16 @@ const PCBanner = ({
 const MobileBanner = ({
   title = '',
   intro = '',
+  name = '',
   services = [],
   available = [],
   mobileAvailable = [],
   MobileBannerBg
 }) => (
     <MobileBannerContainer>
-      <img src={MobileBannerBg} className="banner-bg" />
+      <LazyLoad placeholder={<img src={MobileBannerBg} className="banner-bg" />}>
+        <img src={require(`assets/imgs/2x/banner/${name}.jpg`)} className="banner-bg" />
+      </LazyLoad>
       <div className="mobile-banner-text">
         <div className="mobile-title">{title}</div>
         <p className="title-tip">{intro}</p>

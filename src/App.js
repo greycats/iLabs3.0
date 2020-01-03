@@ -30,26 +30,6 @@ function App() {
     return () => window.removeEventListener('touchmove', disableScroll, { passive: false })
   }, [store])
 
-  const loadJS = () => Promise.all([
-    // import('./views/Home'),
-    // import('./views/CaseStudy'),
-    // import('./views/OurWork'),
-    // import('./views/Contact'),
-    // import('views/CaseStudy/Vizient'),
-    // import('views/CaseStudy/Dcom'),
-    // import('views/CaseStudy/Crew'),
-
-    // import('views/CaseStudy/GS'),
-    // import('views/CaseStudy/GS/Questions'),
-    // import('views/CaseStudy/GS/TheChallenge'),
-    // import('views/CaseStudy/GS/Presentation'),
-    // import('views/CaseStudy/GS/FirstLook'),
-    // import('views/CaseStudy/GS/Progressive'),
-    // import('views/CaseStudy/GS/Others')
-  ]).then(() => {
-    // setJsLoaded(true)
-  })
-
   const doneLoad = () => {
     setTimeout(() => {
       setLoaded(true)
@@ -157,7 +137,23 @@ function App() {
       {
         id: 'loading-banner-dcom',
         src: require('assets/imgs/banners/dcom.jpg')
-      }
+      },
+      {
+        id: 'vizient-mobile-bg',
+        src: require('assets/imgs/vizient/mobile/banner.png')
+      },
+      {
+        id: 'vizient-crew-bg',
+        src: require('assets/imgs/crew/mobile/banner.png')
+      },
+      {
+        id: 'vizient-dcom-bg',
+        src: require('assets/imgs/dcom/mobile/banner.png')
+      },
+      {
+        id: 'vizient-gs-bg',
+        src: require('assets/imgs/gs/mobile/banner.png')
+      },
     ].concat(
       _.map(logoList, item => {
         return {
@@ -175,7 +171,6 @@ function App() {
   }
 
   useEffect(() => {
-    loadJS()
     loadFile()
     history.listen((...args) => {
       const method = args[1]

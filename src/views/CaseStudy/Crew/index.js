@@ -12,9 +12,9 @@ import MobileCarousel from 'components/MobileCarousel'
 import crewData from 'data/crewData'
 import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/Crew/@1x/Crew-3-Floating-@1x/data.json'
-import MobileBannerBg from 'assets/imgs/crew/mobile/banner.png'
 
 import { getResult, loadCrewData } from 'utils/lazyload'
+import { getImage } from 'scripts/PreloadManager'
 
 export default () => {
   const isPC = window.isPC
@@ -25,7 +25,7 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        <CaseStudyBanner {...crewData.banner} BgAnimation={BgAnimation} MobileBannerBg={MobileBannerBg} />
+        <CaseStudyBanner {...crewData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImage('vizient-crew-bg')} name="crew"/>
 
         <TheStory {...crewData.theStory}></TheStory>
 

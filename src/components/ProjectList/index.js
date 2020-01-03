@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import max from 'lodash/max'
 import AnimationPlayer, { Animations } from 'components/AnimationPlayer'
-import PreloadManager from 'scripts/PreloadManager'
+import PreloadManager, { getImage } from 'scripts/PreloadManager'
 import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
@@ -11,7 +10,7 @@ import { useAppContext, caseNameAction } from 'hooks/useShareState'
 
 export const fakeData = () => [
   {
-    image: _.get(PreloadManager.getResult('vizient-thumbnail'), 'src', ''),
+    image: getImage('vizient-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/vizient/data.json'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
@@ -20,7 +19,8 @@ export const fakeData = () => [
     name: 'vizient'
   },
   {
-    image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
+    // image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
+    image: getImage('gs-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/gs/data.json'),
     text: 'GreatSchools',
     typeText: 'Website',
@@ -29,7 +29,8 @@ export const fakeData = () => [
     name: 'gs'
   },
   {
-    image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
+    // image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
+    image: getImage('dcom-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
     text: 'Dictionary.com',
     typeText: 'Website',
@@ -38,7 +39,8 @@ export const fakeData = () => [
     name: 'dcom'
   },
   {
-    image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
+    // image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
+    image: getImage('crew-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/crew/data.json'),
     text: 'Crew',
     typeText: 'App',
