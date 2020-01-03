@@ -30,7 +30,7 @@ export const AnimateBanner = ({ children, ...props }) => {
   function contentAnim() {
     const tl = () =>
       new TimelineMax({ paused: false })
-        .fromTo(`#${renderId}`, 0.4, { 'margin-left': '-100vw' }, { 'margin-left': 0 }, 'step1')
+        .fromTo(`#${renderId}`, 0.4, { 'margin-left': 0 }, { 'margin-left': 0 }, 'step1')
         .staggerTo(initSprit, 0.2, { pixi: { x: '-=500' } }, 0.001, 'step1-=.4')
         .staggerTo(initSprit, 1.5, { pixi: { x: '+=100' } }, 0.01, 'step1+=.5')
 

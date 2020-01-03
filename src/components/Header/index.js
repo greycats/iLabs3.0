@@ -5,6 +5,8 @@ import logo from 'assets/imgs/logo-black.svg'
 import history from 'history.js'
 import Lottie from 'react-lottie'
 
+import { useAppContext, showMenuAction } from 'hooks/useShareState'
+
 const Header = ({ isFixed }) => styled.div`
   width: 100%;
   height: 100px;
@@ -37,10 +39,13 @@ const MenuIcon = ({
   const [direction, setDirection] = useState(1)
   const [isStopped, setIsStopped] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
+  const { dispatch } = useAppContext()
   const clickMenuIcon = () => {
+    const status = !isOpen
     setDirection(isOpen ? -1 : 1)
     setIsStopped(false)
-    setIsOpen(!isOpen)
+    setIsOpen(status)
+    showMenuAction(dispatch, status)
   }
 
   return (

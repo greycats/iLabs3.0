@@ -199,7 +199,7 @@ function App() {
   return (
     <AppContext.Provider value={{ store, dispatch }}>
       <div className={classNames("App", { 'is-phone': !isPC })}>
-        {/* <MenuContent/> */}
+        <MenuContent/>
         {routes}
       </div>
     </AppContext.Provider>
