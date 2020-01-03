@@ -10,6 +10,7 @@ import classNames from 'classnames'
 import history from 'history.js'
 import useShareState, { AppContext } from 'hooks/useShareState'
 import { logoList } from 'views/Home/OurClients/data.js'
+import MenuContent from 'components/Header/Menu'
 
 function App() {
   const [store, dispatch] = useShareState()
@@ -198,6 +199,7 @@ function App() {
   return (
     <AppContext.Provider value={{ store, dispatch }}>
       <div className={classNames("App", { 'is-phone': !isPC })}>
+        {/* <MenuContent/> */}
         {routes}
       </div>
     </AppContext.Provider>

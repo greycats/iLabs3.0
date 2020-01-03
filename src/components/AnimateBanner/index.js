@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import _ from 'lodash'
-import ScrollMagic from 'scrollmagic'
 import logo from 'assets/imgs/logo.svg'
 import history from 'history.js'
 
@@ -15,7 +14,7 @@ export const AnimateBanner = ({ children, ...props }) => {
   const [initSprit, setInitSprit] = useState([])
   const [pixiApp] = useState(new PIXI.Application({
     antialias: true,
-    backgroundColor: 0x070608,
+    backgroundColor: props.backgroundColor || 0x070608,
     forceCanvas: true,
     width: window.innerWidth,
     height: props.height || 800,

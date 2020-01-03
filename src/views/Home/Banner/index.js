@@ -2,9 +2,8 @@ import React from 'react'
 
 import AnimationPlayer from 'components/AnimationPlayer'
 import { AnimateBanner } from 'components/AnimateBanner'
-import history from 'history.js'
 import LazyLoad from 'react-lazyload'
-import logo from 'assets/imgs/logo.svg'
+import Header from 'components/Header'
 
 export default () => {
   return (
@@ -45,9 +44,7 @@ export default () => {
         width: '100%',
         height: '100%'
       }}>
-        <img src={logo} className="logo-img" alt="" onClick={() => {
-          history.push('/')
-        }} />
+        <Header isWhite={true} isFixed={false} showBg={true}/>
         <AnimationPlayer
           target={
             <div className="header-sec layout-1240 panel">

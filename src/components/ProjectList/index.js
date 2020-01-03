@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AnimationPlayer, { Animations } from 'components/AnimationPlayer'
-import PreloadManager, { getImage } from 'scripts/PreloadManager'
+import { getImage } from 'scripts/PreloadManager'
 import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
@@ -83,6 +83,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     top: 0, left: 0,
     background: '#fff',
     width: '100vw', height: 0,
+    zIndex: 50
   }
 
   const { dispatch } = useAppContext()
@@ -203,7 +204,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
           <div>
             <Animations
               target={
-                <div style={{ ...maskStyle, zIndex: 10 }}></div>
+                <div style={{ ...maskStyle, zIndex: 50 }}></div>
               }
               animations={
                 [{
