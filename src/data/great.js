@@ -4,7 +4,7 @@ import { getResult } from 'utils/lazyload'
 export default async () => {
   return {
     banner: {
-      title: 'GreatSchool',
+      title: 'GreatSchools',
       intro: 'Helping millions of parents get a great education for their child',
       services: ['Design Direction', 'Strategy', 'Development']
     },

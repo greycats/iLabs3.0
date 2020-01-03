@@ -275,6 +275,7 @@ export default () => {
               activeIndex !== -1 ?
                 <StyledCarousel>
                   <ServiceCarousel currentIndex={activeIndex} onChange={index => {
+                    scrollTop(scrollToList.current.offsetTop, 200)
                     setActiveIndex(index)
                     setActiveItem(serviceList[index])
                   }} />

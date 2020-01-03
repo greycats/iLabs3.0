@@ -1,41 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import AnimationPlayer from 'components/AnimationPlayer'
 import { AnimateBanner } from 'components/AnimateBanner'
+import { Carousel } from 'react-responsive-carousel'
+import styled from 'styled-components'
+import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
 import LazyLoad from 'react-lazyload'
 import logo from 'assets/imgs/logo.svg'
 
-export default () => {
+const CarouselWrap = styled.div`
+  .slide.selected {
+    text-align: left;
+  }
+  .carousel .control-dots {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    .dot {
+      width: 9px;
+      height: 9px;
+      margin: 5px 0;
+    }
+  }
+`
+
+const BannerItem = ({ itemData = {} }) => {
   return (
-    <div className="main intro ui-content">
+    <div>
       <LazyLoad placeholder={<div style={{
         position: 'absolute',
         top: 0,
         width: '100%',
-        height: '680px',
+        minHeight: '570px',
         zIndex: 0
       }}
       >
-        <AnimateBanner height={680} />
+        {/* <AnimateBanner height={680} /> */}
       </div>} >
         <div style={{
-          height: '680px',
+          minHeight: '800px',
           backgroundColor: '#070608',
           position: 'relative'
         }}>
-          <video autoPlay muted loop style={{ width: '100%', height: '680px' }}>
-            <source src={require('assets/imgs/2x/Hero/Hero-animation-1920x1080.mp4')} type="video/mp4" />
+          <video autoPlay muted style={{ width: '100%', display: 'block', minHeight: '800px', objectFit: 'fill' }} className="banner-video">
+            <source src={itemData.video} type="video/mp4" />
           </video>
-          <div style={{
-            position: 'absolute',
-            left: '-4300px',
-            bottom: 0,
-            height: '100px',
-            width: '5000px',
-            backgroundColor: 'white',
-            zIndex: 10
-          }}></div>
         </div>
       </LazyLoad>
 
@@ -45,32 +57,96 @@ export default () => {
         width: '100%',
         height: '100%'
       }}>
-        <img src={logo} className="logo-img" alt="" onClick={() => {
-          history.push('/')
-        }} />
-        <AnimationPlayer
-          target={
-            <div className="header-sec layout-1240 panel">
-              <h1 className="bold">
-                Your Force <br /> Multiplier
-            </h1>
-              <p>
-                Amplify your product development efforts, capitalize on every market opportunity or insight.
-            </p>
-            </div>
-          }
+        {/* <AnimationPlayer
+          target={ */}
+        <div className="header-sec layout-1240 panel">
+          {itemData.title}
+          <p>{itemData.intro}</p>
+          <GoToArrow text={itemData.btn} isWhite={true} onClick={() => {
+            history.push('/contact')
+          }}></GoToArrow>
+        </div>
+        {/* }
           animations={
             [
               {
                 to: {
-                  height: '320px'
+                  height: itemData.height
                 },
                 duration: 0.8
               }
             ]
           }
-        />
+        /> */}
       </div>
+    </div>
+  )
+}
+
+export default () => {
+  const bannerList = [
+    {
+      title: <h1>Your Force <br />Multiplier</h1>,
+      intro: 'Amplify your product development efforts, capitalize on every market opportunity or insight.',
+      btn: 'Learn how',
+      video: require('assets/imgs/video/dekstop/Scene 1.mp4'),
+      height: 390
+    },
+    {
+      title: <h1>Supporting the <br />startup ecosystem</h1>,
+      intro: 'Launch compelling MVPs at breakneck speed. Work with designers and developers who have launched high quality apps that have been featured by Apple.',
+      btn: 'I want to know more',
+      video: require('assets/imgs/video/dekstop/Scene 2.mp4'),
+      height: 454
+    },
+    {
+      title: <h1>Compelling experiences that <br />deliver results</h1>,
+      intro: 'Work with a team that only makes data driven decisions. Launch delightful user experiences that result in an engaged user base and hit business KPIs.',
+      btn: 'I like what I hear',
+      video: require('assets/imgs/video/dekstop/Scene 3.mp4'),
+      height: 549
+    }
+  ]
+  // const [activeIndex, setActiveIndex] = useState(0)
+
+  const onSwipeChange = (index) => {
+    document.getElementsByClassName('banner-video')[index + 1].play()
+  }
+  return (
+    <div className="main intro ui-content">
+      <img src={logo} className="logo-img" alt="" onClick={() => {
+        history.push('/')
+      }} />
+      <CarouselWrap>
+        <Carousel
+          // selectedItem={activeIndex}
+          showThumbs={false}
+          showArrows={false}
+          autoPlay
+          interval={5000}
+          stopOnHover={false}
+          infiniteLoop
+          onChange={onSwipeChange}
+          showStatus={false}
+        // transitionTime={800}
+        // swipeable={false}
+        >
+          {
+            bannerList.map((item, index) => (
+              <BannerItem itemData={item} key={index} />
+            ))
+          }
+        </Carousel>
+      </CarouselWrap>
+      <div style={{
+        position: 'absolute',
+        left: '-4300px',
+        bottom: 0,
+        height: '100px',
+        width: '5000px',
+        backgroundColor: 'white',
+        zIndex: 10
+      }}></div>
     </div>
   )
 }
