@@ -12,8 +12,6 @@ const titleData = {
 export default () => {
   return (
     <div>
-      <br/>
-      <br/>
       <div className="container">
         <CommonTitle {...titleData}></CommonTitle>
         <br/>
