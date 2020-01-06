@@ -72,7 +72,7 @@ const MenuList = ({ data, onItemClick }) => {
       return (
         <div style={{
           fontSize: window.isPC ? '64px' : '32px',
-          height: '80px',
+          height: window.isPC ? '80px' : '20px',
           marginBottom: '50px'
         }}>
           <span style={{

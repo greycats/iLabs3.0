@@ -1,14 +1,11 @@
 import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
-import { AnimateBanner } from 'components/AnimateBanner'
 import Header from 'components/Header'
 import Logo from 'components/BrandLogo/index.js'
 import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
 import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
-import LazyLoad from 'react-lazyload'
-import logo from 'assets/imgs/logo.svg'
 import { getImage } from 'scripts/PreloadManager.js'
 
 export const bannerList = [

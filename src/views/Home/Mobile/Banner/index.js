@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { Carousel } from 'react-responsive-carousel'
-import AnimationPlayer from 'components/AnimationPlayer'
 import { AnimateBanner } from 'components/AnimateBanner'
 import LazyLoad from 'react-lazyload'
 import GoToArrow from 'components/GoToArrow'
 import { bannerList } from 'views/Home/Banner/index.js'
 import history from 'history.js'
-import logo from 'assets/imgs/logo.svg'
+import Logo from 'components/BrandLogo/index.js'
+import Header from 'components/Header'
 
 
 const BannerItem = ({ itemData = {} }) => {
@@ -80,9 +80,8 @@ export default () => {
       minHeight: '6.9rem',
       background: '#111'
     }}>
-      <img src={logo} className="logo-img" alt="" onClick={() => {
-        history.push('/')
-      }} />
+      <Logo/>
+      <Header isWhite={true} isFixed={false} showBg={true}/>
       <LazyLoad placeholder={<div style={{
         position: 'absolute',
         top: 0,
