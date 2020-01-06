@@ -8,7 +8,7 @@ import AnimationPlayer, { LottieAnimation } from 'components/AnimationPlayer'
 
 const isPC = window.isPC
 
-const RowAnimations = ({dataList = []}) => {
+const RowAnimations = ({ dataList = [] }) => {
 
   return (
     <div style={isPC ? {
@@ -114,7 +114,7 @@ export default ({ GSData = {} }) => {
             }}
             delay={1}
             target={
-              <div>
+              <div style={{ marginTop: '123px' }}>
                 <p style={{
                   color: '#2C2C2C',
                   fontSize: '16px',
@@ -139,7 +139,7 @@ export default ({ GSData = {} }) => {
             }
           />
         </div>
-        <div style={isPC ? {flex: 1} : { transform: 'scale(1.2)', marginTop: '0.4rem' }}>
+        <div style={isPC ? { flex: 1 } : { transform: 'scale(1.2)', marginTop: '0.4rem' }}>
           <LottieAnimation
             options={{
               animationData: approachData

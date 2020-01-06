@@ -14,7 +14,7 @@ export const bannerList = [
     intro: 'Amplify your product development efforts, capitalize on every market opportunity or insight.',
     btn: 'Learn how',
     video: require('assets/imgs/video/dekstop/Scene 1.mp4'),
-    mobileVideo: require('assets/imgs/video/mobile/Scene 1.mp4'),
+    mobileVideo: require('assets/imgs/video/Mobile/Scene 1.mp4'),
     height: 423,
     mobileHeight: '2.55rem'
   },
@@ -24,7 +24,7 @@ export const bannerList = [
     intro: 'Launch compelling MVPs at breakneck speed. Work with designers and developers who have launched high quality apps that have been featured by Apple.',
     btn: 'I want to know more',
     video: require('assets/imgs/video/dekstop/Scene 2.mp4'),
-    mobileVideo: require('assets/imgs/video/mobile/Scene 2.mp4'),
+    mobileVideo: require('assets/imgs/video/Mobile/Scene 2.mp4'),
     height: 428,
     mobileHeight: '3.53rem'
   },
@@ -34,7 +34,7 @@ export const bannerList = [
     intro: 'Work with a team that only makes data driven decisions. Launch delightful user experiences that result in an engaged user base and hit business KPIs.',
     btn: 'I like what I hear',
     video: require('assets/imgs/video/dekstop/Scene 3.mp4'),
-    mobileVideo: require('assets/imgs/video/mobile/Scene 3.mp4'),
+    mobileVideo: require('assets/imgs/video/Mobile/Scene 3.mp4'),
     height: 433,
     mobileHeight: '3.53rem'
   }
