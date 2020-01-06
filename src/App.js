@@ -154,6 +154,18 @@ function App() {
         id: 'vizient-gs-bg',
         src: require('assets/imgs/gs/mobile/banner.png')
       },
+      {
+        id: 'video-poster-1',
+        src: require('assets/imgs/video/dekstop/Scene 1.jpg')
+      },
+      {
+        id: 'video-poster-2',
+        src: require('assets/imgs/video/dekstop/Scene 2.jpg')
+      },
+      {
+        id: 'video-poster-3',
+        src: require('assets/imgs/video/dekstop/Scene 3.jpg')
+      },
     ].concat(
       _.map(logoList, item => {
         return {

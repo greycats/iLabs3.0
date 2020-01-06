@@ -62,7 +62,7 @@ const TextList = () => {
             color: '#2C2C2C',
             fontSize: '16px',
             width: isPC ? '360px' : 'auto',
-            marginBottom: '20px'
+            marginBottom: '40px'
           }}>{t.content}</p>
         </div>
       })

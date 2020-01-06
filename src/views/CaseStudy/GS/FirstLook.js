@@ -64,7 +64,7 @@ const FirstLook = ({ GSData }) => {
   return (
     <div style={{
       background: 'linear-gradient(0deg, #E0EBF8, #E0EBF8)',
-      padding: isPC ? '270px 0 160px' : 0,
+      padding: isPC ? '220px 0 160px' : 0,
       height: isPC ? '2710px' : '7.48rem'
     }}>
       <TextAndAnimation

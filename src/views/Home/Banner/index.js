@@ -7,6 +7,7 @@ import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
 import LazyLoad from 'react-lazyload'
 import logo from 'assets/imgs/logo.svg'
+import { getImage } from 'scripts/PreloadManager.js'
 
 export const bannerList = [
   {
@@ -14,6 +15,7 @@ export const bannerList = [
     intro: 'Amplify your product development efforts, capitalize on every market opportunity or insight.',
     btn: 'Learn how',
     video: require('assets/imgs/video/dekstop/Scene 1.mp4'),
+    poster: getImage('video-poster-1'),
     mobileVideo: require('assets/imgs/video/Mobile/Scene 1.mp4'),
     height: 423,
     mobileHeight: '2.55rem'
@@ -24,6 +26,7 @@ export const bannerList = [
     intro: 'Launch compelling MVPs at breakneck speed. Work with designers and developers who have launched high quality apps that have been featured by Apple.',
     btn: 'I want to know more',
     video: require('assets/imgs/video/dekstop/Scene 2.mp4'),
+    poster: getImage('video-poster-2'),
     mobileVideo: require('assets/imgs/video/Mobile/Scene 2.mp4'),
     height: 428,
     mobileHeight: '3.53rem'
@@ -34,6 +37,7 @@ export const bannerList = [
     intro: 'Work with a team that only makes data driven decisions. Launch delightful user experiences that result in an engaged user base and hit business KPIs.',
     btn: 'I like what I hear',
     video: require('assets/imgs/video/dekstop/Scene 3.mp4'),
+    poster: getImage('video-poster-3'),
     mobileVideo: require('assets/imgs/video/Mobile/Scene 3.mp4'),
     height: 433,
     mobileHeight: '3.53rem'
@@ -71,6 +75,7 @@ const BannerItem = ({ itemData = {} }) => {
           autoPlay
           muted
           preload="true"
+          poster={itemData.poster || ''}
         >
           <source src={itemData.video} type="video/mp4" />
         </video>
