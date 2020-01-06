@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ReactGA from 'react-ga'
 import _ from 'lodash'
 import Preload from 'components/Preload'
 import './App.css'
@@ -185,11 +186,15 @@ function App() {
 
   useEffect(() => {
     loadFile()
+    ReactGA.initialize('UA-151494523-1')
     history.listen((...args) => {
+      const location = args[0]
       const method = args[1]
       if (_.includes(['POP', 'PUSH'], method)) {
         window.scrollTo(0, 0)
       }
+      ReactGA.set({ page: location.pathname })
+      ReactGA.pageview(location.pathname)
     })
     window.addEventListener('load', doneLoad)
     return () => window.removeEventListener('load', doneLoad)
