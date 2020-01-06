@@ -2,14 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import AnimateBanner from 'components/AnimateBanner/index.js'
 import history from 'history.js'
+import 'components/Footer/index.sass'
 
 import { useAppContext, showMenuAction } from 'hooks/useShareState'
+
+import IconIn from 'assets/imgs/icons/in.svg'
+import IconDribbble from 'assets/imgs/icons/dribbble.svg'
 
 const MenuContainer = styled.div`
   width: 100vw;
   height: 0;
   position: fixed;
-  background: gray;
+  background-color: #323232;
   z-index: 40;
 
   overflow: hidden;
@@ -29,6 +33,17 @@ const MenuContainer = styled.div`
   &.show .content {
     opacity: 1;
   }
+
+  .footer-wrap {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .footer-wrap .footer {
+    height: 100%;
+    width: 60%;
+    min-width: 600px;
+  }
 `
 
 const menuData = [
@@ -46,7 +61,7 @@ const menuData = [
   }
 ]
 
-const MenuList = ({data, onItemClick}) => {
+const MenuList = ({ data, onItemClick }) => {
   return (
     data.map(item => {
       return (
@@ -68,6 +83,50 @@ const MenuList = ({data, onItemClick}) => {
         </div>
       )
     })
+  )
+}
+
+const Contact = () => {
+  return (
+    <div className="footer-wrap">
+      <div className="footer">
+        <div className="footer-list">
+          <div>
+            <div className="list-title">Contact</div>
+            <ul>
+              <li>hello@interactivelabs.co</li>
+              <li>415 869-8842</li>
+            </ul>
+          </div>
+          {
+            isPC ?
+              <div className="icon-list">
+                <a href="https://www.linkedin.com/company/interactive-labs-inc/about" target="_blank"><img src={IconIn} /></a>
+                <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
+              </div>
+              : null
+          }
+        </div>
+        <div className="footer-list">
+          <div>
+            <div className="list-title">Visit</div>
+            <ul>
+              <li>Interactive Labs, Inc</li>
+              <li>845 Market Street Level 4</li>
+              <li>San Francisco, CA 94108</li>
+            </ul>
+          </div>
+          {
+            isPC ? null :
+              <div className="icon-list">
+                <a href="https://www.linkedin.com/company/interactive-labs-inc/about" target="_blank"><img src={IconIn} /></a>
+                <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
+              </div>
+          }
+          <div className="list-title">Copyright © 2019 interactivelabs.co</div>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -93,21 +152,21 @@ export default () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
-              justifyContent: 'flex-start',
-              paddingLeft: '100px'
+              justifyContent: 'flex-start'
             }}>
-              <MenuList data={menuData} onItemClick={() => {
-                showMenuAction(dispatch, false)
-              }}/>
+            <MenuList data={menuData} onItemClick={() => {
+              showMenuAction(dispatch, false)
+            }} />
           </div>
           <div
             style={{
               width: '60%',
             }}>
-            bb
-            </div>
+            <Contact />
+          </div>
         </div>
       </AnimateBanner>
+      }
     </MenuContainer>
   )
 }
