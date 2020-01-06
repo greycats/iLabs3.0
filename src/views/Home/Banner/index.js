@@ -66,7 +66,7 @@ const BannerItem = ({ itemData = {} }) => {
   return (
     <div>
       <div style={{
-        minHeight: '800px',
+        height: '800px',
         backgroundColor: '#070608',
         position: 'relative'
       }}>
@@ -125,16 +125,16 @@ export default () => {
         history.push('/')
       }} />
       <CarouselWrap>
-        <LazyLoad placeholder={<div style={{
+        {/* <LazyLoad placeholder={<div style={{
           position: 'absolute',
           top: 0,
           width: '100%',
-          minHeight: '800px',
+          height: '800px',
           zIndex: 0
         }}
         >
           <AnimateBanner height={800} />
-        </div>} >
+        </div>} > */}
           <Carousel
             // selectedItem={activeIndex}
             showThumbs={false}
@@ -154,7 +154,7 @@ export default () => {
               ))
             }
           </Carousel>
-        </LazyLoad>
+        {/* </LazyLoad> */}
       </CarouselWrap>
       <div style={{
         position: 'absolute',
