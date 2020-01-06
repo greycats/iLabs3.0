@@ -4,6 +4,7 @@ import { LottieAnimation } from 'components/AnimationPlayer'
 import Header from 'components/Header'
 import { CaseStudyWrap } from 'views/CaseStudy/index.js'
 import Lottie from 'react-lottie'
+import Logo from 'components/BrandLogo/index.js'
 
 import { useAppContext } from 'hooks/useShareState'
 import { getImage } from 'scripts/PreloadManager'
@@ -22,6 +23,7 @@ export const LoadingWithBanner = () => {
   return (
     <>
       <CaseStudyWrap>
+        <Logo isWhite={false}/>
         <Header></Header>
         <div style={{
           paddingTop: '100px',

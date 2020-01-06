@@ -8,11 +8,13 @@ import LeftBg from 'assets/imgs/contact/Contact-graphic-left.svg'
 import RightBg from 'assets/imgs/contact/Contact-graphic-right.svg'
 import { scrollTop } from 'utils'
 import './style.sass'
+import Logo from 'components/BrandLogo/index.js'
 
 export default () => {
   const [isSent, setIsSent] = useState(false)
   return (
     <div className="contact-page">
+      <Logo isWhite={false}/>
       <Header />
       <div className="contact-wrap">
         <div className="contact-content">

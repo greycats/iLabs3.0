@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import whiteLogo from 'assets/imgs/logo.svg'
-import logo from 'assets/imgs/logo-black.svg'
-import history from 'history.js'
 import Lottie from 'react-lottie'
 
 import { useAppContext, showMenuAction } from 'hooks/useShareState'
@@ -12,12 +9,19 @@ const Header = ({ isFixed }) => styled.div`
   height: 100px;
   display: flex;
   justify-content: space-between;
-  padding: 0 ${window.isPC ? '40px' : '0.25rem'};
+  padding: 0 ${window.isPC ? '0px' : '0.25rem'};
   position: ${isFixed ? 'fixed' : 'unset'}
   z-index: 100;
   top: 0;
   img {
     cursor: pointer;
+  }
+
+  .logo {
+    margin-left: 40px;
+    position: absolute;
+    top: 40px;
+    z-index: 10;
   }
 
   .menu-container {
@@ -51,7 +55,7 @@ const MenuIcon = ({
   }
 
   return (
-    <span style={{cursor: 'pointer'}} onClick={clickMenuIcon}>
+    <span style={{cursor: 'pointer', position: 'absolute', right: 0}} onClick={clickMenuIcon}>
       <Lottie
         direction={direction}
         isStopped={isStopped}
@@ -68,15 +72,10 @@ const MenuIcon = ({
   )
 }
 
-export default ({ isFixed = true, link = '/', isWhite = false, showBg = false }) => {
+export default ({ isFixed = true, link = '/', isWhite = false, showBg = false, showLogo = true }) => {
   const StyledHeader = Header({ isFixed })
-
   return (
     <StyledHeader>
-      <img className="logo" src={isWhite ? whiteLogo : logo} alt="logo" onClick={() => {
-        history.push(link)
-      }} />
-
       {
         showBg ?
           <div className="menu-container">

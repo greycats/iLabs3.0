@@ -9,7 +9,7 @@ const global = { LAYOUT: {} }
 
 global.LAYOUT.width = window.innerWidth
 
-export const AnimateBanner = ({ children, ...props }) => {
+export const AnimateBanner = ({ children, showLogo = false, ...props }) => {
   const [renderId] = useState(hashCode('banner'))
   const [initSprit, setInitSprit] = useState([])
   const [pixiApp] = useState(new PIXI.Application({
@@ -169,9 +169,12 @@ export const AnimateBanner = ({ children, ...props }) => {
         top: 0,
         zIndex: window.isPC ? -1 : 0
       }} />
-      <img src={logo} className="logo-img" alt="" onClick={() => {
-        history.push('/')
-      }}/>
+      {
+        showLogo ?
+          <img src={logo} className="logo-img" alt="" onClick={() => {
+            history.push('/')
+          }} /> : null
+      }
       {children}
     </div>
   )

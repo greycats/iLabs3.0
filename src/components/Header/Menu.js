@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import AnimateBanner from 'components/AnimateBanner/index.js'
 import history from 'history.js'
 import 'components/Footer/index.sass'
+import logo from 'assets/imgs/logo.svg'
 
 import { useAppContext, showMenuAction } from 'hooks/useShareState'
 
@@ -21,6 +22,10 @@ const MenuContainer = styled.div`
 
   &.show {
     height: 100vh;
+  }
+
+  .logo-img {
+    cursor: default;
   }
 
   .content {
@@ -146,6 +151,12 @@ export default () => {
             margin: '0 auto',
             paddingTop: '20vh'
           }}>
+          {
+            showMenu ?
+              <img src={logo} className="logo-img" alt="" onClick={() => {
+                // history.push('/')
+              }} /> : null
+          }
           <div
             style={{
               width: '40%',

@@ -4,6 +4,7 @@ import AnimationPlayer from 'components/AnimationPlayer'
 import { AnimateBanner } from 'components/AnimateBanner'
 import LazyLoad from 'react-lazyload'
 import Header from 'components/Header'
+import Logo from 'components/BrandLogo/index.js'
 
 export default () => {
   return (
@@ -44,6 +45,7 @@ export default () => {
         width: '100%',
         height: '100%'
       }}>
+        <Logo />
         <Header isWhite={true} isFixed={false} showBg={true}/>
         <AnimationPlayer
           target={
