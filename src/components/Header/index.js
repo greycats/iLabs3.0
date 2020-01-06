@@ -13,6 +13,7 @@ const Header = ({ isFixed }) => styled.div`
   position: ${isFixed ? 'fixed' : 'unset'}
   z-index: 100;
   top: 0;
+  left: 0;
   img {
     cursor: pointer;
   }

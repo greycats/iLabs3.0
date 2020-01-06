@@ -71,7 +71,7 @@ const MenuList = ({ data, onItemClick }) => {
     data.map(item => {
       return (
         <div style={{
-          fontSize: '64px',
+          fontSize: window.isPC ? '64px' : '32px',
           height: '80px',
           marginBottom: '50px'
         }}>
@@ -91,7 +91,7 @@ const MenuList = ({ data, onItemClick }) => {
   )
 }
 
-const Contact = () => {
+const Contact = ({isPC}) => {
   return (
     <div className="footer-wrap">
       <div className="footer">
@@ -135,6 +135,22 @@ const Contact = () => {
   )
 }
 
+const MobileContact = () => {
+  return (
+    <div className="footer-wrap">
+    <div className="footer">
+      <div className="footer-list">
+            <div className="icon-list">
+              <a href="https://www.linkedin.com/company/interactive-labs-inc/about" target="_blank"><img src={IconIn} /></a>
+              <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
+            </div>
+        <div className="list-title">Copyright © 2019 interactivelabs.co</div>
+      </div>
+    </div>
+    </div>
+  )
+}
+
 export default () => {
   const { store, dispatch } = useAppContext()
   const { showMenu } = store
@@ -145,7 +161,7 @@ export default () => {
         <div
           className="content"
           style={{
-            display: 'flex',
+            display: window.isPC ? 'flex' : 'block',
             height: '100vh',
             width: '80%',
             margin: '0 auto',
@@ -159,7 +175,7 @@ export default () => {
           }
           <div
             style={{
-              width: '40%',
+              width: window.isPC ? '40%' : '100%',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
@@ -171,9 +187,14 @@ export default () => {
           </div>
           <div
             style={{
-              width: '60%',
+              width: window.isPC ? '60%' : '100%',
+              position: window.isPC ? 'unset' : 'absolute',
+              bottom: window.isPC ? 'unset' : '60px',
             }}>
-            <Contact />
+              {
+                window.isPC ?
+                <Contact isPC={window.isPC}/> : <MobileContact/>
+              }
           </div>
         </div>
       </AnimateBanner>
