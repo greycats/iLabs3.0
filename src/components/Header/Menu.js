@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import AnimateBanner from 'components/AnimateBanner/index.js'
+import history from 'history.js'
 
-import { useAppContext } from 'hooks/useShareState'
+import { useAppContext, showMenuAction } from 'hooks/useShareState'
 
 const MenuContainer = styled.div`
   width: 100vw;
@@ -20,8 +21,8 @@ const MenuContainer = styled.div`
 
   .content {
     color: white;
-    opacity: 0.5;
-    transition: opacity .5s;
+    opacity: 0;
+    transition: opacity .5s linear .3s;
     background-color: transparent;
   }
 
@@ -30,8 +31,48 @@ const MenuContainer = styled.div`
   }
 `
 
+const menuData = [
+  {
+    name: 'HOME',
+    link: '/'
+  },
+  {
+    name: 'OUR WORK',
+    link: '/ourwork'
+  },
+  {
+    name: 'CONTACT',
+    link: '/contact'
+  }
+]
+
+const MenuList = ({data, onItemClick}) => {
+  return (
+    data.map(item => {
+      return (
+        <div style={{
+          fontSize: '64px',
+          height: '80px',
+          marginBottom: '50px'
+        }}>
+          <span style={{
+            cursor: 'pointer'
+          }} onClick={() => {
+            onItemClick()
+            setTimeout(() => {
+              history.push(item.link)
+            }, 50)
+          }}>
+            {item.name}
+          </span>
+        </div>
+      )
+    })
+  )
+}
+
 export default () => {
-  const { store } = useAppContext()
+  const { store, dispatch } = useAppContext()
   const { showMenu } = store
 
   return (
@@ -42,16 +83,26 @@ export default () => {
           style={{
             display: 'flex',
             height: '100vh',
+            width: '80%',
+            margin: '0 auto',
+            paddingTop: '20vh'
           }}>
           <div
             style={{
-              width: '50%',
+              width: '40%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              justifyContent: 'flex-start',
+              paddingLeft: '100px'
             }}>
-              aa
+              <MenuList data={menuData} onItemClick={() => {
+                showMenuAction(dispatch, false)
+              }}/>
           </div>
           <div
             style={{
-              width: '50%',
+              width: '60%',
             }}>
             bb
             </div>

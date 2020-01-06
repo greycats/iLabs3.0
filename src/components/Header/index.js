@@ -45,7 +45,9 @@ const MenuIcon = ({
     setDirection(isOpen ? -1 : 1)
     setIsStopped(false)
     setIsOpen(status)
-    showMenuAction(dispatch, status)
+    setTimeout(() => {
+      showMenuAction(dispatch, status)
+    }, isOpen ? 500 : 200)
   }
 
   return (
