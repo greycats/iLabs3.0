@@ -6,6 +6,8 @@
   video {
     width: 100%;
     height: auto;
+    min-height: 800px;
+    object-fit: fill;
     max-width: 1920px;
     margin: 0 auto;
     display: block;
@@ -19,30 +21,37 @@
   }
   .header-sec {
     // display: inline-block;
-    position: relative;
-    height: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    // height: 0;
     color: white;
     box-sizing: border-box;
     // left: 150px;
-    top: 160px;
+    // top: 120px;
+    bottom: 160px;
+    left: 0;
+    right: 0;
     overflow: hidden;
     width: 1280px;
-    margin: 0 auto;
+    margin: auto;
     // user-select: none;
     h1 {
-      font-size: 96px;
-      line-height: 100px;
+      font-size: 64px;
+      line-height: 1.2;
       letter-spacing: 0.5px;
       margin-bottom: 30px;
+      font-weight: bold;
     }
     p {
       font-size: 24px;
       width: 720px;
+      flex: 1;
       font-weight: 500;
       line-height: 1.5;
       letter-spacing: 1px;
       opacity: 0.5;
+      margin-bottom: 25px;
     }
   }
   .content .content-left-bg {
@@ -171,6 +180,33 @@
       .project-label {
         transform: translateX(-30px);
       }
+    }
+  }
+}
+
+.is-phone .main.intro {
+  min-width: 100%;
+  margin-bottom: .5rem;
+  video {
+    height: auto;
+    max-width: 100%;
+  }
+  .header-sec {
+    display: block;
+    bottom: .8rem;
+    width: 100%;
+    text-align: left;
+    padding: 0 .25rem;
+    h1 {
+      font-size: 36px;
+      margin-bottom: .08rem;
+    }
+    p {
+      font-size: 16px;
+      line-height: 28px;
+      width: 100%;
+      margin-bottom: .12rem;
+      opacity: 1;
     }
   }
 }

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Lottie from 'react-lottie'
 
-import { useAppContext, showMenuAction } from 'hooks/useShareState'
+import { useAppContext, showMenuAction, menuDirectionAction, isMenuOpenAction } from 'hooks/useShareState'
 
 const Header = ({ isFixed }) => styled.div`
   width: 100%;
-  height: 100px;
   display: flex;
   justify-content: space-between;
+  background: transparent;
   padding: 0 ${window.isPC ? '0px' : '0.25rem'};
   position: ${isFixed ? 'fixed' : 'unset'}
   z-index: 100;
@@ -41,24 +41,23 @@ const Header = ({ isFixed }) => styled.div`
 
 const MenuIcon = ({
 }) => {
-  const [direction, setDirection] = useState(1)
   const [isStopped, setIsStopped] = useState(true)
-  const [isOpen, setIsOpen] = useState(false)
-  const { dispatch } = useAppContext()
+  const { store, dispatch } = useAppContext()
+  const { menuDirection, isMenuOpen } = store
   const clickMenuIcon = () => {
-    const status = !isOpen
-    setDirection(isOpen ? -1 : 1)
+    const status = !isMenuOpen
     setIsStopped(false)
-    setIsOpen(status)
+    isMenuOpenAction(dispatch, status)
     setTimeout(() => {
       showMenuAction(dispatch, status)
-    }, isOpen ? 500 : 200)
+      menuDirectionAction(dispatch, isMenuOpen ? -1 : 1)
+    })
   }
 
   return (
     <span style={{cursor: 'pointer', position: 'absolute', right: 0}} onClick={clickMenuIcon}>
       <Lottie
-        direction={direction}
+        direction={menuDirection}
         isStopped={isStopped}
         options={{
           autoplay: false,

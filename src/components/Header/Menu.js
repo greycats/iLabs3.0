@@ -5,7 +5,7 @@ import history from 'history.js'
 import 'components/Footer/index.sass'
 import logo from 'assets/imgs/logo.svg'
 
-import { useAppContext, showMenuAction } from 'hooks/useShareState'
+import { useAppContext, showMenuAction, isMenuOpenAction, menuDirectionAction } from 'hooks/useShareState'
 
 import IconIn from 'assets/imgs/icons/in.svg'
 import IconDribbble from 'assets/imgs/icons/dribbble.svg'
@@ -80,7 +80,9 @@ const MenuList = ({ data, onItemClick }) => {
           }} onClick={() => {
             onItemClick()
             setTimeout(() => {
-              history.push(item.link)
+              if (window.location.pathname !== item.link) {
+                history.push(item.link)
+              }
             }, 50)
           }}>
             {item.name}
@@ -183,6 +185,8 @@ export default () => {
             }}>
             <MenuList data={menuData} onItemClick={() => {
               showMenuAction(dispatch, false)
+              isMenuOpenAction(dispatch, false)
+              menuDirectionAction(dispatch, -1)
             }} />
           </div>
           <div
