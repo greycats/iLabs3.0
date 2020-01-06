@@ -41,7 +41,7 @@ export const bannerList = [
 ]
 
 const CarouselWrap = styled.div`
-  .slide.selected {
+  .carousel .slide {
     text-align: left;
   }
   .carousel .control-dots {

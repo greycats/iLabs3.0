@@ -36,14 +36,17 @@ export default () => {
         />
         <AnimationPlayer
           target={
-            <div className="logo-wrap">
-              {
-                logoList.map((item, index) => (
-                  <div key={index} className="logo-item">
-                    <img src={require(`assets/imgs/client-logos/${item.img || 'great-schools'}.svg`)} />
-                  </div>
-                ))
-              }
+            <div style={{position: 'relative'}}>
+              <div className="logo-wrap">
+                {
+                  logoList.map((item, index) => (
+                    <div key={index} className="logo-item">
+                      <img src={require(`assets/imgs/client-logos/${item.img || 'great-schools'}.svg`)} />
+                    </div>
+                  ))
+                }
+              </div>
+              <div className="more">+50 more</div>
             </div>
           }
           animations={[{

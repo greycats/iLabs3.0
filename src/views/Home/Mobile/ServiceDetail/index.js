@@ -49,7 +49,7 @@ export default () => {
         <img src={Close} alt="" />
       </div>
       <TextWrap>
-        <div className="title">{itemData.title}</div>
+        <div className="title">{itemData.text}</div>
         <div className="detail">{itemData.detail}</div>
       </TextWrap>
       <img

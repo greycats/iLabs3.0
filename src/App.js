@@ -159,7 +159,7 @@ function App() {
         return {
             id: `client-${item.img}`,
             type: createjs.LoadQueue.IMAGE,
-            src: require(`assets/imgs/client-logos/${item.img || 'great-schools'}.svg`)
+            src: require(`assets/imgs/client-logos/${item.img}.svg`)
           }
       })
     ))
