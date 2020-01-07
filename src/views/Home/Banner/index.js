@@ -134,15 +134,16 @@ export const onFade = (index) => {
   const videoList = document.getElementsByClassName('video-wrap') || []
   const dotList = document.getElementsByClassName('video-dot') || []
   if (videoList.length && dotList.length) {
-    videoList[(index + 1) % 3].style.opacity = 0
-    videoList[(index + 2) % 3].style.opacity = 0
-    dotList[(index + 1) % 3].style.opacity = 0.3
-    dotList[(index + 2) % 3].style.opacity = 0.3
+    const next1 = (index + 1) % 3, next2 = (index + 2) % 3
+    videoList[next1].style.opacity = 0
+    videoList[next2].style.opacity = 0
+    dotList[next1].style.opacity = 0.3
+    dotList[next2].style.opacity = 0.3
     videoList[index].style.opacity = 1
     dotList[index].style.opacity = 1
     document.getElementsByClassName('banner-video')[index].play()
     timer = setTimeout(() => {
-      onFade((index + 1) % 3)
+      onFade(next1)
     }, 5000)
   }
 }
