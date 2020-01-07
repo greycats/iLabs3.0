@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import AnimationPlayer, { Animations } from 'components/AnimationPlayer'
-import { getImage } from 'scripts/PreloadManager'
 import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
 import ProjectLottie from './ProjectLottie'
 
 import { useAppContext, caseNameAction } from 'hooks/useShareState'
+import { getImageResult as getResult } from 'utils/lazyload.js'
 
 export const fakeData = () => [
   {
-    image: getImage('vizient-thumbnail'),
+    image: getResult('vizient-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/vizient/data.json'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
@@ -20,7 +20,7 @@ export const fakeData = () => [
   },
   {
     // image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
-    image: getImage('gs-thumbnail'),
+    image: getResult('gs-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/gs/data.json'),
     text: 'GreatSchools',
     typeText: 'Website',
@@ -30,7 +30,7 @@ export const fakeData = () => [
   },
   {
     // image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
-    image: getImage('dcom-thumbnail'),
+    image: getResult('dcom-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
     text: 'Dictionary.com',
     typeText: 'Website',
@@ -40,8 +40,48 @@ export const fakeData = () => [
   },
   {
     // image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
-    image: getImage('crew-thumbnail'),
+    image: getResult('crew-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/crew/data.json'),
+    text: 'Crew',
+    typeText: 'App',
+    link: '/casestudy?name=crew',
+    type: 'enterprise',
+    name: 'crew'
+  }
+]
+
+
+export const mobileData = () => [
+  {
+    image: getResult('vizient-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/vizient.png'),
+    text: 'Vizient',
+    typeText: 'Enterprise platform',
+    link: '/casestudy?name=vizient',
+    type: 'enterprise',
+    name: 'vizient'
+  },
+  {
+    image: getResult('gs-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/gs.png'),
+    text: 'GreatSchools',
+    typeText: 'Website',
+    link: '/casestudy?name=gs',
+    type: 'enterprise',
+    name: 'gs'
+  },
+  {
+    image: getResult('dcom-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/dcom.png'),
+    text: 'Dictionary.com',
+    typeText: 'Website',
+    link: '/casestudy?name=dcom',
+    type: 'enterprise',
+    name: 'dcom'
+  },
+  {
+    image: getResult('crew-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/crew.png'),
     text: 'Crew',
     typeText: 'App',
     link: '/casestudy?name=crew',
@@ -101,7 +141,9 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     }, 500)
   }
   useEffect(() => {
-    getAnimationData()
+    if (!isMobile) {
+      getAnimationData()
+    }
   }, [])
 
   return (
@@ -237,7 +279,24 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
   )
 }
 
-export const MobileList = ({ listData = fakeData() }) => {
+const MobileCard = ({
+  item
+}) => {
+
+  return (
+    // <LazyLoad placeholder={<div style={{
+    //   height: '432px',
+    //   backgroundColor: '#f5f5f5'
+    // }}>
+    // </div> }>
+      <img src={item.image} alt="" onClick={() => {
+        history.push(item.link)
+      }}/>
+    // </LazyLoad>
+  )
+}
+
+export const MobileList = ({ listData = mobileData() }) => {
   return (
     <div>
       {
@@ -254,28 +313,64 @@ export const MobileList = ({ listData = fakeData() }) => {
           return (
             <div key={index}>
               <div style={{
-                height: '480px'
+                height: '480px',
+                position: 'relative'
               }}>
                 <AnimationPlayer
+                  triggerRelativePosition={{
+                    top: '-5vh'
+                  }}
+                  target={
+                    <MobileCard item={item}/>
+                  }
+                  animations={
+                    [
+                      {
+                        from: {
+                          opacity: '0'
+                        },
+                        to: {
+                          opacity: '1'
+                        },
+                        duration: 0
+                      }
+                    ]
+                  }
+                />
+                <AnimationPlayer
+                  triggerRelativePosition={{
+                    top: '-10vh'
+                  }}
                   target={
                     <div style={{
-                      width: 0
+                      position: 'absolute',
+                      zIndex: 1,
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: '#fff',
+                      top: 0,
+                      left: 0
                     }}>
-                      <ProjectCard item={item} showText={false} isMobile={true} />
                     </div>
                   }
                   animations={
-                    [{
-                      to: {
-                        width: '100%'
+                    [
+                      {
+                        from: {
+                          left: 0
+                        },
+                        to: {
+                          left: '100vw'
+                        },
+                        duration: 1.2
                       }
-                    }]
+                    ]
                   }
                 />
               </div>
               <AnimationPlayer
                 triggerRelativePosition={{
-                  top: '-440px'
+                  top: '-30vh'
                 }}
                 target={
                   <div>
@@ -289,7 +384,8 @@ export const MobileList = ({ listData = fakeData() }) => {
                     },
                     to: {
                       opacity: 1
-                    }
+                    },
+                    duration: 1.5
                   }
                 ]}
               />

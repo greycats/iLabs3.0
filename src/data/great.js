@@ -32,7 +32,7 @@ export default async () => {
         {
           name: 'Simple navigation',
           text: 'Simplify navigation to showcase the most important data upfront',
-          img: getResult('gs_challenge') || (await import('assets/imgs/gs/3-challenge/1-navigation')).default
+          img: (await import('assets/imgs/gs/3-challenge/1-navigation')).default
         },
         {
           name: 'Increase engagement',

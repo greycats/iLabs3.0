@@ -1,16 +1,36 @@
 import _ from 'lodash'
+import { toDataURL } from './index'
 
 const _result = {
 
 }
 
-export const load = files => {
+const _image = {
+
+}
+
+export const load = (files, onLoad = () => {}) => {
   Promise.all(_.map(files, file => file.src)).then(results => {
     for (let index = 0; index < results.length; index++) {
       _result[files[index].id] = results[index].default;
     }
+
+    onLoad()
   })
 }
+
+export const loadImage = (files, onLoad = () => {}) => {
+  Promise.all(_.map(files, file => file.src)).then(async results => {
+    for (let index = 0; index < results.length; index++) {
+      _image[files[index].id] = await toDataURL(results[index].default);
+    }
+
+    console.log('image is', _image)
+    onLoad()
+  })
+}
+
+export const getImageResult = id => _image[id]
 
 export const loadGSdata = () => {
   load([

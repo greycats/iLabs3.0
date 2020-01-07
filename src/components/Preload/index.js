@@ -6,7 +6,7 @@ import history from 'history.js'
 export const tl = new TimelineMax()
 export const tl1 = new TimelineMax()
 
-export default () => {
+export default ({loaded}) => {
   function drawLoading () {
     TweenMax.killTweensOf(['.preload'])
     tl.set('#Polystar_1', {
@@ -26,47 +26,58 @@ export default () => {
   }
 
   function endPreload() {
-    tl.stop()
-    tl1.set('#Polystar_1', {
-      drawSVG: '0',
-    })
-    tl1.to('#Polystar_1', 1.2, {
-      drawSVG: '100%',
-    })
-    tl1.set('#Shape_10', { x: -200, scaleX: 0 })
-    tl1.to('#Shape_10', 0.5, { x: -200, scaleX: 3, drawSVG: '100%' })
-    tl1.to('#Shape_10', 0.5, { x: 0, scaleX: 1 })
-    tl1.fromTo(
-      '.line1',
-      0.5,
-      { drawSVG: '100% 100%' },
-      { drawSVG: '0% 100% ' },
-      'smallAnim'
-    )
-    tl1.to(
-      '#Polystar_1',
-      1,
-      {
-        fill: 'white',
-        scale: 100,
-        transformOrigin: 'center',
-      },
-      'smallAnim+=0.5'
-    )
-    tl1.set('.preload', { css: { display: 'none' } })
-    if (window.location.pathname === '/') {
-      history.push('/')
-    }
+    setTimeout(() => {
+      tl.stop()
+      tl1.set('#Polystar_1', {
+        drawSVG: '0',
+      })
+      tl1.to('#Polystar_1', 1.2, {
+        drawSVG: '100%',
+      })
+      tl1.set('#Shape_10', { x: -200, scaleX: 0 })
+      tl1.to('#Shape_10', 0.5, { x: -200, scaleX: 3, drawSVG: '100%' })
+      tl1.to('#Shape_10', 0.5, { x: 0, scaleX: 1 })
+      tl1.fromTo(
+        '.line1',
+        0.5,
+        { drawSVG: '100% 100%' },
+        { drawSVG: '0% 100% ' },
+        'smallAnim'
+      )
+      tl1.to(
+        '#Polystar_1',
+        1,
+        {
+          fill: 'white',
+          scale: 100,
+          transformOrigin: 'center',
+        },
+        'smallAnim+=0.5'
+      )
+      tl1.set('.preload', { css: { display: 'none' } })
+      setTimeout(() => {
+        if (window.location.pathname === '/') {
+          history.push('/')
+        }
+      })
+    }, 800)
   }
 
   useEffect(() => {
-    drawLoading()
-    window.addEventListener('load', endPreload)
-    return () => window.removeEventListener('load', endPreload)
+    setTimeout(() => {
+      drawLoading()
+    }, 50)
   }, [])
+
+  useEffect(() => {
+    endPreload()
+  }, [loaded])
   return (
     <Fragment>
-      <section className="preload">
+      <section className="preload" style={{
+        position: 'absolute',
+        zIndex: 10000
+      }}>
         <svg xmlns="http://www.w3.org/2000/svg" id="preload_svg" viewBox="0 0 1920 1080">
           <g id="Layer_12">
             <path id="Polystar_1" d="M959.94 462.7l87 157.39H872.81z" />
@@ -103,7 +114,10 @@ export default () => {
           </g>
         </svg>
       </section>
-      <img src={logo} className="logo-img" alt="" />
+      <img src={logo} className="logo-img" alt="" style={{
+        position: 'absolute',
+        zIndex: 10000
+      }}/>
     </Fragment>
   )
 }

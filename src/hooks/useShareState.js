@@ -8,6 +8,7 @@ const initialState = {
   showMenu: false,
   menuDirection: 1,
   isMenuOpen: false,
+  isDataReady: false
 }
 
 function reducer(state, action) {
@@ -41,6 +42,11 @@ function reducer(state, action) {
       return {
         ...state,
         isMenuOpen: action.isMenuOpen
+      }
+    case 'SET_DATA_READY':
+      return {
+        ...state,
+        isDataReady: action.isDataReady
       }
     default:
       return state
@@ -79,4 +85,9 @@ export const menuDirectionAction = (dispatch, menuDirection) => dispatch({
 export const isMenuOpenAction = (dispatch, isMenuOpen) => dispatch({
   type: 'SET_MENU_OPEN',
   isMenuOpen
+})
+
+export const isDataReadyAction = (dispatch, isDataReady) => dispatch({
+  type: 'SET_DATA_READY',
+  isDataReady
 })

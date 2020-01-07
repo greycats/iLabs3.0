@@ -9,16 +9,19 @@ import { isPCOS, flexible } from './utils/flexible'
 import PreloadManager from 'scripts/PreloadManager'
 import classNames from 'classnames'
 import history from 'history.js'
-import useShareState, { AppContext } from 'hooks/useShareState'
+import useShareState, { AppContext, isDataReadyAction } from 'hooks/useShareState'
 import { logoList } from 'views/Home/OurClients/data.js'
 import MenuContent from 'components/Header/Menu'
 
+import { loadImage } from 'utils/lazyload.js'
+
 function App() {
   const [store, dispatch] = useShareState()
+  const [inited, setInited] = useState(false)
   const [loaded, setLoaded] = useState(false)
   const [assetLoaded, setAssetLoaded] = useState(false)
 
-  const [jsLoaded, setJsLoaded] = useState(true)
+  const [jsLoaded, setJsLoaded] = useState(false)
 
   const disableScroll = e => {
     if (store.showService) {
@@ -60,22 +63,22 @@ function App() {
         id: 'andriod-icon',
         src: require('assets/imgs/dcom/andriodicon.png')
       },
-      {
-        id: 'vizient-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/vizient.png'),
-      },
-      {
-        id: 'crew-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/crew.png'),
-      },
-      {
-        id: 'gs-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/gs.png'),
-      },
-      {
-        id: 'dcom-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/dcom.png'),
-      },
+      // {
+      //   id: 'vizient-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/vizient.png'),
+      // },
+      // {
+      //   id: 'crew-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/crew.png'),
+      // },
+      // {
+      //   id: 'gs-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/gs.png'),
+      // },
+      // {
+      //   id: 'dcom-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/dcom.png'),
+      // },
       {
         id: 'service-bg',
         src: require("assets/imgs/services/service-bg.png")
@@ -180,12 +183,39 @@ function App() {
 
     PreloadManager.load()
     PreloadManager.on('complete', function () {
-      setAssetLoaded(true)
+      setTimeout(() => {
+        setAssetLoaded(true)
+      }, 500)
     }, this)
   }
 
   useEffect(() => {
-    loadFile()
+    loadImage([
+      {
+        id: 'vizient-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/vizient.png'),
+      },
+      {
+        id: 'crew-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/crew.png'),
+      },
+      {
+        id: 'gs-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/gs.png'),
+      },
+      {
+        id: 'dcom-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/dcom.png'),
+      },
+    ], () => {
+      setJsLoaded(true)
+    })
+    setTimeout(() => {
+      loadFile()
+    }, 3000)
+    setTimeout(() => {
+      setInited(true)
+    }, 1000)
     ReactGA.initialize('UA-151494523-1')
     history.listen((...args) => {
       const location = args[0]
@@ -206,21 +236,28 @@ function App() {
     flexible(375, 750)
   }
 
-  if (!loaded || !assetLoaded || !jsLoaded) {
+  useEffect(() => {
+    if (inited && loaded && assetLoaded && jsLoaded) {
+      isDataReadyAction(dispatch, true)
+    }
+  }, [inited, loaded, assetLoaded, jsLoaded])
+
+  if (store.isDataReady) {
     return (
-      <div className="App">
-        <Preload />
-      </div>
+      <AppContext.Provider value={{ store, dispatch }}>
+        <div className={classNames("App", { 'is-phone': !isPC })}>
+          <MenuContent/>
+          {routes}
+        </div>
+      </AppContext.Provider>
     )
   }
   return (
-    <AppContext.Provider value={{ store, dispatch }}>
-      <div className={classNames("App", { 'is-phone': !isPC })}>
-        <MenuContent/>
-        {routes}
-      </div>
-    </AppContext.Provider>
-  );
+    <div className="App">
+      <Preload loaded={store.isDataReadyAction}/>
+    </div>
+  )
+
 }
 
 export default App;
