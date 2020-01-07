@@ -59,6 +59,8 @@ const MenuIcon = ({
       <Lottie
         direction={menuDirection}
         isStopped={isStopped}
+        width="100px"
+        height="100px"
         options={{
           autoplay: false,
           loop: false,
