@@ -1,25 +1,39 @@
 import React from 'react'
-
-import { Carousel } from 'react-responsive-carousel'
 import { AnimateBanner } from 'components/AnimateBanner'
+import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
 import GoToArrow from 'components/GoToArrow'
-import { bannerList } from 'views/Home/Banner/index.js'
+import { bannerList, CarouselWrap, onFade, dotOnClick } from '../../Banner'
 import history from 'history.js'
 import Logo from 'components/BrandLogo/index.js'
 import Header from 'components/Header'
 
-
+export const MobileCarouselWrap = styled.div`
+  &>div {
+    height: 100vh;
+    .dot-wrap {
+      left: 0;
+      right: 0;
+      bottom: 25px;
+      flex-direction: unset;
+      justify-content: center;
+      .video-dot {
+        margin: 0 5px;
+      }
+    }
+  }
+`
 const BannerItem = ({ itemData = {} }) => {
   return (
-    <div>
+    <div className="video-wrap">
       <div style={{
         backgroundColor: '#070608',
-        position: 'relative'
+        position: 'relative',
+        height: '100%'
       }}>
         <video
           className="banner-video"
-          autoPlay
+          // autoPlay
           muted
           preload="true"
           webkit-playsinline="true"
@@ -37,27 +51,6 @@ const BannerItem = ({ itemData = {} }) => {
         width: '100%',
         height: '100%'
       }}>
-        {/* <AnimationPlayer
-          target={
-            <div className="header-sec">
-              {itemData.mobileTitle || itemData.title}
-              <p>{itemData.intro}</p>
-              <GoToArrow text={itemData.btn} isWhite={true} onClick={() => {
-                history.push('/contact')
-              }}></GoToArrow>
-            </div>
-          }
-          animations={
-            [
-              {
-                to: {
-                  height: itemData.mobileHeight
-                },
-                duration: 0.8
-              }
-            ]
-          }
-        /> */}
         <div className="header-sec">
           {itemData.mobileTitle || itemData.title}
           <p>{itemData.intro}</p>
@@ -71,13 +64,13 @@ const BannerItem = ({ itemData = {} }) => {
 }
 
 export default () => {
-  const onSwipeChange = (index) => {
-    document.getElementsByClassName('banner-video')[index + 1].play()
-  }
+  setTimeout(() => {
+    onFade(0)
+  })
   return (
     <div className="main intro" style={{
       position: 'relative',
-      minHeight: '6.9rem',
+      minHeight: '100vh',
       background: '#111'
     }}>
       <Logo/>
@@ -90,27 +83,22 @@ export default () => {
         zIndex: 0
       }}
       >
-        <AnimateBanner height={800} />
+        <AnimateBanner height={'100vh'} />
       </div>} >
-        <Carousel
-          // selectedItem={activeIndex}
-          showThumbs={false}
-          showArrows={false}
-          autoPlay
-          interval={5000}
-          stopOnHover={false}
-          infiniteLoop
-          onChange={onSwipeChange}
-          showStatus={false}
-          // transitionTime={800}
-          swipeable={false}
-        >
-          {
-            bannerList.map((item, index) => (
-              <BannerItem itemData={item} key={index} />
-            ))
-          }
-        </Carousel>
+        <MobileCarouselWrap>
+          <CarouselWrap>
+            {
+              bannerList.map((item, index) => (
+                <BannerItem itemData={item} key={index} />
+              ))
+            }
+            <div className="dot-wrap">
+              <span className="video-dot" onClick={() => dotOnClick(0)}></span>
+              <span className="video-dot" onClick={() => dotOnClick(1)}></span>
+              <span className="video-dot" onClick={() => dotOnClick(2)}></span>
+            </div>
+          </CarouselWrap>
+        </MobileCarouselWrap>
       </LazyLoad>
     </div>
   )

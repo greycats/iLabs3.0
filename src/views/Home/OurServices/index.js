@@ -152,8 +152,8 @@ const List = ({
                 }}>
                 <img src={item.whiteIcon} alt="" style={{
                   marginRight: '17px',
-                  marginLeft: '32px',
-                  width: '32px'
+                  marginLeft: '24px',
+                  width: '24px'
                 }} /> {item.text}
                 <div style={{
                   position: 'absolute',
