@@ -26,41 +26,47 @@ export default () => {
   }
 
   function endPreload() {
-    tl.stop()
-    tl1.set('#Polystar_1', {
-      drawSVG: '0',
-    })
-    tl1.to('#Polystar_1', 1.2, {
-      drawSVG: '100%',
-    })
-    tl1.set('#Shape_10', { x: -200, scaleX: 0 })
-    tl1.to('#Shape_10', 0.5, { x: -200, scaleX: 3, drawSVG: '100%' })
-    tl1.to('#Shape_10', 0.5, { x: 0, scaleX: 1 })
-    tl1.fromTo(
-      '.line1',
-      0.5,
-      { drawSVG: '100% 100%' },
-      { drawSVG: '0% 100% ' },
-      'smallAnim'
-    )
-    tl1.to(
-      '#Polystar_1',
-      1,
-      {
-        fill: 'white',
-        scale: 100,
-        transformOrigin: 'center',
-      },
-      'smallAnim+=0.5'
-    )
-    tl1.set('.preload', { css: { display: 'none' } })
-    if (window.location.pathname === '/') {
-      history.push('/')
-    }
+    setTimeout(() => {
+      tl.stop()
+      tl1.set('#Polystar_1', {
+        drawSVG: '0',
+      })
+      tl1.to('#Polystar_1', 1.2, {
+        drawSVG: '100%',
+      })
+      tl1.set('#Shape_10', { x: -200, scaleX: 0 })
+      tl1.to('#Shape_10', 0.5, { x: -200, scaleX: 3, drawSVG: '100%' })
+      tl1.to('#Shape_10', 0.5, { x: 0, scaleX: 1 })
+      tl1.fromTo(
+        '.line1',
+        0.5,
+        { drawSVG: '100% 100%' },
+        { drawSVG: '0% 100% ' },
+        'smallAnim'
+      )
+      tl1.to(
+        '#Polystar_1',
+        1,
+        {
+          fill: 'white',
+          scale: 100,
+          transformOrigin: 'center',
+        },
+        'smallAnim+=0.5'
+      )
+      tl1.set('.preload', { css: { display: 'none' } })
+      setTimeout(() => {
+        if (window.location.pathname === '/') {
+          history.push('/')
+        }
+      })
+    }, 800)
   }
 
   useEffect(() => {
-    drawLoading()
+    setTimeout(() => {
+      drawLoading()
+    }, 50)
     window.addEventListener('load', endPreload)
     return () => window.removeEventListener('load', endPreload)
   }, [])

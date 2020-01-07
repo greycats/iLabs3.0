@@ -15,6 +15,7 @@ import MenuContent from 'components/Header/Menu'
 
 function App() {
   const [store, dispatch] = useShareState()
+  const [inited, setInited] = useState(false)
   const [loaded, setLoaded] = useState(false)
   const [assetLoaded, setAssetLoaded] = useState(false)
 
@@ -185,7 +186,12 @@ function App() {
   }
 
   useEffect(() => {
-    loadFile()
+    setTimeout(() => {
+      loadFile()
+    }, 3000)
+    setTimeout(() => {
+      setInited(true)
+    }, 1000)
     ReactGA.initialize('UA-151494523-1')
     history.listen((...args) => {
       const location = args[0]
@@ -206,7 +212,7 @@ function App() {
     flexible(375, 750)
   }
 
-  if (!loaded || !assetLoaded || !jsLoaded) {
+  if (!inited || !loaded || !assetLoaded || !jsLoaded) {
     return (
       <div className="App">
         <Preload />
