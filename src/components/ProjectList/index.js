@@ -290,25 +290,60 @@ export const MobileList = ({ listData = mobileData() }) => {
           return (
             <div key={index}>
               <div style={{
-                height: '480px'
+                height: '480px',
+                position: 'relative'
               }}>
-                <ProjectCard item={item} showText={false} isMobile={true} />
-                {/* <AnimationPlayer
+                <AnimationPlayer
+                  triggerRelativePosition={{
+                    top: '-30vh'
+                  }}
+                  target={
+                    <ProjectCard item={item} showText={false} isMobile={true} />
+                  }
+                  animations={
+                    [
+                      {
+                        from: {
+                          display: 'none'
+                        },
+                        to: {
+                          display: 'block'
+                        },
+                        duration: 0
+                      }
+                    ]
+                  }
+                />
+                <AnimationPlayer
+                  triggerRelativePosition={{
+                    top: '-30vh'
+                  }}
                   target={
                     <div style={{
-                      width: 0
+                      position: 'absolute',
+                      zIndex: 1,
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: '#fff',
+                      top: 0,
+                      left: 0
                     }}>
-                      <ProjectCard item={item} showText={false} isMobile={true} />
                     </div>
                   }
                   animations={
-                    [{
-                      to: {
-                        width: '100%'
+                    [
+                      {
+                        from: {
+                          left: 0
+                        },
+                        to: {
+                          left: '100vw'
+                        },
+                        duration: 1
                       }
-                    }]
+                    ]
                   }
-                /> */}
+                />
               </div>
               <AnimationPlayer
                 triggerRelativePosition={{
