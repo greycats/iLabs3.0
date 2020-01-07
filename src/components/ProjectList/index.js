@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import AnimationPlayer, { Animations } from 'components/AnimationPlayer'
-import { getImage } from 'scripts/PreloadManager'
 import history from 'history.js'
 import TextBg from 'assets/imgs/text-bg.svg'
 import CommonTitle from 'components/CommonTitle'
 import ProjectLottie from './ProjectLottie'
 
 import { useAppContext, caseNameAction } from 'hooks/useShareState'
+import { getImageResult as getResult } from 'utils/lazyload.js'
 
 export const fakeData = () => [
   {
-    image: getImage('vizient-thumbnail'),
+    image: getResult('vizient-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/vizient/data.json'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
@@ -20,7 +20,7 @@ export const fakeData = () => [
   },
   {
     // image: _.get(PreloadManager.getResult('gs-thumbnail'), 'src', ''),
-    image: getImage('gs-thumbnail'),
+    image: getResult('gs-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/gs/data.json'),
     text: 'GreatSchools',
     typeText: 'Website',
@@ -30,7 +30,7 @@ export const fakeData = () => [
   },
   {
     // image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
-    image: getImage('dcom-thumbnail'),
+    image: getResult('dcom-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
     text: 'Dictionary.com',
     typeText: 'Website',
@@ -40,7 +40,7 @@ export const fakeData = () => [
   },
   {
     // image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
-    image: getImage('crew-thumbnail'),
+    image: getResult('crew-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/crew/data.json'),
     text: 'Crew',
     typeText: 'App',
@@ -53,7 +53,8 @@ export const fakeData = () => [
 
 export const mobileData = () => [
   {
-    image: getImage('vizient-thumbnail'),
+    image: getResult('vizient-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/vizient.png'),
     text: 'Vizient',
     typeText: 'Enterprise platform',
     link: '/casestudy?name=vizient',
@@ -61,7 +62,8 @@ export const mobileData = () => [
     name: 'vizient'
   },
   {
-    image: getImage('gs-thumbnail'),
+    image: getResult('gs-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/gs.png'),
     text: 'GreatSchools',
     typeText: 'Website',
     link: '/casestudy?name=gs',
@@ -69,7 +71,8 @@ export const mobileData = () => [
     name: 'gs'
   },
   {
-    image: getImage('dcom-thumbnail'),
+    image: getResult('dcom-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/dcom.png'),
     text: 'Dictionary.com',
     typeText: 'Website',
     link: '/casestudy?name=dcom',
@@ -77,7 +80,8 @@ export const mobileData = () => [
     name: 'dcom'
   },
   {
-    image: getImage('crew-thumbnail'),
+    image: getResult('crew-thumbnail'),
+    // src: require('assets/imgs/projects/thumbnails/crew.png'),
     text: 'Crew',
     typeText: 'App',
     link: '/casestudy?name=crew',
@@ -275,6 +279,23 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
   )
 }
 
+const MobileCard = ({
+  item
+}) => {
+
+  return (
+    // <LazyLoad placeholder={<div style={{
+    //   height: '432px',
+    //   backgroundColor: '#f5f5f5'
+    // }}>
+    // </div> }>
+      <img src={item.image} alt="" onClick={() => {
+        history.push(item.link)
+      }}/>
+    // </LazyLoad>
+  )
+}
+
 export const MobileList = ({ listData = mobileData() }) => {
   return (
     <div>
@@ -297,19 +318,19 @@ export const MobileList = ({ listData = mobileData() }) => {
               }}>
                 <AnimationPlayer
                   triggerRelativePosition={{
-                    top: '-39vh'
+                    top: '-5vh'
                   }}
                   target={
-                    <ProjectCard item={item} showText={false} isMobile={true} />
+                    <MobileCard item={item}/>
                   }
                   animations={
                     [
                       {
                         from: {
-                          display: 'none'
+                          opacity: '0'
                         },
                         to: {
-                          display: 'block'
+                          opacity: '1'
                         },
                         duration: 0
                       }
@@ -318,7 +339,7 @@ export const MobileList = ({ listData = mobileData() }) => {
                 />
                 <AnimationPlayer
                   triggerRelativePosition={{
-                    top: '-40vh'
+                    top: '-10vh'
                   }}
                   target={
                     <div style={{
@@ -326,7 +347,7 @@ export const MobileList = ({ listData = mobileData() }) => {
                       zIndex: 1,
                       width: '100%',
                       height: '100%',
-                      backgroundColor: '#0fff',
+                      backgroundColor: '#fff',
                       top: 0,
                       left: 0
                     }}>
@@ -341,7 +362,7 @@ export const MobileList = ({ listData = mobileData() }) => {
                         to: {
                           left: '100vw'
                         },
-                        duration: 1
+                        duration: 1.2
                       }
                     ]
                   }
@@ -349,7 +370,7 @@ export const MobileList = ({ listData = mobileData() }) => {
               </div>
               <AnimationPlayer
                 triggerRelativePosition={{
-                  top: '-50vh'
+                  top: '-30vh'
                 }}
                 target={
                   <div>
@@ -363,7 +384,8 @@ export const MobileList = ({ listData = mobileData() }) => {
                     },
                     to: {
                       opacity: 1
-                    }
+                    },
+                    duration: 1.5
                   }
                 ]}
               />

@@ -42,3 +42,20 @@ export const scrollTop = (number = 0, time) => {
     }
   }, spacingTime)
 }
+
+export function toDataURL(url, callback) {
+  return new Promise((resolve, reject) => {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        // callback(reader.result);
+        resolve(reader.result)
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+  })
+}

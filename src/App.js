@@ -13,13 +13,15 @@ import useShareState, { AppContext, isDataReadyAction } from 'hooks/useShareStat
 import { logoList } from 'views/Home/OurClients/data.js'
 import MenuContent from 'components/Header/Menu'
 
+import { loadImage } from 'utils/lazyload.js'
+
 function App() {
   const [store, dispatch] = useShareState()
   const [inited, setInited] = useState(false)
   const [loaded, setLoaded] = useState(false)
   const [assetLoaded, setAssetLoaded] = useState(false)
 
-  const [jsLoaded, setJsLoaded] = useState(true)
+  const [jsLoaded, setJsLoaded] = useState(false)
 
   const disableScroll = e => {
     if (store.showService) {
@@ -36,7 +38,7 @@ function App() {
   const doneLoad = () => {
     setTimeout(() => {
       setLoaded(true)
-    }, 4000)
+    }, 3000)
   }
 
   const loadFile = () => {
@@ -61,22 +63,22 @@ function App() {
         id: 'andriod-icon',
         src: require('assets/imgs/dcom/andriodicon.png')
       },
-      {
-        id: 'vizient-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/vizient.png'),
-      },
-      {
-        id: 'crew-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/crew.png'),
-      },
-      {
-        id: 'gs-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/gs.png'),
-      },
-      {
-        id: 'dcom-thumbnail',
-        src: require('assets/imgs/projects/thumbnails/dcom.png'),
-      },
+      // {
+      //   id: 'vizient-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/vizient.png'),
+      // },
+      // {
+      //   id: 'crew-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/crew.png'),
+      // },
+      // {
+      //   id: 'gs-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/gs.png'),
+      // },
+      // {
+      //   id: 'dcom-thumbnail',
+      //   src: require('assets/imgs/projects/thumbnails/dcom.png'),
+      // },
       {
         id: 'service-bg',
         src: require("assets/imgs/services/service-bg.png")
@@ -188,6 +190,26 @@ function App() {
   }
 
   useEffect(() => {
+    loadImage([
+      {
+        id: 'vizient-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/vizient.png'),
+      },
+      {
+        id: 'crew-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/crew.png'),
+      },
+      {
+        id: 'gs-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/gs.png'),
+      },
+      {
+        id: 'dcom-thumbnail',
+        src: import('assets/imgs/projects/thumbnails/dcom.png'),
+      },
+    ], () => {
+      setJsLoaded(true)
+    })
     setTimeout(() => {
       loadFile()
     }, 3000)
