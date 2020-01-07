@@ -1,5 +1,7 @@
 import React, { lazy } from 'react'
 import styled from 'styled-components'
+import BrandLogo from 'components/BrandLogo/index.js'
+import history from 'history.js'
 
 import { getLocationSearch } from 'utils'
 
@@ -29,7 +31,8 @@ export default () => {
 
   return (
     <CaseStudyWrap>
-      <Header />
+      <BrandLogo isWhite={false}/>
+      <Header showLogo={false}/>
       {
         (() => {
           switch (name) {

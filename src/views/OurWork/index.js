@@ -6,6 +6,8 @@ import history from 'history.js'
 import { getLocationSearch } from 'utils'
 import Footer from 'components/Footer'
 import CommonTitle from 'components/CommonTitle'
+import Header from 'components/Header'
+import Logo from 'components/BrandLogo/index.js'
 
 import _ from 'lodash'
 
@@ -160,6 +162,8 @@ export default ({ data = fakeData() }) => {
 
   return (
     <div>
+      <Logo />
+      <Header isWhite={true} isFixed={false} showBg={true}/>
       <AnimateBanner height={isPC ? 600 : 400}>
         {
           isPC ?
@@ -170,17 +174,13 @@ export default ({ data = fakeData() }) => {
               height: '100px',
               width: '58%',
               backgroundColor: '#fff'
-            }}></div>
+            }}>
+            </div>
             :
             null
         }
       </AnimateBanner>
       <Title />
-      {/* <NavBar
-        onNavChange={type => {
-          history.replace(`/ourwork?type=${type}`)
-        }}
-      /> */}
       <div className="layout-1240" style={isPC ? { marginBottom: 50 } : { padding: '0.4rem  0.25rem 0' }}>
         <CommonTitle {...titleData}></CommonTitle>
         {

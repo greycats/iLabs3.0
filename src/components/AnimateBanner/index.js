@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import _ from 'lodash'
-import ScrollMagic from 'scrollmagic'
 import logo from 'assets/imgs/logo.svg'
 import history from 'history.js'
 
@@ -10,12 +9,12 @@ const global = { LAYOUT: {} }
 
 global.LAYOUT.width = window.innerWidth
 
-export const AnimateBanner = ({ children, ...props }) => {
+export const AnimateBanner = ({ children, showLogo = false, ...props }) => {
   const [renderId] = useState(hashCode('banner'))
   const [initSprit, setInitSprit] = useState([])
   const [pixiApp] = useState(new PIXI.Application({
     antialias: true,
-    backgroundColor: 0x070608,
+    backgroundColor: props.backgroundColor || 0x070608,
     forceCanvas: true,
     width: window.innerWidth,
     height: props.height || 800,
@@ -31,7 +30,7 @@ export const AnimateBanner = ({ children, ...props }) => {
   function contentAnim() {
     const tl = () =>
       new TimelineMax({ paused: false })
-        .fromTo(`#${renderId}`, 0.4, { 'margin-left': '-100vw' }, { 'margin-left': 0 }, 'step1')
+        .fromTo(`#${renderId}`, 0.4, { 'margin-left': 0 }, { 'margin-left': 0 }, 'step1')
         .staggerTo(initSprit, 0.2, { pixi: { x: '-=500' } }, 0.001, 'step1-=.4')
         .staggerTo(initSprit, 1.5, { pixi: { x: '+=100' } }, 0.01, 'step1+=.5')
 
@@ -170,9 +169,12 @@ export const AnimateBanner = ({ children, ...props }) => {
         top: 0,
         zIndex: window.isPC ? -1 : 0
       }} />
-      <img src={logo} className="logo-img" alt="" onClick={() => {
-        history.push('/')
-      }}/>
+      {
+        showLogo ?
+          <img src={logo} className="logo-img" alt="" onClick={() => {
+            history.push('/')
+          }} /> : null
+      }
       {children}
     </div>
   )

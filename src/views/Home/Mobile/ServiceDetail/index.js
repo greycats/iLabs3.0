@@ -2,7 +2,6 @@ import React from 'react'
 import { useAppContext, serviceAction } from 'hooks/useShareState'
 import styled from 'styled-components'
 import Close from 'assets/imgs/close.svg'
-import detailData from 'data/mobileServiceData'
 import { serviceData } from 'data/services'
 
 const TextWrap = styled.div`

@@ -4,11 +4,14 @@ import { getLocationSearch } from 'utils'
 const initialState = {
   showService: false,
   serviceIndex: 0,
-  caseName: getLocationSearch('name')
+  caseName: getLocationSearch('name'),
+  showMenu: false,
+  menuDirection: 1,
+  isMenuOpen: false,
 }
 
-function reducer (state, action) {
-  switch(action.type) {
+function reducer(state, action) {
+  switch (action.type) {
     case 'SET_SHOW_SERVICE':
       return {
         ...state,
@@ -23,6 +26,21 @@ function reducer (state, action) {
       return {
         ...state,
         caseName: action.caseName
+      }
+    case 'SET_SHOW_MENU':
+      return {
+        ...state,
+        showMenu: action.showMenu || false
+      }
+    case 'SET_MENU_DIRECTION':
+      return {
+        ...state,
+        menuDirection: action.menuDirection
+      }
+    case 'SET_MENU_OPEN':
+      return {
+        ...state,
+        isMenuOpen: action.isMenuOpen
       }
     default:
       return state
@@ -46,4 +64,19 @@ export const serviceIndexAction = (dispatch, serviceIndex) => dispatch({
 export const caseNameAction = (dispatch, caseName) => dispatch({
   type: 'SET_CASE_NAME',
   caseName
+})
+
+export const showMenuAction = (dispatch, showMenu) => dispatch({
+  type: 'SET_SHOW_MENU',
+  showMenu
+})
+
+export const menuDirectionAction = (dispatch, menuDirection) => dispatch({
+  type: 'SET_MENU_DIRECTION',
+  menuDirection
+})
+
+export const isMenuOpenAction = (dispatch, isMenuOpen) => dispatch({
+  type: 'SET_MENU_OPEN',
+  isMenuOpen
 })

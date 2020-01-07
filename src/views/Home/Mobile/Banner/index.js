@@ -1,13 +1,12 @@
 import React from 'react'
-
-import AnimationPlayer from 'components/AnimationPlayer'
 import { AnimateBanner } from 'components/AnimateBanner'
 import styled from 'styled-components'
 import LazyLoad from 'react-lazyload'
 import GoToArrow from 'components/GoToArrow'
 import { bannerList, CarouselWrap, onFade, dotOnClick } from '../../Banner'
 import history from 'history.js'
-import logo from 'assets/imgs/logo.svg'
+import Logo from 'components/BrandLogo/index.js'
+import Header from 'components/Header'
 
 export const MobileCarouselWrap = styled.div`
   &>div {
@@ -74,9 +73,8 @@ export default () => {
       minHeight: '100vh',
       background: '#111'
     }}>
-      <img src={logo} className="logo-img" alt="" onClick={() => {
-        history.push('/')
-      }} />
+      <Logo/>
+      <Header isWhite={true} isFixed={false} showBg={true}/>
       <LazyLoad placeholder={<div style={{
         position: 'absolute',
         top: 0,

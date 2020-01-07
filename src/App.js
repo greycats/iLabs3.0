@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ReactGA from 'react-ga'
 import _ from 'lodash'
 import Preload from 'components/Preload'
 import './App.css'
@@ -10,6 +11,7 @@ import classNames from 'classnames'
 import history from 'history.js'
 import useShareState, { AppContext } from 'hooks/useShareState'
 import { logoList } from 'views/Home/OurClients/data.js'
+import MenuContent from 'components/Header/Menu'
 
 function App() {
   const [store, dispatch] = useShareState()
@@ -184,11 +186,15 @@ function App() {
 
   useEffect(() => {
     loadFile()
+    ReactGA.initialize('UA-151494523-1')
     history.listen((...args) => {
+      const location = args[0]
       const method = args[1]
       if (_.includes(['POP', 'PUSH'], method)) {
         window.scrollTo(0, 0)
       }
+      ReactGA.set({ page: location.pathname })
+      ReactGA.pageview(location.pathname)
     })
     window.addEventListener('load', doneLoad)
     return () => window.removeEventListener('load', doneLoad)
@@ -210,6 +216,7 @@ function App() {
   return (
     <AppContext.Provider value={{ store, dispatch }}>
       <div className={classNames("App", { 'is-phone': !isPC })}>
+        <MenuContent/>
         {routes}
       </div>
     </AppContext.Provider>

@@ -3,7 +3,8 @@ import AnimationPlayer from 'components/AnimationPlayer'
 import styled from 'styled-components'
 import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
-import logo from 'assets/imgs/logo.svg'
+import Header from 'components/Header'
+import Logo from 'components/BrandLogo/index.js'
 import { getImage } from 'scripts/PreloadManager.js'
 
 export const bannerList = [
@@ -155,9 +156,8 @@ export default () => {
   })
   return (
     <div className="main intro ui-content">
-      <img src={logo} className="logo-img" alt="" onClick={() => {
-        history.push('/')
-      }} />
+      <Logo />
+      <Header isWhite={true} isFixed={false} showBg={true}/>
       <CarouselWrap>
         {
           bannerList.map((item, index) => (
