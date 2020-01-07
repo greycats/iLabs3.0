@@ -295,7 +295,7 @@ export const MobileList = ({ listData = mobileData() }) => {
               }}>
                 <AnimationPlayer
                   triggerRelativePosition={{
-                    top: '-30vh'
+                    top: '-39vh'
                   }}
                   target={
                     <ProjectCard item={item} showText={false} isMobile={true} />
@@ -316,7 +316,7 @@ export const MobileList = ({ listData = mobileData() }) => {
                 />
                 <AnimationPlayer
                   triggerRelativePosition={{
-                    top: '-30vh'
+                    top: '-40vh'
                   }}
                   target={
                     <div style={{
@@ -324,7 +324,7 @@ export const MobileList = ({ listData = mobileData() }) => {
                       zIndex: 1,
                       width: '100%',
                       height: '100%',
-                      backgroundColor: '#fff',
+                      backgroundColor: '#020202',
                       top: 0,
                       left: 0
                     }}>

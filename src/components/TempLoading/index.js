@@ -19,7 +19,8 @@ const imageMap = () => ({
 
 export const LoadingWithBanner = () => {
   const { store } = useAppContext()
-  if (store.caseName) {
+
+  if (!store.caseName) {
     return <FullPageLoading/>
   }
 
