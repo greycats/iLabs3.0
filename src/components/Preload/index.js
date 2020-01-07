@@ -6,7 +6,7 @@ import history from 'history.js'
 export const tl = new TimelineMax()
 export const tl1 = new TimelineMax()
 
-export default () => {
+export default ({loaded}) => {
   function drawLoading () {
     TweenMax.killTweensOf(['.preload'])
     tl.set('#Polystar_1', {
@@ -67,12 +67,17 @@ export default () => {
     setTimeout(() => {
       drawLoading()
     }, 50)
-    window.addEventListener('load', endPreload)
-    return () => window.removeEventListener('load', endPreload)
   }, [])
+
+  useEffect(() => {
+    endPreload()
+  }, [loaded])
   return (
     <Fragment>
-      <section className="preload">
+      <section className="preload" style={{
+        position: 'absolute',
+        zIndex: 10000
+      }}>
         <svg xmlns="http://www.w3.org/2000/svg" id="preload_svg" viewBox="0 0 1920 1080">
           <g id="Layer_12">
             <path id="Polystar_1" d="M959.94 462.7l87 157.39H872.81z" />
@@ -109,7 +114,10 @@ export default () => {
           </g>
         </svg>
       </section>
-      <img src={logo} className="logo-img" alt="" />
+      <img src={logo} className="logo-img" alt="" style={{
+        position: 'absolute',
+        zIndex: 10000
+      }}/>
     </Fragment>
   )
 }

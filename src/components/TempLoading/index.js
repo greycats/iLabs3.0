@@ -19,6 +19,9 @@ const imageMap = () => ({
 
 export const LoadingWithBanner = () => {
   const { store } = useAppContext()
+  if (store.caseName) {
+    return <FullPageLoading/>
+  }
 
   return (
     <>
@@ -30,7 +33,7 @@ export const LoadingWithBanner = () => {
           paddingLeft: '200px'
         }}>
           <LazyLoad placeholder={
-            <img src={imageMap()[store.caseName || 'vizient']} alt="" style={{
+            <img src={imageMap()[store.caseName]} alt="" style={{
               width: '100%'
             }} />
           }>

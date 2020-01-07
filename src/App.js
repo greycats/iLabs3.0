@@ -9,7 +9,7 @@ import { isPCOS, flexible } from './utils/flexible'
 import PreloadManager from 'scripts/PreloadManager'
 import classNames from 'classnames'
 import history from 'history.js'
-import useShareState, { AppContext } from 'hooks/useShareState'
+import useShareState, { AppContext, isDataReadyAction } from 'hooks/useShareState'
 import { logoList } from 'views/Home/OurClients/data.js'
 import MenuContent from 'components/Header/Menu'
 
@@ -36,7 +36,7 @@ function App() {
   const doneLoad = () => {
     setTimeout(() => {
       setLoaded(true)
-    }, 3000)
+    }, 4000)
   }
 
   const loadFile = () => {
@@ -212,21 +212,28 @@ function App() {
     flexible(375, 750)
   }
 
-  if (!inited || !loaded || !assetLoaded || !jsLoaded) {
+  useEffect(() => {
+    if (inited && loaded && assetLoaded && jsLoaded) {
+      isDataReadyAction(dispatch, true)
+    }
+  }, [inited, loaded, assetLoaded, jsLoaded])
+
+  if (store.isDataReady) {
     return (
-      <div className="App">
-        <Preload />
-      </div>
+      <AppContext.Provider value={{ store, dispatch }}>
+        <div className={classNames("App", { 'is-phone': !isPC })}>
+          <MenuContent/>
+          {routes}
+        </div>
+      </AppContext.Provider>
     )
   }
   return (
-    <AppContext.Provider value={{ store, dispatch }}>
-      <div className={classNames("App", { 'is-phone': !isPC })}>
-        <MenuContent/>
-        {routes}
-      </div>
-    </AppContext.Provider>
-  );
+    <div className="App">
+      <Preload loaded={store.isDataReadyAction}/>
+    </div>
+  )
+
 }
 
 export default App;

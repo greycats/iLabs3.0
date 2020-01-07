@@ -68,9 +68,11 @@ const menuData = [
 
 const MenuList = ({ data, onItemClick }) => {
   return (
-    data.map(item => {
+    data.map((item, index) => {
       return (
-        <div style={{
+        <div
+        key={index}
+        style={{
           fontSize: window.isPC ? '64px' : '32px',
           height: window.isPC ? '80px' : '20px',
           marginBottom: '50px'
