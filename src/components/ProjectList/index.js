@@ -137,7 +137,9 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
     }, 500)
   }
   useEffect(() => {
-    getAnimationData()
+    if (!isMobile) {
+      getAnimationData()
+    }
   }, [])
 
   return (
@@ -324,7 +326,7 @@ export const MobileList = ({ listData = mobileData() }) => {
                       zIndex: 1,
                       width: '100%',
                       height: '100%',
-                      backgroundColor: '#020202',
+                      backgroundColor: '#0fff',
                       top: 0,
                       left: 0
                     }}>
