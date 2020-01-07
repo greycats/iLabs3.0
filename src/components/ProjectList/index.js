@@ -50,6 +50,42 @@ export const fakeData = () => [
   }
 ]
 
+
+export const mobileData = () => [
+  {
+    image: getImage('vizient-thumbnail'),
+    text: 'Vizient',
+    typeText: 'Enterprise platform',
+    link: '/casestudy?name=vizient',
+    type: 'enterprise',
+    name: 'vizient'
+  },
+  {
+    image: getImage('gs-thumbnail'),
+    text: 'GreatSchools',
+    typeText: 'Website',
+    link: '/casestudy?name=gs',
+    type: 'enterprise',
+    name: 'gs'
+  },
+  {
+    image: getImage('dcom-thumbnail'),
+    text: 'Dictionary.com',
+    typeText: 'Website',
+    link: '/casestudy?name=dcom',
+    type: 'enterprise',
+    name: 'dcom'
+  },
+  {
+    image: getImage('crew-thumbnail'),
+    text: 'Crew',
+    typeText: 'App',
+    link: '/casestudy?name=crew',
+    type: 'enterprise',
+    name: 'crew'
+  }
+]
+
 const ProjectImage = ({ image, height = '698px' }) => {
   return (
     <div
@@ -237,7 +273,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
   )
 }
 
-export const MobileList = ({ listData = fakeData() }) => {
+export const MobileList = ({ listData = mobileData() }) => {
   return (
     <div>
       {
@@ -256,7 +292,8 @@ export const MobileList = ({ listData = fakeData() }) => {
               <div style={{
                 height: '480px'
               }}>
-                <AnimationPlayer
+                <ProjectCard item={item} showText={false} isMobile={true} />
+                {/* <AnimationPlayer
                   target={
                     <div style={{
                       width: 0
@@ -271,7 +308,7 @@ export const MobileList = ({ listData = fakeData() }) => {
                       }
                     }]
                   }
-                />
+                /> */}
               </div>
               <AnimationPlayer
                 triggerRelativePosition={{

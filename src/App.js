@@ -181,7 +181,9 @@ function App() {
 
     PreloadManager.load()
     PreloadManager.on('complete', function () {
-      setAssetLoaded(true)
+      setTimeout(() => {
+        setAssetLoaded(true)
+      }, 500)
     }, this)
   }
 
