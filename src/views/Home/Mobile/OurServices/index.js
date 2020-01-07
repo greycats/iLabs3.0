@@ -76,7 +76,7 @@ export default () => {
             fontSize: '16px',
             lineHeight: '1.8',
             marginBottom: '50px'
-          }}>We offer a wide variety of services that cover the gamut of full stack development.</p>
+          }}>Our multidisciplinary team of 70+ can execute on all key areas of the product development cycle</p>
           <List
             title='Product Design'
             activeItem={activeItem}

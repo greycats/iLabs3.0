@@ -1,11 +1,8 @@
 import React from 'react'
 import AnimationPlayer from 'components/AnimationPlayer'
-import { AnimateBanner } from 'components/AnimateBanner'
-import { Carousel } from 'react-responsive-carousel'
 import styled from 'styled-components'
 import GoToArrow from 'components/GoToArrow'
 import history from 'history.js'
-import LazyLoad from 'react-lazyload'
 import logo from 'assets/imgs/logo.svg'
 import { getImage } from 'scripts/PreloadManager.js'
 
@@ -44,27 +41,43 @@ export const bannerList = [
   }
 ]
 
-const CarouselWrap = styled.div`
-  .carousel .slide {
-    text-align: left;
+export const CarouselWrap = styled.div`
+  position: relative;
+  width: 100%;
+  height: 800px;
+  background: #111;
+  .video-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+    transition: all .5s;
   }
-  .carousel .control-dots {
+  .dot-wrap {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding-right: 40px;
-    padding-bottom: 40px;
-    .dot {
+    .video-dot {
       width: 9px;
       height: 9px;
-      margin: 5px 0;
+      border-radius: 50%;
+      background: #fff;
+      opacity: .3;
+      margin-bottom: 10px;
+      transition: all .5s;
+      cursor: pointer;
     }
   }
 `
 
 const BannerItem = ({ itemData = {} }) => {
   return (
-    <div>
+    <div className="video-wrap">
       <div style={{
         height: '800px',
         backgroundColor: '#070608',
@@ -72,7 +85,7 @@ const BannerItem = ({ itemData = {} }) => {
       }}>
         <video
           className="banner-video"
-          autoPlay
+          // autoPlay
           muted
           preload="true"
           poster={itemData.poster || ''}
@@ -113,48 +126,49 @@ const BannerItem = ({ itemData = {} }) => {
   )
 }
 
-export default () => {
-  // const [activeIndex, setActiveIndex] = useState(0)
+let timer = null
 
-  const onSwipeChange = (index) => {
-    document.getElementsByClassName('banner-video')[index + 1].play()
+export const onFade = (index) => {
+  window.clearTimeout(timer)
+  const videoList = document.getElementsByClassName('video-wrap') || []
+  const dotList = document.getElementsByClassName('video-dot') || []
+  if (videoList.length && dotList.length) {
+    videoList[(index + 1) % 3].style.opacity = 0
+    videoList[(index + 2) % 3].style.opacity = 0
+    dotList[(index + 1) % 3].style.opacity = 0.3
+    dotList[(index + 2) % 3].style.opacity = 0.3
+    videoList[index].style.opacity = 1
+    dotList[index].style.opacity = 1
+    document.getElementsByClassName('banner-video')[index].play()
+    timer = setTimeout(() => {
+      onFade((index + 1) % 3)
+    }, 5000)
   }
+}
+export const dotOnClick = index => {
+  onFade(index)
+}
+
+export default () => {
+  setTimeout(() => {
+    onFade(0)
+  })
   return (
     <div className="main intro ui-content">
       <img src={logo} className="logo-img" alt="" onClick={() => {
         history.push('/')
       }} />
       <CarouselWrap>
-        {/* <LazyLoad placeholder={<div style={{
-          position: 'absolute',
-          top: 0,
-          width: '100%',
-          height: '800px',
-          zIndex: 0
-        }}
-        >
-          <AnimateBanner height={800} />
-        </div>} > */}
-          <Carousel
-            // selectedItem={activeIndex}
-            showThumbs={false}
-            showArrows={false}
-            autoPlay
-            interval={5000}
-            stopOnHover={false}
-            infiniteLoop
-            onChange={onSwipeChange}
-            showStatus={false}
-            // transitionTime={800}
-            swipeable={false}
-          >
-            {
-              bannerList.map((item, index) => (
-                <BannerItem itemData={item} key={index} />
-              ))
-            }
-          </Carousel>
-        {/* </LazyLoad> */}
+        {
+          bannerList.map((item, index) => (
+            <BannerItem itemData={item} key={index} />
+          ))
+        }
+        <div className="dot-wrap">
+          <span className="video-dot" onClick={() => dotOnClick(0)}></span>
+          <span className="video-dot" onClick={() => dotOnClick(1)}></span>
+          <span className="video-dot" onClick={() => dotOnClick(2)}></span>
+        </div>
       </CarouselWrap>
       <div style={{
         position: 'absolute',
