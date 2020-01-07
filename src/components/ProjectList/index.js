@@ -347,7 +347,7 @@ export const MobileList = ({ listData = mobileData() }) => {
               </div>
               <AnimationPlayer
                 triggerRelativePosition={{
-                  top: '-440px'
+                  top: '-50vh'
                 }}
                 target={
                   <div>
