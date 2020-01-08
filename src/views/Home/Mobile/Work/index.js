@@ -11,7 +11,10 @@ const titleData = {
 
 export default () => {
   return (
-    <div>
+    <div style={{
+      overflowX: "hidden",
+      maxWidth: '100vw'
+    }}>
       <div className="container">
         <CommonTitle {...titleData}></CommonTitle>
         <br/>
