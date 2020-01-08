@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
+import _ from 'lodash'
 import GoToArrow from 'components/GoToArrow'
 
 import "./style.sass";
@@ -70,7 +71,6 @@ export default ({
     // },
     onSubmit: async (values, instance) => {
       // await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log(values);
       setTimeout(() => {
         onSubmitted()
       }, 500)
@@ -103,7 +103,7 @@ export default ({
                 return "Email is required";
               }
 
-              if (!validateEmail(value)) {
+              if (!validateEmail(_.trim(value))) {
                 return "Please enter a valid email addresss";
               }
 
