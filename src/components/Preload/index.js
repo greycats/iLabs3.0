@@ -8,7 +8,7 @@ export const tl1 = new TimelineMax()
 
 export default ({loaded}) => {
   function drawLoading () {
-    TweenMax.killTweensOf(['.preload'])
+    // TweenMax.killTweensOf(['.preload'])
     tl.set('#Polystar_1', {
       strokeDasharray: '100 300',
       strokeDashoffset: 0,
@@ -60,7 +60,7 @@ export default ({loaded}) => {
           history.push('/')
         }
       })
-    }, 800)
+    }, 1500)
   }
 
   useEffect(() => {

@@ -29,8 +29,8 @@ const Header = ({ isFixed }) => styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: fixed;
     top: 0;
     right: 0;
@@ -59,8 +59,8 @@ const MenuIcon = ({
       <Lottie
         direction={menuDirection}
         isStopped={isStopped}
-        width="100px"
-        height="100px"
+        width="70px"
+        height="70px"
         options={{
           autoplay: false,
           loop: false,
