@@ -15,7 +15,7 @@ export const isPCOS = () => {
   return isPc
 }
 
-export const flexible = (designWidth, maxWidth) => {
+export const flexible = (maxWidth) => {
   var doc = document,
     win = window,
     docEl = doc.documentElement,
@@ -26,7 +26,7 @@ export const flexible = (designWidth, maxWidth) => {
     var width = docEl.getBoundingClientRect().width;
     maxWidth = maxWidth || 540;
     width > maxWidth && (width = maxWidth);
-    var rem = width * 100 / designWidth;
+    var rem = width * 100 / window.screen.width;
     remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
   }
 

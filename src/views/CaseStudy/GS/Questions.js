@@ -79,7 +79,7 @@ export default ({ GSData = {} }) => {
   ]
 
   return (
-    <div className="layout-1240 panel challenge-wrap" style={{ height: isPC ? '95vh' : '15.8rem', minHeight: '1350px' }}>
+    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '1350px' }}>
       <AnimationPlayer
         target={
           <div style={{
@@ -114,7 +114,7 @@ export default ({ GSData = {} }) => {
             }}
             delay={1}
             target={
-              <div style={{ marginTop: '123px' }}>
+              <div style={isPC ? { marginTop: '123px' } : {}}>
                 <p style={{
                   color: '#2C2C2C',
                   fontSize: '16px',

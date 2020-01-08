@@ -80,7 +80,9 @@ const Challenge = ({ GSData }) => {
           marginLeft: '50%',
           transform: 'translateX(-50%)',
           marginTop: '85px'
-        } : {}
+        } : {
+          transform: 'scale(1.3)',
+        }
       }>
         <LottieAnimation
           options={{

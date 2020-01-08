@@ -21,6 +21,7 @@ export const StyledSectionWitheTitle = styled.h1`
 `
 export const MobileBannerContainer = styled.div`
   position: relative;
+  min-height: 6rem;
   .banner-bg {
     width: 100%;
   }

@@ -233,7 +233,7 @@ function App() {
   const isPC = isPCOS()
   window.isPC = isPC
   if (!isPC) {
-    flexible(375, 750)
+    flexible(750)
   }
 
   useEffect(() => {

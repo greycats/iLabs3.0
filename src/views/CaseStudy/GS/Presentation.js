@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextAndAnimation from 'components/TextAndAnimation'
 import { getResult } from 'utils/lazyload'
+import min from 'lodash/min'
 
 export default ({ GSData }) => {
   const [animationData, setAnimationData] = useState(null)
@@ -16,6 +17,8 @@ export default ({ GSData }) => {
   }, [])
 
   const isPC = window.isPC
+  const lottieHeight = (min([document.body.offsetWidth, 1920]) - 200) / 2.45 + 350
+
   return (
     <TextAndAnimation
       layoutType='up-text'
@@ -23,7 +26,7 @@ export default ({ GSData }) => {
       titleStyle={{
         width: '520px'
       }}
-      wrapMinHeight={isPC ? 1200 : '4.5rem'}
+      wrapMinHeight={isPC ? lottieHeight : '4.5rem'}
       animateIcon={animationData}
       animationStyle={{
         position: 'absolute',
