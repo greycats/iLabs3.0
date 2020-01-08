@@ -23,17 +23,17 @@ function App() {
 
   const [jsLoaded, setJsLoaded] = useState(false)
 
-  const disableScroll = e => {
-    if (store.showService) {
-      e.preventDefault()
-      return false
-    }
-  }
+  // const disableScroll = e => {
+  //   // if (store.showService) {
+  //   //   e.preventDefault()
+  //   //   return false
+  //   // }
+  // }
 
-  useEffect(() => {
-    window.addEventListener('touchmove', disableScroll, { passive: false })
-    return () => window.removeEventListener('touchmove', disableScroll, { passive: false })
-  }, [store])
+  // useEffect(() => {
+  //   window.addEventListener('touchmove', disableScroll, { passive: false })
+  //   return () => window.removeEventListener('touchmove', disableScroll, { passive: false })
+  // }, [store])
 
   const doneLoad = () => {
     setTimeout(() => {
