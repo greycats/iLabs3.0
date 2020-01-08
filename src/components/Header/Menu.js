@@ -24,10 +24,6 @@ const MenuContainer = styled.div`
     height: 100vh;
   }
 
-  .logo-img {
-    cursor: default;
-  }
-
   .content {
     color: white;
     opacity: 0;
@@ -174,7 +170,14 @@ export default () => {
           {
             showMenu ?
               <img src={logo} className="logo-img" alt="" onClick={() => {
-                // history.push('/')
+                showMenuAction(dispatch, false)
+                isMenuOpenAction(dispatch, false)
+                menuDirectionAction(dispatch, -1)
+                setTimeout(()=> {
+                  if (window.location.pathname !== '/') {
+                    history.push('/')
+                  }
+                })
               }} /> : null
           }
           <div
