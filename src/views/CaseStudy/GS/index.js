@@ -15,7 +15,7 @@ const Presentation = lazyImport(import('views/CaseStudy/GS/Presentation'))
 const FirstLook = lazyImport(import('views/CaseStudy/GS/FirstLook'))
 const Progressive = lazyImport(import('views/CaseStudy/GS/Progressive'))
 const Others = lazyImport(import('views/CaseStudy/GS/Others'))
-import { LoadingWithBanner } from 'components/TempLoading'
+import { LoadingWithBanner, FullPageLoading } from 'components/TempLoading'
 
 // import PreloadManager from 'scripts/PreloadManager'
 import { loadGSdata } from 'utils/lazyload'
@@ -37,7 +37,7 @@ export default () => {
   }, [])
 
   if (!GSData) {
-    return <LoadingWithBanner />
+    return window.isPC ? <LoadingWithBanner /> : <FullPageLoading />
   }
 
   return (
