@@ -92,6 +92,10 @@ export const loadGSdata = () => {
 export const loadCrewData = () => {
   load([
     {
+      id: 'crew_banner',
+      src: import('assets/imgs/banners/Crew/@2x/Crew-3-Floating-@2x/data.json')
+    },
+    {
       id: 'crew_phone-double',
       src: import('assets/imgs/2x/CaseStudy/crew/phone-double/data.json')
     },

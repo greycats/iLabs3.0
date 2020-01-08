@@ -25,7 +25,7 @@ export default () => {
   return (
     <StyledPage>
       <div>
-        <CaseStudyBanner {...crewData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImage('vizient-crew-bg')} name="crew"/>
+        <CaseStudyBanner {...crewData.banner} BgAnimation={getResult('crew_banner') || BgAnimation} MobileBannerBg={getImage('vizient-crew-bg')} name="crew"/>
 
         <TheStory {...crewData.theStory}></TheStory>
 
