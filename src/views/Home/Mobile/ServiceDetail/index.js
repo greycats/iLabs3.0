@@ -34,7 +34,7 @@ export default () => {
       width: '100vw',
       height: '100vh',
       minHeight: '100vh',
-      zIndex: 10,
+      zIndex: 10000,
       background: '#fff',
       top: showService ? 0 : '100vh',
       left: 0,
@@ -43,7 +43,7 @@ export default () => {
     }}>
       <div style={{
         width: '100%',
-        padding: '0.45rem 0 0.6rem 0.45rem'
+        padding: '25px'
       }} onClick={hideService}>
         <img src={Close} alt="" />
       </div>

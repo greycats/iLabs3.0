@@ -282,17 +282,10 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
 const MobileCard = ({
   item
 }) => {
-
   return (
-    // <LazyLoad placeholder={<div style={{
-    //   height: '432px',
-    //   backgroundColor: '#f5f5f5'
-    // }}>
-    // </div> }>
-      <img src={item.image} alt="" onClick={() => {
-        history.push(item.link)
-      }}/>
-    // </LazyLoad>
+    <img src={item.image} alt="" onClick={() => {
+      history.push(item.link)
+    }}/>
   )
 }
 
@@ -373,7 +366,9 @@ export const MobileList = ({ listData = mobileData() }) => {
                   top: '-30vh'
                 }}
                 target={
-                  <div>
+                  <div onClick={() => {
+                    history.push(item.link)
+                  }}>
                     <CommonTitle {...titleData} />
                   </div>
                 }
