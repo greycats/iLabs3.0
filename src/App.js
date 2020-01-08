@@ -63,22 +63,6 @@ function App() {
         id: 'andriod-icon',
         src: require('assets/imgs/dcom/andriodicon.png')
       },
-      // {
-      //   id: 'vizient-thumbnail',
-      //   src: require('assets/imgs/projects/thumbnails/vizient.png'),
-      // },
-      // {
-      //   id: 'crew-thumbnail',
-      //   src: require('assets/imgs/projects/thumbnails/crew.png'),
-      // },
-      // {
-      //   id: 'gs-thumbnail',
-      //   src: require('assets/imgs/projects/thumbnails/gs.png'),
-      // },
-      // {
-      //   id: 'dcom-thumbnail',
-      //   src: require('assets/imgs/projects/thumbnails/dcom.png'),
-      // },
       {
         id: 'service-bg',
         src: require("assets/imgs/services/service-bg.png")
@@ -213,9 +197,6 @@ function App() {
     setTimeout(() => {
       loadFile()
     }, 3000)
-    setTimeout(() => {
-      setInited(true)
-    }, 1000)
     ReactGA.initialize('UA-96911906')
     history.listen((...args) => {
       const location = args[0]
@@ -237,12 +218,20 @@ function App() {
   }
 
   useEffect(() => {
-    if (inited && loaded && assetLoaded && jsLoaded) {
+    if (loaded && assetLoaded && jsLoaded) {
       isDataReadyAction(dispatch, true)
     }
-  }, [inited, loaded, assetLoaded, jsLoaded])
+  }, [loaded, assetLoaded, jsLoaded])
 
-  if (store.isDataReady) {
+  useEffect(() => {
+    if (store.isDataReady) {
+      setTimeout(() => {
+        setInited(true)
+      }, 500)
+    }
+  }, [store])
+
+  if (inited) {
     return (
       <AppContext.Provider value={{ store, dispatch }}>
         <div className={classNames("App", { 'is-phone': !isPC })}>
@@ -254,7 +243,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Preload loaded={store.isDataReadyAction}/>
+      <Preload loaded={store.isDataReady}/>
     </div>
   )
 
