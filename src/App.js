@@ -216,7 +216,7 @@ function App() {
     setTimeout(() => {
       setInited(true)
     }, 1000)
-    ReactGA.initialize('UA-151494523-1')
+    ReactGA.initialize('UA-96911906')
     history.listen((...args) => {
       const location = args[0]
       const method = args[1]
