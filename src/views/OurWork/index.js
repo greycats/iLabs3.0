@@ -187,7 +187,11 @@ export default ({ data = fakeData() }) => {
           isPC ?
             <ProjectList listData={listData} />
             :
-            <MobileList />
+            <div style={{
+              overflowX: "hidden"
+            }}>
+              <MobileList />
+            </div>
         }
       </div>
       <Footer />
