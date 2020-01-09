@@ -10,7 +10,9 @@ const PCBanner = ({
   services = [],
   available = [],
   BgAnimation
-}) => (
+}) => {
+
+  return (
     <div className="banner-wrap">
       <Lottie
         options={{
@@ -24,6 +26,7 @@ const PCBanner = ({
       />
     </div>
   )
+}
 
 const MobileBanner = ({
   title = '',

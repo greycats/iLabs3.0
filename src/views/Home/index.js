@@ -10,7 +10,7 @@ import Work from './Work'
 import MobileHome from './Mobile'
 import greatSchool from 'data/great.js'
 
-import { loadGSdata, loadCrewData, loadVizientData } from 'utils/lazyload'
+import { loadGSdata, loadCrewData, loadVizientData, loadDcomData } from 'utils/lazyload'
 
 const HomeWrap = styled.div`
     min-width: 1366px;
@@ -50,6 +50,7 @@ export default () => {
           loadGSdata()
           loadCrewData()
           loadVizientData()
+          loadDcomData()
         })
       }, 500)
     }, 0)

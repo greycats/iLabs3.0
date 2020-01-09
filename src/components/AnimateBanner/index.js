@@ -49,8 +49,9 @@ export const AnimateBanner = ({ children, showLogo = false, ...props }) => {
         startPointList.push([x, y])
       }
     }
-    const _total = ~~(window.innerWidth / 120)
-    // let count = _total
+    const count = ~~(window.innerWidth / 120)
+    const minimumCount = 12
+    const _total = count > minimumCount ? count : minimumCount
     const draw = total => {
       const outputSprite = []
       startPointList = _.sampleSize(startPointList, total)

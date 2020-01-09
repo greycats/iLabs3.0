@@ -6,7 +6,7 @@ import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/GS/@1x/GreatSchools-3-Floating-@1x/data.json'
 
 import { lazyImport } from 'utils'
-import { getImage } from 'scripts/PreloadManager'
+import { getImageResult, getResult } from 'utils/lazyload'
 
 const Questions = lazyImport(import('views/CaseStudy/GS/Questions'))
 const Challenge = lazyImport(import('views/CaseStudy/GS/TheChallenge'))
@@ -15,7 +15,7 @@ const Presentation = lazyImport(import('views/CaseStudy/GS/Presentation'))
 const FirstLook = lazyImport(import('views/CaseStudy/GS/FirstLook'))
 const Progressive = lazyImport(import('views/CaseStudy/GS/Progressive'))
 const Others = lazyImport(import('views/CaseStudy/GS/Others'))
-import { LoadingWithBanner } from 'components/TempLoading'
+import { LoadingWithBanner, FullPageLoading } from 'components/TempLoading'
 
 // import PreloadManager from 'scripts/PreloadManager'
 import { loadGSdata } from 'utils/lazyload'
@@ -37,13 +37,13 @@ export default () => {
   }, [])
 
   if (!GSData) {
-    return <LoadingWithBanner />
+    return window.isPC ? <LoadingWithBanner /> : <FullPageLoading />
   }
 
   return (
     <StyledPage>
 
-      <CaseStudyBanner {...GSData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImage('vizient-gs-bg')} name="gs"/>
+      <CaseStudyBanner {...GSData.banner} BgAnimation={getResult('gs_banner') || BgAnimation} MobileBannerBg={getImageResult('gs-mobile-bg')} name="gs"/>
 
       <TheStory {...GSData.theStory}></TheStory>
 

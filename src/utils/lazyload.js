@@ -35,6 +35,10 @@ export const getImageResult = id => _image[id]
 export const loadGSdata = () => {
   load([
     {
+      id: 'gs_banner',
+      src: import('assets/imgs/banners/GS/@2x/GreatSchools-3-Floating-@2x/data.json')
+    },
+    {
       id: 'gs_challenge',
       src: import('assets/imgs/2x/CaseStudy/gs/challenge/data.json'),
     },
@@ -92,6 +96,10 @@ export const loadGSdata = () => {
 export const loadCrewData = () => {
   load([
     {
+      id: 'crew_banner',
+      src: import('assets/imgs/banners/Crew/@2x/Crew-3-Floating-@2x/data.json')
+    },
+    {
       id: 'crew_phone-double',
       src: import('assets/imgs/2x/CaseStudy/crew/phone-double/data.json')
     },
@@ -119,6 +127,19 @@ export const loadVizientData = () => {
     {
       id: 'viz_type',
       src: import('assets/imgs/2x/CaseStudy/vizient/type/data.json')
+    },
+    {
+      id: 'viz_banner',
+      src: import('assets/imgs/banners/Vizient/@2x/Vizient-FX-4-Floating-@2x/data.json')
+    }
+  ])
+}
+
+export const loadDcomData = () => {
+  load([
+    {
+      id: 'dcom_banner',
+      src: import('assets/imgs/banners/Dcom/@2x/Dcom-3-Floating-@2x/data.json')
     }
   ])
 }

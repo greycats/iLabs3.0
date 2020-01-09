@@ -49,15 +49,15 @@ const MenuContainer = styled.div`
 
 const menuData = [
   {
-    name: 'HOME',
+    name: 'Home',
     link: '/'
   },
   {
-    name: 'OUR WORK',
+    name: 'Our work',
     link: '/ourwork'
   },
   {
-    name: 'CONTACT',
+    name: 'Contact',
     link: '/contact'
   }
 ]

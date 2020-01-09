@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
+import _ from 'lodash'
 import GoToArrow from 'components/GoToArrow'
 
 import "./style.sass";
 
 import { useForm, useField, splitFormProps } from "react-form";
+import sendEmail from 'scripts/email.js'
 
 const InputField = React.forwardRef((props, ref) => {
   // Let's use splitFormProps to get form-specific props
@@ -69,8 +71,7 @@ export default ({
     //   return false;
     // },
     onSubmit: async (values, instance) => {
-      // await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log(values);
+      await sendEmail(values)
       setTimeout(() => {
         onSubmitted()
       }, 500)
@@ -103,7 +104,7 @@ export default ({
                 return "Email is required";
               }
 
-              if (!validateEmail(value)) {
+              if (!validateEmail(_.trim(value))) {
                 return "Please enter a valid email addresss";
               }
 
@@ -121,7 +122,7 @@ export default ({
         <label>
           <span>Linkedin</span>
           <InputField
-            field="linkedIn"
+            field="linkedin"
             placeholder="Can you share your Linkedin profile?"
           />
         </label>
