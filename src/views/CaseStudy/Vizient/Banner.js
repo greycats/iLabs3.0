@@ -2,10 +2,10 @@ import React from 'react'
 import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/Vizient/@1x/Vizient-FX-4-Floating-@1x/data.json'
 import vizientData from 'data/vizientData'
-import { getImage } from 'scripts/PreloadManager'
+import { getImageResult } from 'utils/lazyload'
 
 const Banner = () => {
-  return <CaseStudyBanner {...vizientData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImage('vizient-mobile-bg')} name="vizient"/>
+  return <CaseStudyBanner {...vizientData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImageResult('vizient-mobile-bg')} name="vizient"/>
 }
 
 export default Banner

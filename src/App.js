@@ -23,18 +23,6 @@ function App() {
 
   const [jsLoaded, setJsLoaded] = useState(false)
 
-  // const disableScroll = e => {
-  //   // if (store.showService) {
-  //   //   e.preventDefault()
-  //   //   return false
-  //   // }
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener('touchmove', disableScroll, { passive: false })
-  //   return () => window.removeEventListener('touchmove', disableScroll, { passive: false })
-  // }, [store])
-
   const doneLoad = () => {
     setTimeout(() => {
       setLoaded(true)
@@ -128,22 +116,6 @@ function App() {
         src: require('assets/imgs/banners/dcom.jpg')
       },
       {
-        id: 'vizient-mobile-bg',
-        src: require('assets/imgs/vizient/mobile/banner.png')
-      },
-      {
-        id: 'vizient-crew-bg',
-        src: require('assets/imgs/crew/mobile/banner.png')
-      },
-      {
-        id: 'vizient-dcom-bg',
-        src: require('assets/imgs/dcom/mobile/banner.png')
-      },
-      {
-        id: 'vizient-gs-bg',
-        src: require('assets/imgs/gs/mobile/banner.png')
-      },
-      {
         id: 'video-poster-1',
         src: require('assets/imgs/video/dekstop/Scene 1.jpg')
       },
@@ -191,6 +163,22 @@ function App() {
         id: 'dcom-thumbnail',
         src: import('assets/imgs/projects/thumbnails/dcom.png'),
       },
+      {
+        id: 'vizient-mobile-bg',
+        src: import('assets/imgs/vizient/mobile/banner.png')
+      },
+      {
+        id: 'crew-mobile-bg',
+        src: import('assets/imgs/crew/mobile/banner.png')
+      },
+      {
+        id: 'dcom-mobile-bg',
+        src: import('assets/imgs/dcom/mobile/banner.png')
+      },
+      {
+        id: 'gs-mobile-bg',
+        src: import('assets/imgs/gs/mobile/banner.png')
+      }
     ], () => {
       setJsLoaded(true)
     })
