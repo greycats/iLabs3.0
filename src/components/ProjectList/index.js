@@ -246,7 +246,7 @@ const ProjectCard = ({ item, showText = true, isMobile = false }) => {
           <div>
             <Animations
               target={
-                <div style={{ ...maskStyle, zIndex: 50 }}></div>
+                <div style={{ ...maskStyle, zIndex: 10 }}></div>
               }
               animations={
                 [{

@@ -17,7 +17,7 @@ export default ({ GSData }) => {
         transform: 'translateY(-150px)',
       }}
       wrapStyle={isPC ? {
-        padding: 0
+        marginTop: '130px'
       } : {}}
     />
   )

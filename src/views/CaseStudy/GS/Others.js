@@ -20,7 +20,10 @@ export default ({ GSData }) => {
         }}
         wrapStyle={isPC ? {
           padding: 0
-        } : {}}
+        } : {
+            paddingTop: 0
+          }}
+        showTitle={false}
       />
 
       <TextAndAnimation

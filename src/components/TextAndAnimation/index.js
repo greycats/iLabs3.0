@@ -2,7 +2,7 @@
  * @Author: Gary
  * @Date: 2019-11-18 14:09:53
  * @Last Modified by: Gary
- * @Last Modified time: 2019-12-16 11:35:20
+ * @Last Modified time: 2020-01-08 15:10:08
  * layoutType:
  * 1.left-text
  * 2.right-text
@@ -82,6 +82,7 @@ export default ({
   titleStyle = {},
   titleHeight = 60,
   showLottie = true,
+  showTitle = true,
   animateIcon = null,
   animateWidth = 'auto',
   animateHeight = 'auto',
@@ -98,7 +99,10 @@ export default ({
   return (
     <div className={classnames("text-animation-wrap", !isPC ? 'up-text panel' : layoutType, { 'layout-1240': layoutType !== 'up-text' })} style={{ minHeight: wrapMinHeight, ...wrapStyle }}>
       <div className="title-part" style={titleStyle}>
-        <AnimateTitle id={id + '0'} title={title} titleHeight={isPC ? titleHeight : (titleHeight / 60 * 0.38 + 'rem')} triggerRelativePosition={triggerRelativePosition} />
+        {
+          !showTitle ? null :
+            <AnimateTitle id={id + '0'} title={title} titleHeight={isPC ? titleHeight : (titleHeight / 60 * 0.38 + 'rem')} triggerRelativePosition={triggerRelativePosition} />
+        }
         {
           subTitle ?
             <AnimateText id={id + '1'} intro={subTitle} isSubTitle={subTitle} triggerRelativePosition={triggerRelativePosition} />
