@@ -6,7 +6,7 @@ import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/GS/@1x/GreatSchools-3-Floating-@1x/data.json'
 
 import { lazyImport } from 'utils'
-import { getImageResult } from 'utils/lazyload'
+import { getImageResult, getResult } from 'utils/lazyload'
 
 const Questions = lazyImport(import('views/CaseStudy/GS/Questions'))
 const Challenge = lazyImport(import('views/CaseStudy/GS/TheChallenge'))
@@ -43,7 +43,7 @@ export default () => {
   return (
     <StyledPage>
 
-      <CaseStudyBanner {...GSData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImageResult('gs-mobile-bg')} name="gs"/>
+      <CaseStudyBanner {...GSData.banner} BgAnimation={getResult('gs_banner') || BgAnimation} MobileBannerBg={getImageResult('gs-mobile-bg')} name="gs"/>
 
       <TheStory {...GSData.theStory}></TheStory>
 

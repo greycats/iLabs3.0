@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import TheStory from 'components/TheStory'
 import TextAndAnimation from 'components/TextAndAnimation'
@@ -15,7 +15,7 @@ import StyledPage from 'components/Styled/Page'
 import dcomData from 'data/dcomData'
 import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/Dcom/@1x/Dcom-3-Floating-@1x/data.json'
-import { getImageResult } from 'utils/lazyload'
+import { getImageResult, loadDcomData, getResult } from 'utils/lazyload'
 
 const MobileSolutionWrap = styled.div`
   .carousel.carousel-slider {
@@ -42,10 +42,14 @@ export default () => {
 
   const mobileSolutionList = dcomData.theSolution.mobileCarousel.map((item, index) => <img src={item} key={index} />)
 
+  useEffect(() => {
+    loadDcomData()
+  }, [])
+
   return (
     <StyledPage>
       <div>
-        <CaseStudyBanner {...dcomData.banner} BgAnimation={BgAnimation} MobileBannerBg={getImageResult('dcom-mobile-bg')} name="dcom"/>
+        <CaseStudyBanner {...dcomData.banner} BgAnimation={getResult('dcom_banner') || BgAnimation} MobileBannerBg={getImageResult('dcom-mobile-bg')} name="dcom"/>
 
         <TheStory {...dcomData.theStory}></TheStory>
 
