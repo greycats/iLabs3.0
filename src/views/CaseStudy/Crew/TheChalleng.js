@@ -28,7 +28,7 @@ export default ({ list, ...titleData }) => {
     description = 'To launch on 2 platforms simultaneously on short, regular ship cycles',
     mobileHeight = '1.2rem'
   }) => (
-      <div style={{ display: 'flex', marginBottom: index === 2 ? 0 : (isPC ? '25px' : '0.45rem'), minHeight: isPC ? '90px' : mobileHeight, justifyContent: isPC ? 'unset' : 'space-between' }}>
+      <div style={{ display: 'flex', marginBottom: index === 2 ? 0 : (isPC ? '40px' : '0.45rem'), minHeight: isPC ? '90px' : mobileHeight, justifyContent: isPC ? 'unset' : 'space-between' }}>
         <div style={{ width: '80px' }}>
           {RowAnimation(lottieData, index)}
         </div>
@@ -45,7 +45,8 @@ export default ({ list, ...titleData }) => {
                   fontSize: '14px',
                   color: '#2c2c2c',
                   fontWeight: 'bold',
-                  marginBottom: '10px'
+                  marginBottom: '10px',
+                  letterSpacing: '2px'
                 }}>{title}</p>
                 <p style={{
                   fontSize: '16px',
@@ -102,7 +103,7 @@ export default ({ list, ...titleData }) => {
       </div>
       <div style={
         isPC ? {
-          paddingTop: '80px',
+          // paddingTop: '80px',
           paddingLeft: '40px'
         } : {}}
       >

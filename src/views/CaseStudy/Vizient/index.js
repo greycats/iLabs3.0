@@ -88,7 +88,7 @@ export default () => {
             width: '495px',
             marginTop: '230px',
           }}
-          animateIcon={TypefaceImage}
+          animateIcon={getResult('viz_type') || TypefaceImage}
           animateWidth={740}
           SubComponent={
             () => {
@@ -102,7 +102,7 @@ export default () => {
                     width='495px'
                     height='109px'
                     options={{
-                      animationData: getResult('viz_type') || TypefaceText
+                      animationData: TypefaceText
                     }} />
                 </TypePosition>
                 :
@@ -141,14 +141,14 @@ export default () => {
             width: '495px',
             marginTop: '150px',
           }}
-          animateIcon={ColorImage}
+          animateIcon={getResult('viz_color') || ColorImage}
           animateWidth={isPC ? 740 : '100%'}
           mobileAnimationStyle={{
             transform: 'scale(1.2)'
           }}
           SubComponent={
             () => {
-              const CirclePosition = isPC ? AbsolutePositionWrap({ left: '-25px', top: '335px' }) : styled.div``
+              const CirclePosition = isPC ? AbsolutePositionWrap({ left: '-25px', top: '370px' }) : styled.div``
               return (
                 <CirclePosition>
                   <LottieAnimation
@@ -158,7 +158,7 @@ export default () => {
                     width={isPC ? '458px' : 'auto'}
                     height={isPC ? '100px' : 'auto'}
                     options={{
-                      animationData: getResult('viz_color') || ColorCircle,
+                      animationData: ColorCircle,
                     }} />
                 </CirclePosition>
               )

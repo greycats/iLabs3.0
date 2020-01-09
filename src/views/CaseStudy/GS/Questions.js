@@ -79,7 +79,7 @@ export default ({ GSData = {} }) => {
   ]
 
   return (
-    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: '1350px' }}>
+    <div className="layout-1240 panel challenge-wrap" style={{ minHeight: isPC ? '1350px' : '16.2rem' }}>
       <AnimationPlayer
         target={
           <div style={{

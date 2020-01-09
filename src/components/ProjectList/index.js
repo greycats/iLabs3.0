@@ -306,8 +306,9 @@ export const MobileList = ({ listData = mobileData() }) => {
           return (
             <div key={index}>
               <div style={{
-                height: '480px',
-                position: 'relative'
+                minHeight: '4rem',
+                position: 'relative',
+                marginBottom: '.15rem'
               }}>
                 <AnimationPlayer
                   triggerRelativePosition={{

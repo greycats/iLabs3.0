@@ -6,7 +6,7 @@ import './index.sass'
 
 export default () => {
   const controllerId = 'toolkit-trigger'
-
+  const isPC = window.isPC
   const Toolkit = useImage('toolkit')
   const Orange = useImage('orange-path')
 
@@ -14,7 +14,7 @@ export default () => {
     {
       content: <div className="green-line"></div>,
       from: { width: 0 },
-      to: { width: '1920px' },
+      to: isPC ? { width: '1920px' } : {},
       delay: .5,
       duration: 2000
     },
@@ -25,7 +25,7 @@ export default () => {
     {
       content: <div className="orange-line"></div>,
       from: { width: 0 },
-      to: { width: '2000px' },
+      to: isPC ? { width: '2000px' } : {},
       delay: .5,
       duration: 2000
     },

@@ -52,7 +52,7 @@ export default {
   challengeData: {
     title: 'The Challenge',
     intro: "Our challenge was to build a high-performance communication platform connecting a mobile workforce, keeping in mind that Crew's service is designed specifically for workers who don't have ready access to effective communications services on the job.",
-    titleMargin: isPC ? '0.4rem' : '0.1rem',
+    titleMargin: isPC ? '40px' : '0.1rem',
     wrapStyle: {
       marginBottom: '0.45rem'
     },

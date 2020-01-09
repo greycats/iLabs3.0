@@ -15,6 +15,9 @@ const CarouselWrap = styled.div`
         }
       }
     }
+    .slider.animated {
+      transition: all .35s ease-out;
+    }
 
     .control-dots {
       bottom: -0.4rem;

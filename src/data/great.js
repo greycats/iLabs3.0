@@ -62,8 +62,10 @@ export default async () => {
       intro: <p>GreatSchools aggregates 80 data points to rank schools in a fair and balanced manner. Presenting that much information at one time would overwhelm users. The challenge was to present the easiest, most relevant data to users up front, then provide mechanisms for them to discover more and dig deeper on their own.</p>
     },
     firstGlance: [
-      getResult('gs_first-glance-1') || (await import('assets/imgs/gs/6-first-glance/1.json')).default,
-      getResult('gs_first-glance-2') || (await import('assets/imgs/gs/6-first-glance/2.json')).default,
+      // getResult('gs_first-glance-1') || (await import('assets/imgs/gs/6-first-glance/1.json')).default,
+      // getResult('gs_first-glance-2') || (await import('assets/imgs/gs/6-first-glance/2.json')).default,
+      (await import('assets/imgs/gs/6-first-glance/1.json')).default,
+      (await import('assets/imgs/gs/6-first-glance/2.json')).default,
     ],
     importanceImgs: [
       (await import('assets/imgs/gs/mobile/Importance-1.png')).default,
