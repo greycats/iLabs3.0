@@ -13,7 +13,7 @@ import greatSchool from 'data/great.js'
 import { loadGSdata, loadCrewData, loadVizientData, loadDcomData } from 'utils/lazyload'
 
 const HomeWrap = styled.div`
-    min-width: 1366px;
+    min-width: 1440px;
     margin: 0 auto;
     overflow: hidden;
   `
