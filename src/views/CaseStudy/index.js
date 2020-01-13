@@ -15,7 +15,7 @@ const GS = lazy(() => import('views/CaseStudy/GS'))
 
 export const CaseStudyWrap = window.isPC || window.innerWidth > 800?
   styled.div`
-    min-width: 1366px;
+    min-width: 1440px;
     max-width: 1920px;
     margin: 0 auto;
     overflow: hidden;

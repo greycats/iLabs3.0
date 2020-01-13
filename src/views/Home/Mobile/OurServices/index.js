@@ -2,105 +2,75 @@ import React, { useState } from 'react'
 import { serviceData } from 'data/services'
 import drop from 'lodash/drop'
 import dropRight from 'lodash/dropRight'
-import _ from 'lodash'
-import Arrow from 'assets/imgs/arrow.svg'
-import { useAppContext, serviceAction, serviceIndexAction } from 'hooks/useShareState'
+import styled from 'styled-components'
+import { List } from '../../OurServices'
 
 const designLength = 5
-const List = ({
-  title = '',
-  list = [],
-  activeItem = null,
-  onClickItem = () => { }
-}) => {
-  return (
-    <div>
-      <p style={{
-        fontSize: '24px',
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: '30px'
-      }}>{title}</p>
-      <div>
-        {
-          list.map((item, index) => {
-            return (
-              <div
-                key={index}
-                style={{
-                  display: 'flex',
-                  height: '50px',
-                  alignItems: 'center',
-                  color: '#fff',
-                  fontSize: '16px',
-                  cursor: 'pointer',
-                  position: 'relative'
-                }} onClick={() => {
-                  onClickItem(index, item)
-                }}>
-                <img src={item.whiteIcon} alt="" style={{
-                  marginRight: '10px',
-                  marginLeft: 0,
-                  width: '22px'
-                }} /> {item.text}
-                <img src={Arrow} alt="" style={{
-                  position: 'absolute',
-                  right: '10px',
-                  top: '33%'
-                }} />
-              </div>
-            )
-          })
+
+const ServiceWrapStyle = styled.div`
+  background: #262626;
+  position: relative;
+  .container {
+    padding: .4rem 0;
+  }
+  .list-items {
+    width: 100%;
+    &:last-child {
+      margin-top: .6rem;
+    }
+    .item-title {
+      margin-bottom: .32rem;
+    }
+    .item-wrap {
+      margin-bottom: .12rem;
+      .item-tab {
+        height: auto;
+        padding: .14rem .24rem;
+      }
+      .detail {
+        padding: 0 .24rem;
+      }
+      &.active {
+        .detail {
+          padding: .16rem .24rem;
         }
-      </div>
-    </div>
-  )
-}
+      }
+    }
+  }
+`
 
 export default () => {
-  const [activeItem, setActiveItem] = useState(null)
-
-  const { dispatch } = useAppContext()
+  const [activeIndex, setActiveIndex] = useState(null)
   const serviceList = serviceData()
 
   return (
-    <div style={{ background: '#2c2c2c', position: 'relative' }}>
-      <div className="container" style={{
-        display: 'flex',
-        padding: '50px 0'
-      }}>
-        <div>
-          <span style={{ fontSize: '32px', fontWeight: 'bold', color: '#fff', marginBottom: '40px' }}>Our services</span>
-          <p style={{
-            color: '#fff',
-            fontSize: '16px',
-            lineHeight: '1.8',
-            marginBottom: '50px'
-          }}>Our multidisciplinary team of 70+ can execute on all key areas of the product development cycle</p>
-          <List
-            title='Product Design'
-            activeItem={activeItem}
-            onClickItem={(index, item) => {
-              setActiveItem(item),
-                serviceAction(dispatch, true)
-              serviceIndexAction(dispatch, index)
-            }}
-            list={dropRight(serviceList, serviceList.length - designLength)}
-          />
-          <br />
-          <br />
-          <List
-            title='Product Development'
-            list={drop(serviceList, designLength)}
-            activeItem={activeItem}
-            onClickItem={(index, item) => {
-              setActiveItem(item)
-              serviceAction(dispatch, true)
-              serviceIndexAction(dispatch, index + designLength)
-            }}
-          />
-        </div>
+    <ServiceWrapStyle>
+      <div className="container">
+        <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#fff', marginBottom: '.25rem' }}>Our services</div>
+        <p style={{
+          color: '#fff',
+          fontSize: '16px',
+          lineHeight: '1.5',
+          marginBottom: '.4rem'
+        }}>Our multidisciplinary team of 70+ can execute on all key areas of the product development cycle</p>
+        <List
+          title='Product Design'
+          activeIndex={activeIndex}
+          onClickItem={(index) => {
+            setActiveIndex(activeIndex === index ? null : index)
+          }}
+          list={dropRight(serviceList, serviceList.length - designLength)}
+        />
+        <List
+          isMobile={true}
+          title='Product Development'
+          list={drop(serviceList, designLength)}
+          activeIndex={activeIndex - designLength}
+          onClickItem={(index) => {
+            setActiveIndex(activeIndex === index + designLength ? null : index + designLength)
+          }}
+        />
       </div>
-    </div>
+    </ServiceWrapStyle>
   )
 }

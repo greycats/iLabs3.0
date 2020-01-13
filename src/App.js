@@ -56,50 +56,6 @@ function App() {
         src: require("assets/imgs/services/service-bg.png")
       },
       {
-        id: 'service-design-1',
-        src: require("assets/imgs/services/images/User Research.jpg")
-      },
-      {
-        id: 'service-design-2',
-        src: require("assets/imgs/services/images/Ideation.jpg")
-      },
-      {
-        id: 'service-design-3',
-        src: require("assets/imgs/services/images/Creative Concept.jpg")
-      },
-      {
-        id: 'service-design-4',
-        src: require("assets/imgs/services/images/Visual Design.jpg")
-      },
-      {
-        id: 'service-design-5',
-        src: require("assets/imgs/services/images/Prototype.jpg")
-      },
-      {
-        id: 'service-dev-1',
-        src: require("assets/imgs/services/images/Mobile Dev.jpg")
-      },
-      {
-        id: 'service-dev-2',
-        src: require("assets/imgs/services/images/Fullstack Web.jpg")
-      },
-      {
-        id: 'service-dev-3',
-        src: require("assets/imgs/services/images/Analytics.jpg")
-      },
-      {
-        id: 'service-dev-4',
-        src: require("assets/imgs/services/images/Support and DevOps.jpg")
-      },
-      {
-        id: 'service-dev-5',
-        src: require("assets/imgs/services/images/Technology.jpg")
-      },
-      {
-        id: 'service-dev-6',
-        src: require("assets/imgs/services/images/IT Security.jpg")
-      },
-      {
         id: 'loading-banner-vizient',
         src: require('assets/imgs/banners/vizient.jpg')
       },
