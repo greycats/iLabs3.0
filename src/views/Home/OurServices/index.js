@@ -77,14 +77,15 @@ const ListItemStyle = styled.div`
   }
 `
 
-const List = ({
+export const List = ({
+  isMobile = false,
   title = '',
   list = [],
   activeIndex = null,
   onClickItem = () => { }
 }) => {
   return (
-    <ListItemStyle>
+    <ListItemStyle className="list-items">
       <p className="item-title">{title}</p>
       <div>
         {
@@ -105,7 +106,7 @@ const List = ({
                 </div>
                 <div
                   className="detail"
-                  style={{ height: _.isEqual(activeIndex, index) ? item.height : 0 }}
+                  style={{ height: _.isEqual(activeIndex, index) ? (isMobile ? (item.mobileHeight || item.height) / 100 + 'rem' : item.height) : 0 }}
                 >
                   {item.detail}
                 </div>
@@ -139,7 +140,7 @@ export default () => {
           }}
         >
           <p style={{
-            fontSize: '32px',
+            fontSize: '44px',
             lineHeight: 1,
             fontWeight: 'bold',
             color: '#fff',
@@ -148,7 +149,7 @@ export default () => {
           >Our services</p>
           <p style={{
             color: '#fff',
-            fontSize: '16px',
+            fontSize: '18px',
             lineHeight: '24px',
             fontWeight: 500,
             marginBottom: '70px',

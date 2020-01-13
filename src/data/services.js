@@ -41,7 +41,8 @@ export const serviceData = () => [
     detail: 'Our engineering team is comprised of experts in native iOS and Android and have launched successful products for both start-ups and big enterprises. We incorporate the full process, from product strategy to launching. ',
     whiteIcon: require('assets/imgs/services/icons/white/Mobile-Development.svg'),
     blackIcon: require('assets/imgs/services/icons/black/Mobile-Development.svg'),
-    height: 127
+    height: 127,
+    mobileHeight: 146
   },
   {
     text: 'Fullstack Web Development',
@@ -69,7 +70,8 @@ export const serviceData = () => [
     detail: 'At ILABS we take our customers data and infrastructure extremely seriously. Our customers include several financial organizations, hedge funds and health care companies, both having complicated infrastructure requirements. With entensive experience, we are able to implement, secure and maintain various infrastructure components.',
     whiteIcon: require('assets/imgs/services/icons/white/Technology-Infrastructure.svg'),
     blackIcon: require('assets/imgs/services/icons/black/Technology-Infrastructure.svg'),
-    height: 184
+    height: 184,
+    mobileHeight: 203
   },
   {
     text: 'IT Security',
