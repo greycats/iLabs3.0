@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import AnimateBanner from 'components/AnimateBanner/index.js'
 import history from 'history.js'
 import 'components/Footer/index.sass'
 import logo from 'assets/imgs/logo.svg'
@@ -210,16 +209,9 @@ export default () => {
 
   return (
     <MenuContainer className={showMenu ? 'show' : ''}>
-      {
-        window.isPC
-          ?
-          <AnimateBanner height={window.innerHeight} backgroundColor={0x323232} >
-            <Content showMenu={showMenu} dispatch={dispatch} />
-          </AnimateBanner>
-          : <div style={{ height: '100vh', background: '#323232' }}>
-            <Content showMenu={showMenu} dispatch={dispatch} />
-          </div>
-      }
+      <div style={{ height: '100vh', background: '#323232' }}>
+        <Content showMenu={showMenu} dispatch={dispatch} />
+      </div>
     </MenuContainer>
   )
 }
