@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { AnimatedSwitch } from 'react-router-transition'
 import history from './history'
 import { lazyImport } from 'utils'
@@ -17,7 +17,7 @@ const routes = (
       ? <LoadingWithBanner />
       : <FullPageLoading />
   })()}>
-    <Router history={history}>
+    <Router history={history} basename={process.env.PUBLIC_URL}>
       <AnimatedSwitch
         atEnter={{ opacity: 0 }}
         atLeave={{}}
