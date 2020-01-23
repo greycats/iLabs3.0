@@ -35,7 +35,7 @@ export default () => {
   }, [])
   const titleData = {
     title: 'How we work',
-    intro: 'Think and create collaboratively with passion and a singular vision',
+    // intro: 'Think and create collaboratively with passion and a singular vision',
     width: '298px'
   }
   const howList = [
@@ -47,7 +47,7 @@ export default () => {
     {
       img: require('assets/imgs/how-we-work/2/data.json'),
       title: 'Iterative',
-      intro: 'We iterative on solutions, user test frequently and fine tune based on numbers to maximize outcomes.'
+      intro: 'We iterate on solutions, user test frequently and fine tune based on numbers to maximize outcomes.'
     },
     {
       img: require('assets/imgs/how-we-work/3/data.json'),
@@ -57,7 +57,7 @@ export default () => {
     {
       img: require('assets/imgs/how-we-work/4/data.json'),
       title: 'Data Driven',
-      intro: 'We believe metrics are the only clear indicators of success. We set goals/KPIs to exceed them.'
+      intro: 'We believe metrics are the only clear indicators of success. We set goals/KPIs regularly and aim to exceed them.'
     }
   ]
   return (

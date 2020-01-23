@@ -127,7 +127,7 @@ const Contact = ({ isPC }) => {
                 <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
               </div>
           }
-          <div className="list-title">Copyright © 2019 interactivelabs.co</div>
+          <div className="list-title">Copyright © 2020 interactivelabs.co</div>
         </div>
       </div>
     </div>
@@ -143,7 +143,7 @@ const MobileContact = () => {
             <a href="https://www.linkedin.com/company/interactive-labs-inc/about" target="_blank"><img src={IconIn} /></a>
             <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
           </div>
-          <div className="list-title">Copyright © 2019 interactivelabs.co</div>
+          <div className="list-title">Copyright © 2020 interactivelabs.co</div>
         </div>
       </div>
     </div>

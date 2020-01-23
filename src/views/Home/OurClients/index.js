@@ -8,7 +8,7 @@ import { getImage } from 'scripts/PreloadManager'
 export default () => {
   const titleData = {
     title: 'Our clients',
-    intro: 'Some friends we’ve made so far along the way.'
+    intro: 'Some friends we’ve made along the way.'
   }
   return (
     <div className="layout-1240 panel">

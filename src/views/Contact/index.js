@@ -33,13 +33,13 @@ export default () => {
                 <p>
                   We’ll follow up with you within the next 24 hours.
                   <br />
-                  In the meantime, take a look at our selected projects.
+                  In the meantime, take a look at our work.
                 </p>
                 :
                 <p>
-                  We have strive to collaborate with enthusiastic teams, big or small to create something special.
+                  We love to collaborate with enthusiastic teams, big or small to create something special.
                   <br />
-                  We have a tried a true process that will take your ideas and concepts and actualize them into the real world.
+                  We have a tried and tested process to take your ideas/ concepts and bring them to life.
                 </p>
             }
           </div>

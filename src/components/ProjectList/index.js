@@ -74,7 +74,7 @@ export const mobileData = () => [
     image: getResult('dcom-thumbnail'),
     // src: require('assets/imgs/projects/thumbnails/dcom.png'),
     text: 'Dictionary.com',
-    typeText: 'Website',
+    typeText: 'App',
     link: '/casestudy?name=dcom',
     type: 'enterprise',
     name: 'dcom'

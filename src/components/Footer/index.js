@@ -76,7 +76,7 @@ export default ({
                           <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
                         </div>
                     }
-                    <div className="list-title">Copyright © 2019 interactivelabs.co</div>
+                    <div className="list-title">Copyright © 2020 interactivelabs.co</div>
                   </div>
                 </div>
               </Tween>

@@ -19,7 +19,7 @@ const swipeList = ({ introList }) => introList.map((item, index) => (
 export default () => {
   const titleData = {
     title: 'Our clients',
-    intro: 'Some friends we’ve made so far along the way.',
+    intro: 'Some friends we’ve made along the way.',
     titleMargin: '0.2rem'
   }
   return (

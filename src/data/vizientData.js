@@ -11,7 +11,7 @@ export default {
   theStory: {
     story: [
       'Vizient is the largest member-driven, health care performance improvement company in the country.',
-      'With dozens of products offered, Vizient tasked us with designing and building a new UI Toolkit to homogenize their user interface components across all services.'
+      'With dozens of products offered, Vizient tasked us with designing and building a new UI Toolkit to standardize their user interface components across all products.'
     ],
     storyHeight: isPC ? '140px' : '2.56rem',
     dataList: [
@@ -28,29 +28,29 @@ export default {
       {
         number: 250,
         suffix: '+',
-        name: 'App Screens',
+        name: 'Screens',
         img: require('assets/imgs/vizient/2-The-story/AppscreenIcon.json')
       }
     ]
   },
   theChallenge: {
     title: 'The Challenge',
-    intro: 'Vizient has a diverse product suite by way of acquisitions. Hence there was no standardization of product interactions,  user interface styles and interactions. ',
+    intro: 'Vizient has a diverse product suite by way of acquisitions. Hence there was no standardization of product interactions and user interface styles.',
     introHeight: isPC ? '84px' : '1.12rem',
     list: [
       {
         name: 'Many Products',
-        text: "With dozen of products operating co-dependently, one of the biggest problems Vizient's facing is the lack of standardization.",
+        text: "With dozens of products operating co-dependently, one of the biggest problems Vizient faced was a lack of standardization across their product suite.",
         img: require('assets/imgs/vizient/3-The-challenge/Many products.json')
       },
       {
         name: 'Inconsistency Interface',
-        text: 'If every project is using a different UX toolset, with different standards, and UI patterns, the result is an inevitably disjointed experience across products.',
+        text: 'If every product uses a different UX toolset, different standards and UI patterns, the result is an inevitably disjointed experience across products.',
         img: require('assets/imgs/vizient/3-The-challenge/Inconsistency Interface.json')
       },
       {
         name: 'Missing Interactions',
-        text: 'After rounds of auditing and researching, we found out that many of Vizient products are missing basic interaction to guide user behaviors. ',
+        text: 'After rounds of auditing and researching, we found out that several products were missing basic interaction to guide user behaviors.',
         img: require('assets/imgs/vizient/3-The-challenge/Mising Interactions.json')
       },
     ]
@@ -58,7 +58,7 @@ export default {
   theSolution: {
     controllerId: 'the-solution-trigger',
     title: 'The Solution',
-    intro: 'We created a fully functional UI toolkit based on a customized version of Angular Material. With a standardized interface and clear documentation we were able to cut down on operational costs, all while implementing a single uniform design language.',
+    intro: 'We created a fully functional UI toolkit based on a customized version of Angular Material. A standardized interface and clear documentation allowed us to cut down operational costs significantly, while implementing a single uniform design language.',
     introHeight: isPC ? '112px' : '1.96rem',
     list: [
       {
@@ -68,12 +68,12 @@ export default {
       },
       {
         name: 'Clear Documentation',
-        text: 'We introduced step-by-step documentation coupled with 1:1 meetings to showcase how to apply the tool-kits to design & developments. ',
+        text: 'We introduced step-by-step documentation coupled with 1:1 meetings to train Vizient designers and engineers to leverage the toolkit and reduce design and development time.',
         img: require('assets/imgs/vizient/4-The-solution/Clear Document.json')
       },
       {
         name: 'Design Language',
-        text: 'We established the visual language to set a foundation and provide continuity between each product. This fosters consistency and creates an impactful brand experience.',
+        text: 'We established the visual language to set a foundation and provide continuity between each product. This resulted in consistency and created an seamless brand experience.',
         img: require('assets/imgs/vizient/4-The-solution/Designlanguage.json')
       },
     ]
@@ -96,11 +96,11 @@ export default {
     title: <div>Based on <br /> material design</div>,
     titleMargin: 50,
     titleHeight: 120,
-    intro: <p>Angular Material comprises a range of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.</p>
+    intro: <p>Angular Material consists of components which implement common interaction patterns according to the Material Design specification. Material Design is a visual language that synthesizes the classic principles of good design. We implemented a customized version of Angular Material that was branded according to Vizient guidelines and also implemented several custom controls.</p>
   },
   typeface: {
     title: 'Typeface',
-    intro: <p>Soleto is a fresh, modern sans serif font family. Optimised for text environments it performs well at large sizes and its seven weights range evenly from Thin through to Black in both upright and italic.</p>
+    intro: <p>Soleto is a fresh, modern sans serif font family. It is optimised for text environments such as numbers heavy tables etc. Iit performs well at large sizes and its seven weights range evenly from Thin through to Black in both upright and italic.</p>
   },
   color: {
     title: 'Color',
