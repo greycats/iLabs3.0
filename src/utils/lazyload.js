@@ -25,7 +25,6 @@ export const loadImage = (files, onLoad = () => {}) => {
       _image[files[index].id] = await toDataURL(results[index].default);
     }
 
-    console.log('image is', _image)
     onLoad()
   })
 }

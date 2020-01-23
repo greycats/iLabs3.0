@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
 import { AnimatedSwitch } from 'react-router-transition'
 import history from './history'
 import { lazyImport } from 'utils'
@@ -12,7 +12,6 @@ const Contact = lazyImport(import('./views/Contact'))
 
 const routes = (
   <Suspense fallback={(() => {
-    console.log('window.isPC || window.innerWidth > 800', window.isPC || window.innerWidth > 800)
     return window.isPC || window.innerWidth > 800
       ? <LoadingWithBanner />
       : <FullPageLoading />
