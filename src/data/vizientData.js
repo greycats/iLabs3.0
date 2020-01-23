@@ -5,7 +5,7 @@ const isPC = window.isPC
 export default {
   banner: {
     title: 'Vizient',
-    intro: 'Unifying enterprise UI for under a single banner',
+    intro: 'Standardizing the user experience across multiple enterprise applications.',
     services: ['Visual Design', 'Prototype', 'Web Development', 'Product Management']
   },
   theStory: {
