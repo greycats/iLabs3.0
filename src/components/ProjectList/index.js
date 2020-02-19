@@ -415,11 +415,11 @@ const ProjectList = ({ listData = fakeData() }) => {
                 cursor: 'pointer',
                 marginBottom: '100px'
               }}>
-              <AnimationPlayer
+              {/* <AnimationPlayer
                 triggerRelativePosition={{
                   top: isSecondItemOfRow ? '-90px' : '-90px'
                 }}
-                target={
+                target={ */}
                   <div style={{
                     marginTop: isSecondItemOfRow ? '50px' : '0',
                     // position: 'relative',
@@ -427,7 +427,7 @@ const ProjectList = ({ listData = fakeData() }) => {
                   }}>
                     <ProjectCard item={item} index={index} />
                   </div>
-                }
+                {/* }
                 animations={
                   [
                     {
@@ -444,7 +444,7 @@ const ProjectList = ({ listData = fakeData() }) => {
                     }
                   ]
                 }
-              />
+              /> */}
             </div>
           )
         })

@@ -20,9 +20,9 @@ export default () => {
         <br/>
         <br/>
         <MobileList></MobileList>
-        <GoToArrow text="See all work" onClick={() => {
+        {/* <GoToArrow text="See all work" onClick={() => {
           history.push('/ourwork')
-        }}></GoToArrow>
+        }}></GoToArrow> */}
         <br/>
         <br/>
       </div>

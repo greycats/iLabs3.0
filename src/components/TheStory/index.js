@@ -16,12 +16,12 @@ export default ({
     <div style={{ position: 'relative', ...wrapStyle }}>
       <div className="layout-1240 panel story-wrap">
         <div className="left-part">
-          <AnimationPlayer
-            target={
+          {/* <AnimationPlayer
+            target={ */}
               <div className="title-wrap">
                 <div className="title">The Story</div>
               </div>
-            }
+            {/* }
             animations={[{
               from: {
                 opacity: 0,
@@ -37,15 +37,15 @@ export default ({
               top: '-200px'
             }}
             height={44}
-          />
+          /> */}
         </div>
         <div className="right-part">
           <div className="text">
-            <AnimationPlayer
+            {/* <AnimationPlayer
               target={
-                <Fragment>
+                <Fragment> */}
                   {story.map((item, index) => <p key={index}>{item}</p>)}
-                </Fragment>
+                {/* </Fragment>
               }
               animations={[{
                 from: { opacity: 0 },
@@ -55,7 +55,7 @@ export default ({
                 top: '-200px'
               }}
               height={storyHeight}
-            />
+            /> */}
           </div>
           <div className="data-wrap">
             {
