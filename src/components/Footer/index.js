@@ -47,7 +47,7 @@ export default ({
                     <div>
                       <div className="list-title">Contact</div>
                       <ul>
-                        <li>hello@interactivelabs.co</li>
+                        <li>hello@interactivelabs.com</li>
                         <li>415 869-8842</li>
                       </ul>
                     </div>
@@ -76,7 +76,7 @@ export default ({
                           <a href="https://dribbble.com/InteractiveLabs" target="_blank"><img src={IconDribbble} /></a>
                         </div>
                     }
-                    <div className="list-title">Copyright © 2020 interactivelabs.co</div>
+                    <div className="list-title">Copyright © {new Date().getFullYear()}, Interactive Labs, Inc.</div>
                   </div>
                 </div>
               </Tween>

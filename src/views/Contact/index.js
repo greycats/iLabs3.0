@@ -39,7 +39,7 @@ export default () => {
                 <p>
                   We love to collaborate with enthusiastic teams, big or small to create something special.
                   <br />
-                  We have a tried and tested process to take your ideas/ concepts and bring them to life.
+                  We have a tried and tested process to take your ideas/concepts and bring them to life.
                 </p>
             }
           </div>
