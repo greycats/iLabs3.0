@@ -118,9 +118,9 @@ function sendProjectEmail(name, email, linkedin, project) {
 
   const mailOptions = {
     from:'iLabs <noreply@interactivelabs.com>',
-    to: 'hello@interactivelabs.com',
+    to: 'hello@interactivelabs.co',
     subject: `New project from ${email}`,
-    text: `user: ${name} email: ${email}, linkedIn: ${linkedin}, project: ${project}`
+    text: ` user: ${name} \n email: ${email} \n linkedIn: ${linkedin} \n project: ${project}`
   }
 
   return mailTransport.sendMail(mailOptions).then(() => {

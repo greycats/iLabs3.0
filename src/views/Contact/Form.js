@@ -63,8 +63,8 @@ export default ({ onSubmitted = () => {} }) => {
     onSubmit: async (values) => {
       setIsSending(true)
       await sendEmail(values)
-      setIsSending(false)
       setTimeout(() => {
+        setIsSending(false)
         onSubmitted()
       }, 500)
     },
