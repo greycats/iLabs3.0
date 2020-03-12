@@ -25,9 +25,9 @@ export default () => {
         <CommonTitle {...titleData}></CommonTitle>
       </div>
       <ProjectList />
-      <GoToArrow text="See all work" onClick={() => {
+      {/* <GoToArrow text="See all work" onClick={() => {
         history.push('/ourwork')
-      }}></GoToArrow>
+      }}></GoToArrow> */}
     </div>
   )
 }
