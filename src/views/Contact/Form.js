@@ -1,32 +1,29 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from 'react'
 import _ from 'lodash'
 import GoToArrow from 'components/GoToArrow'
+import Loading from 'assets/imgs/loading.json'
+import { LottieAnimation } from 'components/AnimationPlayer'
 
-import "./style.sass";
+import './style.sass'
 
-import { useForm, useField, splitFormProps } from "react-form";
+import { useForm, useField, splitFormProps } from 'react-form'
 import sendEmail from 'scripts/email.js'
 
 const InputField = React.forwardRef((props, ref) => {
   // Let's use splitFormProps to get form-specific props
-  const [field, fieldOptions, rest] = splitFormProps(props);
+  const [field, fieldOptions, rest] = splitFormProps(props)
 
   // Use the useField hook with a field and field options
   // to access field state
   const {
     meta: { error, isTouched, isValidating, message },
-    getInputProps
-  } = useField(field, fieldOptions);
+    getInputProps,
+  } = useField(field, fieldOptions)
 
   // Build the field
   return (
-    <div className="input-wrap">
-      {
-        rest.type === 'textarea' ?
-          <textarea {...getInputProps({ ref, ...rest })} />
-          :
-          <input {...getInputProps({ ref, ...rest })} />
-      }
+    <div className='input-wrap'>
+      {rest.type === 'textarea' ? <textarea {...getInputProps({ ref, ...rest })} /> : <input {...getInputProps({ ref, ...rest })} />}
 
       {/*
         Let's inline some validation and error information
@@ -34,81 +31,72 @@ const InputField = React.forwardRef((props, ref) => {
       */}
 
       {isValidating ? (
-        <em className="info">Validating...</em>
+        <em className='info'>Validating...</em>
       ) : isTouched && error ? (
-        <strong className="info">{error}</strong>
+        <strong className='info'>{error}</strong>
       ) : message ? (
-        <small className="info">{message}</small>
+        <small className='info'>{message}</small>
       ) : null}
     </div>
-  );
-});
+  )
+})
 
-export default ({
-  onSubmitted = () => { }
-}) => {
+export default ({ onSubmitted = () => {} }) => {
+  const [isSending, setIsSending] = useState(false)
   const defaultValues = React.useMemo(
     () => ({
       name: '',
       email: '',
       linkedIn: '',
-      project: ''
+      project: '',
     }),
     []
-  );
+  )
   const {
     Form,
     values,
     pushFieldValue,
     removeFieldValue,
-    meta: { isSubmitting, isSubmitted, canSubmit, error }
+    meta: { isSubmitting, isSubmitted, canSubmit, error },
   } = useForm({
     defaultValues,
-    // validate: values => {
-    //   if (values.name === "tanner" && values.age !== "29") {
-    //     return "This is not tanner's correct age";
-    //   }
-    //   return false;
-    // },
-    onSubmit: async (values, instance) => {
+    onSubmit: async (values) => {
+      setIsSending(true)
       await sendEmail(values)
+      setIsSending(false)
       setTimeout(() => {
         onSubmitted()
       }, 500)
-    }
-  });
+    },
+  })
 
   useEffect(() => {
     console.log('isSubmitted', isSubmitted)
   }, [isSubmitted])
   return (
-    <Form className="contact-form">
+    <Form className='contact-form'>
       <div>
         <label>
           <span>Name *</span>
-          <InputField
-            field="name"
-            validate={value => (!value ? "Required" : false)}
-            placeholder="What's your name?"
-          />
+          <InputField field='name' validate={value => (!value ? 'Required' : false)} placeholder="What's your name?" />
         </label>
       </div>
       <div>
         <label>
           <span>Email *</span>
           <InputField
-            field="email"
-            placeholder="Your email"
+            field='email'
+            placeholder='Your email'
             validate={async (value, instance) => {
               if (!value) {
-                return "Email is required";
+                return 'Email is required'
               }
 
               if (!validateEmail(_.trim(value))) {
-                return "Please enter a valid email addresss";
+                return 'Please enter a valid email addresss'
               }
 
-              console.log(`Checking email: ${value}...`);
+              console.log(`Checking email: ${value}...`)
 
               return false
 
@@ -121,47 +109,44 @@ export default ({
       <div>
         <label>
           <span>Linkedin</span>
-          <InputField
-            field="linkedin"
-            placeholder="Can you share your Linkedin profile?"
-          />
+          <InputField field='linkedin' placeholder='Can you share your Linkedin profile?' />
         </label>
       </div>
       <div>
         <label>
           <span>Project *</span>
-          <InputField
-            field="project"
-            placeholder="Tell us about the project"
-            validate={value => (!value ? "Required" : false)}
-            type="textarea"
-          />
+          <InputField field='project' placeholder='Tell us about the project' validate={value => (!value ? 'Required' : false)} type='textarea' />
         </label>
       </div>
 
-      {/* {isSubmitted ? <em>Thanks for submitting!</em> : null} */}
-
       {error ? <strong>{error}</strong> : null}
 
-      {isSubmitting ? (
-        ""
+      {isSubmitting || isSending ? (
+        <LottieAnimation
+          width={64}
+          height={64}
+          options={{
+            autoplay: true,
+            animationData: Loading,
+            loop: true,
+          }}
+        />
       ) : (
-          <div className="btn-wrap">
-            <button type="submit" disabled={!canSubmit}>
-              <GoToArrow text="Send Message" />
-            </button>
-          </div>
-        )}
+        <div className='btn-wrap'>
+          <button type='submit' disabled={!canSubmit}>
+            <GoToArrow text='Send Message' />
+          </button>
+        </div>
+      )}
     </Form>
-  );
+  )
 }
 
-function validateEmail(email) {
+function validateEmail (email) {
   //var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   // var re = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
   // var re = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(String(email).toLowerCase())
   // return re.test(email);
 }
-
