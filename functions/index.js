@@ -136,7 +136,7 @@ exports.sendEmail = functions.https.onRequest((request, response) => {
 
     const name = params.name
     const email = params.email
-    const house = params.linkedin
+    const house = params.linkedin || 'N/A'
     const project = params.project
 
     const sendMailPromise = sendProjectEmail(name, email, house, project)
