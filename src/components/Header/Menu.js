@@ -58,6 +58,11 @@ const menuData = [
   {
     name: 'Contact',
     link: '/contact'
+  },
+  {
+    name: 'Hindsight 2020',
+    link: '/hindsight/',
+    targetBlank: true
   }
 ]
 
@@ -73,11 +78,17 @@ const MenuList = ({ data, onItemClick }) => {
             marginBottom: '50px'
           }}>
           <span style={{
-            cursor: 'pointer'
+            cursor: 'pointer',
+            whiteSpace: "nowrap"
           }} onClick={() => {
             onItemClick()
             setTimeout(() => {
-              if (window.location.pathname !== item.link) {
+              if (item.targetBlank) {
+                const a = document.createElement("a");
+                a.setAttribute("href", item.link); 
+                a.setAttribute("target", "_blank");
+                a.click();
+              } else if (window.location.pathname !== item.link) {
                 history.push(item.link)
               }
             }, 50)
