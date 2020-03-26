@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import TheStory from 'components/TheStory'
 import StyledPage from 'components/Styled/Page'
 import greatSchool from '../../../data/great.js'
 import CaseStudyBanner from 'components/CaseStudyBanner'
 import BgAnimation from 'assets/imgs/banners/GS/@1x/GreatSchools-3-Floating-@1x/data.json'
+import ShowCaseStudyPage from 'components/ShowCaseStudyPage'
+
+import { getImageResult, getResult, loadGSdata } from 'utils/lazyload'
 
 import { lazyImport } from 'utils'
-import { getImageResult, getResult } from 'utils/lazyload'
 
 const Questions = lazyImport(import('views/CaseStudy/GS/Questions'))
 const Challenge = lazyImport(import('views/CaseStudy/GS/TheChallenge'))
@@ -15,51 +17,31 @@ const Presentation = lazyImport(import('views/CaseStudy/GS/Presentation'))
 const FirstLook = lazyImport(import('views/CaseStudy/GS/FirstLook'))
 const Progressive = lazyImport(import('views/CaseStudy/GS/Progressive'))
 const Others = lazyImport(import('views/CaseStudy/GS/Others'))
-import { LoadingWithBanner, FullPageLoading } from 'components/TempLoading'
 
-// import PreloadManager from 'scripts/PreloadManager'
-import { loadGSdata } from 'utils/lazyload'
-
-export default () => {
-  const [GSData, setGSdata] = useState(null)
-
-  const getData = async () => {
-    const data = await greatSchool()
-    setGSdata(data)
-  }
-
-  const loadData = () => {
-    loadGSdata()
-  }
-  useEffect(() => {
-    getData()
-    loadData()
-  }, [])
-
-  if (!GSData) {
-    return window.isPC ? <LoadingWithBanner /> : <FullPageLoading />
-  }
-
+const GS = ({ caseData }) => {
   return (
     <StyledPage>
+      <CaseStudyBanner {...caseData.banner} BgAnimation={getResult('gs_banner') || BgAnimation} MobileBannerBg={getImageResult('gs-mobile-bg')} name='gs' />
 
-      <CaseStudyBanner {...GSData.banner} BgAnimation={getResult('gs_banner') || BgAnimation} MobileBannerBg={getImageResult('gs-mobile-bg')} name="gs"/>
+      <TheStory {...caseData.theStory}></TheStory>
 
-      <TheStory {...GSData.theStory}></TheStory>
+      <Challenge GSData={caseData} />
 
-      <Challenge GSData={GSData} />
+      <Solution GSData={caseData} />
 
-      <Solution GSData={GSData} />
+      <Questions GSData={caseData} />
 
-      <Questions GSData={GSData} />
+      <FirstLook GSData={caseData} />
 
-      <FirstLook GSData={GSData} />
+      <Presentation GSData={caseData} />
 
-      <Presentation GSData={GSData} />
+      <Progressive GSData={caseData} />
 
-      <Progressive GSData={GSData} />
-
-      <Others GSData={GSData} />
+      <Others GSData={caseData} />
     </StyledPage>
   )
+}
+
+export default () => {
+  return <ShowCaseStudyPage lazyloadMethod={greatSchool} commonDataMethod={loadGSdata} component={GS}/>
 }

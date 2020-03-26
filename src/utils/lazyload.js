@@ -143,4 +143,13 @@ export const loadDcomData = () => {
   ])
 }
 
+export const loadFitOnData = () => {
+  load([
+    {
+      id: 'fiton_banner',
+      src: import('assets/imgs/fiton/Fiton.json')
+    }
+  ])
+}
+
 export const getResult = id => _result[id]
