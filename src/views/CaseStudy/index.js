@@ -1,7 +1,6 @@
 import React, { lazy } from 'react'
 import styled from 'styled-components'
 import BrandLogo from 'components/BrandLogo/index.js'
-import history from 'history.js'
 
 import { getLocationSearch } from 'utils'
 
@@ -12,6 +11,7 @@ const Vizient = lazy(() => import('views/CaseStudy/Vizient'))
 const Dcom = lazy(() => import('views/CaseStudy/Dcom'))
 const Crew = lazy(() => import('views/CaseStudy/Crew'))
 const GS = lazy(() => import('views/CaseStudy/GS'))
+const FitOn = lazy(() => import('views/CaseStudy/FitOn'))
 
 export const CaseStudyWrap = window.isPC || window.innerWidth > 800?
   styled.div`
@@ -47,6 +47,9 @@ export default () => {
 
             case 'gs':
               return <GS />
+
+            case 'fiton':
+              return <FitOn />
 
             default:
               return <p>case study</p>
