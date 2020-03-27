@@ -72,6 +72,10 @@ function App() {
         src: require('assets/imgs/banners/dcom.jpg')
       },
       {
+        id: 'loading-banner-fiton',
+        src: require('assets/imgs/fiton/Hero banner/Hero banner 1x.png')
+      },
+      {
         id: 'video-poster-1',
         src: require('assets/imgs/video/dekstop/Scene 1.jpg')
       },
@@ -82,7 +86,7 @@ function App() {
       {
         id: 'video-poster-3',
         src: require('assets/imgs/video/dekstop/Scene 3.jpg')
-      },
+      }
     ].concat(
       _.map(logoList, item => {
         return {

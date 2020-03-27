@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import AnimationPlayer, { LottieAnimation, CountUpAnimation } from 'components/AnimationPlayer'
-import CommonTitle from 'components/CommonTitle'
 import './index.sass'
 
 const lottieDuration = .8
@@ -84,6 +83,7 @@ export default ({
                       delay={isPC ? index * 0.2 * lottieDuration : 0}
                       end={item.number}
                       decimals={item.decimals}
+                      prefix={item.prefix}
                       suffix={item.suffix}
                     />
                     <AnimationPlayer

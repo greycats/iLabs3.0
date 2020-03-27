@@ -147,7 +147,19 @@ export const loadFitOnData = () => {
   load([
     {
       id: 'fiton_banner',
-      src: import('assets/imgs/fiton/Fiton.json')
+      src: import('assets/imgs/fiton/Hero banner/Hero banner 2x.json')
+    },
+    {
+      id: 'fiton_visual',
+      src: import('assets/imgs/fiton/Celebrate.json')
+    },
+    {
+      id: 'fiton_motivation',
+      src: import('assets/imgs/fiton/Motivation.json')
+    },
+    {
+      id: 'fiton_realtime',
+      src: import('assets/imgs/fiton/Real time feedback.json')
     }
   ])
 }

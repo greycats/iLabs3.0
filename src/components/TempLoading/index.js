@@ -14,7 +14,8 @@ const imageMap = () => ({
   vizient: getImage('loading-banner-vizient'),
   gs: getImage('loading-banner-gs'),
   dcom: getImage('loading-banner-dcom'),
-  crew: getImage('loading-banner-crew')
+  crew: getImage('loading-banner-crew'),
+  fiton: getImage('loading-banner-fiton')
 })
 
 export const LoadingWithBanner = () => {
@@ -43,6 +44,7 @@ export const LoadingWithBanner = () => {
               gs: require('assets/imgs/banners/gs2x.jpg'),
               dcom: require('assets/imgs/banners/dcom2x.jpg'),
               crew: require('assets/imgs/banners/crew2x.jpg'),
+              fiton: require('assets/imgs/fiton/Hero banner/Hero banner 1x.png')
             }[store.caseName || 'vizient']} alt="" style={{
               width: '100%'
             }} />
