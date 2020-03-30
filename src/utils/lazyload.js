@@ -151,15 +151,19 @@ export const loadFitOnData = () => {
     },
     {
       id: 'fiton_visual',
-      src: import('assets/imgs/fiton/Celebrate.json')
+      src: import('assets/imgs/fiton/2x assets/Visually bold-image 2x.json')
     },
     {
       id: 'fiton_motivation',
-      src: import('assets/imgs/fiton/Motivation.json')
+      src: import('assets/imgs/fiton/2x assets/Motivation 2x.json')
     },
     {
       id: 'fiton_realtime',
-      src: import('assets/imgs/fiton/Real time feedback.json')
+      src: import('assets/imgs/fiton/2x assets/Real time feedback 2x.json')
+    },
+    {
+      id: 'fiton_celebrate',
+      src: import('assets/imgs/fiton/2x assets/Celebrate.json')
     }
   ])
 }

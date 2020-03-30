@@ -44,7 +44,7 @@ const MobileBanner = ({
       <div className="mobile-banner-text">
         <div className="mobile-title">{title}</div>
         <p className="title-tip">{intro}</p>
-        <div className="list-title">SERVICES</div>
+        <div className="list-title"> {services.length ? 'SERVICES' : '' }</div>
         <div className="list-wrap">
           {
             services.map((item, index) => (

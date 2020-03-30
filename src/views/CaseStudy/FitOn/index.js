@@ -8,7 +8,7 @@ import TextAndAnimation from 'components/TextAndAnimation'
 import CommentsCard from 'components/CommentsCard'
 
 import BgAnimation from 'assets/imgs/fiton/Hero banner/Hero banner 1x.json'
-import VisualIcon from 'assets/imgs/fiton/Celebrate.json'
+import VisualIcon from 'assets/imgs/fiton/Visually bold-image.json'
 import CelebrateIcon from 'assets/imgs/fiton/Celebrate.json'
 import MotivationIcon from 'assets/imgs/fiton/Motivation.json'
 import RealtimeIcon from 'assets/imgs/fiton/Real time feedback.json'
@@ -40,10 +40,11 @@ const FitOn = ({ caseData }) => {
           marginTop: '170px',
         }}
         animateIcon={getResult('fiton_visual') || VisualIcon}
-        animateWidth={815}
+        animateWidth={400}
         animationStyle={{
           width: '745px',
           right: '-20px',
+          top: '100px'
         }}
       />
 
@@ -79,7 +80,7 @@ const FitOn = ({ caseData }) => {
       <TextAndAnimation
         layoutType='up-text'
         {...caseData.celebrate}
-        animateIcon={CelebrateIcon}
+        animateIcon={getResult('fiton_celebrate') || CelebrateIcon}
         animateWidth={isPC ? 600 : 400}
         wrapMinHeight={isPC ? '930px' : '4.9rem'}
         titleStyle={{
@@ -109,13 +110,10 @@ const FitOn = ({ caseData }) => {
         <div
           style={{
             position: 'absolute',
-            // height: '1680px',
             left: 0,
             right: 0,
             top: isPC ? -1180 : -720,
             zIndex: -1,
-            // background: 'linear-gradient(180deg, #FF6399 -19.58%, #A04BEB 25.71%)',
-            // borderRadius: '100%'
           }}
         >
           <img src={Bg} alt='' />

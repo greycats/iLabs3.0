@@ -47,7 +47,7 @@ export default ({ list, ...titleData }) => {
                         top: '-200px'
                       }}
                       id={`story_lottie_${index}`}
-                      delay={isPC ? index * 0.2 * lottieDuration : 0}
+                      delay={isPC ? 0.2 * lottieDuration : 0}
                       options={{
                         animationData: item.img,
                       }}
@@ -71,9 +71,9 @@ export default ({ list, ...titleData }) => {
                         from: { opacity: 0 },
                         to: { opacity: 1 }
                       }]}
-                      delay={isPC ? index * lottieDuration : 0}
+                      delay={isPC ? lottieDuration : 0}
                       triggerRelativePosition={{
-                        top: '-400px'
+                        top: '-200px'
                       }}
                     />
                   </div>

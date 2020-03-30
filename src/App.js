@@ -138,6 +138,10 @@ function App() {
       {
         id: 'gs-mobile-bg',
         src: import('assets/imgs/gs/mobile/banner.png')
+      },
+      {
+        id: 'fiton-mobile-bg',
+        src: import('assets/imgs/fiton/Hero banner/Hero Mobile 1x.png')
       }
     ], () => {
       setJsLoaded(true)
