@@ -124,6 +124,10 @@ function App() {
         src: import('assets/imgs/projects/thumbnails/dcom.png'),
       },
       {
+        id: 'fiton-thumbnail',
+        src: import('assets/imgs/fiton/Hero banner/Fiton Thumbnail.png'),
+      },
+      {
         id: 'vizient-mobile-bg',
         src: import('assets/imgs/vizient/mobile/banner.png')
       },
