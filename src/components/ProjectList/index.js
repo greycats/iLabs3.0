@@ -7,7 +7,6 @@ import ProjectLottie from './ProjectLottie'
 
 import { useAppContext, caseNameAction } from 'hooks/useShareState'
 import { getImageResult as getResult } from 'utils/lazyload.js'
-
 export const fakeData = () => [
   {
     image: getResult('vizient-thumbnail'),
