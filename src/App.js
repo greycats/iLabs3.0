@@ -153,7 +153,7 @@ function App() {
     setTimeout(() => {
       loadFile()
     }, 3000)
-    ReactGA.initialize('UA-96911906')
+    ReactGA.initialize('UA-96911906-1')
     history.listen((...args) => {
       const location = args[0]
       const method = args[1]

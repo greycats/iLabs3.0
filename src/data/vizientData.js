@@ -44,7 +44,7 @@ export default {
         img: require('assets/imgs/vizient/3-The-challenge/Many products.json')
       },
       {
-        name: 'Inconsistency Interface',
+        name: 'Inconsistent Interface',
         text: 'If every product uses a different UX toolset, different standards and UI patterns, the result is an inevitably disjointed experience across products.',
         img: require('assets/imgs/vizient/3-The-challenge/Inconsistency Interface.json')
       },
