@@ -15,16 +15,16 @@ export default async () => {
           img: (await import('assets/imgs/fiton/▽ Health and fitness 3.json')).default,
         },
         {
-          number: 4.7,
+          number: 5.0,
           decimals: 1,
-          name: 'Reviews on App Store',
+          name: 'rating on App store / 163K reviews',
           img: (await import('assets/imgs/fiton/▽ review-icon 3.json')).default,
         },
         {
-          number: 10,
+          number: 6,
           prefix: <span style={{ fontSize: '40px' }}>+</span>,
-          suffix: <span style={{ fontSize: '40px' }}>K</span>,
-          name: 'downloads on Google Play',
+          suffix: <span style={{ fontSize: '40px' }}>M</span>,
+          name: 'users',
           img: (await import('assets/imgs/fiton/▽ Download 3.json')).default,
         },
       ],
@@ -73,7 +73,7 @@ export default async () => {
           Motivation through friends
         </div>
       ),
-      titleHeight: 60,
+      titleHeight: 120,
       intro: (
         <p>
           We make it easy for users to invite their friends by connecting to their Facebook account & phone's contact list. Understanding that the user’s motivation may drop in the middle of the session out of discomfort, we turned the session screen into a live call/chat room in which social interaction feeds the physical effort. A dedicated “Friends” tab with photos, notification & leaderboard keeps users engaged with their friends' progress and gears them up for healthy competition.
@@ -89,7 +89,7 @@ export default async () => {
       titleHeight: 60,
       intro: (
         <p>
-          FitOn is connected to users' device to measure their real-time heart rate and calories burnt. With that data at hand, we make sure to always include the metrics in the session screen and make it prominent, so that users are fueled by their own results.
+          FitOn connects to several fitness devices to measure real-time heart rate and calories burnt. Showing that data in the session screen prominently fuels users to perform better.
         </p>
       ),
     },

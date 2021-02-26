@@ -28,16 +28,16 @@ export const fakeData = () => [
     type: 'enterprise',
     name: 'gs'
   },
-  {
-    // image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
-    image: getResult('dcom-thumbnail'),
-    hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
-    text: 'Dictionary.com',
-    typeText: 'Website',
-    link: '/casestudy?name=dcom',
-    type: 'enterprise',
-    name: 'dcom'
-  },
+  // {
+  //   // image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
+  //   image: getResult('dcom-thumbnail'),
+  //   hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
+  //   text: 'Dictionary.com',
+  //   typeText: 'Website',
+  //   link: '/casestudy?name=dcom',
+  //   type: 'enterprise',
+  //   name: 'dcom'
+  // },
   {
     // image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
     image: getResult('crew-thumbnail'),
