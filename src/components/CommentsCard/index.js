@@ -7,28 +7,29 @@ import './index.sass'
 
 const isPC = window.isPC
 
-const CommentsCard = ({ commentList }) => commentList.map((item, index) => (
-  <div className="comment-card-item" key={index}>
-    <img className="card-star" src={Star} />
-    <div className="card-title">{item.title}</div>
-    <div className="card-content">{item.content}</div>
-    <div className="card-name">{item.name}</div>
-    <div className="card-date">{item.date}</div>
-  </div>
-))
+const CommentsCard = ({ commentList, overlayStyle = {} }) =>
+  commentList.map((item, index) => {
+    console.log('overlaystyle is', overlayStyle)
+    return (
+      <div className='comment-card-item' key={index} style={{ ...overlayStyle }}>
+        <img className='card-star' src={Star} />
+        <div className='card-title'>{item.title}</div>
+        <div className='card-content'>{item.content}</div>
+        <div className='card-name'>{item.name}</div>
+        <div className='card-date'>{item.date}</div>
+      </div>
+    )
+  })
 
-const PCComments = ({
-  commentList = [],
-  id = hashCode('comment-card')
-}) => {
+const PCComments = ({ commentList = [], id = hashCode('comment-card'), overlayStyle = {} }) => {
   return (
-    <div className="comment-card-wrap">
+    <div className='comment-card-wrap'>
       <AnimationPlayer
         id={id}
         target={
           <div style={{ position: 'relative' }}>
-            <div className="comment-card-list">
-              <CommentsCard commentList={commentList} />
+            <div className='comment-card-list'>
+              <CommentsCard commentList={commentList} overlayStyle={overlayStyle} />
             </div>
           </div>
         }
@@ -37,28 +38,24 @@ const PCComments = ({
           {
             from: {
               opacity: 0,
-              top: '100px'
+              top: '100px',
             },
             to: {
               opacity: 1,
-              top: 0
+              top: 0,
             },
-            duration: 1.5
-          }
+            duration: 1.5,
+          },
         ]}
       />
     </div>
   )
 }
 
-const MobileComments = ({
-  commentList = []
-}) => {
+const MobileComments = ({ commentList = [], overlayStyle = {} }) => {
   return (
-    <div className="m-comment-card-wrap">
-      <MobileCarousel
-        list={CommentsCard({ commentList })}
-      />
+    <div className='m-comment-card-wrap'>
+      <MobileCarousel list={CommentsCard({ commentList })} overlayStyle={overlayStyle} />
     </div>
   )
 }

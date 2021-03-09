@@ -45,3 +45,18 @@ body {
 .project-image-container .project-image:hover {
   transform: scale(1.1);
 }
+
+.fiton-comment .card-title {
+  font-size: 22px !important;
+}
+.fiton-comment .comment-card-item {
+  background-color: #fff;
+  margin: 0 10px !important;
+}
+.fiton-comment .comment-card-item .card-content{
+  line-height: 24px !important;
+}
+
+.fiton-comment .Psgip .carousel .control-dots .dot {
+  background-color: #fff;
+}

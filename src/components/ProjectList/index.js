@@ -28,16 +28,16 @@ export const fakeData = () => [
     type: 'enterprise',
     name: 'gs'
   },
-  {
-    // image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
-    image: getResult('dcom-thumbnail'),
-    hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
-    text: 'Dictionary.com',
-    typeText: 'Website',
-    link: '/casestudy?name=dcom',
-    type: 'enterprise',
-    name: 'dcom'
-  },
+  // {
+  //   // image: _.get(PreloadManager.getResult('dcom-thumbnail'), 'src', ''),
+  //   image: getResult('dcom-thumbnail'),
+  //   hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/dcom/data.json'),
+  //   text: 'Dictionary.com',
+  //   typeText: 'Website',
+  //   link: '/casestudy?name=dcom',
+  //   type: 'enterprise',
+  //   name: 'dcom'
+  // },
   {
     // image: _.get(PreloadManager.getResult('crew-thumbnail'), 'src', ''),
     image: getResult('crew-thumbnail'),
@@ -47,6 +47,15 @@ export const fakeData = () => [
     link: '/casestudy?name=crew',
     type: 'enterprise',
     name: 'crew'
+  },
+  {
+    image: getResult('fiton-thumbnail'),
+    hoverLottie: async () => await import('assets/imgs/fiton/Hero banner/Fiton Thumbnail 2x.json'),
+    text: 'FitOn',
+    typeText: 'App',
+    link: '/casestudy?name=fiton',
+    type: 'enterprise',
+    name: 'fiton'
   }
 ]
 
@@ -87,6 +96,14 @@ export const mobileData = () => [
     link: '/casestudy?name=crew',
     type: 'enterprise',
     name: 'crew'
+  },
+  {
+    image: getResult('fiton-thumbnail'),
+    text: 'FitOn',
+    typeText: 'App',
+    link: '/casestudy?name=fiton',
+    type: 'enterprise',
+    name: 'fiton'
   }
 ]
 

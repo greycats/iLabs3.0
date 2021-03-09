@@ -8,7 +8,7 @@
     @include flex-box($JC: space-between, $FW: wrap)
 
 .comment-card-item
-  width: 600px
+  width: 590px
   height: 350px
   padding: 40px
   @include flex-box($FD: column)
@@ -19,6 +19,10 @@
   &:first-child
     width: 100%
     height: 290px
+  &:nth-child(2)
+    margin-top: 20px !important
+  &:nth-child(3)
+    margin-top: 20px !important
   .card-star
     width: 120px
   .card-title

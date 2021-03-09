@@ -96,7 +96,8 @@ export const CountUpAnimation = ({
   end = 0,
   decimals = 0,
   duration = 2,
-  suffix = ''
+  suffix = '',
+  prefix = ''
 }) => {
   const playAnimation = useAnimationPlay(id, delay, onStart)
 
@@ -117,6 +118,7 @@ export const CountUpAnimation = ({
           >
             {({ countUpRef }) => (
               <div>
+                {prefix}
                 <span ref={countUpRef} />
                 {suffix}
               </div>

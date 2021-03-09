@@ -72,6 +72,10 @@ function App() {
         src: require('assets/imgs/banners/dcom.jpg')
       },
       {
+        id: 'loading-banner-fiton',
+        src: require('assets/imgs/fiton/Hero banner/Hero banner 1x.png')
+      },
+      {
         id: 'video-poster-1',
         src: require('assets/imgs/video/dekstop/Scene 1.jpg')
       },
@@ -82,7 +86,7 @@ function App() {
       {
         id: 'video-poster-3',
         src: require('assets/imgs/video/dekstop/Scene 3.jpg')
-      },
+      }
     ].concat(
       _.map(logoList, item => {
         return {
@@ -120,6 +124,10 @@ function App() {
         src: import('assets/imgs/projects/thumbnails/dcom.png'),
       },
       {
+        id: 'fiton-thumbnail',
+        src: import('assets/imgs/fiton/Hero banner/Fiton Thumbnail.png'),
+      },
+      {
         id: 'vizient-mobile-bg',
         src: import('assets/imgs/vizient/mobile/banner.png')
       },
@@ -134,6 +142,10 @@ function App() {
       {
         id: 'gs-mobile-bg',
         src: import('assets/imgs/gs/mobile/banner.png')
+      },
+      {
+        id: 'fiton-mobile-bg',
+        src: import('assets/imgs/fiton/Hero banner/Hero Mobile 1x.png')
       }
     ], () => {
       setJsLoaded(true)

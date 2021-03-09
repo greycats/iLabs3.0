@@ -143,4 +143,29 @@ export const loadDcomData = () => {
   ])
 }
 
+export const loadFitOnData = () => {
+  load([
+    {
+      id: 'fiton_banner',
+      src: import('assets/imgs/fiton/Hero banner/Hero banner 2x.json')
+    },
+    {
+      id: 'fiton_visual',
+      src: import('assets/imgs/fiton/2x assets/Visually bold-image 2x.json')
+    },
+    {
+      id: 'fiton_motivation',
+      src: import('assets/imgs/fiton/2x assets/Motivation 2x.json')
+    },
+    {
+      id: 'fiton_realtime',
+      src: import('assets/imgs/fiton/2x assets/Real time feedback 2x.json')
+    },
+    {
+      id: 'fiton_celebrate',
+      src: import('assets/imgs/fiton/2x assets/Celebrate.json')
+    }
+  ])
+}
+
 export const getResult = id => _result[id]
