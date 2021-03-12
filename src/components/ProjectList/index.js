@@ -10,6 +10,15 @@ import { getImageResult as getResult } from 'utils/lazyload.js'
 
 export const fakeData = () => [
   {
+    image: getResult('fiton-thumbnail'),
+    hoverLottie: async () => await import('assets/imgs/fiton/Hero banner/Fiton Thumbnail 2x.json'),
+    text: 'FitOn',
+    typeText: 'App',
+    link: '/casestudy?name=fiton',
+    type: 'enterprise',
+    name: 'fiton'
+  },
+  {
     image: getResult('vizient-thumbnail'),
     hoverLottie: async () => await import('assets/imgs/2x/FeaturedWorks/vizient/data.json'),
     text: 'Vizient',
@@ -47,15 +56,6 @@ export const fakeData = () => [
     link: '/casestudy?name=crew',
     type: 'enterprise',
     name: 'crew'
-  },
-  {
-    image: getResult('fiton-thumbnail'),
-    hoverLottie: async () => await import('assets/imgs/fiton/Hero banner/Fiton Thumbnail 2x.json'),
-    text: 'FitOn',
-    typeText: 'App',
-    link: '/casestudy?name=fiton',
-    type: 'enterprise',
-    name: 'fiton'
   }
 ]
 
