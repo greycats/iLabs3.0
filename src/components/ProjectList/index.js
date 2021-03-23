@@ -62,6 +62,14 @@ export const fakeData = () => [
 
 export const mobileData = () => [
   {
+    image: getResult('fiton-thumbnail'),
+    text: 'FitOn',
+    typeText: 'App',
+    link: '/casestudy?name=fiton',
+    type: 'enterprise',
+    name: 'fiton'
+  },
+  {
     image: getResult('vizient-thumbnail'),
     // src: require('assets/imgs/projects/thumbnails/vizient.png'),
     text: 'Vizient',
@@ -79,15 +87,15 @@ export const mobileData = () => [
     type: 'enterprise',
     name: 'gs'
   },
-  {
-    image: getResult('dcom-thumbnail'),
-    // src: require('assets/imgs/projects/thumbnails/dcom.png'),
-    text: 'Dictionary.com',
-    typeText: 'App',
-    link: '/casestudy?name=dcom',
-    type: 'enterprise',
-    name: 'dcom'
-  },
+  // {
+  //   image: getResult('dcom-thumbnail'),
+  //   // src: require('assets/imgs/projects/thumbnails/dcom.png'),
+  //   text: 'Dictionary.com',
+  //   typeText: 'App',
+  //   link: '/casestudy?name=dcom',
+  //   type: 'enterprise',
+  //   name: 'dcom'
+  // },
   {
     image: getResult('crew-thumbnail'),
     // src: require('assets/imgs/projects/thumbnails/crew.png'),
@@ -96,14 +104,6 @@ export const mobileData = () => [
     link: '/casestudy?name=crew',
     type: 'enterprise',
     name: 'crew'
-  },
-  {
-    image: getResult('fiton-thumbnail'),
-    text: 'FitOn',
-    typeText: 'App',
-    link: '/casestudy?name=fiton',
-    type: 'enterprise',
-    name: 'fiton'
   }
 ]
 
