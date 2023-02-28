@@ -65,8 +65,8 @@ export default ({
                       <div className="list-title">Visit</div>
                       <ul>
                         <li>Interactive Labs, Inc</li>
-                        <li>845 Market Street Level 4</li>
-                        <li>San Francisco, CA 94108</li>
+                        <li>2075 Diamond Blvd, Ste H-210</li>
+                        <li>Concord, CA 94520</li>
                       </ul>
                     </div>
                     {
