@@ -9,6 +9,7 @@ const HomeView = lazyImport(import('./views/Home'))
 const CaseStudy = lazyImport(import('./views/CaseStudy'))
 const OurWork = lazyImport(import('./views/OurWork'))
 const Contact = lazyImport(import('./views/Contact'))
+const SizzleReel = lazyImport(import('./views/SizzleReel'))
 
 const routes = (
   <Suspense fallback={(() => {
@@ -48,6 +49,13 @@ const routes = (
         <Route path="/contact" render={(props) => {
           return (
             <Contact
+              {...props}
+            />
+          )
+        }} />
+        <Route path="/sizzlereel" render={(props) => {
+          return (
+            <SizzleReel
               {...props}
             />
           )
