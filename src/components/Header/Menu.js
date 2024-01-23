@@ -60,7 +60,7 @@ const menuData = [
     link: '/contact'
   },
   {
-    name: 'Hindsight 2020',
+    name: 'Hindsight 2024',
     link: '/hindsight/',
     targetBlank: true
   }
