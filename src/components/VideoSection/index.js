@@ -22,7 +22,7 @@ const VideoSection = ({ src }) => {
   return (
     <div style={{ width: '100vw', display: 'flex', justifyContent: 'center', padding: '80px 0', marginTop: '80px' }}>
       <video
-        onLoad={() => (videoRef.current.style.minWidth = '')}
+        onCanPlay={() => (videoRef.current.style.minWidth = '')}
         ref={videoRef}
         style={{ maxWidth: 'calc(100vw - 60px)', width: 'auto', minWidth: '80vw', maxHeight: '750px', height: 'auto' }}
         controls
