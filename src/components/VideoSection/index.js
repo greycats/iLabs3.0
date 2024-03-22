@@ -21,7 +21,14 @@ const VideoSection = ({ src }) => {
 
   return (
     <div style={{ width: '100vw', display: 'flex', justifyContent: 'center', padding: '80px 0', marginTop: '80px' }}>
-      <video ref={videoRef} style={{ width: 'auto', maxWidth: 'calc(100vw - 60px)', maxHeight: '750px' }} controls preload="metadata" autoPlay>
+      <video
+        onLoad={() => (videoRef.current.style.minWidth = '')}
+        ref={videoRef}
+        style={{ maxWidth: 'calc(100vw - 60px)', width: 'auto', minWidth: '80vw', maxHeight: '750px', height: 'auto' }}
+        controls
+        preload="metadata"
+        autoPlay
+      >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
