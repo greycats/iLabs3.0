@@ -9,7 +9,7 @@ export default () => {
     <div style={{ maxWidth: '100vw', overflowX: 'hidden' }}>
       <Logo isWhite={false} />
       <Header />
-      <VideoSection src="videos/10Y-Anni-4.mp4" />
+      <VideoSection src="videos/10Y-Anni-4-v2.mp4" />
       <Footer />
     </div>
   )
