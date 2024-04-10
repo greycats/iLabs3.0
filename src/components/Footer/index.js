@@ -47,7 +47,7 @@ export default ({
                     <div>
                       <div className="list-title">Contact</div>
                       <ul>
-                        <li>hello@interactivelabs.com</li>
+                        <li><a href="mailto:hello@interactivelabs.com">hello@interactivelabs.com</a></li>
                         <li>415 869-8842</li>
                       </ul>
                     </div>

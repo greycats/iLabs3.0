@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
-import Form from './Form'
-import GoToArrow from 'components/GoToArrow'
-import history from 'history.js'
-import LeftBg from 'assets/imgs/contact/Contact-graphic-left.svg'
-import RightBg from 'assets/imgs/contact/Contact-graphic-right.svg'
-import { scrollTop } from 'utils'
+// import Form from './Form'
+// import GoToArrow from 'components/GoToArrow'
+// import history from 'history.js'
+// import LeftBg from 'assets/imgs/contact/Contact-graphic-left.svg'
+// import RightBg from 'assets/imgs/contact/Contact-graphic-right.svg'
+// import { scrollTop } from 'utils'
 import './style.sass'
 import Logo from 'components/BrandLogo/index.js'
 
@@ -43,7 +43,8 @@ export default () => {
                 </p>
             }
           </div>
-          {
+          <a className="content-text" href="mailto:hello@interactivelabs.com">Reach out to us: hello@interactivelabs.com</a>
+          {/* {
             isSent ? <GoToArrow text="Our Work" onClick={() => {
               history.push('/ourwork')
             }} /> : <Form onSubmitted={() => {
@@ -59,7 +60,7 @@ export default () => {
               </>
             )
               : null
-          }
+          } */}
         </div>
       </div>
       <Footer />
